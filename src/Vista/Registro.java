@@ -24,7 +24,6 @@ public class Registro extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -37,7 +36,6 @@ public class Registro extends javax.swing.JFrame {
         jRadioButton2 = new javax.swing.JRadioButton();
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -48,259 +46,226 @@ public class Registro extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        txt.setBackground(new java.awt.Color(30, 61, 88));
-        txt.setLayout(null);
+        txt.setBackground(new java.awt.Color(255, 255, 255));
+        txt.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(232, 238, 241));
-        jLabel1.setText("CEDULA");
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("CÉDULA");
         jLabel1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        txt.add(jLabel1);
-        jLabel1.setBounds(90, 30, 210, 30);
+        txt.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 210, 30));
 
         jLabel2.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(232, 238, 241));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("NOMBRE");
         jLabel2.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        txt.add(jLabel2);
-        jLabel2.setBounds(90, 120, 210, 30);
+        txt.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 210, 30));
 
         jLabel3.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(232, 238, 241));
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("APELLIDO");
         jLabel3.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        txt.add(jLabel3);
-        jLabel3.setBounds(90, 220, 210, 30);
+        txt.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 210, 30));
 
         jLabel4.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(232, 238, 241));
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("FECHA NACIMIENTO");
         jLabel4.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        txt.add(jLabel4);
-        jLabel4.setBounds(90, 320, 210, 30);
+        txt.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 210, 30));
 
         jLabel5.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(232, 238, 241));
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("EDAD");
         jLabel5.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        txt.add(jLabel5);
-        jLabel5.setBounds(90, 410, 210, 30);
+        txt.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, 210, 30));
 
         jLabel6.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(232, 238, 241));
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("SEXO");
         jLabel6.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        txt.add(jLabel6);
-        jLabel6.setBounds(440, 30, 210, 30);
-
-        jLabel7.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(232, 238, 241));
-        jLabel7.setText("USUARIO");
-        jLabel7.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        txt.add(jLabel7);
-        jLabel7.setBounds(440, 320, 210, 30);
+        txt.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 30, 210, 30));
 
         jLabel8.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(232, 238, 241));
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("CONTRASEÑA");
         jLabel8.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        txt.add(jLabel8);
-        jLabel8.setBounds(440, 410, 210, 30);
+        txt.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 420, 210, 30));
 
         jLabel9.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(232, 238, 241));
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("TELEFONO");
         jLabel9.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        txt.add(jLabel9);
-        jLabel9.setBounds(440, 120, 210, 30);
+        txt.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 220, 210, 30));
 
         jLabel10.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(232, 238, 241));
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("DIRECCION");
         jLabel10.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        txt.add(jLabel10);
-        jLabel10.setBounds(440, 220, 210, 30);
+        txt.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 320, 210, 30));
 
-        jTextField1.setBackground(new java.awt.Color(30, 61, 88));
+        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
         jTextField1.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
         jTextField1.setText("Ingrese su Cédula");
         jTextField1.setBorder(null);
         jTextField1.setCaretColor(new java.awt.Color(255, 255, 255));
-        txt.add(jTextField1);
-        jTextField1.setBounds(90, 70, 210, 30);
+        txt.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 210, 30));
 
-        jTextField2.setBackground(new java.awt.Color(30, 61, 88));
+        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
         jTextField2.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField2.setForeground(new java.awt.Color(0, 0, 0));
         jTextField2.setText("Ingrese su Nombre");
         jTextField2.setBorder(null);
         jTextField2.setCaretColor(new java.awt.Color(255, 255, 255));
-        txt.add(jTextField2);
-        jTextField2.setBounds(90, 160, 210, 30);
+        txt.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 210, 30));
 
-        jTextField3.setBackground(new java.awt.Color(30, 61, 88));
+        jTextField3.setBackground(new java.awt.Color(255, 255, 255));
         jTextField3.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField3.setForeground(new java.awt.Color(0, 0, 0));
         jTextField3.setText("Ingrese su Apellido");
         jTextField3.setBorder(null);
         jTextField3.setCaretColor(new java.awt.Color(255, 255, 255));
-        txt.add(jTextField3);
-        jTextField3.setBounds(90, 260, 210, 30);
+        txt.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 210, 30));
 
-        jDateChooser1.setForeground(new java.awt.Color(255, 255, 255));
+        jDateChooser1.setForeground(new java.awt.Color(0, 0, 0));
         jDateChooser1.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
-        txt.add(jDateChooser1);
-        jDateChooser1.setBounds(90, 360, 210, 35);
+        txt.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, 210, 35));
 
         jLabel11.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(232, 238, 241));
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("12");
-        txt.add(jLabel11);
-        jLabel11.setBounds(90, 450, 210, 30);
+        txt.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 450, 210, 30));
 
-        jRadioButton1.setBackground(new java.awt.Color(30, 61, 88));
+        jRadioButton1.setBackground(new java.awt.Color(255, 255, 255));
         jRadioButton1.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
-        jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButton1.setForeground(new java.awt.Color(0, 0, 0));
         jRadioButton1.setText("MASCULINO");
-        txt.add(jRadioButton1);
-        jRadioButton1.setBounds(440, 70, 210, 33);
+        txt.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, 210, -1));
 
-        jRadioButton2.setBackground(new java.awt.Color(30, 61, 88));
+        jRadioButton2.setBackground(new java.awt.Color(255, 255, 255));
         jRadioButton2.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
-        jRadioButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButton2.setForeground(new java.awt.Color(0, 0, 0));
         jRadioButton2.setText("FEMENINO");
-        txt.add(jRadioButton2);
-        jRadioButton2.setBounds(670, 70, 210, 33);
+        txt.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 130, 210, -1));
 
-        jTextField4.setBackground(new java.awt.Color(30, 61, 88));
+        jTextField4.setBackground(new java.awt.Color(255, 255, 255));
         jTextField4.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField4.setForeground(new java.awt.Color(0, 0, 0));
         jTextField4.setText("Ingrese su Teléfono");
         jTextField4.setBorder(null);
         jTextField4.setCaretColor(new java.awt.Color(255, 255, 255));
-        txt.add(jTextField4);
-        jTextField4.setBounds(440, 160, 210, 30);
+        txt.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 260, 210, 30));
 
-        jTextField5.setBackground(new java.awt.Color(30, 61, 88));
+        jTextField5.setBackground(new java.awt.Color(255, 255, 255));
         jTextField5.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
-        jTextField5.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField5.setForeground(new java.awt.Color(0, 0, 0));
         jTextField5.setText("Ingrese su Dirección");
         jTextField5.setBorder(null);
         jTextField5.setCaretColor(new java.awt.Color(255, 255, 255));
-        txt.add(jTextField5);
-        jTextField5.setBounds(440, 260, 210, 30);
+        txt.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 360, 210, 30));
 
-        jTextField6.setBackground(new java.awt.Color(30, 61, 88));
-        jTextField6.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
-        jTextField6.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField6.setText("Ingrese su Usuario");
-        jTextField6.setBorder(null);
-        jTextField6.setCaretColor(new java.awt.Color(255, 255, 255));
-        txt.add(jTextField6);
-        jTextField6.setBounds(440, 360, 210, 30);
-
-        jPasswordField1.setBackground(new java.awt.Color(30, 61, 88));
+        jPasswordField1.setBackground(new java.awt.Color(255, 255, 255));
         jPasswordField1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        jPasswordField1.setForeground(new java.awt.Color(255, 255, 255));
+        jPasswordField1.setForeground(new java.awt.Color(0, 0, 0));
         jPasswordField1.setText("Contraseña123");
         jPasswordField1.setBorder(null);
-        txt.add(jPasswordField1);
-        jPasswordField1.setBounds(440, 450, 210, 20);
+        txt.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 460, 210, 20));
 
         jLabel12.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("_____________________");
-        txt.add(jLabel12);
-        jLabel12.setBounds(90, 460, 210, 20);
+        txt.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 460, -1, 20));
 
         jLabel13.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(232, 238, 241));
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("_____________________");
-        txt.add(jLabel13);
-        jLabel13.setBounds(90, 90, 210, 20);
+        txt.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, -1, 20));
 
         jLabel14.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(232, 238, 241));
+        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("_____________________");
-        txt.add(jLabel14);
-        jLabel14.setBounds(90, 180, 210, 20);
+        txt.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, -1, 20));
 
         jLabel15.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(232, 238, 241));
+        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("_____________________");
-        txt.add(jLabel15);
-        jLabel15.setBounds(90, 280, 210, 20);
+        txt.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, -1, 20));
 
         jLabel16.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(232, 238, 241));
+        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("_____________________");
-        txt.add(jLabel16);
-        jLabel16.setBounds(440, 460, 210, 20);
+        txt.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 470, -1, 20));
 
         jLabel17.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("_____________________");
-        txt.add(jLabel17);
-        jLabel17.setBounds(90, 460, 210, 20);
+        txt.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 460, -1, 20));
 
         jLabel18.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(232, 238, 241));
+        jLabel18.setForeground(new java.awt.Color(0, 0, 0));
         jLabel18.setText("_____________________");
-        txt.add(jLabel18);
-        jLabel18.setBounds(90, 380, 210, 20);
+        txt.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, -1, 20));
 
         jLabel19.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(232, 238, 241));
+        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
         jLabel19.setText("_____________________");
-        txt.add(jLabel19);
-        jLabel19.setBounds(440, 180, 210, 20);
+        txt.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 280, -1, 20));
 
         jLabel20.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(232, 238, 241));
+        jLabel20.setForeground(new java.awt.Color(0, 0, 0));
         jLabel20.setText("_____________________");
-        txt.add(jLabel20);
-        jLabel20.setBounds(440, 280, 210, 20);
-
-        jLabel21.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(232, 238, 241));
-        jLabel21.setText("_____________________");
-        txt.add(jLabel21);
-        jLabel21.setBounds(440, 380, 210, 20);
-
-        jLabel22.setBackground(new java.awt.Color(30, 61, 88));
-        jLabel22.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(30, 61, 88));
-        jLabel22.setText("GUARDAR");
-        txt.add(jLabel22);
-        jLabel22.setBounds(120, 570, 210, 30);
-
-        jLabel23.setBackground(new java.awt.Color(30, 61, 88));
-        jLabel23.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(30, 61, 88));
-        jLabel23.setText("CANCELAR");
-        txt.add(jLabel23);
-        jLabel23.setBounds(0, 570, 210, 30);
+        txt.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 380, -1, 20));
 
         jButton1.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("REGISTARSE");
-        txt.add(jButton1);
-        jButton1.setBounds(710, 440, 160, 39);
+        txt.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 510, 160, -1));
 
         jButton2.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("CANCELAR");
-        txt.add(jButton2);
-        jButton2.setBounds(710, 490, 160, 39);
+        txt.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 510, 160, -1));
+
+        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Contraseña30x30.png"))); // NOI18N
+        txt.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 420, 30, 30));
+
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Cedula30x30.png"))); // NOI18N
+        txt.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 30, 30));
+
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Usuario30x30.png"))); // NOI18N
+        txt.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 30, 30));
+
+        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Usuario30x30.png"))); // NOI18N
+        txt.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 30, 30));
+
+        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Calendario30x30.png"))); // NOI18N
+        txt.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 30, 30));
+
+        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Edad30x30.png"))); // NOI18N
+        txt.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, 30, 30));
+
+        jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Sexo30x30.png"))); // NOI18N
+        txt.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 30, 30, 30));
+
+        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Telefono30x30.png"))); // NOI18N
+        txt.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 220, 30, 30));
+
+        jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Direccion30x30.png"))); // NOI18N
+        txt.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 320, 30, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -335,6 +300,7 @@ public class Registro extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -366,6 +332,12 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
