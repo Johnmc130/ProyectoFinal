@@ -32,7 +32,7 @@ public class CRUD_ProductosJB {
         vista.getBtGabinete().addActionListener(l -> crud(9));
         vista.getBtAtrasDlg().addActionListener(l -> atrasDlg());
     }
-
+    //Cargar botones JDialog
     public void crud(int numero) {
         switch (numero) {
             case 1:
@@ -71,7 +71,7 @@ public class CRUD_ProductosJB {
         vista.getJdlgCRUD().setVisible(true);
 
     }
-
+    //Cierre de dialogo y habilitacion de Frame principal
     public void atrasDlg() {
         vista.getJdlgCRUD().setVisible(false);
         vista.getJdlgCRUD().dispose();
