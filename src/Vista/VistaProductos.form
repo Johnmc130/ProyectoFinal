@@ -59,7 +59,7 @@
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/lupa.png"/>
+              <Image iconType="3" name="/Imagenes/lupa_1.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -84,7 +84,7 @@
               <Font name="Roboto" size="16" style="0"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/apreton-de-manos.png"/>
+              <Image iconType="3" name="/Imagenes/Compromisos.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Compromisos"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -109,7 +109,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/usuario.png"/>
+              <Image iconType="3" name="/Imagenes/usuario_1.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Usuario"/>
           </Properties>
@@ -125,7 +125,7 @@
               <Font name="Roboto" size="17" style="0"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/carrito-de-compras.png"/>
+              <Image iconType="3" name="/Imagenes/Carrito.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Mi cesta"/>
             <Property name="borderPainted" type="boolean" value="false"/>
