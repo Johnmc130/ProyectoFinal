@@ -10,19 +10,21 @@ public class Persona {
     private Date fecha_nac;
     private int edad;
     private char sexo;
+    private String correo;
     private String direccion;
     private String telefono;
 
     public Persona() {
     }
 
-    public Persona(String cedula, String nombre, String apellido, Date fecha_nac, int edad, char sexo, String direccion, String telefono) {
+    public Persona(String cedula, String nombre, String apellido, Date fecha_nac, int edad, char sexo, String correo, String direccion, String telefono) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
         this.fecha_nac = fecha_nac;
         this.edad = edad;
         this.sexo = sexo;
+        this.correo = correo;
         this.direccion = direccion;
         this.telefono = telefono;
     }
@@ -75,6 +77,14 @@ public class Persona {
         this.sexo = sexo;
     }
 
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
     public String getDireccion() {
         return direccion;
     }
@@ -93,7 +103,7 @@ public class Persona {
 
     @Override
     public String toString() {
-        return "Persona{" + "cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", fecha_nac=" + fecha_nac + ", edad=" + edad + ", sexo=" + sexo + ", direccion=" + direccion + ", telefono=" + telefono + '}';
+        return "Persona{" + "cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", fecha_nac=" + fecha_nac + ", edad=" + edad + ", sexo=" + sexo + ", correo=" + correo + ", direccion=" + direccion + ", telefono=" + telefono + '}';
     }
 
 }
