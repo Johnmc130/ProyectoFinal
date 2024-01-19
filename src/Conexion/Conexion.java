@@ -12,9 +12,9 @@ public class Conexion {
     Connection conexion;
 
     public Conexion() {
-        String cadenaConexion = "jdbc:postgresql://localhost:5432/proyectofinal";
+        String cadenaConexion = "jdbc:postgresql://localhost:5432/Proyecto_Final";
         String usuario = "postgres";
-        String contraseña = "1234";
+        String contraseña = "18658";
 
         try {
             Class.forName("org.postgresql.Driver");
