@@ -110,7 +110,7 @@ public class Armado_JB extends javax.swing.JFrame {
                 .addGap(0, 649, Short.MAX_VALUE))
             .addGroup(CuerpoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jpComponentes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jpComponentes, javax.swing.GroupLayout.DEFAULT_SIZE, 946, Short.MAX_VALUE)
                 .addContainerGap())
         );
         CuerpoLayout.setVerticalGroup(

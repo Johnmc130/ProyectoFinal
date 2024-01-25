@@ -47,103 +47,105 @@ public class ArmadoJB {
 
     private void cargarImagenesEnPaneles() {
         List<Procesador> procesadores = ModeloProcesador.cargaProcesadores();
-        int count = 0; // Contador para realizar un seguimiento de las imágenes en cada fila
 
-        // Configurar el panel principal con un GridBagLayout
-        vista.getJpComponentes().setLayout(new GridBagLayout());
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.weighty = 1.0;
-        gbc.insets = new Insets(10, 10, 10, 10); // Espacio uniforme entre filas y columnas
-        gbc.anchor = GridBagConstraints.CENTER;
-        gbc.ipadx = 10; // Separación horizontal entre componentes
+        // Asegurarse de que la creación y manipulación de los componentes Swing se realice en el hilo de eventos de Swing
+        SwingUtilities.invokeLater(() -> {
+            int count = 0; // Contador para realizar un seguimiento de las imágenes en cada fila
 
-        JPanel contentPanel = new JPanel();
-        contentPanel.setLayout(new GridBagLayout());
-        contentPanel.setBackground(Color.black);
+            // Configurar el panel principal con un GridBagLayout
+            vista.getJpComponentes().setLayout(new GridBagLayout());
+            GridBagConstraints gbc = new GridBagConstraints();
+            gbc.gridx = 0;
+            gbc.gridy = 0;
+            gbc.weighty = 1.0;
+            gbc.insets = new Insets(10, 10, 10, 10); // Espacio uniforme entre filas y columnas
+            gbc.anchor = GridBagConstraints.CENTER;
+            gbc.ipadx = 10; // Separación horizontal entre componentes
 
-        GridBagConstraints contentGbc = new GridBagConstraints();
-        contentGbc.gridx = 0;
-        contentGbc.gridy = 0;
-        contentGbc.weightx = 1.0;
-        contentGbc.weighty = 1.0;
-        contentGbc.fill = GridBagConstraints.BOTH; // Relleno en ambas direcciones
+            JPanel contentPanel = new JPanel();
+            contentPanel.setLayout(new GridBagLayout());
+            contentPanel.setBackground(Color.black);
 
-        //////////////////////////////////////////////////////////////////////////////////dentro del while
-        for (Procesador p : procesadores) {
-            ImageIcon imageIcon = new ImageIcon(p.getImagen());
-            Image image = imageIcon.getImage();
-            Image scaledImage = image.getScaledInstance(120, 120, Image.SCALE_SMOOTH);
-            ImageIcon scaledIcon = new ImageIcon(scaledImage);
+            GridBagConstraints contentGbc = new GridBagConstraints();
+            contentGbc.gridx = 0;
+            contentGbc.gridy = 0;
+            contentGbc.weightx = 1.0;
+            contentGbc.weighty = 1.0;
+            contentGbc.fill = GridBagConstraints.BOTH; // Relleno en ambas direcciones
 
-            JPanel panelComponentes = new JPanel();
-            panelComponentes.setLayout(new BoxLayout(panelComponentes, BoxLayout.Y_AXIS));
-            panelComponentes.setBackground(Color.GREEN);
+            for (Procesador p : procesadores) {
+                // Verificar si la imagen no es nula
+                if (p.getImagen() != null) {
+                    ImageIcon imageIcon = new ImageIcon(p.getImagen());
+                    Image image = imageIcon.getImage();
+                    Image scaledImage = image.getScaledInstance(120, 120, Image.SCALE_SMOOTH);
+                    ImageIcon scaledIcon = new ImageIcon(scaledImage);
 
-            JLabel imageLabel = new JLabel();
-            imageLabel.setIcon(scaledIcon);
-            imageLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-            panelComponentes.add(imageLabel);
+                    JPanel panelComponentes = new JPanel();
+                    panelComponentes.setLayout(new BoxLayout(panelComponentes, BoxLayout.Y_AXIS));
+                    panelComponentes.setBackground(Color.WHITE); // Fondo blanco
 
-            JLabel nameLabel = new JLabel(p.getMarca() + " " + p.getModelo());
-            nameLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-            nameLabel.setFont(new java.awt.Font("Montserrat", 0, 18));
-            panelComponentes.add(nameLabel);
+                    JLabel imageLabel = new JLabel();
+                    imageLabel.setIcon(scaledIcon);
+                    imageLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+                    imageLabel.setOpaque(false); // Hacer el fondo del JLabel transparente
+                    panelComponentes.add(imageLabel);
 
-            // Cambiar el cursor a la forma de una mano cuando el mouse entra en el JLabel de la imagen
-            imageLabel.addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-//                // Pasar el ID_Sus a la ventana para cargar los datos correspondientes
-//                Us_Datos Ventana = new Us_Datos(ID_Sus, Cedula);   ----------------------------------------------------------------------------------------
-//                Ventana.setVisible(true);
+                    JLabel nameLabel = new JLabel(p.getMarca() + " " + p.getModelo());
+                    nameLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+                    nameLabel.setFont(new java.awt.Font("Montserrat", 0, 18));
+                    panelComponentes.add(nameLabel);
+
+                    imageLabel.addMouseListener(new MouseAdapter() {
+                        @Override
+                        public void mouseClicked(MouseEvent e) {
+                            // Código relacionado con el clic del ratón
+                        }
+
+                        @Override
+                        public void mouseEntered(MouseEvent e) {
+                            imageLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+                        }
+
+                        @Override
+                        public void mouseExited(MouseEvent e) {
+                            imageLabel.setCursor(Cursor.getDefaultCursor());
+                        }
+                    });
+
+                    // Verificar si se alcanzó el límite de 3 imágenes por fila antes de incrementar la posición en la columna
+                    if (contentGbc.gridx == 3) {
+                        contentGbc.gridx = 0; // Reiniciar la posición en la columna
+                        contentGbc.gridy++; // Incrementar el valor de y para la nueva fila
+
+                        // Agregar espacio vertical entre filas
+                        contentGbc.insets = new Insets(10, 10, 40, 10);
+                    } else {
+                        // Restablecer los márgenes para las demás filas
+                        contentGbc.insets = new Insets(10, 10, 40, 10); // Espacio uniforme entre las filas
+                    }
+
+                    // Incrementar la posición en la columna para la próxima iteración
+                    contentGbc.gridx++;
+
+                    // Agregar el panelComponentes al panel principal utilizando las restricciones del GridBagConstraints
+                    contentPanel.add(panelComponentes, contentGbc);
                 }
-
-                @Override
-                public void mouseEntered(MouseEvent e) {
-                    imageLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-                }
-
-                @Override
-                public void mouseExited(MouseEvent e) {
-                    imageLabel.setCursor(Cursor.getDefaultCursor());
-                }
-            });
-
-            // Verificar si se alcanzó el límite de 3 imágenes por fila
-            if (count == 3) {
-                count = 0; // Reiniciar el contador
-                contentGbc.gridy++; // Incrementar el valor de y para la nueva fila
-
-                // Agregar espacio vertical entre filas
-                contentGbc.insets = new Insets(10, 10, 40, 10);
-            } else {
-                // Restablecer los márgenes para las demás filas
-                contentGbc.insets = new Insets(10, 10, 40, 10); // Espacio uniforme entre las filas
             }
 
-            // Agregar el panelComponentes al panel principal utilizando las restricciones del GridBagConstraints
-            contentGbc.gridx = count; // Establecer la posición en la columna correspondiente
-            contentPanel.add(panelComponentes, contentGbc);
+            // Establecer el tamaño preferido del contentPanel
+            contentPanel.setPreferredSize(contentPanel.getPreferredSize());
 
-            count++; // Incrementar el contador
-        }
+            // Crear un nuevo JScrollPane y eliminar el borde de su viewport
+            JScrollPane scrollPane = new JScrollPane(contentPanel);
+            scrollPane.setBorder(null);
+            scrollPane.setBackground(Color.WHITE);
+            scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 
-        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////DESPues del while
-        // Establecer el tamaño preferido del contentPanel
-        contentPanel.setPreferredSize(contentPanel.getPreferredSize());
-        //contentPanel.setPreferredSize(new Dimension(920, 2000));
-
-        // Crear un nuevo JScrollPane y eliminar el borde de su viewport
-        JScrollPane scrollPane = new JScrollPane(contentPanel);
-        scrollPane.setBorder(null);
-        scrollPane.setBackground(Color.WHITE);
-        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-
-        // Agregar el panel principal al contenedor principal (pnlLabels)
-        vista.getJpComponentes().setLayout(new BorderLayout());
-        vista.getJpComponentes().add(scrollPane, BorderLayout.CENTER);//MODIFICADO
+            // Agregar el panel principal al contenedor principal (pnlLabels)
+            vista.getJpComponentes().setLayout(new BorderLayout());
+            vista.getJpComponentes().add(scrollPane, BorderLayout.CENTER);
+        });
     }
 
     public void Ventana() {
