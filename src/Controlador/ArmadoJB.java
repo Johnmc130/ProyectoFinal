@@ -12,7 +12,6 @@ import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
@@ -138,23 +137,20 @@ public class ArmadoJB {
                         }
                     });
 
-                    detalles.addActionListener(new ActionListener() {
-                        @Override
-                        public void actionPerformed(ActionEvent e) {
-                            vista.setEnabled(false);
-                            vista.getJdlgDetalles().setSize(672, 444);
-                            vista.getJdlgDetalles().setLocationRelativeTo(null);
-                            vista.getJdlgDetalles().setUndecorated(true);
-                            vista.getJdlgDetalles().setVisible(true);
-                            //cargar campos
-
-                            vista.getLblMarca().setText(p.getMarca());
-                            vista.getLblModelo().setText(p.getModelo());                         
-                            vista.getLblNucleos().setText(String.valueOf(p.getNucleosFisicos()));
-                            vista.getLblGHz().setText(String.valueOf(p.getGhz()));
-                            vista.getLblSocket().setText(p.getSocket());
-                            vista.getJdlgDetalles().setVisible(true);
-                        }
+                    detalles.addActionListener((ActionEvent e) -> {
+                        vista.setEnabled(false);
+                        vista.getJdlgDetalles().setSize(672, 444);
+                        vista.getJdlgDetalles().setLocationRelativeTo(null);
+                        vista.getJdlgDetalles().setUndecorated(true);
+                        vista.getJdlgDetalles().setVisible(true);
+                        //cargar campos
+                        
+                        vista.getLblMarca().setText(p.getMarca());
+                        vista.getLblModelo().setText(p.getModelo());
+                        vista.getLblNucleos().setText(String.valueOf(p.getNucleosFisicos()));
+                        vista.getLblGHz().setText(String.valueOf(p.getGhz()));
+                        vista.getLblSocket().setText(p.getSocket());
+                        vista.getJdlgDetalles().setVisible(true);
                     });
 
                     // Verificar si se alcanzó el límite de 3 imágenes por fila antes de incrementar la posición en la columna
