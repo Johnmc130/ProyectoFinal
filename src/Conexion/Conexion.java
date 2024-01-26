@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class Conexion {
@@ -38,10 +40,12 @@ public class Conexion {
         try {
             Statement sentencia = conexion.createStatement();
             return sentencia.executeQuery(consulta);
+           
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
         return null;
+        
     }
 
     public SQLException ejecutaConsulta(String consulta) {
@@ -54,5 +58,15 @@ public class Conexion {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Advertencia", JOptionPane.WARNING_MESSAGE);
             return e;
         }
+    }
+    
+    public SQLException cerrar(){
+        try {
+            conexion.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println("cerrado");
+        return null;
     }
 }

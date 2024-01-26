@@ -17,6 +17,7 @@ import java.util.List;
  *
  * @author TheBigG
  */
+
 public class ModeloProcesador {
 
     public static List<Procesador> cargaProcesadores() {
@@ -60,10 +61,12 @@ public class ModeloProcesador {
                     
                     procesadores.add(procesador);
                 }
-            }
-            Conexion.close();
+            }      
         } catch (SQLException e) {
+            
         }
+        ConectaBD.cerrar();
         return procesadores;
+        
     }
 }
