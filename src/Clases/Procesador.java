@@ -137,5 +137,11 @@ public class Procesador {
         this.idProveedor = idProveedor;
     }
 
+    @Override
+    public String toString() {
+        return "Procesador{" + "idProcesador=" + idProcesador + ", marca=" + marca + ", modelo=" + modelo + ", nucleosFisicos=" + nucleosFisicos + ", ghz=" + ghz + ", socket=" + socket + ", maximoVram=" + maximoVram + ", watts=" + watts + ", precio=" + precio + ", imagen=" + imagen + ", stock=" + stock + ", idProveedor=" + idProveedor + '}';
+    }
+
+    
     
 }
