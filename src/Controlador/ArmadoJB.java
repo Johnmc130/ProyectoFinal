@@ -80,28 +80,42 @@ public class ArmadoJB {
                 if (p.getImagen() != null) {
                     ImageIcon imageIcon = new ImageIcon(p.getImagen());
                     Image image = imageIcon.getImage();
-                    Image scaledImage = image.getScaledInstance(120, 120, Image.SCALE_SMOOTH);
+                    Image scaledImage = image.getScaledInstance(180, 180, Image.SCALE_SMOOTH);
                     ImageIcon scaledIcon = new ImageIcon(scaledImage);
 
                     JPanel panelComponentes = new JPanel();
                     panelComponentes.setLayout(new BoxLayout(panelComponentes, BoxLayout.Y_AXIS));
                     panelComponentes.setBackground(Color.WHITE); // Fondo blanco
+                    panelComponentes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 212, 250), 3));
 
+                    //margen
+                    JLabel label1 = new JLabel(" ");
+                    label1.setAlignmentX(Component.CENTER_ALIGNMENT);
+                    label1.setFont(new java.awt.Font("Montserrat", 0, 10));
+                    panelComponentes.add(label1);
+                    
                     JLabel imageLabel = new JLabel();
                     imageLabel.setIcon(scaledIcon);
                     imageLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
                     imageLabel.setOpaque(false); // Hacer el fondo del JLabel transparente
-                    panelComponentes.add(imageLabel);                  
+                    panelComponentes.add(imageLabel);                
+                    
                     JLabel nameLabel = new JLabel(p.getMarca() + " " + p.getModelo());
                     nameLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
                     nameLabel.setFont(new java.awt.Font("Montserrat", 0, 18));
                     panelComponentes.add(nameLabel);
+                                        
 
                     JButton detalles = new JButton("Detalles");
                     detalles.setAlignmentX(Component.LEFT_ALIGNMENT);
                     detalles.setFont(new java.awt.Font("Montserrat", 0, 14));
                     detalles.setForeground(Color.BLUE);
                     panelComponentes.add(detalles);
+                    //margen
+                    JLabel label = new JLabel(" ");
+                    label.setAlignmentX(Component.CENTER_ALIGNMENT);
+                    label.setFont(new java.awt.Font("Montserrat", 0, 10));
+                    panelComponentes.add(label);
 
                     imageLabel.addMouseListener(new MouseAdapter() {
                         @Override
