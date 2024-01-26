@@ -4,7 +4,7 @@ package Main;
 import Controlador.ArmadoJB;
 import Controlador.CRUD_ProductosJB;
 import Modelo.ModeloProcesador;
-import Vista.Armado_JB;
+import Vista.ArmadoProc_JB;
 import Vista.CRUD_Productos_JB;
 
 import Controlador.ControladorlLogin;
@@ -21,7 +21,7 @@ public class ProyectoFinal {
 //        control.iniciar();
         
         ModeloProcesador mp = new ModeloProcesador();
-        Armado_JB vistaA = new Armado_JB();
+        ArmadoProc_JB vistaA = new ArmadoProc_JB();
         ArmadoJB controlador = new ArmadoJB(mp, vistaA);
         controlador.Inicio();
 

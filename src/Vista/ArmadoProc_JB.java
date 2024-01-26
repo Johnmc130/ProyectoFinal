@@ -12,12 +12,12 @@ import javax.swing.JPanel;
  *
  * @author TheBigG
  */
-public class Armado_JB extends javax.swing.JFrame {
+public class ArmadoProc_JB extends javax.swing.JFrame {
 
     /**
      * Creates new form Armado_JB
      */
-    public Armado_JB() {
+    public ArmadoProc_JB() {
         initComponents();
     }
 

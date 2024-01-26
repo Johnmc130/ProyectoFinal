@@ -2,7 +2,7 @@ package Controlador;
 
 import Modelo.ModeloProcesador;
 import Clases.Procesador;
-import Vista.Armado_JB;
+import Vista.ArmadoProc_JB;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -30,9 +30,9 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class ArmadoJB {
 
     private ModeloProcesador mp;
-    private Armado_JB vista;
+    private ArmadoProc_JB vista;
 
-    public ArmadoJB(ModeloProcesador mp, Armado_JB vista) {
+    public ArmadoJB(ModeloProcesador mp, ArmadoProc_JB vista) {
         this.mp = mp;
         this.vista = vista;
         vista.setVisible(true);
