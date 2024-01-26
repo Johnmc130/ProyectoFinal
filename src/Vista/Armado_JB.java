@@ -4,6 +4,7 @@
  */
 package Vista;
 
+import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 
@@ -28,6 +29,9 @@ public class Armado_JB extends javax.swing.JFrame {
         return jdlgMensaje;
     }
 
+    public JButton getBtJdlAceptar() {
+        return btJdlAceptar;
+    }
     
     
     /**
@@ -42,7 +46,7 @@ public class Armado_JB extends javax.swing.JFrame {
         jdlgMensaje = new javax.swing.JDialog();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btEliminar = new javax.swing.JButton();
+        btJdlAceptar = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         lblTitulo1 = new javax.swing.JLabel();
         Encabezado = new javax.swing.JPanel();
@@ -62,11 +66,11 @@ public class Armado_JB extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Montserrat", 2, 18)); // NOI18N
         jLabel1.setText("<html><p>A partir de ahora todos los componentes que verás\n son compatibles entre sí</p></html>");
 
-        btEliminar.setBackground(new java.awt.Color(255, 255, 255));
-        btEliminar.setFont(new java.awt.Font("Montserrat", 1, 16)); // NOI18N
-        btEliminar.setForeground(new java.awt.Color(0, 0, 0));
-        btEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Compromisos.png"))); // NOI18N
-        btEliminar.setText("Aceptar");
+        btJdlAceptar.setBackground(new java.awt.Color(255, 255, 255));
+        btJdlAceptar.setFont(new java.awt.Font("Montserrat", 1, 16)); // NOI18N
+        btJdlAceptar.setForeground(new java.awt.Color(0, 0, 0));
+        btJdlAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Compromisos.png"))); // NOI18N
+        btJdlAceptar.setText("Aceptar");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -77,7 +81,7 @@ public class Armado_JB extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btJdlAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -85,7 +89,7 @@ public class Armado_JB extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btJdlAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -239,7 +243,7 @@ public class Armado_JB extends javax.swing.JFrame {
     private javax.swing.JPanel Cuerpo;
     private javax.swing.JPanel Encabezado;
     private javax.swing.JToggleButton btAtras1;
-    private javax.swing.JButton btEliminar;
+    private javax.swing.JButton btJdlAceptar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
