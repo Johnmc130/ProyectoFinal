@@ -11,6 +11,8 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
@@ -30,11 +32,10 @@ import javax.swing.UnsupportedLookAndFeelException;
  */
 public class ArmadoJB {
 
-    private ModeloProcesador mp;
     private ArmadoProc_JB vista;
 
-    public ArmadoJB(ModeloProcesador mp, ArmadoProc_JB vista) {
-        this.mp = mp;
+    public ArmadoJB( ArmadoProc_JB vista) {
+
         this.vista = vista;
         vista.setVisible(true);
 
@@ -44,6 +45,7 @@ public class ArmadoJB {
         vista.setLocationRelativeTo(null);
         CargarComponentes();
         Ventana();
+        vista.getBtJdlDetalleAceptar().addActionListener(l -> AceptarDlg());
     }
 
     private void CargarComponentes() {
@@ -89,13 +91,12 @@ public class ArmadoJB {
                     imageLabel.setIcon(scaledIcon);
                     imageLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
                     imageLabel.setOpaque(false); // Hacer el fondo del JLabel transparente
-                    panelComponentes.add(imageLabel);
-
+                    panelComponentes.add(imageLabel);                  
                     JLabel nameLabel = new JLabel(p.getMarca() + " " + p.getModelo());
                     nameLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
                     nameLabel.setFont(new java.awt.Font("Montserrat", 0, 18));
                     panelComponentes.add(nameLabel);
-                    
+
                     JButton detalles = new JButton("Detalles");
                     detalles.setAlignmentX(Component.LEFT_ALIGNMENT);
                     detalles.setFont(new java.awt.Font("Montserrat", 0, 14));
@@ -120,6 +121,25 @@ public class ArmadoJB {
                         @Override
                         public void mouseExited(MouseEvent e) {
                             imageLabel.setCursor(Cursor.getDefaultCursor());
+                        }
+                    });
+
+                    detalles.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            vista.setEnabled(false);
+                            vista.getJdlgDetalles().setSize(672, 444);
+                            vista.getJdlgDetalles().setLocationRelativeTo(null);
+                            vista.getJdlgDetalles().setUndecorated(true);
+                            vista.getJdlgDetalles().setVisible(true);
+                            //cargar campos
+
+                            vista.getLblMarca().setText(p.getMarca());
+                            vista.getLblModelo().setText(p.getModelo());                         
+                            vista.getLblNucleos().setText(String.valueOf(p.getNucleosFisicos()));
+                            vista.getLblGHz().setText(String.valueOf(p.getGhz()));
+                            vista.getLblSocket().setText(p.getSocket());
+                            vista.getJdlgDetalles().setVisible(true);
                         }
                     });
 
@@ -151,6 +171,8 @@ public class ArmadoJB {
             scrollPane.setBorder(null);
             scrollPane.setBackground(Color.WHITE);
             scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+            // Ajustar la velocidad de desplazamiento
+            scrollPane.getVerticalScrollBar().setUnitIncrement(20);
 
             // Agregar el panel principal al contenedor principal (pnlLabels)
             vista.getJpComponentes().setLayout(new BorderLayout());
@@ -166,5 +188,12 @@ public class ArmadoJB {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
 
         }
+    }
+
+    public void AceptarDlg() {
+        vista.getJdlgDetalles().setVisible(false);
+        vista.getJdlgDetalles().dispose();
+        vista.setEnabled(true);
+        vista.setVisible(true);
     }
 }
