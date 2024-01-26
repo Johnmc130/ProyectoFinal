@@ -14,7 +14,7 @@ public class Conexion {
     public Conexion() {
         String cadenaConexion = "jdbc:postgresql://localhost:5432/Proyecto_Final";
         String usuario = "postgres";
-        String contraseña = "12345";
+        String contraseña = "18658";
 
         try {
             Class.forName("org.postgresql.Driver");
@@ -24,8 +24,8 @@ public class Conexion {
 
         try {
             conexion = DriverManager.getConnection(cadenaConexion, usuario, contraseña);
-            JOptionPane.showMessageDialog(null, "Conexion Exitosa");
-        } catch (SQLException e) {
+            System.out.println("Conexion Exitosa");       
+        } catch (SQLException e) {            
             JOptionPane.showMessageDialog(null, e.getMessage(), "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
     }

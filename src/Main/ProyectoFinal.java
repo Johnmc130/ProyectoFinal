@@ -25,10 +25,10 @@ public class ProyectoFinal {
         ArmadoJB controlador = new ArmadoJB(mp, vistaA);
         controlador.Inicio();
 
-        VentanaLogin_JM vista = new VentanaLogin_JM();
-        Modelo.ModeloCliente mCliente = new ModeloCliente();
-        ControladorlLogin cLogin = new ControladorlLogin(mCliente, vista);
-        cLogin.iniciaControlador();
+//        VentanaLogin_JM vista = new VentanaLogin_JM();
+//        Modelo.ModeloCliente mCliente = new ModeloCliente();
+//        ControladorlLogin cLogin = new ControladorlLogin(mCliente, vista);
+//        cLogin.iniciaControlador();
 
     }
 

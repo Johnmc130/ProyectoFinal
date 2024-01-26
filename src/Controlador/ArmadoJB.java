@@ -7,7 +7,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Cursor;
-import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
@@ -41,6 +40,7 @@ public class ArmadoJB {
     }
 
     public void Inicio() {
+        vista.setLocationRelativeTo(null);
         cargarImagenesEnPaneles();
         Ventana();
     }
@@ -50,7 +50,6 @@ public class ArmadoJB {
 
         // Asegurarse de que la creación y manipulación de los componentes Swing se realice en el hilo de eventos de Swing
         SwingUtilities.invokeLater(() -> {
-            int count = 0; // Contador para realizar un seguimiento de las imágenes en cada fila
 
             // Configurar el panel principal con un GridBagLayout
             vista.getJpComponentes().setLayout(new GridBagLayout());
@@ -64,7 +63,7 @@ public class ArmadoJB {
 
             JPanel contentPanel = new JPanel();
             contentPanel.setLayout(new GridBagLayout());
-            contentPanel.setBackground(Color.black);
+            contentPanel.setBackground(Color.white);
 
             GridBagConstraints contentGbc = new GridBagConstraints();
             contentGbc.gridx = 0;
@@ -99,7 +98,11 @@ public class ArmadoJB {
                     imageLabel.addMouseListener(new MouseAdapter() {
                         @Override
                         public void mouseClicked(MouseEvent e) {
-                            // Código relacionado con el clic del ratón
+                            vista.setEnabled(false);
+                            vista.getJdlgMensaje().setSize(509, 357);
+                            vista.getJdlgMensaje().setLocationRelativeTo(null);
+                            vista.getJdlgMensaje().setUndecorated(true);
+                            vista.getJdlgMensaje().setVisible(true);
                         }
 
                         @Override
