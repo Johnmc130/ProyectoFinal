@@ -16,6 +16,7 @@ import java.awt.event.MouseEvent;
 import java.util.List;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -41,11 +42,11 @@ public class ArmadoJB {
 
     public void Inicio() {
         vista.setLocationRelativeTo(null);
-        cargarImagenesEnPaneles();
+        CargarComponentes();
         Ventana();
     }
 
-    private void cargarImagenesEnPaneles() {
+    private void CargarComponentes() {
         List<Procesador> procesadores = ModeloProcesador.cargaProcesadores();
 
         // Asegurarse de que la creación y manipulación de los componentes Swing se realice en el hilo de eventos de Swing
@@ -94,6 +95,12 @@ public class ArmadoJB {
                     nameLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
                     nameLabel.setFont(new java.awt.Font("Montserrat", 0, 18));
                     panelComponentes.add(nameLabel);
+                    
+                    JButton detalles = new JButton("Detalles");
+                    detalles.setAlignmentX(Component.LEFT_ALIGNMENT);
+                    detalles.setFont(new java.awt.Font("Montserrat", 0, 14));
+                    detalles.setForeground(Color.BLUE);
+                    panelComponentes.add(detalles);
 
                     imageLabel.addMouseListener(new MouseAdapter() {
                         @Override
