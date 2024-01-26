@@ -22,20 +22,28 @@ public class ArmadoProc_JB extends javax.swing.JFrame {
         initComponents();
     }
 
-    public JPanel getJpComponentes() {
-        return jpComponentes;
+    public JButton getBtJdlAceptar() {
+        return btJdlAceptar;
+    }
+
+    public JButton getBtJdlAtras() {
+        return btJdlAtras;
+    }
+
+    public JButton getBtJdlDetalleAceptar() {
+        return btJdlDetalleAceptar;
+    }
+
+    public JDialog getJdlgDetalles() {
+        return jdlgDetalles;
     }
 
     public JDialog getJdlgMensaje() {
         return jdlgMensaje;
     }
 
-    public JButton getBtJdlAceptar() {
-        return btJdlAceptar;
-    }
-
-    public JDialog getJdlgDetalles() {
-        return jdlgDetalles;
+    public JPanel getJpComponentes() {
+        return jpComponentes;
     }
 
     public JLabel getLblGHz() {
@@ -58,10 +66,7 @@ public class ArmadoProc_JB extends javax.swing.JFrame {
         return lblSocket;
     }
 
-    public JButton getBtJdlDetalleAceptar() {
-        return btJdlDetalleAceptar;
-    }
-    
+
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -75,6 +80,7 @@ public class ArmadoProc_JB extends javax.swing.JFrame {
         jdlgMensaje = new javax.swing.JDialog();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        btJdlAtras = new javax.swing.JButton();
         btJdlAceptar = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         lblTitulo1 = new javax.swing.JLabel();
@@ -109,7 +115,14 @@ public class ArmadoProc_JB extends javax.swing.JFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 212, 250), 3));
 
         jLabel1.setFont(new java.awt.Font("Montserrat", 2, 18)); // NOI18N
-        jLabel1.setText("<html><p>A partir de ahora todos los componentes que verás\n son compatibles entre sí</p></html>");
+        jLabel1.setForeground(new java.awt.Color(37, 53, 124));
+        jLabel1.setText("<html><p>A partir de ahora todos los componentes que verás\n son compatibles entre sí.</p></html>");
+
+        btJdlAtras.setBackground(new java.awt.Color(255, 255, 255));
+        btJdlAtras.setFont(new java.awt.Font("Montserrat", 1, 16)); // NOI18N
+        btJdlAtras.setForeground(new java.awt.Color(0, 0, 0));
+        btJdlAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/JB/torre-de-la-cpu.png"))); // NOI18N
+        btJdlAtras.setText("Atras");
 
         btJdlAceptar.setBackground(new java.awt.Color(255, 255, 255));
         btJdlAceptar.setFont(new java.awt.Font("Montserrat", 1, 16)); // NOI18N
@@ -123,9 +136,11 @@ public class ArmadoProc_JB extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 18, Short.MAX_VALUE))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btJdlAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btJdlAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -134,7 +149,9 @@ public class ArmadoProc_JB extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btJdlAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btJdlAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btJdlAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -199,25 +216,30 @@ public class ArmadoProc_JB extends javax.swing.JFrame {
         btJdlDetalleAceptar.setText("Aceptar");
 
         jLabel30.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        jLabel30.setForeground(new java.awt.Color(37, 53, 124));
         jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel30.setText("Marca:");
         jLabel30.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         jLabel31.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(37, 53, 124));
         jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel31.setText("Modelo:");
         jLabel31.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         jLabel32.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        jLabel32.setForeground(new java.awt.Color(37, 53, 124));
         jLabel32.setText("Núcleos Físicos:");
         jLabel32.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         jLabel33.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(37, 53, 124));
         jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel33.setText("GHz:");
         jLabel33.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         jLabel34.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        jLabel34.setForeground(new java.awt.Color(37, 53, 124));
         jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel34.setText("Socket:");
         jLabel34.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
@@ -460,6 +482,7 @@ public class ArmadoProc_JB extends javax.swing.JFrame {
     private javax.swing.JPanel Encabezado;
     private javax.swing.JToggleButton btAtras1;
     private javax.swing.JButton btJdlAceptar;
+    private javax.swing.JButton btJdlAtras;
     private javax.swing.JButton btJdlDetalleAceptar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;

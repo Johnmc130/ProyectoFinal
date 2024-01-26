@@ -1,6 +1,7 @@
 package Main;
 
-import Controlador.ArmadoJB;
+import Controlador.ArmadoPlacaJB;
+import Controlador.ArmadoProcJB;
 import Controlador.CRUD_ProductosJB;
 import Modelo.ModeloProcesador;
 import Vista.ArmadoProc_JB;
@@ -8,6 +9,7 @@ import Vista.CRUD_Productos_JB;
 
 import Controlador.ControladorlLogin;
 import Modelo.ModeloCliente;
+import Vista.ArmadoPlaca_JB;
 import Vista.VentanaLogin_JM;
 
 public class ProyectoFinal {
@@ -19,8 +21,12 @@ public class ProyectoFinal {
 //        control.iniciar();
 
         ArmadoProc_JB vistaA = new ArmadoProc_JB();
-        ArmadoJB controlador = new ArmadoJB(vistaA);
+        ArmadoProcJB controlador = new ArmadoProcJB(vistaA);
         controlador.Inicio();
+        
+//        ArmadoPlaca_JB vistaA = new ArmadoPlaca_JB();
+//        ArmadoPlacaJB controlador = new ArmadoPlacaJB(vistaA);
+//        controlador.Inicio();
 
 //        VentanaLogin_JM vista = new VentanaLogin_JM();
 //        Modelo.ModeloCliente mCliente = new ModeloCliente();

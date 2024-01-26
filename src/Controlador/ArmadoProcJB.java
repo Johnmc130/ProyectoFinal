@@ -2,6 +2,7 @@ package Controlador;
 
 import Modelo.ModeloProcesador;
 import Clases.Procesador;
+import Vista.ArmadoPlaca_JB;
 import Vista.ArmadoProc_JB;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -29,11 +30,12 @@ import javax.swing.UnsupportedLookAndFeelException;
  *
  * @author TheBigG
  */
-public class ArmadoJB {
+public class ArmadoProcJB {
 
     private ArmadoProc_JB vista;
+    private Procesador procesador;
 
-    public ArmadoJB( ArmadoProc_JB vista) {
+    public ArmadoProcJB(ArmadoProc_JB vista) {
 
         this.vista = vista;
         vista.setVisible(true);
@@ -44,7 +46,8 @@ public class ArmadoJB {
         vista.setLocationRelativeTo(null);
         CargarComponentes();
         Ventana();
-        vista.getBtJdlDetalleAceptar().addActionListener(l -> AceptarDlg());
+        vista.getBtJdlDetalleAceptar().addActionListener(l -> AceptarDlgDetalle());
+        vista.getBtJdlAceptar().addActionListener(l -> AceptarDlg());
     }
 
     private void CargarComponentes() {
@@ -92,18 +95,17 @@ public class ArmadoJB {
                     label1.setAlignmentX(Component.CENTER_ALIGNMENT);
                     label1.setFont(new java.awt.Font("Montserrat", 0, 10));
                     panelComponentes.add(label1);
-                    
+
                     JLabel imageLabel = new JLabel();
                     imageLabel.setIcon(scaledIcon);
                     imageLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
                     imageLabel.setOpaque(false); // Hacer el fondo del JLabel transparente
-                    panelComponentes.add(imageLabel);                
-                    
+                    panelComponentes.add(imageLabel);
+
                     JLabel nameLabel = new JLabel(p.getMarca() + " " + p.getModelo());
                     nameLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
                     nameLabel.setFont(new java.awt.Font("Montserrat", 0, 18));
                     panelComponentes.add(nameLabel);
-                                        
 
                     JButton detalles = new JButton("Detalles");
                     detalles.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -124,6 +126,9 @@ public class ArmadoJB {
                             vista.getJdlgMensaje().setLocationRelativeTo(null);
                             vista.getJdlgMensaje().setUndecorated(true);
                             vista.getJdlgMensaje().setVisible(true);
+
+                            procesador = new Procesador(p.getIdProcesador(), p.getMarca(), p.getModelo(), p.getNucleosFisicos(), p.getGhz(),
+                                    p.getSocket(), p.getMaximoVram(), p.getWatts(), p.getPrecio(), p.getImagen(), p.getStock(), p.getIdProveedor());
                         }
 
                         @Override
@@ -144,7 +149,7 @@ public class ArmadoJB {
                         vista.getJdlgDetalles().setUndecorated(true);
                         vista.getJdlgDetalles().setVisible(true);
                         //cargar campos
-                        
+
                         vista.getLblMarca().setText(p.getMarca());
                         vista.getLblModelo().setText(p.getModelo());
                         vista.getLblNucleos().setText(String.valueOf(p.getNucleosFisicos()));
@@ -200,10 +205,22 @@ public class ArmadoJB {
         }
     }
 
-    public void AceptarDlg() {
+    public void AceptarDlgDetalle() {
         vista.getJdlgDetalles().setVisible(false);
         vista.getJdlgDetalles().dispose();
         vista.setEnabled(true);
         vista.setVisible(true);
+    }
+    
+    public void AceptarDlg() {
+        vista.getJdlgMensaje().setVisible(false);
+        vista.getJdlgMensaje().dispose();
+        vista.setEnabled(false);
+        vista.setVisible(false);
+        vista.dispose();
+        ArmadoPlaca_JB vistaPlaca = new ArmadoPlaca_JB();
+        ArmadoPlacaJB controlador = new ArmadoPlacaJB(vistaPlaca);
+        controlador.Inicio();
+        
     }
 }
