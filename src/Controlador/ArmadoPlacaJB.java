@@ -32,22 +32,19 @@ import javax.swing.UnsupportedLookAndFeelException;
  */
 public class ArmadoPlacaJB {
 
-    private ArmadoPlaca_JB vista;
+    private ArmadoPlaca_JB vistaPlaca;
     private Procesador procesador;
     
     public ArmadoPlacaJB(ArmadoPlaca_JB vista) {
-
-        this.vista = vista;
+        this.vistaPlaca = vista;
         vista.setVisible(true);
-
     }
 
     public void Inicio() {
-        vista.setLocationRelativeTo(null);
+        vistaPlaca.setLocationRelativeTo(null);
         CargarComponentes();
         Ventana();
-        vista.getBtJdlDetalleAceptar().addActionListener(l -> AceptarDlg());
-        System.out.println("aqui");
+        vistaPlaca.getBtJdlDetalleAceptar().addActionListener(l -> AceptarDlg());
     }
 
     private void CargarComponentes() {
@@ -57,7 +54,7 @@ public class ArmadoPlacaJB {
         SwingUtilities.invokeLater(() -> {
 
             // Configurar el panel principal con un GridBagLayout
-            vista.getJpComponentes().setLayout(new GridBagLayout());
+            vistaPlaca.getJpComponentes().setLayout(new GridBagLayout());
             GridBagConstraints gbc = new GridBagConstraints();
             gbc.gridx = 0;
             gbc.gridy = 0;
@@ -80,6 +77,7 @@ public class ArmadoPlacaJB {
             for (Procesador p : procesadores) {
                 // Verificar si la imagen no es nula
                 if (p.getImagen() != null) {
+                    System.out.println(p.toString());
                     ImageIcon imageIcon = new ImageIcon(p.getImagen());
                     Image image = imageIcon.getImage();
                     Image scaledImage = image.getScaledInstance(180, 180, Image.SCALE_SMOOTH);
@@ -122,11 +120,11 @@ public class ArmadoPlacaJB {
                     imageLabel.addMouseListener(new MouseAdapter() {
                         @Override
                         public void mouseClicked(MouseEvent e) {
-                            vista.setEnabled(false);
-                            vista.getJdlgMensaje().setSize(509, 357);
-                            vista.getJdlgMensaje().setLocationRelativeTo(null);
-                            vista.getJdlgMensaje().setUndecorated(true);
-                            vista.getJdlgMensaje().setVisible(true);
+                            vistaPlaca.setEnabled(false);
+                            vistaPlaca.getJdlgMensaje().setSize(509, 357);
+                            vistaPlaca.getJdlgMensaje().setLocationRelativeTo(null);
+                            vistaPlaca.getJdlgMensaje().setUndecorated(true);
+                            vistaPlaca.getJdlgMensaje().setVisible(true);
                         }
 
                         @Override
@@ -141,19 +139,19 @@ public class ArmadoPlacaJB {
                     });
 
                     detalles.addActionListener((ActionEvent e) -> {
-                        vista.setEnabled(false);
-                        vista.getJdlgDetalles().setSize(672, 444);
-                        vista.getJdlgDetalles().setLocationRelativeTo(null);
-                        vista.getJdlgDetalles().setUndecorated(true);
-                        vista.getJdlgDetalles().setVisible(true);
+                        vistaPlaca.setEnabled(false);
+                        vistaPlaca.getJdlgDetalles().setSize(672, 444);
+                        vistaPlaca.getJdlgDetalles().setLocationRelativeTo(null);
+                        vistaPlaca.getJdlgDetalles().setUndecorated(true);
+                        vistaPlaca.getJdlgDetalles().setVisible(true);
                         //cargar campos
                         
-                        vista.getLblMarca().setText(p.getMarca());
-                        vista.getLblModelo().setText(p.getModelo());
-                        vista.getLblNucleos().setText(String.valueOf(p.getNucleosFisicos()));
-                        vista.getLblGHz().setText(String.valueOf(p.getGhz()));
-                        vista.getLblSocket().setText(p.getSocket());
-                        vista.getJdlgDetalles().setVisible(true);
+                        vistaPlaca.getLblMarca().setText(p.getMarca());
+                        vistaPlaca.getLblModelo().setText(p.getModelo());
+                        vistaPlaca.getLblNucleos().setText(String.valueOf(p.getNucleosFisicos()));
+                        vistaPlaca.getLblGHz().setText(String.valueOf(p.getGhz()));
+                        vistaPlaca.getLblSocket().setText(p.getSocket());
+                        vistaPlaca.getJdlgDetalles().setVisible(true);
                     });
 
                     // Verificar si se alcanzó el límite de 3 imágenes por fila antes de incrementar la posición en la columna
@@ -188,25 +186,28 @@ public class ArmadoPlacaJB {
             scrollPane.getVerticalScrollBar().setUnitIncrement(20);
 
             // Agregar el panel principal al contenedor principal (pnlLabels)
-            vista.getJpComponentes().setLayout(new BorderLayout());
-            vista.getJpComponentes().add(scrollPane, BorderLayout.CENTER);
+            vistaPlaca.getJpComponentes().setLayout(new BorderLayout());
+            vistaPlaca.getJpComponentes().add(scrollPane, BorderLayout.CENTER);
+            System.out.println("aqui final metodo cargar compo");
         });
+        
     }
 
     public void Ventana() {
 
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-            SwingUtilities.updateComponentTreeUI(vista.getJpComponentes());
+            SwingUtilities.updateComponentTreeUI(vistaPlaca.getJpComponentes());
+            System.out.println("aqui swing");
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
 
         }
     }
 
     public void AceptarDlg() {
-        vista.getJdlgDetalles().setVisible(false);
-        vista.getJdlgDetalles().dispose();
-        vista.setEnabled(true);
-        vista.setVisible(true);
+        vistaPlaca.getJdlgDetalles().setVisible(false);
+        vistaPlaca.getJdlgDetalles().dispose();
+        vistaPlaca.setEnabled(true);
+        vistaPlaca.setVisible(true);
     }
 }

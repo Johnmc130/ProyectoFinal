@@ -215,12 +215,12 @@ public class ArmadoProcJB {
     public void AceptarDlg() {
         vista.getJdlgMensaje().setVisible(false);
         vista.getJdlgMensaje().dispose();
-        vista.setEnabled(false);
-        vista.setVisible(false);
-        vista.dispose();
+        vista.setEnabled(true); 
         ArmadoPlaca_JB vistaPlaca = new ArmadoPlaca_JB();
         ArmadoPlacaJB controlador = new ArmadoPlacaJB(vistaPlaca);
         controlador.Inicio();
+        vista.setVisible(false);
+        vista.dispose();
         
     }
 }

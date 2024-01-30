@@ -64,8 +64,9 @@ public class ModeloProcesador {
             }      
         } catch (SQLException e) {
             
+        } finally{
+            ConectaBD.cerrar();
         }
-        ConectaBD.cerrar();
         return procesadores;
         
     }
