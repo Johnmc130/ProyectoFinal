@@ -33,6 +33,15 @@ public class CrearGabinetes extends javax.swing.JFrame {
         this.btAtrascrea = btAtrascrea;
     }
 
+    public JTextField getTxtstockcreagabin() {
+        return txtstockcreagabin;
+    }
+
+    public void setTxtstockcreagabin(JTextField txtstockcreagabin) {
+        this.txtstockcreagabin = txtstockcreagabin;
+    }
+
+    
     public JButton getBtnCreargabin() {
         return btnCreargabin;
     }
@@ -71,14 +80,6 @@ public class CrearGabinetes extends javax.swing.JFrame {
 
     public void setLbgabineteimg(JLabel lbgabineteimg) {
         this.lbgabineteimg = lbgabineteimg;
-    }
-
-    public JSpinner getSpStockcreagabin() {
-        return spStockcreagabin;
-    }
-
-    public void setSpStockcreagabin(JSpinner spStockcreagabin) {
-        this.spStockcreagabin = spStockcreagabin;
     }
 
     public JSpinner getSpTMvideocreagabin() {
@@ -205,7 +206,7 @@ public class CrearGabinetes extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         txtpreciocreagabin = new javax.swing.JTextField();
         jLabel37 = new javax.swing.JLabel();
-        spStockcreagabin = new javax.swing.JSpinner();
+        txtstockcreagabin = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -351,7 +352,8 @@ public class CrearGabinetes extends javax.swing.JFrame {
         jLabel37.setText("Stock:");
         jLabel37.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
-        spStockcreagabin.setFont(new java.awt.Font("Montserrat Thin", 0, 18)); // NOI18N
+        txtstockcreagabin.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
+        txtstockcreagabin.setBorder(null);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -409,8 +411,7 @@ public class CrearGabinetes extends javax.swing.JFrame {
                                             .addComponent(txtFpodercreagabin, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addComponent(spTMvideocreagabin, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(sptamacreagabin, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(cbproveedorcreagabin, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(spStockcreagabin, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(cbproveedorcreagabin, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(txtplacacreagabin, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtbahiascreagabin, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -419,7 +420,9 @@ public class CrearGabinetes extends javax.swing.JFrame {
                             .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtpreciocreagabin, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtpreciocreagabin, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(txtstockcreagabin))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -489,8 +492,8 @@ public class CrearGabinetes extends javax.swing.JFrame {
                     .addComponent(jLabel24))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(spStockcreagabin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel37))
+                    .addComponent(jLabel37)
+                    .addComponent(txtstockcreagabin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel27)
@@ -518,44 +521,7 @@ public class CrearGabinetes extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CrearGabinetes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CrearGabinetes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CrearGabinetes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CrearGabinetes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CrearGabinetes().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btAtrascrea;
@@ -580,7 +546,6 @@ public class CrearGabinetes extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel lbIdcreagabinete;
     private javax.swing.JLabel lbgabineteimg;
-    private javax.swing.JSpinner spStockcreagabin;
     private javax.swing.JSpinner spTMvideocreagabin;
     private javax.swing.JSpinner sptamacreagabin;
     private javax.swing.JTextField txtFpodercreagabin;
@@ -590,6 +555,7 @@ public class CrearGabinetes extends javax.swing.JFrame {
     private javax.swing.JTextField txtplacacreagabin;
     private javax.swing.JTextField txtpreciocreagabin;
     private javax.swing.JTextField txtpuertocreagabinete;
+    private javax.swing.JTextField txtstockcreagabin;
     private javax.swing.JTextField txtventiiladorcreagabinete;
     // End of variables declaration//GEN-END:variables
 }

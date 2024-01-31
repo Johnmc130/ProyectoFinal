@@ -124,7 +124,6 @@
                                           <Component id="spTMvideocreagabin" min="-2" pref="60" max="-2" attributes="0"/>
                                           <Component id="sptamacreagabin" alignment="1" min="-2" pref="60" max="-2" attributes="0"/>
                                           <Component id="cbproveedorcreagabin" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
-                                          <Component id="spStockcreagabin" alignment="1" min="-2" pref="60" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="txtplacacreagabin" min="-2" pref="150" max="-2" attributes="0"/>
                                       <Component id="txtbahiascreagabin" min="-2" pref="150" max="-2" attributes="0"/>
@@ -139,7 +138,10 @@
                               <Component id="jLabel37" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="txtpreciocreagabin" min="-2" pref="150" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="txtpreciocreagabin" pref="150" max="32767" attributes="0"/>
+                              <Component id="txtstockcreagabin" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -233,8 +235,8 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="spStockcreagabin" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel37" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtstockcreagabin" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -592,10 +594,13 @@
             <Property name="verticalAlignment" type="int" value="3"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JSpinner" name="spStockcreagabin">
+        <Component class="javax.swing.JTextField" name="txtstockcreagabin">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Montserrat Thin" size="18" style="0"/>
+              <Font name="Montserrat" size="18" style="0"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
             </Property>
           </Properties>
         </Component>
