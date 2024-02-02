@@ -80,6 +80,7 @@ public class ArmadoProcJB {
             for (Procesador p : procesadores) {
                 // Verificar si la imagen no es nula
                 if (p.getImagen() != null) {
+                    System.out.println(p.toString());
                     ImageIcon imageIcon = new ImageIcon(p.getImagen());
                     Image image = imageIcon.getImage();
                     Image scaledImage = image.getScaledInstance(180, 180, Image.SCALE_SMOOTH);
@@ -192,6 +193,9 @@ public class ArmadoProcJB {
             // Agregar el panel principal al contenedor principal (pnlLabels)
             vista.getJpComponentes().setLayout(new BorderLayout());
             vista.getJpComponentes().add(scrollPane, BorderLayout.CENTER);
+            // que la ventana se repinte
+            vista.revalidate();
+            vista.repaint();
         });
     }
 

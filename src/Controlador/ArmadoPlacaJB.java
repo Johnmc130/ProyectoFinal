@@ -1,9 +1,9 @@
 package Controlador;
 
-import Modelo.ModeloProcesador;
-import Clases.Procesador;
+import Clases.Placamadre;
+import Modelo.ModeloPlacaMadre;
 import Vista.ArmadoPlaca_JB;
-import Vista.ArmadoProc_JB;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -33,8 +33,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class ArmadoPlacaJB {
 
     private ArmadoPlaca_JB vistaPlaca;
-    private Procesador procesador;
-    
+
     public ArmadoPlacaJB(ArmadoPlaca_JB vista) {
         this.vistaPlaca = vista;
         vista.setVisible(true);
@@ -44,11 +43,13 @@ public class ArmadoPlacaJB {
         vistaPlaca.setLocationRelativeTo(null);
         CargarComponentes();
         Ventana();
-        vistaPlaca.getBtJdlDetalleAceptar().addActionListener(l -> AceptarDlg());
+//        vistaPlaca.revalidate();
+//        vistaPlaca.repaint();
+        //vistaPlaca.getBtJdlDetalleAceptar().addActionListener(l -> AceptarDlg());
     }
 
     private void CargarComponentes() {
-        List<Procesador> procesadores = ModeloProcesador.cargaProcesadores();
+        List<Placamadre> placasLista = ModeloPlacaMadre.cargaPlacasMadre();
 
         // Asegurarse de que la creación y manipulación de los componentes Swing se realice en el hilo de eventos de Swing
         SwingUtilities.invokeLater(() -> {
@@ -74,11 +75,11 @@ public class ArmadoPlacaJB {
             contentGbc.weighty = 1.0;
             contentGbc.fill = GridBagConstraints.BOTH; // Relleno en ambas direcciones
 
-            for (Procesador p : procesadores) {
+            for (Placamadre p : placasLista) {
                 // Verificar si la imagen no es nula
-                if (p.getImagen() != null) {
+                if (p.getFoto() != null) {
                     System.out.println(p.toString());
-                    ImageIcon imageIcon = new ImageIcon(p.getImagen());
+                    ImageIcon imageIcon = new ImageIcon(p.getFoto());
                     Image image = imageIcon.getImage();
                     Image scaledImage = image.getScaledInstance(180, 180, Image.SCALE_SMOOTH);
                     ImageIcon scaledIcon = new ImageIcon(scaledImage);
@@ -93,18 +94,17 @@ public class ArmadoPlacaJB {
                     label1.setAlignmentX(Component.CENTER_ALIGNMENT);
                     label1.setFont(new java.awt.Font("Montserrat", 0, 10));
                     panelComponentes.add(label1);
-                    
+
                     JLabel imageLabel = new JLabel();
                     imageLabel.setIcon(scaledIcon);
                     imageLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
                     imageLabel.setOpaque(false); // Hacer el fondo del JLabel transparente
-                    panelComponentes.add(imageLabel);                
-                    
+                    panelComponentes.add(imageLabel);
+
                     JLabel nameLabel = new JLabel(p.getMarca() + " " + p.getModelo());
                     nameLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
                     nameLabel.setFont(new java.awt.Font("Montserrat", 0, 18));
                     panelComponentes.add(nameLabel);
-                                        
 
                     JButton detalles = new JButton("Detalles");
                     detalles.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -145,13 +145,13 @@ public class ArmadoPlacaJB {
                         vistaPlaca.getJdlgDetalles().setUndecorated(true);
                         vistaPlaca.getJdlgDetalles().setVisible(true);
                         //cargar campos
-                        
-                        vistaPlaca.getLblMarca().setText(p.getMarca());
-                        vistaPlaca.getLblModelo().setText(p.getModelo());
-                        vistaPlaca.getLblNucleos().setText(String.valueOf(p.getNucleosFisicos()));
-                        vistaPlaca.getLblGHz().setText(String.valueOf(p.getGhz()));
-                        vistaPlaca.getLblSocket().setText(p.getSocket());
-                        vistaPlaca.getJdlgDetalles().setVisible(true);
+
+//                        vistaPlaca.getLblMarca().setText(p.getMarca());
+//                        vistaPlaca.getLblModelo().setText(p.getModelo());
+//                        vistaPlaca.getLblNucleos().setText(String.valueOf(p.getNucleosFisicos()));
+//                        vistaPlaca.getLblGHz().setText(String.valueOf(p.getGhz()));
+//                        vistaPlaca.getLblSocket().setText(p.getSocket());
+//                        vistaPlaca.getJdlgDetalles().setVisible(true);
                     });
 
                     // Verificar si se alcanzó el límite de 3 imágenes por fila antes de incrementar la posición en la columna
@@ -189,8 +189,11 @@ public class ArmadoPlacaJB {
             vistaPlaca.getJpComponentes().setLayout(new BorderLayout());
             vistaPlaca.getJpComponentes().add(scrollPane, BorderLayout.CENTER);
             System.out.println("aqui final metodo cargar compo");
+            // que la ventana se repinte
+            vistaPlaca.revalidate();
+            vistaPlaca.repaint();
         });
-        
+
     }
 
     public void Ventana() {
