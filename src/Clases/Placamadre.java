@@ -8,7 +8,7 @@ public class Placamadre {
     private String puertosalmacenamiento;
     private String puertosusb;
     private String socket;
-    private int tiposram;
+    private String tiposram;
     private int maximoram;
     private String ranuraexpansion;
     private String formato;
@@ -18,10 +18,10 @@ public class Placamadre {
     private int proveedor;
     private byte[] foto;
 
-    public Placamadre() {
+    public Placamadre() {      
     }
-
-    public Placamadre(int idplacam, String marca, String modelo, String puertosalmacenamiento, String puertosusb, String socket, int tiposram, int maximoram, String ranuraexpansion, String formato, int watts, double precio, int stock, int proveedor, byte[] foto) {
+    
+    public Placamadre(int idplacam, String marca, String modelo, String puertosalmacenamiento, String puertosusb, String socket, String tiposram, int maximoram, String ranuraexpansion, String formato, int watts, double precio, int stock, int proveedor, byte[] foto) {
         this.idplacam = idplacam;
         this.marca = marca;
         this.modelo = modelo;
@@ -47,20 +47,20 @@ public class Placamadre {
         this.idplacam = idplacam;
     }
 
-    public String getModelo() {
-        return modelo;
-    }
-
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
-    }
-
     public String getMarca() {
         return marca;
     }
 
     public void setMarca(String marca) {
         this.marca = marca;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
     }
 
     public String getPuertosalmacenamiento() {
@@ -87,11 +87,11 @@ public class Placamadre {
         this.socket = socket;
     }
 
-    public int getTiposram() {
+    public String getTiposram() {
         return tiposram;
     }
 
-    public void setTiposram(int tiposram) {
+    public void setTiposram(String tiposram) {
         this.tiposram = tiposram;
     }
 
@@ -161,9 +161,7 @@ public class Placamadre {
 
     @Override
     public String toString() {
-        return "placamadre{" + "idplacam=" + idplacam + ", marca=" + marca + ", modelo=" + modelo + ", puertosalmacenamiento=" + puertosalmacenamiento + ", puertosusb=" + puertosusb + ", socket=" + socket + ", tiposram=" + tiposram + ", maximoram=" + maximoram + ", ranuraexpansion=" + ranuraexpansion + ", formato=" + formato + ", watts=" + watts + ", precio=" + precio + ", stock=" + stock + ", proveedor=" + proveedor + ", foto=" + foto + '}';
+        return "Placamadre{" + "idplacam=" + idplacam + ", marca=" + marca + ", modelo=" + modelo + ", puertosalmacenamiento=" + puertosalmacenamiento + ", puertosusb=" + puertosusb + ", socket=" + socket + ", tiposram=" + tiposram + ", maximoram=" + maximoram + ", ranuraexpansion=" + ranuraexpansion + ", formato=" + formato + ", watts=" + watts + ", precio=" + precio + ", stock=" + stock + ", proveedor=" + proveedor + ", foto=" + foto + '}';
     }
     
-    
-
 }

@@ -3,6 +3,7 @@ package Controlador;
 import Clases.Placamadre;
 import Modelo.ModeloPlacaMadre;
 import Vista.ArmadoPlaca_JB;
+import Vista.ArmadoTarjetaV_JB;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -43,9 +44,7 @@ public class ArmadoPlacaJB {
         vistaPlaca.setLocationRelativeTo(null);
         CargarComponentes();
         Ventana();
-//        vistaPlaca.revalidate();
-//        vistaPlaca.repaint();
-        //vistaPlaca.getBtJdlDetalleAceptar().addActionListener(l -> AceptarDlg());
+        vistaPlaca.getBtJdlDetalleAceptar().addActionListener(l -> AceptarDlg());
     }
 
     private void CargarComponentes() {
@@ -121,7 +120,7 @@ public class ArmadoPlacaJB {
                         @Override
                         public void mouseClicked(MouseEvent e) {
                             vistaPlaca.setEnabled(false);
-                            vistaPlaca.getJdlgMensaje().setSize(509, 357);
+                            vistaPlaca.getJdlgMensaje().setSize(559, 439);
                             vistaPlaca.getJdlgMensaje().setLocationRelativeTo(null);
                             vistaPlaca.getJdlgMensaje().setUndecorated(true);
                             vistaPlaca.getJdlgMensaje().setVisible(true);
@@ -140,14 +139,16 @@ public class ArmadoPlacaJB {
 
                     detalles.addActionListener((ActionEvent e) -> {
                         vistaPlaca.setEnabled(false);
-                        vistaPlaca.getJdlgDetalles().setSize(672, 444);
+                        vistaPlaca.getJdlgDetalles().setSize(698, 470);
                         vistaPlaca.getJdlgDetalles().setLocationRelativeTo(null);
                         vistaPlaca.getJdlgDetalles().setUndecorated(true);
                         vistaPlaca.getJdlgDetalles().setVisible(true);
                         //cargar campos
 
-//                        vistaPlaca.getLblMarca().setText(p.getMarca());
-//                        vistaPlaca.getLblModelo().setText(p.getModelo());
+                        vistaPlaca.getLblMarca().setText(p.getMarca());
+                        vistaPlaca.getLblModelo().setText(p.getModelo());
+                        vistaPlaca.getLblModelo().setText(p.getFormato());
+                        vistaPlaca.getLblModelo().setText(p.getTiposram());
 //                        vistaPlaca.getLblNucleos().setText(String.valueOf(p.getNucleosFisicos()));
 //                        vistaPlaca.getLblGHz().setText(String.valueOf(p.getGhz()));
 //                        vistaPlaca.getLblSocket().setText(p.getSocket());
@@ -212,5 +213,25 @@ public class ArmadoPlacaJB {
         vistaPlaca.getJdlgDetalles().dispose();
         vistaPlaca.setEnabled(true);
         vistaPlaca.setVisible(true);
+    }
+    public void SinTarjetaDlg() {
+        vistaPlaca.getJdlgMensaje().setVisible(false);
+        vistaPlaca.getJdlgMensaje().dispose();
+        vistaPlaca.setEnabled(true); 
+        //ArmadoRam_JB vista = new ArmadoRam_JB();
+        //ArmadoRamJB controlador = new ArmadoRamJB(vista);
+        //controlador.Inicio();
+        vistaPlaca.setVisible(false);
+        vistaPlaca.dispose();
+    }
+    public void ConTarjetaDlg() {
+        vistaPlaca.getJdlgMensaje().setVisible(false);
+        vistaPlaca.getJdlgMensaje().dispose();
+        vistaPlaca.setEnabled(true); 
+        ArmadoTarjetaV_JB vista = new ArmadoTarjetaV_JB();
+        //ArmadoTarjetaVJB controlador = new ArmadoTarjetaVJB(vista);
+        //controlador.Inicio();
+        vistaPlaca.setVisible(false);
+        vistaPlaca.dispose();
     }
 }
