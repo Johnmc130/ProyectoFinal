@@ -159,7 +159,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jButton1" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="btnRealizarPedido" alignment="1" max="32767" attributes="0"/>
                                   <Component id="jSeparator1" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -186,7 +186,7 @@
                           <Component id="jLabel8" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="22" max="32767" attributes="0"/>
-                      <Component id="jButton1" min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="btnRealizarPedido" min="-2" pref="39" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -247,7 +247,7 @@
                 <Property name="text" type="java.lang.String" value="$700"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="btnRealizarPedido">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="fa" green="d4" red="0" type="rgb"/>

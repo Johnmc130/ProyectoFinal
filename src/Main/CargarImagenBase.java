@@ -25,10 +25,10 @@ public class CargarImagenBase {
     private static final String PASSWORD = "18658";
 
     public static void main(String[] args) {
-        uploadImageToDatabase(9); // Reemplaza 1 con el ID del procesador que estás actualizando
+        uploadImageToDatabase(5); // Reemplaza 1 con el ID del procesador que estás actualizando
     }
 
-    public static void uploadImageToDatabase(int idProcesador) {
+    public static void uploadImageToDatabase(int idPlaca) {
         try {
             Connection connection = DriverManager.getConnection(JDBC_URL, USER, PASSWORD);
 
@@ -45,7 +45,7 @@ public class CargarImagenBase {
                 byte[] imageData = convertImageToBytes(selectedFile);
 
                 // Actualizar la base de datos con la imagen
-                updateImageInDatabase(connection, idProcesador, imageData);
+                updateImageInDatabase(connection, idPlaca, imageData);
 
                 System.out.println("Imagen cargada exitosamente.");
             } else {
@@ -67,7 +67,7 @@ public class CargarImagenBase {
     }
 
     private static void updateImageInDatabase(Connection connection, int idProcesador, byte[] imageData) throws SQLException {
-        String sql = "UPDATE Procesador SET imagen = ? WHERE id_procesador = ?";
+        String sql = "UPDATE placamadre SET imagen = ? WHERE id = ?";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setBytes(1, imageData);

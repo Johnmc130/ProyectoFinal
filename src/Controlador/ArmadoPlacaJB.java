@@ -1,9 +1,9 @@
 package Controlador;
 
-import Modelo.ModeloProcesador;
-import Clases.Procesador;
+import Clases.Placamadre;
+import Modelo.ModeloPlacaMadre;
 import Vista.ArmadoPlaca_JB;
-import Vista.ArmadoProc_JB;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -32,32 +32,30 @@ import javax.swing.UnsupportedLookAndFeelException;
  */
 public class ArmadoPlacaJB {
 
-    private ArmadoPlaca_JB vista;
-    private Procesador procesador;
-    
+    private ArmadoPlaca_JB vistaPlaca;
+
     public ArmadoPlacaJB(ArmadoPlaca_JB vista) {
-
-        this.vista = vista;
+        this.vistaPlaca = vista;
         vista.setVisible(true);
-
     }
 
     public void Inicio() {
-        vista.setLocationRelativeTo(null);
+        vistaPlaca.setLocationRelativeTo(null);
         CargarComponentes();
         Ventana();
-        vista.getBtJdlDetalleAceptar().addActionListener(l -> AceptarDlg());
-        System.out.println("aqui");
+//        vistaPlaca.revalidate();
+//        vistaPlaca.repaint();
+        //vistaPlaca.getBtJdlDetalleAceptar().addActionListener(l -> AceptarDlg());
     }
 
     private void CargarComponentes() {
-        List<Procesador> procesadores = ModeloProcesador.cargaProcesadores();
+        List<Placamadre> placasLista = ModeloPlacaMadre.cargaPlacasMadre();
 
         // Asegurarse de que la creación y manipulación de los componentes Swing se realice en el hilo de eventos de Swing
         SwingUtilities.invokeLater(() -> {
 
             // Configurar el panel principal con un GridBagLayout
-            vista.getJpComponentes().setLayout(new GridBagLayout());
+            vistaPlaca.getJpComponentes().setLayout(new GridBagLayout());
             GridBagConstraints gbc = new GridBagConstraints();
             gbc.gridx = 0;
             gbc.gridy = 0;
@@ -77,10 +75,11 @@ public class ArmadoPlacaJB {
             contentGbc.weighty = 1.0;
             contentGbc.fill = GridBagConstraints.BOTH; // Relleno en ambas direcciones
 
-            for (Procesador p : procesadores) {
+            for (Placamadre p : placasLista) {
                 // Verificar si la imagen no es nula
-                if (p.getImagen() != null) {
-                    ImageIcon imageIcon = new ImageIcon(p.getImagen());
+                if (p.getFoto() != null) {
+                    System.out.println(p.toString());
+                    ImageIcon imageIcon = new ImageIcon(p.getFoto());
                     Image image = imageIcon.getImage();
                     Image scaledImage = image.getScaledInstance(180, 180, Image.SCALE_SMOOTH);
                     ImageIcon scaledIcon = new ImageIcon(scaledImage);
@@ -95,18 +94,17 @@ public class ArmadoPlacaJB {
                     label1.setAlignmentX(Component.CENTER_ALIGNMENT);
                     label1.setFont(new java.awt.Font("Montserrat", 0, 10));
                     panelComponentes.add(label1);
-                    
+
                     JLabel imageLabel = new JLabel();
                     imageLabel.setIcon(scaledIcon);
                     imageLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
                     imageLabel.setOpaque(false); // Hacer el fondo del JLabel transparente
-                    panelComponentes.add(imageLabel);                
-                    
+                    panelComponentes.add(imageLabel);
+
                     JLabel nameLabel = new JLabel(p.getMarca() + " " + p.getModelo());
                     nameLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
                     nameLabel.setFont(new java.awt.Font("Montserrat", 0, 18));
                     panelComponentes.add(nameLabel);
-                                        
 
                     JButton detalles = new JButton("Detalles");
                     detalles.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -122,11 +120,11 @@ public class ArmadoPlacaJB {
                     imageLabel.addMouseListener(new MouseAdapter() {
                         @Override
                         public void mouseClicked(MouseEvent e) {
-                            vista.setEnabled(false);
-                            vista.getJdlgMensaje().setSize(509, 357);
-                            vista.getJdlgMensaje().setLocationRelativeTo(null);
-                            vista.getJdlgMensaje().setUndecorated(true);
-                            vista.getJdlgMensaje().setVisible(true);
+                            vistaPlaca.setEnabled(false);
+                            vistaPlaca.getJdlgMensaje().setSize(509, 357);
+                            vistaPlaca.getJdlgMensaje().setLocationRelativeTo(null);
+                            vistaPlaca.getJdlgMensaje().setUndecorated(true);
+                            vistaPlaca.getJdlgMensaje().setVisible(true);
                         }
 
                         @Override
@@ -141,19 +139,19 @@ public class ArmadoPlacaJB {
                     });
 
                     detalles.addActionListener((ActionEvent e) -> {
-                        vista.setEnabled(false);
-                        vista.getJdlgDetalles().setSize(672, 444);
-                        vista.getJdlgDetalles().setLocationRelativeTo(null);
-                        vista.getJdlgDetalles().setUndecorated(true);
-                        vista.getJdlgDetalles().setVisible(true);
+                        vistaPlaca.setEnabled(false);
+                        vistaPlaca.getJdlgDetalles().setSize(672, 444);
+                        vistaPlaca.getJdlgDetalles().setLocationRelativeTo(null);
+                        vistaPlaca.getJdlgDetalles().setUndecorated(true);
+                        vistaPlaca.getJdlgDetalles().setVisible(true);
                         //cargar campos
-                        
-                        vista.getLblMarca().setText(p.getMarca());
-                        vista.getLblModelo().setText(p.getModelo());
-                        vista.getLblNucleos().setText(String.valueOf(p.getNucleosFisicos()));
-                        vista.getLblGHz().setText(String.valueOf(p.getGhz()));
-                        vista.getLblSocket().setText(p.getSocket());
-                        vista.getJdlgDetalles().setVisible(true);
+
+//                        vistaPlaca.getLblMarca().setText(p.getMarca());
+//                        vistaPlaca.getLblModelo().setText(p.getModelo());
+//                        vistaPlaca.getLblNucleos().setText(String.valueOf(p.getNucleosFisicos()));
+//                        vistaPlaca.getLblGHz().setText(String.valueOf(p.getGhz()));
+//                        vistaPlaca.getLblSocket().setText(p.getSocket());
+//                        vistaPlaca.getJdlgDetalles().setVisible(true);
                     });
 
                     // Verificar si se alcanzó el límite de 3 imágenes por fila antes de incrementar la posición en la columna
@@ -188,25 +186,31 @@ public class ArmadoPlacaJB {
             scrollPane.getVerticalScrollBar().setUnitIncrement(20);
 
             // Agregar el panel principal al contenedor principal (pnlLabels)
-            vista.getJpComponentes().setLayout(new BorderLayout());
-            vista.getJpComponentes().add(scrollPane, BorderLayout.CENTER);
+            vistaPlaca.getJpComponentes().setLayout(new BorderLayout());
+            vistaPlaca.getJpComponentes().add(scrollPane, BorderLayout.CENTER);
+            System.out.println("aqui final metodo cargar compo");
+            // que la ventana se repinte
+            vistaPlaca.revalidate();
+            vistaPlaca.repaint();
         });
+
     }
 
     public void Ventana() {
 
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-            SwingUtilities.updateComponentTreeUI(vista.getJpComponentes());
+            SwingUtilities.updateComponentTreeUI(vistaPlaca.getJpComponentes());
+            System.out.println("aqui swing");
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
 
         }
     }
 
     public void AceptarDlg() {
-        vista.getJdlgDetalles().setVisible(false);
-        vista.getJdlgDetalles().dispose();
-        vista.setEnabled(true);
-        vista.setVisible(true);
+        vistaPlaca.getJdlgDetalles().setVisible(false);
+        vistaPlaca.getJdlgDetalles().dispose();
+        vistaPlaca.setEnabled(true);
+        vistaPlaca.setVisible(true);
     }
 }

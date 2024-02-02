@@ -84,7 +84,7 @@
                                                   <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
                                                   <Component id="lblLogo" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
-                                                  <Component id="jComboBox1" min="-2" pref="130" max="-2" attributes="0"/>
+                                                  <Component id="jCbCategorias" min="-2" pref="130" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Group type="102" attributes="0">
                                                           <EmptySpace min="320" pref="320" max="-2" attributes="0"/>
@@ -92,12 +92,12 @@
                                                       </Group>
                                                       <Component id="jTextField1" min="-2" pref="350" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
-                                                  <Component id="jButton1" min="-2" pref="140" max="-2" attributes="0"/>
-                                                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                                                  <Component id="jLabel2" min="-2" pref="140" max="-2" attributes="0"/>
-                                                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                                                  <Component id="jButton2" min="-2" pref="140" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+                                                  <Component id="btnArmarPC" min="-2" pref="140" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="btnUsuario" min="-2" pref="140" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="btnCesta" min="-2" pref="140" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" attributes="0">
                                                   <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
@@ -161,12 +161,14 @@
                               <Group type="102" attributes="0">
                                   <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jComboBox1" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <Component id="jCbCategorias" min="-2" pref="50" max="-2" attributes="0"/>
                                       <Component id="jLabel1" min="-2" pref="50" max="-2" attributes="0"/>
                                       <Component id="jTextField1" min="-2" pref="50" max="-2" attributes="0"/>
-                                      <Component id="jButton1" min="-2" pref="50" max="-2" attributes="0"/>
-                                      <Component id="jLabel2" min="-2" pref="50" max="-2" attributes="0"/>
-                                      <Component id="jButton2" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="btnCesta" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                                          <Component id="btnUsuario" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                                          <Component id="btnArmarPC" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                           </Group>
@@ -210,12 +212,21 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBox1">
+                <Component class="javax.swing.JComboBox" name="jCbCategorias">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="2">
+                      <StringArray count="11">
                         <StringItem index="0" value="Todas las categorias"/>
-                        <StringItem index="1" value=" "/>
+                        <StringItem index="1" value="Procesadores"/>
+                        <StringItem index="2" value="Placas madre"/>
+                        <StringItem index="3" value="Tarjetas graficas"/>
+                        <StringItem index="4" value="Memorias ram"/>
+                        <StringItem index="5" value="Fuentes de poder "/>
+                        <StringItem index="6" value="Almacenamiento"/>
+                        <StringItem index="7" value="Ventiladores "/>
+                        <StringItem index="8" value="Disipadores"/>
+                        <StringItem index="9" value="Gabinetes"/>
+                        <StringItem index="10" value=" "/>
                       </StringArray>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -241,7 +252,7 @@
                     <Property name="text" type="java.lang.String" value="BUSCAR"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton1">
+                <Component class="javax.swing.JButton" name="btnArmarPC">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Roboto" size="16" style="0"/>
@@ -260,19 +271,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel2">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Roboto" size="16" style="0"/>
-                    </Property>
-                    <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Imagenes/usuario_1.png"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Usuario"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JButton" name="jButton2">
+                <Component class="javax.swing.JButton" name="btnCesta">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Roboto" size="17" style="0"/>
@@ -891,6 +890,22 @@
                     </DimensionLayout>
                   </Layout>
                 </Container>
+                <Component class="javax.swing.JButton" name="btnUsuario">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Roboto" size="17" style="0"/>
+                    </Property>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/Imagenes/usuario_1.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Usuario"/>
+                    <Property name="borderPainted" type="boolean" value="false"/>
+                    <Property name="contentAreaFilled" type="boolean" value="false"/>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Hand Cursor"/>
+                    </Property>
+                  </Properties>
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>
