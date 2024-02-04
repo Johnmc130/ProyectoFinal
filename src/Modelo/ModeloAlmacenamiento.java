@@ -63,7 +63,7 @@ public class ModeloAlmacenamiento extends almacenamiento {
     public SQLException grabarAlmacenamiento() {
 
         String sql;//"INSERT INTO TABLA () VALUES()"
-        sql = "INSERT INTO almacenamiento (marca, Modelo, tipo, capacidad, precio, idproveedoralma, stock) "
+        sql = "INSERT INTO almacenamiento (marca, Modelo, tipo, capacidad, precio, id_proveedoralma, stock) "
                 + "VALUES('" + getMarca() + "','" + getModelo() + "','" + getTipo() + "','" + getCapacidad() + "','" + getPrecio() + "','" + getId_proveedor() + "','" + getStock() + "')";
 
         return conectar.ejecutaConsulta(sql);
@@ -88,11 +88,11 @@ public class ModeloAlmacenamiento extends almacenamiento {
         ArrayList<Integer> codigosProveedor = new ArrayList<>();
 
         try (Connection conexion = new Conexion().getConexion();
-                PreparedStatement pst = conexion.prepareStatement("SELECT idproveedor FROM proveedor");
+                PreparedStatement pst = conexion.prepareStatement("SELECT id_proveedor FROM proveedor");
                 ResultSet rs = pst.executeQuery()) {
 
             while (rs.next()) {
-                int idProveedor = rs.getInt("idproveedor");
+                int idProveedor = rs.getInt("id_proveedor");
                 codigosProveedor.add(idProveedor);
             }
 
