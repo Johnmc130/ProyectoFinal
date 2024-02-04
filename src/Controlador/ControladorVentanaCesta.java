@@ -6,7 +6,7 @@
 package Controlador;
 
 import Vista.VentanaCesta;
-import Vista.VentanaPrincipal;
+import Vista.VentanaDatosEnvio;
 
 /**
  *
@@ -25,7 +25,7 @@ public class ControladorVentanaCesta {
 
     public void Inicio() {
         vista.setLocationRelativeTo(null);
-
+        iniciarControl();
         System.out.println("aqui");
     }
 
@@ -35,8 +35,8 @@ public class ControladorVentanaCesta {
 
     public void botonPedido() {
         VentanaCesta v = new VentanaCesta();
-        v.setVisible(true);
-        VentanaPrincipal p = new VentanaPrincipal();
         v.setVisible(false);
+        VentanaDatosEnvio p = new VentanaDatosEnvio();
+        v.setVisible(true);
     }
 }
