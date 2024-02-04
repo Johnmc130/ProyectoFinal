@@ -37,7 +37,7 @@ public class ModeloPlacaMadre extends Placamadre {
                 miplaca.setPuertosalmacenamiento(rs.getString("puertosdealmacenamiento"));
                 miplaca.setPuertosusb(rs.getString("puertousb"));
                 miplaca.setSocket(rs.getString("socket"));
-                miplaca.setTiposram(rs.getInt("tiporam"));
+                miplaca.setTiposram(rs.getString("tiporam"));
                 miplaca.setMaximoram(rs.getInt("maximoram"));
                 miplaca.setRanuraexpansion(rs.getString("ranurasexpansion"));
                 miplaca.setFormato(rs.getString("formato"));
@@ -74,7 +74,7 @@ public class ModeloPlacaMadre extends Placamadre {
             ps.setString(4, getPuertosalmacenamiento());
             ps.setString(5, getPuertosusb());
             ps.setString(6, getSocket());
-            ps.setInt(7, getTiposram());
+            ps.setString(7, getTiposram());
             ps.setInt(8, getMaximoram());
             ps.setString(9, getRanuraexpansion());
             ps.setString(10, getFormato());
@@ -106,7 +106,7 @@ public class ModeloPlacaMadre extends Placamadre {
             ps.setString(3, getPuertosalmacenamiento());
             ps.setString(4, getPuertosusb());
             ps.setString(5, getSocket());
-            ps.setInt(6, getTiposram());
+            ps.setString(6, getTiposram());
             ps.setInt(7, getMaximoram());
             ps.setString(8, getRanuraexpansion());
             ps.setString(9, getFormato());
@@ -201,7 +201,7 @@ public class ModeloPlacaMadre extends Placamadre {
                 String puertoAlmacenamiento = resultSet.getString("puerto_almacenamiento");
                 String puertosUSB = resultSet.getString("puertos_usb");
                 String socket = resultSet.getString("socket");
-                int tiposRam = resultSet.getInt("tipos_ram");
+                String tiposRam = resultSet.getString("tipos_ram");
                 int maximoRam = resultSet.getInt("maximo_ram");
                 String ranurasExpansion = resultSet.getString("ranuras_expansion");
                 String formato = resultSet.getString("formato");

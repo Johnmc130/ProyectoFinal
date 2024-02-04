@@ -114,7 +114,6 @@
                               <Component id="txtmodelocreaplaca" alignment="0" pref="160" max="32767" attributes="0"/>
                               <Component id="txtpuertosalma" alignment="0" pref="160" max="32767" attributes="0"/>
                               <Component id="txtpuertosusb" alignment="0" pref="160" max="32767" attributes="0"/>
-                              <Component id="sptiporamplaca" alignment="1" min="-2" pref="60" max="-2" attributes="0"/>
                               <Component id="txtsocketcreaplaca" alignment="0" pref="160" max="32767" attributes="0"/>
                               <Component id="spMaximoramplaca" alignment="1" min="-2" pref="60" max="-2" attributes="0"/>
                               <Component id="txtranuraexpcreaplaca" alignment="0" max="32767" attributes="0"/>
@@ -122,6 +121,7 @@
                               <Component id="txtpreciocreaplaca" pref="160" max="32767" attributes="0"/>
                               <Component id="txtstockcreaplaca" pref="160" max="32767" attributes="0"/>
                               <Component id="cbproveedorplaca" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txttiporamcreaplaca" alignment="0" pref="160" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="77" max="32767" attributes="0"/>
                           <Component id="btncargaplaca" min="-2" max="-2" attributes="0"/>
@@ -163,9 +163,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                          <Component id="sptiporamplaca" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                           <Component id="spMaximoramplaca" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -201,7 +199,10 @@
                           <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                           <Component id="jLabel34" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                          <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txttiporamcreaplaca" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -250,13 +251,6 @@
             <Property name="horizontalAlignment" type="int" value="4"/>
             <Property name="text" type="java.lang.String" value="Tipos Ram:"/>
             <Property name="verticalAlignment" type="int" value="3"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JSpinner" name="sptiporamplaca">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Montserrat Thin" size="18" style="0"/>
-            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel26">
@@ -597,6 +591,16 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txttiporamcreaplaca">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Montserrat" size="18" style="0"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

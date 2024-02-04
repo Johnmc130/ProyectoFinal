@@ -84,7 +84,7 @@ public class ControladorPlacaMadre {
         String puertosalmacena = vistacrea.getTxtpuertosalma().getText();
         String puertosusb = vistacrea.getTxtpuertosusb().getText();
         String socket = vistacrea.getTxtsocketcreaplaca().getText();
-        int tiporam = (Integer) vistacrea.getSptiporamplaca().getValue();
+        String tiporam = vistacrea.getTxttiporamcreaplaca().getText();
         int maximoram = (Integer) vistacrea.getSpMaximoramplaca().getValue();
         String ranuras = vistacrea.getTxtranuraexpcreaplaca().getText();
         String formato = vistacrea.getTxtformatocreaplaca2().getText();
@@ -170,7 +170,6 @@ public class ControladorPlacaMadre {
     public boolean datosVacios() {
         try {
             // Obtener los valores de los atributos
-            int tiporam = Integer.parseInt(vistacrea.getSptiporamplaca().getValue().toString());
             int maximoram = Integer.parseInt(vistacrea.getSpMaximoramplaca().getValue().toString());
             int watts = Integer.parseInt(vistacrea.getSpwattsramplaca().getValue().toString());
             Double precio = Double.parseDouble(vistacrea.getTxtpreciocreaplaca().getText());
@@ -183,18 +182,19 @@ public class ControladorPlacaMadre {
             String puertosalma = vistacrea.getTxtpuertosalma().getText();
             String puertosUSB = vistacrea.getTxtpuertosusb().getText();
             String socket = vistacrea.getTxtsocketcreaplaca().getText();
+            String tiporam = vistacrea.getTxttiporamcreaplaca().getText();
             String ranurasexp = vistacrea.getTxtranuraexpcreaplaca().getText();
             String formato = vistacrea.getTxtformatocreaplaca2().getText();
             String proveedor = (String) vistacrea.getCbproveedorplaca().getSelectedItem();
 
             // Validar campos numéricos
-            if (tiporam < 0 || maximoram < 0 || watts < 0 || precio < 0 || stock < 0) {
+            if (maximoram < 0 || watts < 0 || precio < 0 || stock < 0) {
                 JOptionPane.showMessageDialog(null, "Los campos numéricos no pueden ser negativos", "Advertencia", JOptionPane.WARNING_MESSAGE);
                 return true;
             }
 
             // Validar campos de texto
-            if (idplacam.isEmpty() || marca.isEmpty() || modelo.isEmpty() || puertosalma.isEmpty() || puertosUSB.isEmpty()
+            if (idplacam.isEmpty() ||tiporam.isEmpty() || marca.isEmpty() || modelo.isEmpty() || puertosalma.isEmpty() || puertosUSB.isEmpty()
                     || socket.isEmpty() || ranurasexp.isEmpty() || formato.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Llene todos los campos de texto", "Advertencia", JOptionPane.WARNING_MESSAGE);
                 return true;
