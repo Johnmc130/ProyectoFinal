@@ -313,14 +313,14 @@
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblRanurasExpa" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lblBahias" alignment="0" max="32767" attributes="0"/>
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="lblMarca" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
                                               <Component id="lblModelo" alignment="0" min="-2" pref="237" max="-2" attributes="0"/>
                                               <Component id="lblFormato" alignment="0" min="-2" pref="184" max="-2" attributes="0"/>
-                                              <Component id="lblTipoRam" alignment="0" min="-2" pref="193" max="-2" attributes="0"/>
-                                              <Component id="lblSocket" alignment="0" min="-2" pref="152" max="-2" attributes="0"/>
+                                              <Component id="lblNumVentil" alignment="0" min="-2" pref="193" max="-2" attributes="0"/>
+                                              <Component id="lblPuertUSB" alignment="0" min="-2" pref="152" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
@@ -348,11 +348,11 @@
                                   <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                                   <Component id="lblModelo" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lblSocket" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblPuertUSB" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lblTipoRam" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNumVentil" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                                  <Component id="lblRanurasExpa" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblBahias" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel45" min="-2" max="-2" attributes="0"/>
@@ -406,7 +406,7 @@
                     <Property name="verticalAlignment" type="int" value="3"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblTipoRam">
+                <Component class="javax.swing.JLabel" name="lblNumVentil">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Montserrat" size="18" style="1"/>
@@ -441,7 +441,7 @@
                     <Property name="verticalAlignment" type="int" value="3"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblRanurasExpa">
+                <Component class="javax.swing.JLabel" name="lblBahias">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Montserrat" size="18" style="1"/>
@@ -451,7 +451,7 @@
                     <Property name="verticalAlignment" type="int" value="3"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblSocket">
+                <Component class="javax.swing.JLabel" name="lblPuertUSB">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Montserrat" size="18" style="1"/>

@@ -45,11 +45,11 @@ public class ArmadoGabinete_JB extends javax.swing.JFrame {
         btJdlDetalleAceptar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel41 = new javax.swing.JLabel();
-        lblTipoRam = new javax.swing.JLabel();
+        lblNumVentil = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
-        lblRanurasExpa = new javax.swing.JLabel();
-        lblSocket = new javax.swing.JLabel();
+        lblBahias = new javax.swing.JLabel();
+        lblPuertUSB = new javax.swing.JLabel();
         lblMarca = new javax.swing.JLabel();
         lblModelo = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
@@ -187,10 +187,10 @@ public class ArmadoGabinete_JB extends javax.swing.JFrame {
         jLabel41.setText("bahías:");
         jLabel41.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
-        lblTipoRam.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
-        lblTipoRam.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblTipoRam.setText("---------------");
-        lblTipoRam.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        lblNumVentil.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        lblNumVentil.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblNumVentil.setText("---------------");
+        lblNumVentil.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         jLabel42.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         jLabel42.setForeground(new java.awt.Color(37, 53, 124));
@@ -203,15 +203,15 @@ public class ArmadoGabinete_JB extends javax.swing.JFrame {
         jLabel43.setText("Puertos USB:");
         jLabel43.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
-        lblRanurasExpa.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
-        lblRanurasExpa.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblRanurasExpa.setText("---------------");
-        lblRanurasExpa.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        lblBahias.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        lblBahias.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblBahias.setText("---------------");
+        lblBahias.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
-        lblSocket.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
-        lblSocket.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblSocket.setText("---------------");
-        lblSocket.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        lblPuertUSB.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        lblPuertUSB.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblPuertUSB.setText("---------------");
+        lblPuertUSB.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         lblMarca.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         lblMarca.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -290,14 +290,14 @@ public class ArmadoGabinete_JB extends javax.swing.JFrame {
                             .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblRanurasExpa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblBahias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblFormato, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblTipoRam, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblSocket, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblNumVentil, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblPuertUSB, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -317,11 +317,11 @@ public class ArmadoGabinete_JB extends javax.swing.JFrame {
                         .addGap(11, 11, 11)
                         .addComponent(lblModelo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblSocket)
+                        .addComponent(lblPuertUSB)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblTipoRam)
+                        .addComponent(lblNumVentil)
                         .addGap(8, 8, 8)
-                        .addComponent(lblRanurasExpa))
+                        .addComponent(lblBahias))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel45)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -546,14 +546,14 @@ public class ArmadoGabinete_JB extends javax.swing.JFrame {
     private javax.swing.JDialog jdlgDetalles;
     private javax.swing.JDialog jdlgMensaje;
     private javax.swing.JPanel jpComponentes;
+    private javax.swing.JLabel lblBahias;
     private javax.swing.JLabel lblFSR1;
     private javax.swing.JLabel lblFormato;
     private javax.swing.JLabel lblMarca;
     private javax.swing.JLabel lblModelo;
+    private javax.swing.JLabel lblNumVentil;
     private javax.swing.JLabel lblPrecio;
-    private javax.swing.JLabel lblRanurasExpa;
-    private javax.swing.JLabel lblSocket;
-    private javax.swing.JLabel lblTipoRam;
+    private javax.swing.JLabel lblPuertUSB;
     private javax.swing.JLabel lblTitulo1;
     private javax.swing.JLabel lblTitulo4;
     // End of variables declaration//GEN-END:variables
