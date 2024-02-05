@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JToggleButton;
 
 /**
  *
@@ -24,6 +25,10 @@ public class ArmadoProc_JB extends javax.swing.JFrame {
 
     public JButton getBtJdlAceptar() {
         return btJdlAceptar;
+    }
+
+    public JToggleButton getBtAtras() {
+        return btAtras;
     }
 
     public JButton getBtJdlAtras() {
@@ -97,12 +102,14 @@ public class ArmadoProc_JB extends javax.swing.JFrame {
         lblNucleos = new javax.swing.JLabel();
         lblModelo = new javax.swing.JLabel();
         lblGHz = new javax.swing.JLabel();
+        lblPrecio = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         lblTitulo2 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         Encabezado = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        btAtras1 = new javax.swing.JToggleButton();
+        btAtras = new javax.swing.JToggleButton();
         Cuerpo = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jpComponentes = new javax.swing.JPanel();
@@ -269,6 +276,17 @@ public class ArmadoProc_JB extends javax.swing.JFrame {
         lblGHz.setText("---------------");
         lblGHz.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
+        lblPrecio.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        lblPrecio.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblPrecio.setText("---------------");
+        lblPrecio.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+
+        jLabel40.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        jLabel40.setForeground(new java.awt.Color(37, 53, 124));
+        jLabel40.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel40.setText("Precio:");
+        jLabel40.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -277,6 +295,10 @@ public class ArmadoProc_JB extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btJdlDetalleAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(145, 145, 145)
@@ -323,8 +345,15 @@ public class ArmadoProc_JB extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel34)
                     .addComponent(lblSocket))
-                .addGap(18, 18, 18)
-                .addComponent(btJdlDetalleAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(btJdlDetalleAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel40)
+                            .addComponent(lblPrecio))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -390,24 +419,24 @@ public class ArmadoProc_JB extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logo.png"))); // NOI18N
         jLabel3.setText("Cotizacion");
 
-        btAtras1.setBackground(new java.awt.Color(255, 255, 255));
-        btAtras1.setFont(new java.awt.Font("Montserrat Black", 1, 48)); // NOI18N
-        btAtras1.setForeground(new java.awt.Color(0, 212, 250));
-        btAtras1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/atras.png"))); // NOI18N
+        btAtras.setBackground(new java.awt.Color(255, 255, 255));
+        btAtras.setFont(new java.awt.Font("Montserrat Black", 1, 48)); // NOI18N
+        btAtras.setForeground(new java.awt.Color(0, 212, 250));
+        btAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/atras.png"))); // NOI18N
 
         javax.swing.GroupLayout EncabezadoLayout = new javax.swing.GroupLayout(Encabezado);
         Encabezado.setLayout(EncabezadoLayout);
         EncabezadoLayout.setHorizontalGroup(
             EncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(EncabezadoLayout.createSequentialGroup()
-                .addComponent(btAtras1)
+                .addComponent(btAtras)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         EncabezadoLayout.setVerticalGroup(
             EncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btAtras1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btAtras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         Cuerpo.setBackground(new java.awt.Color(255, 255, 255));
@@ -480,7 +509,7 @@ public class ArmadoProc_JB extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Cuerpo;
     private javax.swing.JPanel Encabezado;
-    private javax.swing.JToggleButton btAtras1;
+    private javax.swing.JToggleButton btAtras;
     private javax.swing.JButton btJdlAceptar;
     private javax.swing.JButton btJdlAtras;
     private javax.swing.JButton btJdlDetalleAceptar;
@@ -493,6 +522,7 @@ public class ArmadoProc_JB extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -504,6 +534,7 @@ public class ArmadoProc_JB extends javax.swing.JFrame {
     private javax.swing.JLabel lblMarca;
     private javax.swing.JLabel lblModelo;
     private javax.swing.JLabel lblNucleos;
+    private javax.swing.JLabel lblPrecio;
     private javax.swing.JLabel lblSocket;
     private javax.swing.JLabel lblTitulo1;
     private javax.swing.JLabel lblTitulo2;

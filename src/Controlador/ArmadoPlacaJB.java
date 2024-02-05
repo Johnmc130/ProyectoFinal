@@ -45,6 +45,9 @@ public class ArmadoPlacaJB {
         CargarComponentes();
         Ventana();
         vistaPlaca.getBtJdlDetalleAceptar().addActionListener(l -> AceptarDlg());
+        vistaPlaca.getBtJdlMensajeElejir().addActionListener(l -> ConTarjetaDlg());
+        vistaPlaca.getBtJdlSin().addActionListener(l -> SinTarjetaDlg());
+        vistaPlaca.getBtJdlM_Atras().addActionListener(l -> AtrasDlgMensaje());
     }
 
     private void CargarComponentes() {
@@ -115,12 +118,12 @@ public class ArmadoPlacaJB {
                     label.setAlignmentX(Component.CENTER_ALIGNMENT);
                     label.setFont(new java.awt.Font("Montserrat", 0, 10));
                     panelComponentes.add(label);
-
+                    //Siguente Componente
                     imageLabel.addMouseListener(new MouseAdapter() {
                         @Override
                         public void mouseClicked(MouseEvent e) {
                             vistaPlaca.setEnabled(false);
-                            vistaPlaca.getJdlgMensaje().setSize(559, 439);
+                            vistaPlaca.getJdlgMensaje().setSize(613, 377);
                             vistaPlaca.getJdlgMensaje().setLocationRelativeTo(null);
                             vistaPlaca.getJdlgMensaje().setUndecorated(true);
                             vistaPlaca.getJdlgMensaje().setVisible(true);
@@ -139,7 +142,7 @@ public class ArmadoPlacaJB {
 
                     detalles.addActionListener((ActionEvent e) -> {
                         vistaPlaca.setEnabled(false);
-                        vistaPlaca.getJdlgDetalles().setSize(698, 470);
+                        vistaPlaca.getJdlgDetalles().setSize(731, 502);
                         vistaPlaca.getJdlgDetalles().setLocationRelativeTo(null);
                         vistaPlaca.getJdlgDetalles().setUndecorated(true);
                         vistaPlaca.getJdlgDetalles().setVisible(true);
@@ -147,12 +150,11 @@ public class ArmadoPlacaJB {
 
                         vistaPlaca.getLblMarca().setText(p.getMarca());
                         vistaPlaca.getLblModelo().setText(p.getModelo());
-                        vistaPlaca.getLblModelo().setText(p.getFormato());
-                        vistaPlaca.getLblModelo().setText(p.getTiposram());
-//                        vistaPlaca.getLblNucleos().setText(String.valueOf(p.getNucleosFisicos()));
-//                        vistaPlaca.getLblGHz().setText(String.valueOf(p.getGhz()));
-//                        vistaPlaca.getLblSocket().setText(p.getSocket());
-//                        vistaPlaca.getJdlgDetalles().setVisible(true);
+                        vistaPlaca.getLblFormato().setText(p.getFormato());
+                        vistaPlaca.getLblTipoRam().setText(p.getTiposram());
+                        vistaPlaca.getLblSocket().setText(p.getSocket());
+                        vistaPlaca.getLblRanurasExpa().setText(p.getRanuraexpansion());
+                        vistaPlaca.getJdlgDetalles().setVisible(true);
                     });
 
                     // Verificar si se alcanzó el límite de 3 imágenes por fila antes de incrementar la posición en la columna
@@ -218,9 +220,9 @@ public class ArmadoPlacaJB {
         vistaPlaca.getJdlgMensaje().setVisible(false);
         vistaPlaca.getJdlgMensaje().dispose();
         vistaPlaca.setEnabled(true); 
-        //ArmadoRam_JB vista = new ArmadoRam_JB();
-        //ArmadoRamJB controlador = new ArmadoRamJB(vista);
-        //controlador.Inicio();
+//        ArmadoRam_JB vista = new ArmadoRam_JB();
+//        ArmadoRamJB controlador = new ArmadoRamJB(vista);
+//        controlador.Inicio();
         vistaPlaca.setVisible(false);
         vistaPlaca.dispose();
     }
@@ -229,9 +231,15 @@ public class ArmadoPlacaJB {
         vistaPlaca.getJdlgMensaje().dispose();
         vistaPlaca.setEnabled(true); 
         ArmadoTarjetaV_JB vista = new ArmadoTarjetaV_JB();
-        //ArmadoTarjetaVJB controlador = new ArmadoTarjetaVJB(vista);
-        //controlador.Inicio();
+//        ArmadoTarjetaVJB controlador = new ArmadoTarjetaVJB(vista);
+//        controlador.Inicio();
         vistaPlaca.setVisible(false);
         vistaPlaca.dispose();
+    }
+    public void AtrasDlgMensaje() {
+        vistaPlaca.getJdlgMensaje().setVisible(false);
+        vistaPlaca.getJdlgMensaje().dispose();
+        vistaPlaca.setEnabled(true);
+        vistaPlaca.setVisible(true);
     }
 }

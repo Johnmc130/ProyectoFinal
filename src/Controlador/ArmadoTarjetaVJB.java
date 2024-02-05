@@ -1,9 +1,10 @@
 package Controlador;
 
-import Modelo.ModeloProcesador;
-import Clases.Procesador;
+import Clases.Placamadre;
+import Modelo.ModeloPlacaMadre;
 import Vista.ArmadoPlaca_JB;
-import Vista.ArmadoProc_JB;
+import Vista.ArmadoTarjetaV_JB;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -30,35 +31,33 @@ import javax.swing.UnsupportedLookAndFeelException;
  *
  * @author TheBigG
  */
-public class ArmadoProcJB {
+public class ArmadoTarjetaVJB {
 
-    private ArmadoProc_JB vista;
-    private Procesador procesador;
+    private ArmadoPlaca_JB vistaPlaca;
 
-    public ArmadoProcJB(ArmadoProc_JB vista) {
-
-        this.vista = vista;
+    public ArmadoTarjetaVJB(ArmadoPlaca_JB vista) {
+        this.vistaPlaca = vista;
         vista.setVisible(true);
-
     }
 
     public void Inicio() {
-        vista.setLocationRelativeTo(null);
+        vistaPlaca.setLocationRelativeTo(null);
         CargarComponentes();
         Ventana();
-        vista.getBtJdlDetalleAceptar().addActionListener(l -> AceptarDlgDetalle());
-        vista.getBtJdlAceptar().addActionListener(l -> AceptarDlg());
-        vista.getBtJdlAtras().addActionListener(l -> AtrasDlgMensaje());
+        vistaPlaca.getBtJdlDetalleAceptar().addActionListener(l -> AceptarDlg());
+        vistaPlaca.getBtJdlMensajeElejir().addActionListener(l -> ConTarjetaDlg());
+        vistaPlaca.getBtJdlSin().addActionListener(l -> SinTarjetaDlg());
+        vistaPlaca.getBtJdlM_Atras().addActionListener(l -> AtrasDlgMensaje());
     }
 
     private void CargarComponentes() {
-        List<Procesador> procesadores = ModeloProcesador.cargaProcesadores();
+        List<Placamadre> placasLista = ModeloPlacaMadre.cargaPlacasMadre();
 
         // Asegurarse de que la creación y manipulación de los componentes Swing se realice en el hilo de eventos de Swing
         SwingUtilities.invokeLater(() -> {
 
             // Configurar el panel principal con un GridBagLayout
-            vista.getJpComponentes().setLayout(new GridBagLayout());
+            vistaPlaca.getJpComponentes().setLayout(new GridBagLayout());
             GridBagConstraints gbc = new GridBagConstraints();
             gbc.gridx = 0;
             gbc.gridy = 0;
@@ -78,11 +77,11 @@ public class ArmadoProcJB {
             contentGbc.weighty = 1.0;
             contentGbc.fill = GridBagConstraints.BOTH; // Relleno en ambas direcciones
 
-            for (Procesador p : procesadores) {
+            for (Placamadre p : placasLista) {
                 // Verificar si la imagen no es nula
-                if (p.getImagen() != null) {
+                if (p.getFoto() != null) {
                     System.out.println(p.toString());
-                    ImageIcon imageIcon = new ImageIcon(p.getImagen());
+                    ImageIcon imageIcon = new ImageIcon(p.getFoto());
                     Image image = imageIcon.getImage();
                     Image scaledImage = image.getScaledInstance(180, 180, Image.SCALE_SMOOTH);
                     ImageIcon scaledIcon = new ImageIcon(scaledImage);
@@ -119,18 +118,15 @@ public class ArmadoProcJB {
                     label.setAlignmentX(Component.CENTER_ALIGNMENT);
                     label.setFont(new java.awt.Font("Montserrat", 0, 10));
                     panelComponentes.add(label);
-
+                    //Siguente Componente
                     imageLabel.addMouseListener(new MouseAdapter() {
                         @Override
                         public void mouseClicked(MouseEvent e) {
-                            vista.setEnabled(false);
-                            vista.getJdlgMensaje().setSize(509, 357);
-                            vista.getJdlgMensaje().setLocationRelativeTo(null);
-                            vista.getJdlgMensaje().setUndecorated(true);
-                            vista.getJdlgMensaje().setVisible(true);
-
-                            procesador = new Procesador(p.getIdProcesador(), p.getMarca(), p.getModelo(), p.getNucleosFisicos(), p.getGhz(),
-                                    p.getSocket(), p.getMaximoVram(), p.getWatts(), p.getPrecio(), p.getImagen(), p.getStock(), p.getIdProveedor());
+                            vistaPlaca.setEnabled(false);
+                            vistaPlaca.getJdlgMensaje().setSize(613, 377);
+                            vistaPlaca.getJdlgMensaje().setLocationRelativeTo(null);
+                            vistaPlaca.getJdlgMensaje().setUndecorated(true);
+                            vistaPlaca.getJdlgMensaje().setVisible(true);
                         }
 
                         @Override
@@ -145,19 +141,20 @@ public class ArmadoProcJB {
                     });
 
                     detalles.addActionListener((ActionEvent e) -> {
-                        vista.setEnabled(false);
-                        vista.getJdlgDetalles().setSize(672, 444);
-                        vista.getJdlgDetalles().setLocationRelativeTo(null);
-                        vista.getJdlgDetalles().setUndecorated(true);
-                        vista.getJdlgDetalles().setVisible(true);
+                        vistaPlaca.setEnabled(false);
+                        vistaPlaca.getJdlgDetalles().setSize(731, 502);
+                        vistaPlaca.getJdlgDetalles().setLocationRelativeTo(null);
+                        vistaPlaca.getJdlgDetalles().setUndecorated(true);
+                        vistaPlaca.getJdlgDetalles().setVisible(true);
                         //cargar campos
 
-                        vista.getLblMarca().setText(p.getMarca());
-                        vista.getLblModelo().setText(p.getModelo());
-                        vista.getLblNucleos().setText(String.valueOf(p.getNucleosFisicos()));
-                        vista.getLblGHz().setText(String.valueOf(p.getGhz()));
-                        vista.getLblSocket().setText(p.getSocket());
-                        vista.getJdlgDetalles().setVisible(true);
+                        vistaPlaca.getLblMarca().setText(p.getMarca());
+                        vistaPlaca.getLblModelo().setText(p.getModelo());
+                        vistaPlaca.getLblFormato().setText(p.getFormato());
+                        vistaPlaca.getLblTipoRam().setText(p.getTiposram());
+                        vistaPlaca.getLblSocket().setText(p.getSocket());
+                        vistaPlaca.getLblRanurasExpa().setText(p.getRanuraexpansion());
+                        vistaPlaca.getJdlgDetalles().setVisible(true);
                     });
 
                     // Verificar si se alcanzó el límite de 3 imágenes por fila antes de incrementar la posición en la columna
@@ -192,46 +189,57 @@ public class ArmadoProcJB {
             scrollPane.getVerticalScrollBar().setUnitIncrement(20);
 
             // Agregar el panel principal al contenedor principal (pnlLabels)
-            vista.getJpComponentes().setLayout(new BorderLayout());
-            vista.getJpComponentes().add(scrollPane, BorderLayout.CENTER);
+            vistaPlaca.getJpComponentes().setLayout(new BorderLayout());
+            vistaPlaca.getJpComponentes().add(scrollPane, BorderLayout.CENTER);
+            System.out.println("aqui final metodo cargar compo");
             // que la ventana se repinte
-            vista.revalidate();
-            vista.repaint();
+            vistaPlaca.revalidate();
+            vistaPlaca.repaint();
         });
+
     }
 
     public void Ventana() {
 
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-            SwingUtilities.updateComponentTreeUI(vista.getJpComponentes());
+            SwingUtilities.updateComponentTreeUI(vistaPlaca.getJpComponentes());
+            System.out.println("aqui swing");
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
 
         }
     }
 
-    public void AceptarDlgDetalle() {
-        vista.getJdlgDetalles().setVisible(false);
-        vista.getJdlgDetalles().dispose();
-        vista.setEnabled(true);
-        vista.setVisible(true);
-    }
-    
     public void AceptarDlg() {
-        vista.getJdlgMensaje().setVisible(false);
-        vista.getJdlgMensaje().dispose();
-        vista.setEnabled(true); 
-        ArmadoPlaca_JB vistaPlaca = new ArmadoPlaca_JB();
-        ArmadoPlacaJB controlador = new ArmadoPlacaJB(vistaPlaca);
-        controlador.Inicio();
-        vista.setVisible(false);
-        vista.dispose();
-        
+        vistaPlaca.getJdlgDetalles().setVisible(false);
+        vistaPlaca.getJdlgDetalles().dispose();
+        vistaPlaca.setEnabled(true);
+        vistaPlaca.setVisible(true);
+    }
+    public void SinTarjetaDlg() {
+        vistaPlaca.getJdlgMensaje().setVisible(false);
+        vistaPlaca.getJdlgMensaje().dispose();
+        vistaPlaca.setEnabled(true); 
+        //ArmadoRam_JB vista = new ArmadoRam_JB();
+        //ArmadoRamJB controlador = new ArmadoRamJB(vista);
+        //controlador.Inicio();
+        vistaPlaca.setVisible(false);
+        vistaPlaca.dispose();
+    }
+    public void ConTarjetaDlg() {
+        vistaPlaca.getJdlgMensaje().setVisible(false);
+        vistaPlaca.getJdlgMensaje().dispose();
+        vistaPlaca.setEnabled(true); 
+        ArmadoTarjetaV_JB vista = new ArmadoTarjetaV_JB();
+        //ArmadoTarjetaVJB controlador = new ArmadoTarjetaVJB(vista);
+        //controlador.Inicio();
+        vistaPlaca.setVisible(false);
+        vistaPlaca.dispose();
     }
     public void AtrasDlgMensaje() {
-        vista.getJdlgMensaje().setVisible(false);
-        vista.getJdlgMensaje().dispose();
-        vista.setEnabled(true);
-        vista.setVisible(true);
+        vistaPlaca.getJdlgMensaje().setVisible(false);
+        vistaPlaca.getJdlgMensaje().dispose();
+        vistaPlaca.setEnabled(true);
+        vistaPlaca.setVisible(true);
     }
 }
