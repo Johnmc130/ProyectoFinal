@@ -28,9 +28,9 @@ public class ProyectoFinal {
 //        CRUD_Productos_JB vista = new CRUD_Productos_JB();
 //        CRUD_ProductosJB control = new CRUD_ProductosJB(vista);
 //        control.iniciar();
-//        ArmadoProc_JB vistaA = new ArmadoProc_JB();
-//        ArmadoProcJB controlador = new ArmadoProcJB(vistaA);
-//        controlador.Inicio();
+        ArmadoProc_JB vistaA = new ArmadoProc_JB();
+        ArmadoProcJB controlador = new ArmadoProcJB(vistaA);
+        controlador.Inicio();
 //        VentanaPrincipal v = new VentanaPrincipal();
 //        ControladorVentanaPrin contro = new ControladorVentanaPrin(v);
 //        contro.iniciarControl();
@@ -38,12 +38,12 @@ public class ProyectoFinal {
 //          Modelo.ModeloAlmacenamiento mAl = new ModeloAlmacenamiento();
 //          ControladorAlmacenamiento Clo = new ControladorAlmacenamiento(mAl, vis);
 //          Clo.iniciaControl();
-        VentanaDatosEnvio dat = new VentanaDatosEnvio();
-        ModeloDatosEnvio mDtos = new ModeloDatosEnvio();
-        ModeloPersona mPersona = new ModeloPersona();
-        ModeloCliente mCliente = new ModeloCliente();
-        ControladorVenDatosEnvio log = new ControladorVenDatosEnvio(mCliente, mPersona, mDtos, dat);
-        log.iniciaControlador();
+//        VentanaDatosEnvio dat = new VentanaDatosEnvio();
+//        ModeloDatosEnvio mDtos = new ModeloDatosEnvio();
+//        ModeloPersona mPersona = new ModeloPersona();
+//        ModeloCliente mCliente = new ModeloCliente();
+//        ControladorVenDatosEnvio log = new ControladorVenDatosEnvio(mCliente, mPersona, mDtos, dat);
+//        log.iniciaControlador();
 
 //        ArmadoPlaca_JB vistaA = new ArmadoPlaca_JB();
 //        ArmadoPlacaJB controlador = new ArmadoPlacaJB(vistaA);

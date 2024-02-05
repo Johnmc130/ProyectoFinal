@@ -31,11 +31,11 @@ import javax.swing.UnsupportedLookAndFeelException;
  *
  * @author TheBigG
  */
-public class ArmadoPlacaJB {
+public class ArmadoTarjetaVJB {
 
     private ArmadoPlaca_JB vistaPlaca;
 
-    public ArmadoPlacaJB(ArmadoPlaca_JB vista) {
+    public ArmadoTarjetaVJB(ArmadoPlaca_JB vista) {
         this.vistaPlaca = vista;
         vista.setVisible(true);
     }
@@ -46,7 +46,6 @@ public class ArmadoPlacaJB {
 
         vistaPlaca.getBtJdlDetalleAceptar().addActionListener(l -> AceptarDlg());
         vistaPlaca.getBtJdlMensajeElejir().addActionListener(l -> ConTarjetaDlg());
-        vistaPlaca.getBtJdlSin().addActionListener(l -> SinTarjetaDlg());
         vistaPlaca.getBtJdlMAtras().addActionListener(l -> AtrasDlgMensaje());
         Ventana();
     }
@@ -218,17 +217,6 @@ public class ArmadoPlacaJB {
         vistaPlaca.setVisible(true);
     }
 
-    public void SinTarjetaDlg() {
-        vistaPlaca.getJdlgMensaje().setVisible(false);
-        vistaPlaca.getJdlgMensaje().dispose();
-        vistaPlaca.setEnabled(true);
-//        ArmadoRam_JB vista = new ArmadoRam_JB();
-//        ArmadoRamJB controlador = new ArmadoRamJB(vista);
-//        controlador.Inicio();
-        vistaPlaca.setVisible(false);
-        vistaPlaca.dispose();
-    }
-
     public void ConTarjetaDlg() {
         vistaPlaca.getJdlgMensaje().setVisible(false);
         vistaPlaca.getJdlgMensaje().dispose();
@@ -241,10 +229,6 @@ public class ArmadoPlacaJB {
     }
 
     public void AtrasDlgMensaje() {
-//        vistaPlaca.getJdlgMensaje().setVisible(false);
-//        vistaPlaca.getJdlgMensaje().dispose();
-//        vistaPlaca.setEnabled(true);
-//        vistaPlaca.setVisible(true);
         SwingUtilities.invokeLater(() -> {
             vistaPlaca.getJdlgMensaje().setVisible(false);
             vistaPlaca.getJdlgMensaje().dispose();
