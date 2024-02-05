@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import Controlador.ControladorVentanaPrin;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -65,36 +66,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jpComponentes = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
-        jLabel22 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButton3 = new javax.swing.JButton();
-        jLabel11 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
-        jLabel23 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jTextArea4 = new javax.swing.JTextArea();
-        jLabel24 = new javax.swing.JLabel();
-        jButton8 = new javax.swing.JButton();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        jTextArea5 = new javax.swing.JTextArea();
-        jLabel25 = new javax.swing.JLabel();
-        jButton9 = new javax.swing.JButton();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        jTextArea6 = new javax.swing.JTextArea();
-        jLabel26 = new javax.swing.JLabel();
-        jButton10 = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel21 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
@@ -153,162 +124,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jpComponentes.setBackground(new java.awt.Color(255, 255, 255));
         jpComponentes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Case blanco.jpg"))); // NOI18N
-        jpComponentes.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 190, 160));
-
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fuente de poder.jpg"))); // NOI18N
-        jpComponentes.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, 190, 160));
-
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Procesador.jpg"))); // NOI18N
-        jpComponentes.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 10, 190, 160));
-
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Ram.jpg"))); // NOI18N
-        jpComponentes.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 10, 190, 160));
-
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Regulador de voltaje.jpg"))); // NOI18N
-        jpComponentes.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 10, 190, 160));
-
-        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Ventilador.jpg"))); // NOI18N
-        jpComponentes.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 10, 190, 160));
-
-        jTextArea2.setEditable(false);
-        jTextArea2.setColumns(20);
-        jTextArea2.setFont(new java.awt.Font("Roboto", 0, 15)); // NOI18N
-        jTextArea2.setForeground(new java.awt.Color(51, 51, 51));
-        jTextArea2.setLineWrap(true);
-        jTextArea2.setRows(5);
-        jTextArea2.setText("Lenovo IdeaPad Slim 3 15IAH8 Intel Core i5-12450H/16GB/512GB SSD/15.6''");
-        jTextArea2.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        jTextArea2.setOpaque(false);
-        jScrollPane3.setViewportView(jTextArea2);
-
-        jpComponentes.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 190, 100));
-
-        jLabel22.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
-        jLabel22.setText("700$");
-        jpComponentes.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 190, 40));
-
-        jButton6.setForeground(new java.awt.Color(51, 51, 51));
-        jButton6.setText("Comprar");
-        jButton6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 2, true));
-        jButton6.setContentAreaFilled(false);
-        jpComponentes.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 190, 30));
-
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Roboto", 0, 15)); // NOI18N
-        jTextArea1.setForeground(new java.awt.Color(51, 51, 51));
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Lenovo IdeaPad Slim 3 15IAH8 Intel Core i5-12450H/16GB/512GB SSD/15.6''");
-        jTextArea1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        jTextArea1.setOpaque(false);
-        jScrollPane1.setViewportView(jTextArea1);
-
-        jpComponentes.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 190, 100));
-
-        jButton3.setForeground(new java.awt.Color(51, 51, 51));
-        jButton3.setText("Comprar");
-        jButton3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 2, true));
-        jButton3.setContentAreaFilled(false);
-        jpComponentes.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 190, 30));
-
-        jLabel11.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
-        jLabel11.setText("700$");
-        jpComponentes.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 190, 40));
-
-        jTextArea3.setEditable(false);
-        jTextArea3.setColumns(20);
-        jTextArea3.setFont(new java.awt.Font("Roboto", 0, 15)); // NOI18N
-        jTextArea3.setForeground(new java.awt.Color(51, 51, 51));
-        jTextArea3.setLineWrap(true);
-        jTextArea3.setRows(5);
-        jTextArea3.setText("Lenovo IdeaPad Slim 3 15IAH8 Intel Core i5-12450H/16GB/512GB SSD/15.6''");
-        jTextArea3.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        jTextArea3.setOpaque(false);
-        jScrollPane4.setViewportView(jTextArea3);
-
-        jpComponentes.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 170, 190, 100));
-
-        jLabel23.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
-        jLabel23.setText("700$");
-        jpComponentes.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 270, 190, 40));
-
-        jButton7.setForeground(new java.awt.Color(51, 51, 51));
-        jButton7.setText("Comprar");
-        jButton7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 2, true));
-        jButton7.setContentAreaFilled(false);
-        jpComponentes.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 320, 190, 30));
-
-        jTextArea4.setEditable(false);
-        jTextArea4.setColumns(20);
-        jTextArea4.setFont(new java.awt.Font("Roboto", 0, 15)); // NOI18N
-        jTextArea4.setForeground(new java.awt.Color(51, 51, 51));
-        jTextArea4.setLineWrap(true);
-        jTextArea4.setRows(5);
-        jTextArea4.setText("Lenovo IdeaPad Slim 3 15IAH8 Intel Core i5-12450H/16GB/512GB SSD/15.6''");
-        jTextArea4.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        jTextArea4.setOpaque(false);
-        jScrollPane5.setViewportView(jTextArea4);
-
-        jpComponentes.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 170, 190, 100));
-
-        jLabel24.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
-        jLabel24.setText("700$");
-        jpComponentes.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 270, 190, 40));
-
-        jButton8.setForeground(new java.awt.Color(51, 51, 51));
-        jButton8.setText("Comprar");
-        jButton8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 2, true));
-        jButton8.setContentAreaFilled(false);
-        jpComponentes.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 320, 190, 30));
-
-        jTextArea5.setEditable(false);
-        jTextArea5.setColumns(20);
-        jTextArea5.setFont(new java.awt.Font("Roboto", 0, 15)); // NOI18N
-        jTextArea5.setForeground(new java.awt.Color(51, 51, 51));
-        jTextArea5.setLineWrap(true);
-        jTextArea5.setRows(5);
-        jTextArea5.setText("Lenovo IdeaPad Slim 3 15IAH8 Intel Core i5-12450H/16GB/512GB SSD/15.6''");
-        jTextArea5.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        jTextArea5.setOpaque(false);
-        jScrollPane6.setViewportView(jTextArea5);
-
-        jpComponentes.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 170, 190, 100));
-
-        jLabel25.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
-        jLabel25.setText("700$");
-        jpComponentes.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 270, 190, 40));
-
-        jButton9.setForeground(new java.awt.Color(51, 51, 51));
-        jButton9.setText("Comprar");
-        jButton9.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 2, true));
-        jButton9.setContentAreaFilled(false);
-        jpComponentes.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 320, 190, 30));
-
-        jTextArea6.setEditable(false);
-        jTextArea6.setColumns(20);
-        jTextArea6.setFont(new java.awt.Font("Roboto", 0, 15)); // NOI18N
-        jTextArea6.setForeground(new java.awt.Color(51, 51, 51));
-        jTextArea6.setLineWrap(true);
-        jTextArea6.setRows(5);
-        jTextArea6.setText("Descripción");
-        jTextArea6.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        jTextArea6.setOpaque(false);
-        jScrollPane7.setViewportView(jTextArea6);
-
-        jpComponentes.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 170, 190, 100));
-
-        jLabel26.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
-        jLabel26.setText("Precio");
-        jpComponentes.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 270, 190, 40));
-
-        jButton10.setForeground(new java.awt.Color(51, 51, 51));
-        jButton10.setText("Comprar");
-        jButton10.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 2, true));
-        jButton10.setContentAreaFilled(false);
-        jpComponentes.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 320, 190, 30));
         jpComponentes.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 800, 1330, 10));
 
         jLabel21.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -482,35 +297,51 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-   
+public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(VentanaDatosEnvio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(VentanaDatosEnvio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(VentanaDatosEnvio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(VentanaDatosEnvio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
 
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                
+                
+                new VentanaPrincipal().setVisible(true);
+                
+            }
+        });
+    }
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnArmarPC;
     private javax.swing.JButton btnCesta;
     private javax.swing.JButton btnUsuario;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jCbCategorias;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -521,23 +352,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextArea jTextArea4;
-    private javax.swing.JTextArea jTextArea5;
-    private javax.swing.JTextArea jTextArea6;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel jpComponentes;
     private javax.swing.JLabel lblLogo;

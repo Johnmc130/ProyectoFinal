@@ -84,12 +84,12 @@ public class CrearPlacaMadre extends javax.swing.JFrame {
         this.spMaximoramplaca = spMaximoramplaca;
     }
 
-    public JSpinner getSptiporamplaca() {
-        return sptiporamplaca;
+    public JTextField getTxttiporamcreaplaca() {
+        return txttiporamcreaplaca;
     }
 
-    public void setSptiporamplaca(JSpinner sptiporamplaca) {
-        this.sptiporamplaca = sptiporamplaca;
+    public void setTxttiporamcreaplaca(JTextField txttiporamcreaplaca) {
+        this.txttiporamcreaplaca = txttiporamcreaplaca;
     }
 
     public JSpinner getSpwattsramplaca() {
@@ -188,7 +188,6 @@ public class CrearPlacaMadre extends javax.swing.JFrame {
         btnCrearplacam = new javax.swing.JButton();
         txtsocketcreaplaca = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
-        sptiporamplaca = new javax.swing.JSpinner();
         jLabel26 = new javax.swing.JLabel();
         spMaximoramplaca = new javax.swing.JSpinner();
         jLabel27 = new javax.swing.JLabel();
@@ -219,6 +218,7 @@ public class CrearPlacaMadre extends javax.swing.JFrame {
         txtpreciocreaplaca = new javax.swing.JTextField();
         txtstockcreaplaca = new javax.swing.JTextField();
         cbproveedorplaca = new javax.swing.JComboBox<>();
+        txttiporamcreaplaca = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -236,8 +236,6 @@ public class CrearPlacaMadre extends javax.swing.JFrame {
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel25.setText("Tipos Ram:");
         jLabel25.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-
-        sptiporamplaca.setFont(new java.awt.Font("Montserrat Thin", 0, 18)); // NOI18N
 
         jLabel26.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -375,6 +373,9 @@ public class CrearPlacaMadre extends javax.swing.JFrame {
 
         cbproveedorplaca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
 
+        txttiporamcreaplaca.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
+        txttiporamcreaplaca.setBorder(null);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -422,14 +423,14 @@ public class CrearPlacaMadre extends javax.swing.JFrame {
                             .addComponent(txtmodelocreaplaca, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
                             .addComponent(txtpuertosalma, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
                             .addComponent(txtpuertosusb, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-                            .addComponent(sptiporamplaca, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtsocketcreaplaca, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
                             .addComponent(spMaximoramplaca, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtranuraexpcreaplaca)
                             .addComponent(txtformatocreaplaca2, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
                             .addComponent(txtpreciocreaplaca, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
                             .addComponent(txtstockcreaplaca, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-                            .addComponent(cbproveedorplaca, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(cbproveedorplaca, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txttiporamcreaplaca, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE))
                         .addGap(0, 77, Short.MAX_VALUE)
                         .addComponent(btncargaplaca)
                         .addGap(18, 18, 18)
@@ -462,9 +463,7 @@ public class CrearPlacaMadre extends javax.swing.JFrame {
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btncargaplaca)
                                     .addComponent(lbplacaimg, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(7, 7, 7)
-                        .addComponent(sptiporamplaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(43, 43, 43)
                         .addComponent(spMaximoramplaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -495,7 +494,9 @@ public class CrearPlacaMadre extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addComponent(jLabel34)
                         .addGap(10, 10, 10)
-                        .addComponent(jLabel25)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel25)
+                            .addComponent(txttiporamcreaplaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel26)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -559,7 +560,6 @@ public class CrearPlacaMadre extends javax.swing.JFrame {
     private javax.swing.JLabel lbIdcreaplaca;
     private javax.swing.JLabel lbplacaimg;
     private javax.swing.JSpinner spMaximoramplaca;
-    private javax.swing.JSpinner sptiporamplaca;
     private javax.swing.JSpinner spwattsramplaca;
     private javax.swing.JTextField txtformatocreaplaca2;
     private javax.swing.JTextField txtmarcacreaplaca;
@@ -570,5 +570,6 @@ public class CrearPlacaMadre extends javax.swing.JFrame {
     private javax.swing.JTextField txtranuraexpcreaplaca;
     private javax.swing.JTextField txtsocketcreaplaca;
     private javax.swing.JTextField txtstockcreaplaca;
+    private javax.swing.JTextField txttiporamcreaplaca;
     // End of variables declaration//GEN-END:variables
 }
