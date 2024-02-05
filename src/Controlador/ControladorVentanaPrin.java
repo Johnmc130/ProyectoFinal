@@ -5,7 +5,9 @@
  */
 package Controlador;
 
+import Clases.Placamadre;
 import Clases.Procesador;
+import Modelo.ModeloPlacaMadre;
 import Modelo.ModeloProcesador;
 import Vista.ArmadoPlaca_JB;
 import Vista.VentanaCesta;
@@ -69,12 +71,13 @@ public class ControladorVentanaPrin {
 
     private void CargarComponentes() {
         List<Procesador> procesadores = ModeloProcesador.cargaProcesadores();
+        List<Placamadre> placamadre = ModeloPlacaMadre.cargaPlacasMadre();
 
         SwingUtilities.invokeLater(() -> {
             JPanel contentPanel = new JPanel();
             contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.X_AXIS));
             contentPanel.setBackground(Color.WHITE);
-
+// Cargar procesadores
             for (Procesador p : procesadores) {
                 if (p.getImagen() != null) {
                     ImageIcon imageIcon = new ImageIcon(p.getImagen());
@@ -141,6 +144,73 @@ public class ControladorVentanaPrin {
                     contentPanel.add(panelComponentes);
                 }
             }
+            // Cargar placas madre
+            for (Placamadre pm : placamadre) {
+                if (pm.getFoto() != null) {
+                    ImageIcon imageIcon = new ImageIcon(pm.getFoto());
+                    Image image = imageIcon.getImage();
+                    Image scaledImage = image.getScaledInstance(180, 180, Image.SCALE_SMOOTH);
+                    ImageIcon scaledIcon = new ImageIcon(scaledImage);
+
+                    JPanel panelComponentes = new JPanel();
+                    panelComponentes.setLayout(new BoxLayout(panelComponentes, BoxLayout.Y_AXIS));
+                    panelComponentes.setBackground(Color.WHITE);
+                    panelComponentes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 212, 250), 3));
+
+                    JLabel label1 = new JLabel(" ");
+                    label1.setAlignmentX(Component.CENTER_ALIGNMENT);
+                    label1.setFont(new java.awt.Font("Montserrat", 0, 10));
+                    panelComponentes.add(label1);
+
+                    JLabel imageLabel = new JLabel();
+                    imageLabel.setIcon(scaledIcon);
+                    imageLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+                    imageLabel.setOpaque(false);
+                    panelComponentes.add(imageLabel);
+
+                    JLabel nameLabel = new JLabel(pm.getMarca() + " " + pm.getModelo());
+                    nameLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+                    nameLabel.setFont(new java.awt.Font("Montserrat", 0, 18));
+                    panelComponentes.add(nameLabel);
+
+                    JButton detalles = new JButton("Detalles");
+                    detalles.setAlignmentX(Component.LEFT_ALIGNMENT);
+                    detalles.setFont(new java.awt.Font("Montserrat", 0, 14));
+                    detalles.setForeground(Color.BLUE);
+                    panelComponentes.add(detalles);
+
+                    JLabel label = new JLabel(" ");
+                    label.setAlignmentX(Component.CENTER_ALIGNMENT);
+                    label.setFont(new java.awt.Font("Montserrat", 0, 10));
+                    panelComponentes.add(label);
+
+                    imageLabel.addMouseListener(new MouseAdapter() {
+                        @Override
+                        public void mouseClicked(MouseEvent e) {
+                            // Agrega acciones para el clic en la imagen si es necesario
+                        }
+
+                        @Override
+                        public void mouseEntered(MouseEvent e) {
+                            imageLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+                        }
+
+                        @Override
+                        public void mouseExited(MouseEvent e) {
+                            imageLabel.setCursor(Cursor.getDefaultCursor());
+                        }
+                    });
+
+                    detalles.addActionListener((ActionEvent e) -> {
+                        int option = JOptionPane.showOptionDialog(vista, getDetallesMessage(pm), "Detalles", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, null, null);
+                        if (option == JOptionPane.OK_OPTION) {
+                            // Acciones adicionales después de hacer clic en OK
+                        }
+                    });
+
+                    contentPanel.add(panelComponentes);
+                }
+            }
 
             JScrollPane scrollPane = new JScrollPane(contentPanel);
             scrollPane.setBorder(null);
@@ -194,4 +264,14 @@ public class ControladorVentanaPrin {
         String message = "Marca: " + p.getMarca() + "\nModelo: " + p.getModelo() + "\nNúcleos: " + p.getNucleosFisicos() + "\nGHz: " + p.getGhz() + "\nSocket: " + p.getSocket();
         return message;
     }
+    private Object getDetallesMessage(Placamadre pm) {
+    // Puedes personalizar este método según tus necesidades para mostrar la información de detalles
+    String message = "Marca: " + pm.getMarca() + "\nModelo: " + pm.getModelo() + "\nPuertos de Almacenamiento: " + pm.getPuertosalmacenamiento()
+            + "\nPuertos USB: " + pm.getPuertosusb() + "\nSocket: " + pm.getSocket() + "\nTipos de RAM: " + pm.getTiposram()
+            + "\nMáximo RAM: " + pm.getMaximoram() + " GB" + "\nRanura de Expansión: " + pm.getRanuraexpansion()
+            + "\nFormato: " + pm.getFormato() + "\nWatts: " + pm.getWatts() + "\nPrecio: $" + pm.getPrecio() + "\nStock: " + pm.getStock()
+            + "\nProveedor: " + pm.getProveedor();
+    return message;
+}
+
 }

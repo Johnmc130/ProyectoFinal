@@ -15,6 +15,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 public class ModeloDatosEnvio extends DatosVenta {
 
@@ -50,6 +51,7 @@ public class ModeloDatosEnvio extends DatosVenta {
             pst.setString(4, getMovil());
             pst.setString(5, getDireccion());
             pst.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Datos Guardados");
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -65,13 +67,14 @@ public class ModeloDatosEnvio extends DatosVenta {
             pst.setString(4, getDireccion());
             pst.setInt(5, idCliente);
             pst.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Datos Actualizados");
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
     }
 
     public void guardarDatosTarjeta(int idCliente) {
-        String sql = "INSERT INTO tarjetacliente (id_cliente, numero_cuenta, codigo_seguridad, fecha_expiracion) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO tarjetacliente (id_cliente, numerocuenta, codigoseguridad, fechaexpiracion) VALUES (?, ?, ?, ?)";
         try (Connection conexion = new Conexion().getConexion();
              PreparedStatement pst = conexion.prepareStatement(sql)) {
             pst.setInt(1, idCliente);
@@ -79,13 +82,14 @@ public class ModeloDatosEnvio extends DatosVenta {
             pst.setString(3, getCodigoSeguridad());
             pst.setString(4, getFechaExpiracion());
             pst.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Datos Guardados");
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
     }
 
     public void actualizarDatosTarjeta(int idCliente) {
-        String sql = "UPDATE tarjetacliente SET numero_cuenta=?, codigo_seguridad=?, fecha_expiracion=? WHERE id_cliente=?";
+        String sql = "UPDATE tarjetacliente SET numerocuenta=?, codigoseguridad=?, fechaexpiracion=? WHERE id_cliente=?";
         try (Connection conexion = new Conexion().getConexion();
              PreparedStatement pst = conexion.prepareStatement(sql)) {
             pst.setString(1, getNumeroCuenta());
@@ -93,6 +97,7 @@ public class ModeloDatosEnvio extends DatosVenta {
             pst.setString(3, getFechaExpiracion());
             pst.setInt(4, idCliente);
             pst.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Datos Actualizados");
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
