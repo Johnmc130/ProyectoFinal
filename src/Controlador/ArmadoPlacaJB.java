@@ -43,11 +43,12 @@ public class ArmadoPlacaJB {
     public void Inicio() {
         vistaPlaca.setLocationRelativeTo(null);
         CargarComponentes();
-        Ventana();
+
         vistaPlaca.getBtJdlDetalleAceptar().addActionListener(l -> AceptarDlg());
         vistaPlaca.getBtJdlMensajeElejir().addActionListener(l -> ConTarjetaDlg());
         vistaPlaca.getBtJdlSin().addActionListener(l -> SinTarjetaDlg());
-        vistaPlaca.getBtJdlM_Atras().addActionListener(l -> AtrasDlgMensaje());
+        vistaPlaca.getBtJdlMAtras().addActionListener(l -> AtrasDlgMensaje());
+        Ventana();
     }
 
     private void CargarComponentes() {
@@ -216,30 +217,39 @@ public class ArmadoPlacaJB {
         vistaPlaca.setEnabled(true);
         vistaPlaca.setVisible(true);
     }
+
     public void SinTarjetaDlg() {
         vistaPlaca.getJdlgMensaje().setVisible(false);
         vistaPlaca.getJdlgMensaje().dispose();
-        vistaPlaca.setEnabled(true); 
+        vistaPlaca.setEnabled(true);
 //        ArmadoRam_JB vista = new ArmadoRam_JB();
 //        ArmadoRamJB controlador = new ArmadoRamJB(vista);
 //        controlador.Inicio();
         vistaPlaca.setVisible(false);
         vistaPlaca.dispose();
     }
+
     public void ConTarjetaDlg() {
         vistaPlaca.getJdlgMensaje().setVisible(false);
         vistaPlaca.getJdlgMensaje().dispose();
-        vistaPlaca.setEnabled(true); 
+        vistaPlaca.setEnabled(true);
         ArmadoTarjetaV_JB vista = new ArmadoTarjetaV_JB();
 //        ArmadoTarjetaVJB controlador = new ArmadoTarjetaVJB(vista);
 //        controlador.Inicio();
         vistaPlaca.setVisible(false);
         vistaPlaca.dispose();
     }
+
     public void AtrasDlgMensaje() {
-        vistaPlaca.getJdlgMensaje().setVisible(false);
-        vistaPlaca.getJdlgMensaje().dispose();
-        vistaPlaca.setEnabled(true);
-        vistaPlaca.setVisible(true);
+//        vistaPlaca.getJdlgMensaje().setVisible(false);
+//        vistaPlaca.getJdlgMensaje().dispose();
+//        vistaPlaca.setEnabled(true);
+//        vistaPlaca.setVisible(true);
+        SwingUtilities.invokeLater(() -> {
+            vistaPlaca.getJdlgMensaje().setVisible(false);
+            vistaPlaca.getJdlgMensaje().dispose();
+            vistaPlaca.setEnabled(true);
+            vistaPlaca.setVisible(true);
+        });
     }
 }

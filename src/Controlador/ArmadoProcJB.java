@@ -44,11 +44,11 @@ public class ArmadoProcJB {
 
     public void Inicio() {
         vista.setLocationRelativeTo(null);
-        CargarComponentes();
-        Ventana();
+        CargarComponentes();       
         vista.getBtJdlDetalleAceptar().addActionListener(l -> AceptarDlgDetalle());
         vista.getBtJdlAceptar().addActionListener(l -> AceptarDlg());
         vista.getBtJdlAtras().addActionListener(l -> AtrasDlgMensaje());
+        Ventana();
     }
 
     private void CargarComponentes() {

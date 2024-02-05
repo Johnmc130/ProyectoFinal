@@ -14,12 +14,12 @@ import javax.swing.JToggleButton;
  *
  * @author TheBigG
  */
-public class ArmadoPlaca_JB extends javax.swing.JFrame {
+public class ArmadoVentiladores_JB extends javax.swing.JFrame {
 
     /**
      * Creates new form Armado_JB
      */
-    public ArmadoPlaca_JB() {
+    public ArmadoVentiladores_JB() {
         initComponents();
     }
 
@@ -134,7 +134,7 @@ public class ArmadoPlaca_JB extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Montserrat", 2, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(37, 53, 124));
-        jLabel1.setText("<html><p><b>Elije una tarjeta de video:</b><br>\nSi tu equipo es para diseñar o Jugar, una tarjeta de video es indispensable para tales usos. </p></html>");
+        jLabel1.setText("<html><p><b>Dato:</b><br>\nEl disipador de stock no siempre es el mejor. <br><center>Te recomendamos elejir uno.</center></p></html>");
 
         btJdlMAtras.setBackground(new java.awt.Color(255, 255, 255));
         btJdlMAtras.setFont(new java.awt.Font("Montserrat", 1, 16)); // NOI18N
@@ -192,7 +192,7 @@ public class ArmadoPlaca_JB extends javax.swing.JFrame {
         lblTitulo1.setForeground(new java.awt.Color(37, 53, 124));
         lblTitulo1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblTitulo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logo.png"))); // NOI18N
-        lblTitulo1.setText("Tarjeta de Video");
+        lblTitulo1.setText("Disipadores");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);

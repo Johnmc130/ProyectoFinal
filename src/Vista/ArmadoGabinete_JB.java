@@ -14,70 +14,15 @@ import javax.swing.JToggleButton;
  *
  * @author TheBigG
  */
-public class ArmadoPlaca_JB extends javax.swing.JFrame {
+public class ArmadoGabinete_JB extends javax.swing.JFrame {
 
     /**
      * Creates new form Armado_JB
      */
-    public ArmadoPlaca_JB() {
+    public ArmadoGabinete_JB() {
         initComponents();
     }
 
-    public JToggleButton getBtAtras() {
-        return btAtras;
-    }
-
-    public JButton getBtJdlMAtras() {
-        return btJdlMAtras;
-    }
-
-    public JButton getBtJdlSin() {
-        return btJdlMAtras;
-    }
-
-    public JButton getBtJdlDetalleAceptar() {
-        return btJdlDetalleAceptar;
-    }
-
-    public JButton getBtJdlMensajeElejir() {
-        return btJdlMensajeElejir;
-    }
-
-    public JDialog getJdlgDetalles() {
-        return jdlgDetalles;
-    }
-
-    public JDialog getJdlgMensaje() {
-        return jdlgMensaje;
-    }
-
-    public JPanel getJpComponentes() {
-        return jpComponentes;
-    }
-
-    public JLabel getLblFormato() {
-        return lblFormato;
-    }
-
-    public JLabel getLblMarca() {
-        return lblMarca;
-    }
-
-    public JLabel getLblModelo() {
-        return lblModelo;
-    }
-
-    public JLabel getLblRanurasExpa() {
-        return lblRanurasExpa;
-    }
-
-    public JLabel getLblSocket() {
-        return lblSocket;
-    }
-
-    public JLabel getLblTipoRam() {
-        return lblTipoRam;
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -93,7 +38,6 @@ public class ArmadoPlaca_JB extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btJdlMAtras = new javax.swing.JButton();
         btJdlMensajeElejir = new javax.swing.JButton();
-        btJdlSin = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         lblTitulo1 = new javax.swing.JLabel();
         jdlgDetalles = new javax.swing.JDialog();
@@ -134,7 +78,8 @@ public class ArmadoPlaca_JB extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Montserrat", 2, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(37, 53, 124));
-        jLabel1.setText("<html><p><b>Elije una tarjeta de video:</b><br>\nSi tu equipo es para diseñar o Jugar, una tarjeta de video es indispensable para tales usos. </p></html>");
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel1.setText("<html><center><p><b>Todo listo</b><br>Clic en aceptar para ver tu resumen de componentes.</p></center></html>");
 
         btJdlMAtras.setBackground(new java.awt.Color(255, 255, 255));
         btJdlMAtras.setFont(new java.awt.Font("Montserrat", 1, 16)); // NOI18N
@@ -148,12 +93,6 @@ public class ArmadoPlaca_JB extends javax.swing.JFrame {
         btJdlMensajeElejir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/JB/agregar.png"))); // NOI18N
         btJdlMensajeElejir.setText("Elejir");
 
-        btJdlSin.setBackground(new java.awt.Color(255, 255, 255));
-        btJdlSin.setFont(new java.awt.Font("Montserrat", 1, 16)); // NOI18N
-        btJdlSin.setForeground(new java.awt.Color(0, 0, 0));
-        btJdlSin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/JB/eliminar.png"))); // NOI18N
-        btJdlSin.setText("No elejir");
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -166,8 +105,6 @@ public class ArmadoPlaca_JB extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(btJdlMAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btJdlSin)
-                .addGap(18, 18, 18)
                 .addComponent(btJdlMensajeElejir, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -179,8 +116,7 @@ public class ArmadoPlaca_JB extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btJdlMAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btJdlMensajeElejir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btJdlSin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btJdlMensajeElejir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -192,7 +128,7 @@ public class ArmadoPlaca_JB extends javax.swing.JFrame {
         lblTitulo1.setForeground(new java.awt.Color(37, 53, 124));
         lblTitulo1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblTitulo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logo.png"))); // NOI18N
-        lblTitulo1.setText("Tarjeta de Video");
+        lblTitulo1.setText("Listo!!!");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -248,7 +184,7 @@ public class ArmadoPlaca_JB extends javax.swing.JFrame {
         jLabel41.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         jLabel41.setForeground(new java.awt.Color(37, 53, 124));
         jLabel41.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel41.setText("Ranuras de Expancion:");
+        jLabel41.setText("bahías:");
         jLabel41.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         lblTipoRam.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
@@ -264,7 +200,7 @@ public class ArmadoPlaca_JB extends javax.swing.JFrame {
 
         jLabel43.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         jLabel43.setForeground(new java.awt.Color(37, 53, 124));
-        jLabel43.setText("Socket:");
+        jLabel43.setText("Puertos USB:");
         jLabel43.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         lblRanurasExpa.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
@@ -290,7 +226,7 @@ public class ArmadoPlaca_JB extends javax.swing.JFrame {
         jLabel44.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         jLabel44.setForeground(new java.awt.Color(37, 53, 124));
         jLabel44.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel44.setText("RAM Admitida:");
+        jLabel44.setText("# Ventiladores");
         jLabel44.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         jLabel45.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
@@ -445,7 +381,7 @@ public class ArmadoPlaca_JB extends javax.swing.JFrame {
         lblTitulo4.setForeground(new java.awt.Color(37, 53, 124));
         lblTitulo4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblTitulo4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logo.png"))); // NOI18N
-        lblTitulo4.setText("Detalles Placa Madre");
+        lblTitulo4.setText("Detalles Gabinete");
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -591,7 +527,6 @@ public class ArmadoPlaca_JB extends javax.swing.JFrame {
     private javax.swing.JButton btJdlDetalleAceptar;
     private javax.swing.JButton btJdlMAtras;
     private javax.swing.JButton btJdlMensajeElejir;
-    private javax.swing.JButton btJdlSin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
