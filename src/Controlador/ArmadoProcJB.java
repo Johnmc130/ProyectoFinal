@@ -15,6 +15,7 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.text.DecimalFormat;
 import java.util.List;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
@@ -44,7 +45,7 @@ public class ArmadoProcJB {
 
     public void Inicio() {
         vista.setLocationRelativeTo(null);
-        CargarComponentes();       
+        CargarComponentes();
         vista.getBtJdlDetalleAceptar().addActionListener(l -> AceptarDlgDetalle());
         vista.getBtJdlAceptar().addActionListener(l -> AceptarDlg());
         vista.getBtJdlAtras().addActionListener(l -> AtrasDlgMensaje());
@@ -157,6 +158,12 @@ public class ArmadoProcJB {
                         vista.getLblNucleos().setText(String.valueOf(p.getNucleosFisicos()));
                         vista.getLblGHz().setText(String.valueOf(p.getGhz()));
                         vista.getLblSocket().setText(p.getSocket());
+                        // Crear un objeto DecimalFormat para formatear el precio con dos decimales
+                        DecimalFormat formatoPrecio = new DecimalFormat("#.##");
+
+                        // Formatear el precio con dos decimales y establecerlo en tu etiqueta (Label)
+                        vista.getLblPrecio().setText(formatoPrecio.format(p.getPrecio()));
+                        //vista.getLblPrecio().setText(String.valueOf(p.getPrecio()));
                         vista.getJdlgDetalles().setVisible(true);
                     });
 
@@ -216,18 +223,19 @@ public class ArmadoProcJB {
         vista.setEnabled(true);
         vista.setVisible(true);
     }
-    
+
     public void AceptarDlg() {
         vista.getJdlgMensaje().setVisible(false);
         vista.getJdlgMensaje().dispose();
-        vista.setEnabled(true); 
+        vista.setEnabled(true);
         ArmadoPlaca_JB vistaPlaca = new ArmadoPlaca_JB();
         ArmadoPlacaJB controlador = new ArmadoPlacaJB(vistaPlaca);
         controlador.Inicio();
         vista.setVisible(false);
         vista.dispose();
-        
+
     }
+
     public void AtrasDlgMensaje() {
         vista.getJdlgMensaje().setVisible(false);
         vista.getJdlgMensaje().dispose();

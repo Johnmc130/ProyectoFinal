@@ -60,9 +60,9 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btJdlAtras" min="-2" pref="170" max="-2" attributes="0"/>
+                      <Component id="btJdlMAtras" min="-2" pref="170" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="btJdlAceptar" min="-2" pref="170" max="-2" attributes="0"/>
+                      <Component id="btJdlMAceptar" min="-2" pref="170" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -73,8 +73,8 @@
                       <Component id="jLabel1" min="-2" pref="114" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btJdlAtras" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                          <Component id="btJdlAceptar" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="btJdlMAtras" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="btJdlMAceptar" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -93,7 +93,7 @@
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p&gt;&lt;b&gt;Consejo:&lt;/b&gt;&lt;br&gt;Elija 16 GB de ram para un rendimiento optimo&lt;br&gt;Esto garantisara un rendimiento optimo a futuro.&lt;/p&gt;&lt;/html&gt;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btJdlAtras">
+            <Component class="javax.swing.JButton" name="btJdlMAtras">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -110,7 +110,7 @@
                 <Property name="text" type="java.lang.String" value="Atras"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btJdlAceptar">
+            <Component class="javax.swing.JButton" name="btJdlMAceptar">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -300,7 +300,7 @@
                               <Group type="102" attributes="0">
                                   <Component id="jLabel41" min="-2" pref="217" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="lblFSR1" min="-2" pref="140" max="-2" attributes="0"/>
+                                  <Component id="lblStock" min="-2" pref="140" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
@@ -312,13 +312,13 @@
                                       <Component id="jLabel35" alignment="1" min="-2" pref="217" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblModelo" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
-                                      <Component id="lblMarca" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
-                                      <Component id="lblVRam" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
-                                      <Component id="lblDLSS" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="lblFSR" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
                                       <Component id="lblPrecio" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
+                                      <Component id="lblModelo" alignment="0" pref="210" max="32767" attributes="0"/>
+                                      <Component id="lblMarca" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lblVRam" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lblDLSS" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -367,7 +367,7 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="lblFSR1" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblStock" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel41" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="14" max="32767" attributes="0"/>
@@ -526,7 +526,7 @@
                     <Property name="verticalAlignment" type="int" value="3"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblFSR1">
+                <Component class="javax.swing.JLabel" name="lblStock">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Montserrat" size="18" style="1"/>
@@ -701,6 +701,11 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Imagenes/atras.png"/>
             </Property>
+            <Property name="borderPainted" type="boolean" value="false"/>
+            <Property name="contentAreaFilled" type="boolean" value="false"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Default Cursor"/>
+            </Property>
           </Properties>
         </Component>
       </SubComponents>
@@ -727,7 +732,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="649" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="802" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
@@ -756,7 +761,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="7c" green="35" red="25" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Elija el nucleo de su Equipo"/>
+            <Property name="text" type="java.lang.String" value="Tarjeta Grafica"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JPanel" name="jpComponentes">

@@ -23,16 +23,20 @@ public class ArmadoTarjetaV_JB extends javax.swing.JFrame {
         initComponents();
     }
 
-    public JButton getBtJdlAceptar() {
-        return btJdlAceptar;
-    }
-
-    public JButton getBtJdlAtras() {
-        return btJdlAtras;
+    public JToggleButton getBtAtras() {
+        return btAtras;
     }
 
     public JButton getBtJdlDetalleAceptar() {
         return btJdlDetalleAceptar;
+    }
+
+    public JButton getBtJdlMAceptar() {
+        return btJdlMAceptar;
+    }
+
+    public JButton getBtJdlMAtras() {
+        return btJdlMAtras;
     }
 
     public JDialog getJdlgDetalles() {
@@ -45,10 +49,6 @@ public class ArmadoTarjetaV_JB extends javax.swing.JFrame {
 
     public JPanel getJpComponentes() {
         return jpComponentes;
-    }
-
-    public JToggleButton getBtAtras() {
-        return btAtras;
     }
 
     public JLabel getLblDLSS() {
@@ -71,6 +71,10 @@ public class ArmadoTarjetaV_JB extends javax.swing.JFrame {
         return lblPrecio;
     }
 
+    public JLabel getLblStock() {
+        return lblStock;
+    }
+
     public JLabel getLblVRam() {
         return lblVRam;
     }
@@ -87,8 +91,8 @@ public class ArmadoTarjetaV_JB extends javax.swing.JFrame {
         jdlgMensaje = new javax.swing.JDialog();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btJdlAtras = new javax.swing.JButton();
-        btJdlAceptar = new javax.swing.JButton();
+        btJdlMAtras = new javax.swing.JButton();
+        btJdlMAceptar = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         lblTitulo1 = new javax.swing.JLabel();
         jdlgDetalles = new javax.swing.JDialog();
@@ -108,7 +112,7 @@ public class ArmadoTarjetaV_JB extends javax.swing.JFrame {
         jLabel40 = new javax.swing.JLabel();
         lblPrecio = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
-        lblFSR1 = new javax.swing.JLabel();
+        lblStock = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         lblTitulo3 = new javax.swing.JLabel();
         Encabezado = new javax.swing.JPanel();
@@ -129,17 +133,17 @@ public class ArmadoTarjetaV_JB extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(37, 53, 124));
         jLabel1.setText("<html><p><b>Consejo:</b><br>Elija 16 GB de ram para un rendimiento optimo<br>Esto garantisara un rendimiento optimo a futuro.</p></html>");
 
-        btJdlAtras.setBackground(new java.awt.Color(255, 255, 255));
-        btJdlAtras.setFont(new java.awt.Font("Montserrat", 1, 16)); // NOI18N
-        btJdlAtras.setForeground(new java.awt.Color(0, 0, 0));
-        btJdlAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/JB/torre-de-la-cpu.png"))); // NOI18N
-        btJdlAtras.setText("Atras");
+        btJdlMAtras.setBackground(new java.awt.Color(255, 255, 255));
+        btJdlMAtras.setFont(new java.awt.Font("Montserrat", 1, 16)); // NOI18N
+        btJdlMAtras.setForeground(new java.awt.Color(0, 0, 0));
+        btJdlMAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/JB/torre-de-la-cpu.png"))); // NOI18N
+        btJdlMAtras.setText("Atras");
 
-        btJdlAceptar.setBackground(new java.awt.Color(255, 255, 255));
-        btJdlAceptar.setFont(new java.awt.Font("Montserrat", 1, 16)); // NOI18N
-        btJdlAceptar.setForeground(new java.awt.Color(0, 0, 0));
-        btJdlAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Compromisos.png"))); // NOI18N
-        btJdlAceptar.setText("Aceptar");
+        btJdlMAceptar.setBackground(new java.awt.Color(255, 255, 255));
+        btJdlMAceptar.setFont(new java.awt.Font("Montserrat", 1, 16)); // NOI18N
+        btJdlMAceptar.setForeground(new java.awt.Color(0, 0, 0));
+        btJdlMAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Compromisos.png"))); // NOI18N
+        btJdlMAceptar.setText("Aceptar");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -150,9 +154,9 @@ public class ArmadoTarjetaV_JB extends javax.swing.JFrame {
                 .addGap(0, 18, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btJdlAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btJdlMAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btJdlAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btJdlMAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -161,8 +165,8 @@ public class ArmadoTarjetaV_JB extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btJdlAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btJdlAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btJdlMAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btJdlMAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -300,10 +304,10 @@ public class ArmadoTarjetaV_JB extends javax.swing.JFrame {
         jLabel41.setText("Stock:");
         jLabel41.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
-        lblFSR1.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
-        lblFSR1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblFSR1.setText("---------------");
-        lblFSR1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        lblStock.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        lblStock.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblStock.setText("---------------");
+        lblStock.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -315,7 +319,7 @@ public class ArmadoTarjetaV_JB extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(lblFSR1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblStock, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -325,13 +329,13 @@ public class ArmadoTarjetaV_JB extends javax.swing.JFrame {
                             .addComponent(jLabel38)
                             .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblVRam, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDLSS, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblFSR, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(lblPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblModelo, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                            .addComponent(lblMarca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblVRam, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblDLSS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -368,7 +372,7 @@ public class ArmadoTarjetaV_JB extends javax.swing.JFrame {
                     .addComponent(lblPrecio))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblFSR1)
+                    .addComponent(lblStock)
                     .addComponent(jLabel41))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
@@ -461,6 +465,9 @@ public class ArmadoTarjetaV_JB extends javax.swing.JFrame {
         btAtras.setFont(new java.awt.Font("Montserrat Black", 1, 48)); // NOI18N
         btAtras.setForeground(new java.awt.Color(0, 212, 250));
         btAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/atras.png"))); // NOI18N
+        btAtras.setBorderPainted(false);
+        btAtras.setContentAreaFilled(false);
+        btAtras.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout EncabezadoLayout = new javax.swing.GroupLayout(Encabezado);
         Encabezado.setLayout(EncabezadoLayout);
@@ -483,7 +490,7 @@ public class ArmadoTarjetaV_JB extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Montserrat", 1, 22)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(37, 53, 124));
-        jLabel4.setText("Elija el nucleo de su Equipo");
+        jLabel4.setText("Tarjeta Grafica");
 
         jpComponentes.setBackground(new java.awt.Color(255, 255, 255));
         jpComponentes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 212, 250), 3));
@@ -510,7 +517,7 @@ public class ArmadoTarjetaV_JB extends javax.swing.JFrame {
             CuerpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CuerpoLayout.createSequentialGroup()
                 .addComponent(jLabel4)
-                .addGap(0, 649, Short.MAX_VALUE))
+                .addGap(0, 802, Short.MAX_VALUE))
             .addGroup(CuerpoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jpComponentes, javax.swing.GroupLayout.DEFAULT_SIZE, 946, Short.MAX_VALUE)
@@ -548,9 +555,9 @@ public class ArmadoTarjetaV_JB extends javax.swing.JFrame {
     private javax.swing.JPanel Cuerpo;
     private javax.swing.JPanel Encabezado;
     private javax.swing.JToggleButton btAtras;
-    private javax.swing.JButton btJdlAceptar;
-    private javax.swing.JButton btJdlAtras;
     private javax.swing.JButton btJdlDetalleAceptar;
+    private javax.swing.JButton btJdlMAceptar;
+    private javax.swing.JButton btJdlMAtras;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel35;
@@ -571,10 +578,10 @@ public class ArmadoTarjetaV_JB extends javax.swing.JFrame {
     private javax.swing.JPanel jpComponentes;
     private javax.swing.JLabel lblDLSS;
     private javax.swing.JLabel lblFSR;
-    private javax.swing.JLabel lblFSR1;
     private javax.swing.JLabel lblMarca;
     private javax.swing.JLabel lblModelo;
     private javax.swing.JLabel lblPrecio;
+    private javax.swing.JLabel lblStock;
     private javax.swing.JLabel lblTitulo1;
     private javax.swing.JLabel lblTitulo3;
     private javax.swing.JLabel lblVRam;
