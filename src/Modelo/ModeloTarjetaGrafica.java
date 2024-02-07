@@ -25,7 +25,7 @@ public class ModeloTarjetaGrafica extends Tarjetagrafica {
         Conexion conectar = new Conexion();
         List<Tarjetagrafica> listaTarjetagrafica = new ArrayList<Tarjetagrafica>();
         String sql;
-        sql = "SELECT idtarjetagrafica, marca, modelo, vram, dlss, fsr,watts,tamano, precio,stock,proveedor FROM tarjetagrafica";
+        sql = "SELECT idtarjetagrafica, marca, modelo, vram, dlss, fsr,watts,tamano, precio,stock,proveedor, foto FROM tarjetagrafica";
         ResultSet rs = conectar.consultaBase(sql);
         try {
             while (rs.next()) {
@@ -41,6 +41,7 @@ public class ModeloTarjetaGrafica extends Tarjetagrafica {
                 mitarje.setPrecio(rs.getDouble("precio"));
                 mitarje.setStock(rs.getInt("Stock"));
                 mitarje.setProveedor(rs.getInt("proveedor"));
+                mitarje.setFoto(rs.getBytes("foto"));
 
                 listaTarjetagrafica.add(mitarje);
 

@@ -1,7 +1,7 @@
 package Controlador;
 
 import Clases.memoriaRam;
-import Modelo.ModeloRam;
+import Modelo.ModeloMemoriaRam;
 import Vista.ArmadoFuenteP_JB;
 import Vista.ArmadoPlaca_JB;
 import Vista.ArmadoRam_JB;
@@ -53,7 +53,7 @@ public class ArmadoRamJB {
     }
 
     private void CargarComponentes() {
-        List<memoriaRam> rams = ModeloRam.cargaMemoriasRAM();
+        List<memoriaRam> rams = ModeloMemoriaRam.listaTodasmemoriaRam();
 
         // Asegurarse de que la creación y manipulación de los componentes Swing se realice en el hilo de eventos de Swing
         SwingUtilities.invokeLater(() -> {
@@ -129,7 +129,7 @@ public class ArmadoRamJB {
                         @Override
                         public void mouseClicked(MouseEvent e) {
                             vistaRam.setEnabled(false);
-                            vistaRam.getJdlgMensaje().setSize(613, 377);
+                            vistaRam.getJdlgMensaje().setSize(574, 357);
                             vistaRam.getJdlgMensaje().setLocationRelativeTo(null);
                             vistaRam.getJdlgMensaje().setUndecorated(true);
                             vistaRam.getJdlgMensaje().setVisible(true);
@@ -202,10 +202,10 @@ public class ArmadoRamJB {
             vistaRam.getJpComponentes().add(scrollPane, BorderLayout.CENTER);
             System.out.println("aqui final metodo cargar compo");
             // que la ventana se repinte
-            
-        });
-        vistaRam.revalidate();
+            vistaRam.revalidate();
             vistaRam.repaint();
+        });
+        
     }
 
     public void Ventana() {

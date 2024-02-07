@@ -147,7 +147,7 @@ public class ArmadoPlacaJB {
 
                     detalles.addActionListener((ActionEvent e) -> {
                         vistaPlaca.setEnabled(false);
-                        vistaPlaca.getJdlgDetalles().setSize(731, 502);
+                        vistaPlaca.getJdlgDetalles().setSize(731, 520);
                         vistaPlaca.getJdlgDetalles().setLocationRelativeTo(null);
                         vistaPlaca.getJdlgDetalles().setUndecorated(true);
                         vistaPlaca.getJdlgDetalles().setVisible(true);
@@ -163,6 +163,7 @@ public class ArmadoPlacaJB {
                         DecimalFormat formatoPrecio = new DecimalFormat("#.##");
                         // Formatear el precio con dos decimales y establecerlo en tu etiqueta (Label)
                         vistaPlaca.getLblPrecio().setText(formatoPrecio.format(p.getPrecio()));
+                        vistaPlaca.getLblStock().setText(String.valueOf(p.getStock()));
                         vistaPlaca.getJdlgDetalles().setVisible(true);
                     });
 
@@ -231,8 +232,8 @@ public class ArmadoPlacaJB {
         vistaPlaca.getJdlgMensaje().dispose();
         vistaPlaca.setEnabled(true);
         ArmadoRam_JB vista = new ArmadoRam_JB();
-//        ArmadoRamJB controlador = new ArmadoRamJB(vista);
-//        controlador.Inicio();
+        ArmadoRamJB controlador = new ArmadoRamJB(vista);
+        controlador.Inicio();
         vistaPlaca.setVisible(false);
         vistaPlaca.dispose();
     }

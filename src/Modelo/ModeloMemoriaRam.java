@@ -30,7 +30,7 @@ public class ModeloMemoriaRam extends memoriaRam{
         Conexion conectar = new Conexion();
         List<memoriaRam> listamemoriaRam = new ArrayList<memoriaRam>();
         String sql;
-        sql = "SELECT idmemoriaRam,marca,modelo,tipo,capacidad,precio,numeromodulos,stock FROM memoria_ram";
+        sql = "SELECT idmemoriaRam,marca,modelo,tipo,capacidad,precio,numeromodulos,stock, foto FROM memoria_ram";
         ResultSet rs = conectar.consultaBase(sql);
         try {
             while (rs.next()) {
@@ -44,6 +44,7 @@ public class ModeloMemoriaRam extends memoriaRam{
                 mimemoriaRam.setPrecio(rs.getDouble("precio"));
                 mimemoriaRam.setNumeroModulos(rs.getInt("numeromodulos"));
                 mimemoriaRam.setStock(rs.getInt("Stock"));
+                mimemoriaRam.setFoto(rs.getBytes("foto"));
 
                 listamemoriaRam.add(mimemoriaRam);
 

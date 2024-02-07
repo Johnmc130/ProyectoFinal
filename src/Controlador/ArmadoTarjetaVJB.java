@@ -53,7 +53,7 @@ public class ArmadoTarjetaVJB {
     }
 
     private void CargarComponentes() {
-        List<Tarjetagrafica> tarjetasGraficas = ModeloTarjetaGrafica.cargaTarjetasGraficas();
+        List<Tarjetagrafica> tarjetasGraficas = ModeloTarjetaGrafica.listaTarjetagrafica();
 
         // Asegurarse de que la creación y manipulación de los componentes Swing se realice en el hilo de eventos de Swing
         SwingUtilities.invokeLater(() -> {
@@ -81,6 +81,9 @@ public class ArmadoTarjetaVJB {
 
             for (Tarjetagrafica p : tarjetasGraficas) {
                 // Verificar si la imagen no es nula
+                if (p.getFoto()==null) {
+                    System.out.println("Sin foto**********");
+                }
                 if (p.getFoto() != null) {
                     System.out.println(p.toString());
                     ImageIcon imageIcon = new ImageIcon(p.getFoto());
@@ -125,7 +128,7 @@ public class ArmadoTarjetaVJB {
                         @Override
                         public void mouseClicked(MouseEvent e) {
                             vistaTV.setEnabled(false);
-                            vistaTV.getJdlgMensaje().setSize(613, 377);
+                            vistaTV.getJdlgMensaje().setSize(509, 357);
                             vistaTV.getJdlgMensaje().setLocationRelativeTo(null);
                             vistaTV.getJdlgMensaje().setUndecorated(true);
                             vistaTV.getJdlgMensaje().setVisible(true);
@@ -229,8 +232,8 @@ public class ArmadoTarjetaVJB {
         vistaTV.getJdlgMensaje().dispose();
         vistaTV.setEnabled(true);
         ArmadoRam_JB vista = new ArmadoRam_JB();
-//        ArmadoTarjetaVJB controlador = new ArmadoTarjetaVJB(vista);
-//        controlador.Inicio();
+        ArmadoRamJB controlador = new ArmadoRamJB(vista);
+        controlador.Inicio();
         vistaTV.setVisible(false);
         vistaTV.dispose();
     }
