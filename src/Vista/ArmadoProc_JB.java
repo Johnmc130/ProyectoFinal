@@ -71,6 +71,10 @@ public class ArmadoProc_JB extends javax.swing.JFrame {
         return lblSocket;
     }
 
+    public JLabel getLblPrecio() {
+        return lblPrecio;
+    }
+
 
     
     /**

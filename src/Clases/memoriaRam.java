@@ -20,11 +20,12 @@ public class memoriaRam {
     private double precio;
     private int id_proveedor;
     private int stock;
+    private byte[] foto;
 
     public memoriaRam() {
     }
 
-    public memoriaRam(int idMemoriaRam, String marca, String modelo, int numeroModulos, int capacidad, String tipo, double precio, int id_proveedor, int stock) {
+    public memoriaRam(int idMemoriaRam, String marca, String modelo, int numeroModulos, int capacidad, String tipo, double precio, int id_proveedor, int stock, byte[] foto) {
         this.idMemoriaRam = idMemoriaRam;
         this.marca = marca;
         this.modelo = modelo;
@@ -34,6 +35,7 @@ public class memoriaRam {
         this.precio = precio;
         this.id_proveedor = id_proveedor;
         this.stock = stock;
+        this.foto = foto;
     }
 
     public int getIdMemoriaRam() {
@@ -107,5 +109,20 @@ public class memoriaRam {
     public void setStock(int stock) {
         this.stock = stock;
     }
+
+    public byte[] getFoto() {
+        return foto;
+    }
+
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
+    }
+
+    @Override
+    public String toString() {
+        return "memoriaRam{" + "idMemoriaRam=" + idMemoriaRam + ", marca=" + marca + ", modelo=" + modelo + ", numeroModulos=" + numeroModulos + ", capacidad=" + capacidad + ", tipo=" + tipo + ", precio=" + precio + ", id_proveedor=" + id_proveedor + ", stock=" + stock + ", foto=" + foto + '}';
+    }
+
+    
 
 }

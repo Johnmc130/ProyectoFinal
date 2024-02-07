@@ -1,10 +1,10 @@
 package Controlador;
 
-import Clases.Placamadre;
-import Modelo.ModeloPlacaMadre;
+import Clases.Tarjetagrafica;
+import Modelo.ModeloTarjetaGrafica;
 import Vista.ArmadoPlaca_JB;
+import Vista.ArmadoRam_JB;
 import Vista.ArmadoTarjetaV_JB;
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -16,6 +16,7 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.text.DecimalFormat;
 import java.util.List;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
@@ -33,31 +34,32 @@ import javax.swing.UnsupportedLookAndFeelException;
  */
 public class ArmadoTarjetaVJB {
 
-    private ArmadoPlaca_JB vistaPlaca;
+    private ArmadoTarjetaV_JB vistaTV;
 
-    public ArmadoTarjetaVJB(ArmadoPlaca_JB vista) {
-        this.vistaPlaca = vista;
+    public ArmadoTarjetaVJB(ArmadoTarjetaV_JB vista) {
+        this.vistaTV = vista;
         vista.setVisible(true);
     }
 
     public void Inicio() {
-        vistaPlaca.setLocationRelativeTo(null);
+        vistaTV.setLocationRelativeTo(null);
         CargarComponentes();
 
-        vistaPlaca.getBtJdlDetalleAceptar().addActionListener(l -> AceptarDlg());
-        vistaPlaca.getBtJdlMensajeElejir().addActionListener(l -> ConTarjetaDlg());
-        vistaPlaca.getBtJdlMAtras().addActionListener(l -> AtrasDlgMensaje());
+        vistaTV.getBtJdlDetalleAceptar().addActionListener(l -> aceptarDlgDetalle());
+        vistaTV.getBtJdlMAceptar().addActionListener(l -> aceptarDlg());
+        vistaTV.getBtJdlMAtras().addActionListener(l -> AtrasDlgMensaje());
+        vistaTV.getBtAtras().addActionListener(l->atras());
         Ventana();
     }
 
     private void CargarComponentes() {
-        List<Placamadre> placasLista = ModeloPlacaMadre.cargaPlacasMadre();
+        List<Tarjetagrafica> tarjetasGraficas = ModeloTarjetaGrafica.cargaTarjetasGraficas();
 
         // Asegurarse de que la creación y manipulación de los componentes Swing se realice en el hilo de eventos de Swing
         SwingUtilities.invokeLater(() -> {
 
             // Configurar el panel principal con un GridBagLayout
-            vistaPlaca.getJpComponentes().setLayout(new GridBagLayout());
+            vistaTV.getJpComponentes().setLayout(new GridBagLayout());
             GridBagConstraints gbc = new GridBagConstraints();
             gbc.gridx = 0;
             gbc.gridy = 0;
@@ -77,7 +79,7 @@ public class ArmadoTarjetaVJB {
             contentGbc.weighty = 1.0;
             contentGbc.fill = GridBagConstraints.BOTH; // Relleno en ambas direcciones
 
-            for (Placamadre p : placasLista) {
+            for (Tarjetagrafica p : tarjetasGraficas) {
                 // Verificar si la imagen no es nula
                 if (p.getFoto() != null) {
                     System.out.println(p.toString());
@@ -122,11 +124,11 @@ public class ArmadoTarjetaVJB {
                     imageLabel.addMouseListener(new MouseAdapter() {
                         @Override
                         public void mouseClicked(MouseEvent e) {
-                            vistaPlaca.setEnabled(false);
-                            vistaPlaca.getJdlgMensaje().setSize(613, 377);
-                            vistaPlaca.getJdlgMensaje().setLocationRelativeTo(null);
-                            vistaPlaca.getJdlgMensaje().setUndecorated(true);
-                            vistaPlaca.getJdlgMensaje().setVisible(true);
+                            vistaTV.setEnabled(false);
+                            vistaTV.getJdlgMensaje().setSize(613, 377);
+                            vistaTV.getJdlgMensaje().setLocationRelativeTo(null);
+                            vistaTV.getJdlgMensaje().setUndecorated(true);
+                            vistaTV.getJdlgMensaje().setVisible(true);
                         }
 
                         @Override
@@ -141,20 +143,25 @@ public class ArmadoTarjetaVJB {
                     });
 
                     detalles.addActionListener((ActionEvent e) -> {
-                        vistaPlaca.setEnabled(false);
-                        vistaPlaca.getJdlgDetalles().setSize(731, 502);
-                        vistaPlaca.getJdlgDetalles().setLocationRelativeTo(null);
-                        vistaPlaca.getJdlgDetalles().setUndecorated(true);
-                        vistaPlaca.getJdlgDetalles().setVisible(true);
-                        //cargar campos
+                        vistaTV.setEnabled(false);
+                        vistaTV.getJdlgDetalles().setSize(731, 502);
+                        vistaTV.getJdlgDetalles().setLocationRelativeTo(null);
+                        vistaTV.getJdlgDetalles().setUndecorated(true);
+                        vistaTV.getJdlgDetalles().setVisible(true);
+                        // Cargar campos en vistaTV
+                        vistaTV.getLblMarca().setText(p.getMarca());
+                        vistaTV.getLblModelo().setText(p.getModelo());
+                        vistaTV.getLblDLSS().setText(p.getDlss()); 
+                        vistaTV.getLblFSR().setText(p.getFsr());
+                        vistaTV.getLblVRam().setText(String.valueOf(p.getVram()));
+                        vistaTV.getLblStock().setText(String.valueOf(p.getStock()));
+                        // Crear un objeto DecimalFormat para formatear el precio con dos decimales
+                        DecimalFormat formatoPrecio = new DecimalFormat("#.##");
+                        // Formatear el precio con dos decimales y establecerlo en tu etiqueta (Label)
+                        vistaTV.getLblPrecio().setText(formatoPrecio.format(p.getPrecio()));
+                        vistaTV.getLblPrecio().setText(String.valueOf(p.getPrecio()));
+                        vistaTV.getJdlgDetalles().setVisible(true);
 
-                        vistaPlaca.getLblMarca().setText(p.getMarca());
-                        vistaPlaca.getLblModelo().setText(p.getModelo());
-                        vistaPlaca.getLblFormato().setText(p.getFormato());
-                        vistaPlaca.getLblTipoRam().setText(p.getTiposram());
-                        vistaPlaca.getLblSocket().setText(p.getSocket());
-                        vistaPlaca.getLblRanurasExpa().setText(p.getRanuraexpansion());
-                        vistaPlaca.getJdlgDetalles().setVisible(true);
                     });
 
                     // Verificar si se alcanzó el límite de 3 imágenes por fila antes de incrementar la posición en la columna
@@ -189,12 +196,12 @@ public class ArmadoTarjetaVJB {
             scrollPane.getVerticalScrollBar().setUnitIncrement(20);
 
             // Agregar el panel principal al contenedor principal (pnlLabels)
-            vistaPlaca.getJpComponentes().setLayout(new BorderLayout());
-            vistaPlaca.getJpComponentes().add(scrollPane, BorderLayout.CENTER);
+            vistaTV.getJpComponentes().setLayout(new BorderLayout());
+            vistaTV.getJpComponentes().add(scrollPane, BorderLayout.CENTER);
             System.out.println("aqui final metodo cargar compo");
             // que la ventana se repinte
-            vistaPlaca.revalidate();
-            vistaPlaca.repaint();
+            vistaTV.revalidate();
+            vistaTV.repaint();
         });
 
     }
@@ -203,37 +210,45 @@ public class ArmadoTarjetaVJB {
 
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-            SwingUtilities.updateComponentTreeUI(vistaPlaca.getJpComponentes());
+            SwingUtilities.updateComponentTreeUI(vistaTV.getJpComponentes());
             System.out.println("aqui swing");
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
 
         }
     }
 
-    public void AceptarDlg() {
-        vistaPlaca.getJdlgDetalles().setVisible(false);
-        vistaPlaca.getJdlgDetalles().dispose();
-        vistaPlaca.setEnabled(true);
-        vistaPlaca.setVisible(true);
+    public void aceptarDlgDetalle() {
+        vistaTV.getJdlgDetalles().setVisible(false);
+        vistaTV.getJdlgDetalles().dispose();
+        vistaTV.setEnabled(true);
+        vistaTV.setVisible(true);
     }
 
-    public void ConTarjetaDlg() {
-        vistaPlaca.getJdlgMensaje().setVisible(false);
-        vistaPlaca.getJdlgMensaje().dispose();
-        vistaPlaca.setEnabled(true);
-        ArmadoTarjetaV_JB vista = new ArmadoTarjetaV_JB();
+    public void aceptarDlg() {
+        vistaTV.getJdlgMensaje().setVisible(false);
+        vistaTV.getJdlgMensaje().dispose();
+        vistaTV.setEnabled(true);
+        ArmadoRam_JB vista = new ArmadoRam_JB();
 //        ArmadoTarjetaVJB controlador = new ArmadoTarjetaVJB(vista);
 //        controlador.Inicio();
-        vistaPlaca.setVisible(false);
-        vistaPlaca.dispose();
+        vistaTV.setVisible(false);
+        vistaTV.dispose();
     }
 
     public void AtrasDlgMensaje() {
         SwingUtilities.invokeLater(() -> {
-            vistaPlaca.getJdlgMensaje().setVisible(false);
-            vistaPlaca.getJdlgMensaje().dispose();
-            vistaPlaca.setEnabled(true);
-            vistaPlaca.setVisible(true);
+            vistaTV.getJdlgMensaje().setVisible(false);
+            vistaTV.getJdlgMensaje().dispose();
+            vistaTV.setEnabled(true);
+            vistaTV.setVisible(true);
         });
+    }
+    
+    public void atras() {
+        ArmadoPlaca_JB vista = new ArmadoPlaca_JB();
+        ArmadoPlacaJB controlador = new ArmadoPlacaJB(vista);
+        controlador.Inicio();
+        vistaTV.setVisible(false);
+        vistaTV.dispose();
     }
 }

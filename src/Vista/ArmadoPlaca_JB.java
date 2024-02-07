@@ -27,6 +27,10 @@ public class ArmadoPlaca_JB extends javax.swing.JFrame {
         return btAtras;
     }
 
+    public JLabel getLblPrecio() {
+        return lblPrecio;
+    }
+
     public JButton getBtJdlMAtras() {
         return btJdlMAtras;
     }
@@ -501,6 +505,8 @@ public class ArmadoPlaca_JB extends javax.swing.JFrame {
         btAtras.setFont(new java.awt.Font("Montserrat Black", 1, 48)); // NOI18N
         btAtras.setForeground(new java.awt.Color(0, 212, 250));
         btAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/atras.png"))); // NOI18N
+        btAtras.setBorderPainted(false);
+        btAtras.setContentAreaFilled(false);
 
         javax.swing.GroupLayout EncabezadoLayout = new javax.swing.GroupLayout(Encabezado);
         Encabezado.setLayout(EncabezadoLayout);

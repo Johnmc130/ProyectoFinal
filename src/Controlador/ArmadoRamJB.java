@@ -1,12 +1,10 @@
 package Controlador;
 
-import Clases.Placamadre;
-import Modelo.ModeloPlacaMadre;
+import Clases.memoriaRam;
+import Modelo.ModeloRam;
+import Vista.ArmadoFuenteP_JB;
 import Vista.ArmadoPlaca_JB;
-import Vista.ArmadoProc_JB;
 import Vista.ArmadoRam_JB;
-import Vista.ArmadoTarjetaV_JB;
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -34,35 +32,34 @@ import javax.swing.UnsupportedLookAndFeelException;
  *
  * @author TheBigG
  */
-public class ArmadoPlacaJB {
+public class ArmadoRamJB {
 
-    private ArmadoPlaca_JB vistaPlaca;
+    private ArmadoRam_JB vistaRam;
 
-    public ArmadoPlacaJB(ArmadoPlaca_JB vista) {
-        this.vistaPlaca = vista;
+    public ArmadoRamJB(ArmadoRam_JB vista) {
+        this.vistaRam = vista;
         vista.setVisible(true);
     }
 
     public void Inicio() {
-        vistaPlaca.setLocationRelativeTo(null);
+        vistaRam.setLocationRelativeTo(null);
         CargarComponentes();
 
-        vistaPlaca.getBtJdlDetalleAceptar().addActionListener(l -> AceptarDlg());
-        vistaPlaca.getBtJdlMensajeElejir().addActionListener(l -> ConTarjetaDlg());
-        vistaPlaca.getBtJdlSin().addActionListener(l -> SinTarjetaDlg());
-        vistaPlaca.getBtJdlMAtras().addActionListener(l -> AtrasDlgMensaje());
-        vistaPlaca.getBtAtras().addActionListener(l->atras());
+        vistaRam.getBtJdlDetalleAceptar().addActionListener(l -> aceptarDlgDetalle());
+        vistaRam.getBtJdlAceptar().addActionListener(l -> aceptarDlg());
+        vistaRam.getBtJdlAtras().addActionListener(l -> AtrasDlgMensaje());
+        vistaRam.getBtAtras().addActionListener(l -> atras());
         Ventana();
     }
 
     private void CargarComponentes() {
-        List<Placamadre> placasLista = ModeloPlacaMadre.cargaPlacasMadre();
+        List<memoriaRam> rams = ModeloRam.cargaMemoriasRAM();
 
         // Asegurarse de que la creación y manipulación de los componentes Swing se realice en el hilo de eventos de Swing
         SwingUtilities.invokeLater(() -> {
 
             // Configurar el panel principal con un GridBagLayout
-            vistaPlaca.getJpComponentes().setLayout(new GridBagLayout());
+            vistaRam.getJpComponentes().setLayout(new GridBagLayout());
             GridBagConstraints gbc = new GridBagConstraints();
             gbc.gridx = 0;
             gbc.gridy = 0;
@@ -81,12 +78,16 @@ public class ArmadoPlacaJB {
             contentGbc.weightx = 1.0;
             contentGbc.weighty = 1.0;
             contentGbc.fill = GridBagConstraints.BOTH; // Relleno en ambas direcciones
-
-            for (Placamadre p : placasLista) {
+            System.out.println("************************************************************");
+            for (memoriaRam ram : rams) {
                 // Verificar si la imagen no es nula
-                if (p.getFoto() != null) {
-                    System.out.println(p.toString());
-                    ImageIcon imageIcon = new ImageIcon(p.getFoto());
+                if (ram.getFoto() == null){
+                    System.out.println("foto");
+            } 
+                if (ram.getFoto() != null) {
+                    System.out.println("aaaaaaaaaaa");
+                    System.out.println(ram.toString());
+                    ImageIcon imageIcon = new ImageIcon(ram.getFoto());
                     Image image = imageIcon.getImage();
                     Image scaledImage = image.getScaledInstance(180, 180, Image.SCALE_SMOOTH);
                     ImageIcon scaledIcon = new ImageIcon(scaledImage);
@@ -108,7 +109,7 @@ public class ArmadoPlacaJB {
                     imageLabel.setOpaque(false); // Hacer el fondo del JLabel transparente
                     panelComponentes.add(imageLabel);
 
-                    JLabel nameLabel = new JLabel(p.getMarca() + " " + p.getModelo());
+                    JLabel nameLabel = new JLabel(ram.getMarca() + " " + ram.getModelo());
                     nameLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
                     nameLabel.setFont(new java.awt.Font("Montserrat", 0, 18));
                     panelComponentes.add(nameLabel);
@@ -127,11 +128,11 @@ public class ArmadoPlacaJB {
                     imageLabel.addMouseListener(new MouseAdapter() {
                         @Override
                         public void mouseClicked(MouseEvent e) {
-                            vistaPlaca.setEnabled(false);
-                            vistaPlaca.getJdlgMensaje().setSize(613, 377);
-                            vistaPlaca.getJdlgMensaje().setLocationRelativeTo(null);
-                            vistaPlaca.getJdlgMensaje().setUndecorated(true);
-                            vistaPlaca.getJdlgMensaje().setVisible(true);
+                            vistaRam.setEnabled(false);
+                            vistaRam.getJdlgMensaje().setSize(613, 377);
+                            vistaRam.getJdlgMensaje().setLocationRelativeTo(null);
+                            vistaRam.getJdlgMensaje().setUndecorated(true);
+                            vistaRam.getJdlgMensaje().setVisible(true);
                         }
 
                         @Override
@@ -146,24 +147,23 @@ public class ArmadoPlacaJB {
                     });
 
                     detalles.addActionListener((ActionEvent e) -> {
-                        vistaPlaca.setEnabled(false);
-                        vistaPlaca.getJdlgDetalles().setSize(731, 502);
-                        vistaPlaca.getJdlgDetalles().setLocationRelativeTo(null);
-                        vistaPlaca.getJdlgDetalles().setUndecorated(true);
-                        vistaPlaca.getJdlgDetalles().setVisible(true);
-                        //cargar campos
-
-                        vistaPlaca.getLblMarca().setText(p.getMarca());
-                        vistaPlaca.getLblModelo().setText(p.getModelo());
-                        vistaPlaca.getLblFormato().setText(p.getFormato());
-                        vistaPlaca.getLblTipoRam().setText(p.getTiposram());
-                        vistaPlaca.getLblSocket().setText(p.getSocket());
-                        vistaPlaca.getLblRanurasExpa().setText(p.getRanuraexpansion());
+                        vistaRam.setEnabled(false);
+                        vistaRam.getJdlgDetalles().setSize(731, 502);
+                        vistaRam.getJdlgDetalles().setLocationRelativeTo(null);
+                        vistaRam.getJdlgDetalles().setUndecorated(true);
+                        vistaRam.getJdlgDetalles().setVisible(true);
+                        // Cargar campos en vistaRam
+                        vistaRam.getLblMarca().setText(ram.getMarca());
+                        vistaRam.getLblModelo().setText(ram.getModelo());
+                        vistaRam.getLblCapacidad().setText(String.valueOf(ram.getCapacidad()));
+                        vistaRam.getLblTipo().setText(ram.getTipo());
+                        vistaRam.getLblStock().setText(String.valueOf(ram.getStock()));
                         // Crear un objeto DecimalFormat para formatear el precio con dos decimales
                         DecimalFormat formatoPrecio = new DecimalFormat("#.##");
                         // Formatear el precio con dos decimales y establecerlo en tu etiqueta (Label)
-                        vistaPlaca.getLblPrecio().setText(formatoPrecio.format(p.getPrecio()));
-                        vistaPlaca.getJdlgDetalles().setVisible(true);
+                        vistaRam.getLblPrecio().setText(formatoPrecio.format(ram.getPrecio()));
+                        vistaRam.getJdlgDetalles().setVisible(true);
+
                     });
 
                     // Verificar si se alcanzó el límite de 3 imágenes por fila antes de incrementar la posición en la columna
@@ -198,70 +198,59 @@ public class ArmadoPlacaJB {
             scrollPane.getVerticalScrollBar().setUnitIncrement(20);
 
             // Agregar el panel principal al contenedor principal (pnlLabels)
-            vistaPlaca.getJpComponentes().setLayout(new BorderLayout());
-            vistaPlaca.getJpComponentes().add(scrollPane, BorderLayout.CENTER);
+            vistaRam.getJpComponentes().setLayout(new BorderLayout());
+            vistaRam.getJpComponentes().add(scrollPane, BorderLayout.CENTER);
             System.out.println("aqui final metodo cargar compo");
             // que la ventana se repinte
-            vistaPlaca.revalidate();
-            vistaPlaca.repaint();
+            
         });
-
+        vistaRam.revalidate();
+            vistaRam.repaint();
     }
 
     public void Ventana() {
 
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-            SwingUtilities.updateComponentTreeUI(vistaPlaca.getJpComponentes());
+            SwingUtilities.updateComponentTreeUI(vistaRam.getJpComponentes());
             System.out.println("aqui swing");
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
 
         }
     }
 
-    public void AceptarDlg() {
-        vistaPlaca.getJdlgDetalles().setVisible(false);
-        vistaPlaca.getJdlgDetalles().dispose();
-        vistaPlaca.setEnabled(true);
-        vistaPlaca.setVisible(true);
+    public void aceptarDlgDetalle() {
+        vistaRam.getJdlgDetalles().setVisible(false);
+        vistaRam.getJdlgDetalles().dispose();
+        vistaRam.setEnabled(true);
+        vistaRam.setVisible(true);
     }
 
-    public void SinTarjetaDlg() {
-        vistaPlaca.getJdlgMensaje().setVisible(false);
-        vistaPlaca.getJdlgMensaje().dispose();
-        vistaPlaca.setEnabled(true);
-        ArmadoRam_JB vista = new ArmadoRam_JB();
-//        ArmadoRamJB controlador = new ArmadoRamJB(vista);
+    public void aceptarDlg() {
+        vistaRam.getJdlgMensaje().setVisible(false);
+        vistaRam.getJdlgMensaje().dispose();
+        vistaRam.setEnabled(true);
+        ArmadoFuenteP_JB vista = new ArmadoFuenteP_JB();
+//        ArmadoTarjetaVJB controlador = new ArmadoTarjetaVJB(vista);
 //        controlador.Inicio();
-        vistaPlaca.setVisible(false);
-        vistaPlaca.dispose();
-    }
-
-    public void ConTarjetaDlg() {
-        vistaPlaca.getJdlgMensaje().setVisible(false);
-        vistaPlaca.getJdlgMensaje().dispose();
-        vistaPlaca.setEnabled(true);
-        ArmadoTarjetaV_JB vista = new ArmadoTarjetaV_JB();
-        ArmadoTarjetaVJB controlador = new ArmadoTarjetaVJB(vista);
-        controlador.Inicio();
-        vistaPlaca.setVisible(false);
-        vistaPlaca.dispose();
+        vistaRam.setVisible(false);
+        vistaRam.dispose();
     }
 
     public void AtrasDlgMensaje() {
         SwingUtilities.invokeLater(() -> {
-            vistaPlaca.getJdlgMensaje().setVisible(false);
-            vistaPlaca.getJdlgMensaje().dispose();
-            vistaPlaca.setEnabled(true);
-            vistaPlaca.setVisible(true);
+            vistaRam.getJdlgMensaje().setVisible(false);
+            vistaRam.getJdlgMensaje().dispose();
+            vistaRam.setEnabled(true);
+            vistaRam.setVisible(true);
         });
     }
-    
+
     public void atras() {
-        ArmadoProc_JB vista = new ArmadoProc_JB();
-        ArmadoProcJB controlador = new ArmadoProcJB(vista);
+        ArmadoPlaca_JB vista = new ArmadoPlaca_JB();
+        ArmadoPlacaJB controlador = new ArmadoPlacaJB(vista);
         controlador.Inicio();
-        vistaPlaca.setVisible(false);
-        vistaPlaca.dispose();
+        vistaRam.setVisible(false);
+        vistaRam.dispose();
     }
 }
