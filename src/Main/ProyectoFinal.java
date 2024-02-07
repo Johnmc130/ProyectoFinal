@@ -1,11 +1,12 @@
 package Main;
 
+import Clases.DatosVenta;
 import Controlador.ArmadoPlacaJB;
 import Controlador.ArmadoProcJB;
 import Controlador.CRUD_ProductosJB;
 import Controlador.ControladorAlmacenamiento;
 import Controlador.ControladorVenDatosEnvio;
-import Controlador.ControladorVentanaPrin;
+import Controlador.ControladorVistaProductos;
 import Modelo.ModeloProcesador;
 import Vista.ArmadoProc_JB;
 import Vista.CRUD_Productos_JB;
@@ -19,6 +20,7 @@ import Vista.ArmadoPlaca_JB;
 import Vista.VentanaDatosEnvio;
 import Vista.VentanaLogin_JM;
 import Vista.VentanaPrincipal;
+import Vista.VistaProductos;
 import Vistas.CrearAlmacenamiento;
 
 public class ProyectoFinal {
@@ -28,21 +30,27 @@ public class ProyectoFinal {
 //        CRUD_Productos_JB vista = new CRUD_Productos_JB();
 //        CRUD_ProductosJB control = new CRUD_ProductosJB(vista);
 //        control.iniciar();
-        ArmadoProc_JB vistaA = new ArmadoProc_JB();
-        ArmadoProcJB controlador = new ArmadoProcJB(vistaA);
-        controlador.Inicio();
-//        VentanaPrincipal v = new VentanaPrincipal();
-//        ControladorVentanaPrin contro = new ControladorVentanaPrin(v);
-//        contro.iniciarControl();
+
+
+//        ArmadoProc_JB vistaA = new ArmadoProc_JB();
+//        ArmadoProcJB controlador = new ArmadoProcJB(vistaA);
+//        controlador.Inicio();
+        
+        
+        VistaProductos v = new VistaProductos();
+        ControladorVistaProductos contro = new ControladorVistaProductos(v);
+        contro.iniciarControl();
+
+
 //          CrearAlmacenamiento vis = new CrearAlmacenamiento();
 //          Modelo.ModeloAlmacenamiento mAl = new ModeloAlmacenamiento();
 //          ControladorAlmacenamiento Clo = new ControladorAlmacenamiento(mAl, vis);
 //          Clo.iniciaControl();
-//        VentanaDatosEnvio dat = new VentanaDatosEnvio();
-//        ModeloDatosEnvio mDtos = new ModeloDatosEnvio();
-//        ModeloPersona mPersona = new ModeloPersona();
-//        ModeloCliente mCliente = new ModeloCliente();
-//        ControladorVenDatosEnvio log = new ControladorVenDatosEnvio(mCliente, mPersona, mDtos, dat);
+
+
+//        VentanaDatosEnvio vista = new VentanaDatosEnvio();
+//        ModeloDatosEnvio mDtos = new ModeloDatosEnvio();        
+//        ControladorVenDatosEnvio log = new ControladorVenDatosEnvio(vista, mDtos);
 //        log.iniciaControlador();
 
 //        ArmadoPlaca_JB vistaA = new ArmadoPlaca_JB();

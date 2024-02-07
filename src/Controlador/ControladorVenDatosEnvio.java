@@ -18,28 +18,29 @@ import javax.swing.JOptionPane;
 
 public class ControladorVenDatosEnvio {
 
-    private ModeloCliente mCliente;
-    private ModeloPersona mPersona;
     private DatosVenta datosVenta;
     private VentanaDatosEnvio vista;
-    
+    private ModeloDatosEnvio modelo;
+    ModeloDatosEnvio misdatos = new ModeloDatosEnvio();
 
-    public ControladorVenDatosEnvio(ModeloCliente mCliente, ModeloPersona mPersona, DatosVenta datosVenta, VentanaDatosEnvio vista) {
-        this.mCliente = mCliente;
-        this.mPersona = mPersona;
-        this.datosVenta = datosVenta;
+    public ControladorVenDatosEnvio(VentanaDatosEnvio vista, ModeloDatosEnvio modelo) {
+        this.modelo = modelo;
         this.vista = vista;
         vista.setVisible(true);
         iniciaControlador();
+
     }
 
     public void iniciaControlador() {
         vista.getBtnRealizarPedido().addActionListener(l -> guardarDatosEnvio());
         vista.getBtRegresar().addActionListener(l -> cancelarOperacion());
+        cargaID();
     }
 
     private void guardarDatosEnvio() {
         // Obtener datos de la vista
+
+        int id_datos = Integer.parseInt(vista.getLblId_envio().getText());
         String nombres = vista.getTxtNombres().getText();
         String apellidos = vista.getTxtApellidos().getText();
         String movil = vista.getTxtMovil().getText();
@@ -49,31 +50,77 @@ public class ControladorVenDatosEnvio {
         String fechaExpiracion = vista.getjDFechaEx().getDateFormatString();
 
         // Validar datos
-        if (datosVacios(nombres, apellidos, movil, direccion, numeroCuenta, codigoSeguridad, fechaExpiracion)) {
-            JOptionPane.showMessageDialog(null, "Llene todos los datos de envío y tarjeta de crédito");
+        System.out.println(vista.getLblId_envio().getText());
+        // Establecer datos en el modelo
+
+        misdatos.setId_datos(id_datos);
+        misdatos.setNombres(nombres);
+        misdatos.setApellidos(apellidos);
+        misdatos.setMovil(movil);
+        misdatos.setDireccion(direccion);
+        misdatos.setNumeroCuenta(numeroCuenta);
+        misdatos.setCodigoSeguridad(codigoSeguridad);
+        misdatos.setFechaExpiracion(fechaExpiracion);
+
+        // Puedes realizar otras operaciones según tus necesidades
+        // Cerrar la ventana de datos de envío
+        // Validar datos antes de guardar
+        if (!datosVacios() && misdatos.guardarDatosEnvio()) {
+            JOptionPane.showMessageDialog(vista, "Datos Agregados con Éxito");
         } else {
-            // Establecer datos en el modelo
-            datosVenta.setNombres(nombres);
-            datosVenta.setApellidos(apellidos);
-            datosVenta.setMovil(movil);
-            datosVenta.setDireccion(direccion);
-            datosVenta.setNumeroCuenta(numeroCuenta);
-            datosVenta.setCodigoSeguridad(codigoSeguridad);
-            datosVenta.setFechaExpiracion(fechaExpiracion);
-
-            // Guardar o actualizar datos de envío según el modelo
-            ModeloDatosEnvio modeloDatosEnvio = new ModeloDatosEnvio();
-            modeloDatosEnvio.guardarOActualizarDatosEnvio(datosVenta.getId_cliente());
-
-            // Puedes realizar otras operaciones según tus necesidades
-            // Cerrar la ventana de datos de envío
-            vista.dispose();
+            JOptionPane.showMessageDialog(vista, "Error al intentar agregar los datos", "Error", JOptionPane.ERROR_MESSAGE);
         }
+
+//        // Validar datos antes de guardar para FK cliente
+//        if (!datosVacios()) {
+//            if (misdatos.datosEnvioExisten(id_client)) {
+//                // Si los datos existen, actualizar
+//                if (modelo.actualizarDatosEnvio()) {
+//                    JOptionPane.showMessageDialog(vista, "Datos Actualizados con Éxito");
+//                } else {
+//                    JOptionPane.showMessageDialog(vista, "Error al intentar actualizar los datos", "Error", JOptionPane.ERROR_MESSAGE);
+//                }
+//            } else {
+//                // Si los datos no existen, guardar
+//                if (misdatos.guardarDatosEnvio()) {
+//                    JOptionPane.showMessageDialog(vista, "Datos Agregados con Éxito");
+//                } else {
+//                    JOptionPane.showMessageDialog(vista, "Error al intentar agregar los datos", "Error", JOptionPane.ERROR_MESSAGE);
+//                }
+//            }
+//        } else {
+//            JOptionPane.showMessageDialog(vista, "Ingrese todos los datos antes de guardar o actualizar", "Error", JOptionPane.ERROR_MESSAGE);
+//        }
     }
 
-    private boolean datosVacios(String nombres, String apellidos, String movil, String direccion, String numeroCuenta, String codigoSeguridad, String fechaExpiracion) {
-        return nombres.isBlank() || apellidos.isBlank() || movil.isBlank() || direccion.isBlank()
-                || numeroCuenta.isBlank() || codigoSeguridad.isBlank() || fechaExpiracion.isBlank();
+    private void cargaID() {
+        vista.getLblId_envio().setText(String.valueOf(modelo.obtenerSiguienteIdDatos()));
+    }
+
+    private boolean datosVacios() {
+        try {
+            // Definir los campos de texto
+            String nombres = vista.getTxtNombres().getText();
+            String apellidos = vista.getTxtApellidos().getText();
+            String movil = vista.getTxtMovil().getText();
+            String direccion = vista.getTxtDireccion().getText();
+            String numeroCuenta = vista.getTxtNumeroCuenta().getText();
+            String codigoSeguridad = vista.getTxtCodigoSeguridad().getText();
+            String fechaExpiracion = vista.getjDFechaEx().getDateFormatString();
+
+            // Validar campos de texto
+            if (nombres.isBlank() || apellidos.isBlank() || movil.isBlank() || direccion.isBlank()
+                    || numeroCuenta.isBlank() || codigoSeguridad.isBlank() || fechaExpiracion.isBlank()) {
+                JOptionPane.showMessageDialog(null, "Llene todos los campos de texto", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                return true;
+            }
+
+            return false;
+        } catch (Exception ex) {
+            // Manejar cualquier excepción que pueda ocurrir
+            JOptionPane.showMessageDialog(null, "Error en la validación de datos", "Error", JOptionPane.ERROR_MESSAGE);
+            return true;
+        }
     }
 
     private void cancelarOperacion() {

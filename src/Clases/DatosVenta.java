@@ -11,7 +11,7 @@ package Clases;
  */
 public class DatosVenta {
 
-    private int id_cliente;
+    private int id_datos;
     private String nombres;
     private String apellidos;
     private String movil;
@@ -23,8 +23,8 @@ public class DatosVenta {
     public DatosVenta() {
     }
 
-    public DatosVenta(int id_cliente, String nombres, String apellidos, String movil, String direccion, String numeroCuenta, String codigoSeguridad, String fechaExpiracion) {
-        this.id_cliente = id_cliente;
+    public DatosVenta(int id_datos, String nombres, String apellidos, String movil, String direccion, String numeroCuenta, String codigoSeguridad, String fechaExpiracion) {
+        this.id_datos = id_datos;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.movil = movil;
@@ -34,12 +34,12 @@ public class DatosVenta {
         this.fechaExpiracion = fechaExpiracion;
     }
 
-    public int getId_cliente() {
-        return id_cliente;
+    public int getId_datos() {
+        return id_datos;
     }
 
-    public void setId_cliente(int id_cliente) {
-        this.id_cliente = id_cliente;
+    public void setId_datos(int id_datos) {
+        this.id_datos = id_datos;
     }
 
     public String getNombres() {
@@ -100,6 +100,8 @@ public class DatosVenta {
 
     @Override
     public String toString() {
-        return "DatosVenta{" + "id_cliente=" + id_cliente + ", nombres=" + nombres + ", apellidos=" + apellidos + ", movil=" + movil + ", direccion=" + direccion + ", numeroCuenta=" + numeroCuenta + ", codigoSeguridad=" + codigoSeguridad + ", fechaExpiracion=" + fechaExpiracion + '}';
+        return "DatosVenta{" + "id_datos=" + id_datos + ", nombres=" + nombres + ", apellidos=" + apellidos + ", movil=" + movil + ", direccion=" + direccion + ", numeroCuenta=" + numeroCuenta + ", codigoSeguridad=" + codigoSeguridad + ", fechaExpiracion=" + fechaExpiracion + '}';
     }
+
+    
 }

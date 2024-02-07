@@ -7,6 +7,7 @@ package Vista;
 
 import com.toedter.calendar.JDateChooser;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JToggleButton;
 
@@ -59,6 +60,10 @@ public class VentanaDatosEnvio extends javax.swing.JFrame {
         return btRegresar;
     }
 
+    public JLabel getLblId_envio() {
+        return lblId_envio;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -91,6 +96,7 @@ public class VentanaDatosEnvio extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         btRegresar = new javax.swing.JToggleButton();
+        lblId_envio = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -286,6 +292,9 @@ public class VentanaDatosEnvio extends javax.swing.JFrame {
         btRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/atras.png"))); // NOI18N
         jPanel1.add(btRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 630, -1, -1));
 
+        lblId_envio.setText("jLabel1");
+        jPanel1.add(lblId_envio, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -354,6 +363,7 @@ public class VentanaDatosEnvio extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JLabel lblId_envio;
     private javax.swing.JTextField txtApellidos;
     private javax.swing.JTextField txtCodigoSeguridad;
     private javax.swing.JTextField txtDireccion;

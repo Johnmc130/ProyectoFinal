@@ -15,93 +15,94 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class ModeloDatosEnvio extends DatosVenta {
 
-    public void guardarOActualizarDatosEnvio(int idCliente) {
-        if (datosEnvioExisten(idCliente)) {
-            actualizarDatosEnvio(idCliente);
-        } else {
-            guardarDatosEnvio(idCliente);
+    Conexion conectar = new Conexion();//Conectamos a la base
+    Connection con;
+
+    public boolean guardarDatosEnvio() {
+        String sql = "INSERT INTO datosenvio (id_datos, nombres, apellidos, movil, direccion, numerocuenta, codigoseguridad, fechaexpiracion) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+        try (Connection con = conectar.getConexion()) {
+            if (con == null || con.isClosed()) {
+                System.out.println("La conexión es nula o está cerrada antes de intentar ejecutar la consulta.");
+                return false;
+            }
+
+            try (PreparedStatement pst = con.prepareStatement(sql)) {
+
+//                // Obtener el siguiente valor de la secuencia (ajusta según tu base de datos)
+//                int siguienteId = obtenerSiguienteIdDatos();
+//
+//                // Establecer el valor de id_datos en el objeto antes de la inserción
+//                setId_datos(siguienteId);
+                // Resto del código para establecer otros valores
+                pst.setInt(1, getId_datos());
+                pst.setString(2, getNombres());
+                pst.setString(3, getApellidos());
+                pst.setString(4, getMovil());
+                pst.setString(5, getDireccion());
+                pst.setString(6, getNumeroCuenta());
+                pst.setString(7, getCodigoSeguridad());
+                pst.setString(8, getFechaExpiracion());
+
+                int result = pst.executeUpdate();
+                System.out.println("Consulta ejecutada exitosamente. Filas afectadas: " + result);
+                return result > 0;
+            } catch (SQLException ex) {
+                System.out.println("Error al ejecutar la consulta:");
+                ex.printStackTrace();
+                System.out.println("SQLState: " + ex.getSQLState());
+                System.out.println("ErrorCode: " + ex.getErrorCode());
+                return false;
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error al obtener la conexión:");
+            ex.printStackTrace();
+            System.out.println("SQLState: " + ex.getSQLState());
+            System.out.println("ErrorCode: " + ex.getErrorCode());
+            return false;
         }
     }
 
-    private boolean datosEnvioExisten(int idCliente) {
-        String sql = "SELECT * FROM datosenvio WHERE id_cliente = ?";
+    public boolean actualizarDatosEnvio() {
+        String sql = "UPDATE datosenvio SET nombres=?, apellidos=?, movil=?, direccion=?, numerocuenta=?, codigoseguridad=?, fechaexpiracion=? WHERE id_datos=?";
         try (Connection conexion = new Conexion().getConexion();
-             PreparedStatement pst = conexion.prepareStatement(sql)) {
-            pst.setInt(1, idCliente);
-            try (ResultSet rs = pst.executeQuery()) {
-                return rs.next();
-            }
+                PreparedStatement pst = conexion.prepareStatement(sql)) {
+            pst.setInt(1, getId_datos());
+            pst.setString(2, getNombres());
+            pst.setString(3, getApellidos());
+            pst.setString(4, getMovil());
+            pst.setString(5, getDireccion());
+            pst.setString(6, getNumeroCuenta());
+            pst.setString(7, getCodigoSeguridad());
+            pst.setString(8, getFechaExpiracion());
+            int result = pst.executeUpdate();
+            return result > 0;
         } catch (SQLException ex) {
             ex.printStackTrace();
             return false;
         }
     }
 
-    private void guardarDatosEnvio(int idCliente) {
-        String sql = "INSERT INTO datosenvio (id_cliente, nombres, apellidos, movil, direccion) VALUES (?, ?, ?, ?, ?)";
-        try (Connection conexion = new Conexion().getConexion();
-             PreparedStatement pst = conexion.prepareStatement(sql)) {
-            pst.setInt(1, idCliente);
-            pst.setString(2, getNombres());
-            pst.setString(3, getApellidos());
-            pst.setString(4, getMovil());
-            pst.setString(5, getDireccion());
-            pst.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Datos Guardados");
+    public int obtenerSiguienteIdDatos() {
+        int siguienteId = 1; // Valor predeterminado si no hay registros
+        try {
+            if (conectar != null && !conectar.getConexion().isClosed());
+            String sql = "SELECT MAX(id_datos) FROM datosenvio";
+            PreparedStatement statement = conectar.getConexion().prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                siguienteId = resultSet.getInt(1) + 1;
+            }
+            return siguienteId;
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            Logger.getLogger(ModeloDatosEnvio.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-
-    private void actualizarDatosEnvio(int idCliente) {
-        String sql = "UPDATE datosenvio SET nombres=?, apellidos=?, movil=?, direccion=? WHERE id_cliente=?";
-        try (Connection conexion = new Conexion().getConexion();
-             PreparedStatement pst = conexion.prepareStatement(sql)) {
-            pst.setString(1, getNombres());
-            pst.setString(2, getApellidos());
-            pst.setString(3, getMovil());
-            pst.setString(4, getDireccion());
-            pst.setInt(5, idCliente);
-            pst.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Datos Actualizados");
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    public void guardarDatosTarjeta(int idCliente) {
-        String sql = "INSERT INTO tarjetacliente (id_cliente, numerocuenta, codigoseguridad, fechaexpiracion) VALUES (?, ?, ?, ?)";
-        try (Connection conexion = new Conexion().getConexion();
-             PreparedStatement pst = conexion.prepareStatement(sql)) {
-            pst.setInt(1, idCliente);
-            pst.setString(2, getNumeroCuenta());
-            pst.setString(3, getCodigoSeguridad());
-            pst.setString(4, getFechaExpiracion());
-            pst.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Datos Guardados");
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    public void actualizarDatosTarjeta(int idCliente) {
-        String sql = "UPDATE tarjetacliente SET numerocuenta=?, codigoseguridad=?, fechaexpiracion=? WHERE id_cliente=?";
-        try (Connection conexion = new Conexion().getConexion();
-             PreparedStatement pst = conexion.prepareStatement(sql)) {
-            pst.setString(1, getNumeroCuenta());
-            pst.setString(2, getCodigoSeguridad());
-            pst.setString(3, getFechaExpiracion());
-            pst.setInt(4, idCliente);
-            pst.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Datos Actualizados");
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
+        return siguienteId;
     }
 }
-
-

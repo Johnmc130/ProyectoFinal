@@ -5,6 +5,12 @@
  */
 package Vista;
 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Steven Zhicay
@@ -18,6 +24,69 @@ public class VistaProductos extends javax.swing.JFrame {
         initComponents();
     }
 
+    public JButton getBtnCesta() {
+        return btnCesta;
+    }
+
+    public JComboBox<String> getjCbCategorias() {
+        return jCbCategorias;
+    }
+
+    public JPanel getJpComponentes() {
+        return JpComponentes;
+    }
+
+   
+
+    public JButton getBtJdlDetalleAceptar() {
+        return btJdlDetalleAceptar;
+    }
+
+    public JButton getjButton1() {
+        return jButton1;
+    }
+
+    public JDialog getJdlgDetalles() {
+        return jdlgDetalles;
+    }
+
+   
+
+    public JLabel getLblGHz() {
+        return lblGHz;
+    }
+
+    public JLabel getLblLogo() {
+        return lblLogo;
+    }
+
+    public JLabel getLblMarca() {
+        return lblMarca;
+    }
+
+    public JLabel getLblModelo() {
+        return lblModelo;
+    }
+
+    public JLabel getLblNucleos() {
+        return lblNucleos;
+    }
+
+    public JLabel getLblPrecio() {
+        return lblPrecio;
+    }
+
+    public JLabel getLblSocket() {
+        return lblSocket;
+    }
+
+   
+    public JLabel getLblTitulo2() {
+        return lblTitulo2;
+    }
+
+    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,54 +96,231 @@ public class VistaProductos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jdlgDetalles = new javax.swing.JDialog();
+        jPanel6 = new javax.swing.JPanel();
+        btJdlDetalleAceptar = new javax.swing.JButton();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        lblSocket = new javax.swing.JLabel();
+        lblMarca = new javax.swing.JLabel();
+        lblNucleos = new javax.swing.JLabel();
+        lblModelo = new javax.swing.JLabel();
+        lblGHz = new javax.swing.JLabel();
+        lblPrecio = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        lblTitulo2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        btnCesta = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel11 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
-        jLabel22 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        jTextArea7 = new javax.swing.JTextArea();
-        jLabel27 = new javax.swing.JLabel();
-        jButton11 = new javax.swing.JButton();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        jTextArea8 = new javax.swing.JTextArea();
-        jLabel28 = new javax.swing.JLabel();
-        jButton12 = new javax.swing.JButton();
-        jScrollPane9 = new javax.swing.JScrollPane();
-        jTextArea9 = new javax.swing.JTextArea();
-        jScrollPane10 = new javax.swing.JScrollPane();
-        jTextArea10 = new javax.swing.JTextArea();
-        jScrollPane11 = new javax.swing.JScrollPane();
-        jTextArea11 = new javax.swing.JTextArea();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
-        jButton13 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
-        jButton7 = new javax.swing.JButton();
+        jCbCategorias = new javax.swing.JComboBox<>();
+        JpComponentes = new javax.swing.JPanel();
+
+        jdlgDetalles.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        jdlgDetalles.setBackground(new java.awt.Color(255, 255, 255));
+        jdlgDetalles.setResizable(false);
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 212, 250), 3));
+
+        btJdlDetalleAceptar.setBackground(new java.awt.Color(255, 255, 255));
+        btJdlDetalleAceptar.setFont(new java.awt.Font("Montserrat", 1, 16)); // NOI18N
+        btJdlDetalleAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Compromisos.png"))); // NOI18N
+        btJdlDetalleAceptar.setText("Aceptar");
+
+        jLabel30.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        jLabel30.setForeground(new java.awt.Color(37, 53, 124));
+        jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel30.setText("Marca:");
+        jLabel30.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+
+        jLabel31.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(37, 53, 124));
+        jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel31.setText("Modelo:");
+        jLabel31.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+
+        jLabel32.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        jLabel32.setForeground(new java.awt.Color(37, 53, 124));
+        jLabel32.setText("Núcleos Físicos:");
+        jLabel32.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+
+        jLabel33.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(37, 53, 124));
+        jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel33.setText("GHz:");
+        jLabel33.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+
+        jLabel34.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        jLabel34.setForeground(new java.awt.Color(37, 53, 124));
+        jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel34.setText("Socket:");
+        jLabel34.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+
+        lblSocket.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        lblSocket.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblSocket.setText("---------------");
+        lblSocket.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+
+        lblMarca.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        lblMarca.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblMarca.setText("---------------");
+        lblMarca.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+
+        lblNucleos.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        lblNucleos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblNucleos.setText("---------------");
+        lblNucleos.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+
+        lblModelo.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        lblModelo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblModelo.setText("---------------");
+        lblModelo.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+
+        lblGHz.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        lblGHz.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblGHz.setText("---------------");
+        lblGHz.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+
+        lblPrecio.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        lblPrecio.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblPrecio.setText("---------------");
+        lblPrecio.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+
+        jLabel40.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        jLabel40.setForeground(new java.awt.Color(37, 53, 124));
+        jLabel40.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel40.setText("Precio:");
+        jLabel40.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btJdlDetalleAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(145, 145, 145)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel33, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel32)
+                            .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblNucleos, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblGHz, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblSocket, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(179, 179, 179)))
+                .addContainerGap())
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel30)
+                    .addComponent(lblMarca))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblModelo)
+                            .addComponent(jLabel31))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblNucleos)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel33)
+                            .addComponent(lblGHz))))
+                .addGap(8, 8, 8)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel34)
+                    .addComponent(lblSocket))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(btJdlDetalleAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel40)
+                            .addComponent(lblPrecio))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 212, 250), 3));
+
+        lblTitulo2.setBackground(new java.awt.Color(255, 255, 255));
+        lblTitulo2.setFont(new java.awt.Font("Montserrat", 1, 48)); // NOI18N
+        lblTitulo2.setForeground(new java.awt.Color(37, 53, 124));
+        lblTitulo2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblTitulo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logo.png"))); // NOI18N
+        lblTitulo2.setText("Detalles Procesador");
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTitulo2, javax.swing.GroupLayout.PREFERRED_SIZE, 799, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTitulo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jdlgDetallesLayout = new javax.swing.GroupLayout(jdlgDetalles.getContentPane());
+        jdlgDetalles.getContentPane().setLayout(jdlgDetallesLayout);
+        jdlgDetallesLayout.setHorizontalGroup(
+            jdlgDetallesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jdlgDetallesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jdlgDetallesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 648, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jdlgDetallesLayout.setVerticalGroup(
+            jdlgDetallesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jdlgDetallesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -106,37 +352,19 @@ public class VistaProductos extends javax.swing.JFrame {
         jLabel2.setText("Usuario");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 30, 140, 50));
 
-        jButton2.setFont(new java.awt.Font("Roboto", 0, 17)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Carrito.png"))); // NOI18N
-        jButton2.setText("Mi cesta");
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 30, 140, 50));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 1320, 10));
+        btnCesta.setFont(new java.awt.Font("Roboto", 0, 17)); // NOI18N
+        btnCesta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Carrito.png"))); // NOI18N
+        btnCesta.setText("Mi cesta");
+        btnCesta.setBorderPainted(false);
+        btnCesta.setContentAreaFilled(false);
+        btnCesta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(btnCesta, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 30, 140, 50));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 1320, 10));
 
         jLabel3.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("PRODUCTOS");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 250, 30));
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Case blanco.jpg"))); // NOI18N
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 610, 190, 160));
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fuente de poder.jpg"))); // NOI18N
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 190, 160));
-
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Procesador.jpg"))); // NOI18N
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 230, 190, 160));
-
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Ram.jpg"))); // NOI18N
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 230, 190, 160));
-
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Regulador de voltaje.jpg"))); // NOI18N
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 230, 190, 160));
-
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Ventilador.jpg"))); // NOI18N
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 230, 190, 160));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 1320, 10));
 
         jLabel11.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -144,191 +372,35 @@ public class VistaProductos extends javax.swing.JFrame {
         jLabel11.setText("Expertos en tecnología con un servicio 5 estrellas");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 1330, 30));
 
-        jButton6.setForeground(new java.awt.Color(51, 51, 51));
-        jButton6.setText("Comprar");
-        jButton6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 2, true));
-        jButton6.setContentAreaFilled(false);
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 930, 190, 30));
+        jCbCategorias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todas las categorias", " " }));
+        jCbCategorias.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jCbCategorias.setOpaque(false);
+        jPanel1.add(jCbCategorias, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, 130, 50));
 
-        jLabel22.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
-        jLabel22.setText("700$");
-        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 880, 190, 40));
+        javax.swing.GroupLayout JpComponentesLayout = new javax.swing.GroupLayout(JpComponentes);
+        JpComponentes.setLayout(JpComponentesLayout);
+        JpComponentesLayout.setHorizontalGroup(
+            JpComponentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1320, Short.MAX_VALUE)
+        );
+        JpComponentesLayout.setVerticalGroup(
+            JpComponentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 370, Short.MAX_VALUE)
+        );
 
-        jTextArea2.setEditable(false);
-        jTextArea2.setColumns(20);
-        jTextArea2.setFont(new java.awt.Font("Roboto", 0, 15)); // NOI18N
-        jTextArea2.setForeground(new java.awt.Color(51, 51, 51));
-        jTextArea2.setLineWrap(true);
-        jTextArea2.setRows(5);
-        jTextArea2.setText("Lenovo IdeaPad Slim 3 15IAH8 Intel Core i5-12450H/16GB/512GB SSD/15.6''");
-        jTextArea2.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        jTextArea2.setOpaque(false);
-        jScrollPane2.setViewportView(jTextArea2);
-
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 780, 190, 100));
-
-        jTextArea7.setEditable(false);
-        jTextArea7.setColumns(20);
-        jTextArea7.setFont(new java.awt.Font("Roboto", 0, 15)); // NOI18N
-        jTextArea7.setForeground(new java.awt.Color(51, 51, 51));
-        jTextArea7.setLineWrap(true);
-        jTextArea7.setRows(5);
-        jTextArea7.setText("Lenovo IdeaPad Slim 3 15IAH8 Intel Core i5-12450H/16GB/512GB SSD/15.6''");
-        jTextArea7.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        jTextArea7.setOpaque(false);
-        jScrollPane7.setViewportView(jTextArea7);
-
-        jPanel1.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 400, 190, 100));
-
-        jLabel27.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
-        jLabel27.setText("700$");
-        jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 500, 190, 40));
-
-        jButton11.setForeground(new java.awt.Color(51, 51, 51));
-        jButton11.setText("Comprar");
-        jButton11.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 2, true));
-        jButton11.setContentAreaFilled(false);
-        jPanel1.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 550, 190, 30));
-
-        jTextArea8.setEditable(false);
-        jTextArea8.setColumns(20);
-        jTextArea8.setFont(new java.awt.Font("Roboto", 0, 15)); // NOI18N
-        jTextArea8.setForeground(new java.awt.Color(51, 51, 51));
-        jTextArea8.setLineWrap(true);
-        jTextArea8.setRows(5);
-        jTextArea8.setText("Lenovo IdeaPad Slim 3 15IAH8 Intel Core i5-12450H/16GB/512GB SSD/15.6''");
-        jTextArea8.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        jTextArea8.setOpaque(false);
-        jScrollPane8.setViewportView(jTextArea8);
-
-        jPanel1.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 400, 190, 100));
-
-        jLabel28.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
-        jLabel28.setText("700$");
-        jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 500, 190, 40));
-
-        jButton12.setForeground(new java.awt.Color(51, 51, 51));
-        jButton12.setText("Comprar");
-        jButton12.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 2, true));
-        jButton12.setContentAreaFilled(false);
-        jPanel1.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 550, 190, 30));
-
-        jTextArea9.setEditable(false);
-        jTextArea9.setColumns(20);
-        jTextArea9.setFont(new java.awt.Font("Roboto", 0, 15)); // NOI18N
-        jTextArea9.setForeground(new java.awt.Color(51, 51, 51));
-        jTextArea9.setLineWrap(true);
-        jTextArea9.setRows(5);
-        jTextArea9.setText("Lenovo IdeaPad Slim 3 15IAH8 Intel Core i5-12450H/16GB/512GB SSD/15.6''");
-        jTextArea9.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        jTextArea9.setOpaque(false);
-        jScrollPane9.setViewportView(jTextArea9);
-
-        jPanel1.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 400, 190, 100));
-
-        jTextArea10.setEditable(false);
-        jTextArea10.setColumns(20);
-        jTextArea10.setFont(new java.awt.Font("Roboto", 0, 15)); // NOI18N
-        jTextArea10.setForeground(new java.awt.Color(51, 51, 51));
-        jTextArea10.setLineWrap(true);
-        jTextArea10.setRows(5);
-        jTextArea10.setText("Lenovo IdeaPad Slim 3 15IAH8 Intel Core i5-12450H/16GB/512GB SSD/15.6''");
-        jTextArea10.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        jTextArea10.setOpaque(false);
-        jScrollPane10.setViewportView(jTextArea10);
-
-        jPanel1.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 400, 190, 100));
-
-        jTextArea11.setEditable(false);
-        jTextArea11.setColumns(20);
-        jTextArea11.setFont(new java.awt.Font("Roboto", 0, 15)); // NOI18N
-        jTextArea11.setForeground(new java.awt.Color(51, 51, 51));
-        jTextArea11.setLineWrap(true);
-        jTextArea11.setRows(5);
-        jTextArea11.setText("Lenovo IdeaPad Slim 3 15IAH8 Intel Core i5-12450H/16GB/512GB SSD/15.6''");
-        jTextArea11.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        jTextArea11.setOpaque(false);
-        jScrollPane11.setViewportView(jTextArea11);
-
-        jPanel1.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 400, 190, 100));
-
-        jLabel29.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
-        jLabel29.setText("700$");
-        jPanel1.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 500, 190, 40));
-
-        jLabel30.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
-        jLabel30.setText("700$");
-        jPanel1.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 500, 190, 40));
-
-        jLabel31.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
-        jLabel31.setText("700$");
-        jPanel1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 500, 190, 40));
-
-        jButton13.setForeground(new java.awt.Color(51, 51, 51));
-        jButton13.setText("Comprar");
-        jButton13.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 2, true));
-        jButton13.setContentAreaFilled(false);
-        jPanel1.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 550, 190, 30));
-
-        jButton14.setForeground(new java.awt.Color(51, 51, 51));
-        jButton14.setText("Comprar");
-        jButton14.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 2, true));
-        jButton14.setContentAreaFilled(false);
-        jPanel1.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 550, 190, 30));
-
-        jButton15.setForeground(new java.awt.Color(51, 51, 51));
-        jButton15.setText("Comprar");
-        jButton15.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 2, true));
-        jButton15.setContentAreaFilled(false);
-        jPanel1.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 550, 190, 30));
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todas las categorias", " " }));
-        jComboBox1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jComboBox1.setOpaque(false);
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, 130, 50));
-
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Case blanco.jpg"))); // NOI18N
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 190, 160));
-
-        jLabel23.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
-        jLabel23.setText("700$");
-        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, 190, 40));
-
-        jTextArea3.setEditable(false);
-        jTextArea3.setColumns(20);
-        jTextArea3.setFont(new java.awt.Font("Roboto", 0, 15)); // NOI18N
-        jTextArea3.setForeground(new java.awt.Color(51, 51, 51));
-        jTextArea3.setLineWrap(true);
-        jTextArea3.setRows(5);
-        jTextArea3.setText("Lenovo IdeaPad Slim 3 15IAH8 Intel Core i5-12450H/16GB/512GB SSD/15.6''");
-        jTextArea3.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        jTextArea3.setOpaque(false);
-        jScrollPane3.setViewportView(jTextArea3);
-
-        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 190, 100));
-
-        jButton7.setForeground(new java.awt.Color(51, 51, 51));
-        jButton7.setText("Comprar");
-        jButton7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 2, true));
-        jButton7.setContentAreaFilled(false);
-        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, 190, 30));
-
-        jScrollPane1.setViewportView(jPanel1);
+        jPanel1.add(JpComponentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 1320, 370));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1360, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 614, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -372,53 +444,35 @@ public class VistaProductos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel JpComponentes;
+    private javax.swing.JButton btJdlDetalleAceptar;
+    private javax.swing.JButton btnCesta;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jCbCategorias;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel40;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane10;
-    private javax.swing.JScrollPane jScrollPane11;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextArea jTextArea10;
-    private javax.swing.JTextArea jTextArea11;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextArea jTextArea7;
-    private javax.swing.JTextArea jTextArea8;
-    private javax.swing.JTextArea jTextArea9;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JDialog jdlgDetalles;
+    private javax.swing.JLabel lblGHz;
     private javax.swing.JLabel lblLogo;
+    private javax.swing.JLabel lblMarca;
+    private javax.swing.JLabel lblModelo;
+    private javax.swing.JLabel lblNucleos;
+    private javax.swing.JLabel lblPrecio;
+    private javax.swing.JLabel lblSocket;
+    private javax.swing.JLabel lblTitulo2;
     // End of variables declaration//GEN-END:variables
 }

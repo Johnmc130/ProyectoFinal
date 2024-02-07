@@ -5,7 +5,7 @@
  */
 package Vista;
 
-import Controlador.ControladorVentanaPrin;
+
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
