@@ -1,7 +1,7 @@
 package Controlador;
 
 import Clases.Tarjetagrafica;
-import Modelo.ModeloTarjetaGrafica;
+import Main.ModeloTarjetaGrafica;
 import Vista.ArmadoPlaca_JB;
 import Vista.ArmadoRam_JB;
 import Vista.ArmadoTarjetaV_JB;
