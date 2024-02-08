@@ -1,4 +1,4 @@
-package Main;
+package Modelo;
 
 import Clases.Tarjetagrafica;
 import Conexion.Conexion;
@@ -21,11 +21,11 @@ public class ModeloTarjetaGrafica extends Tarjetagrafica {
     Connection con;
     PreparedStatement ps;
 
-    public static List<Tarjetagrafica> listaTarjetagrafica() {
+    public static List<Tarjetagrafica> listaTarjetaGrafica() {
         Conexion conectar = new Conexion();
         List<Tarjetagrafica> listaTarjetagrafica = new ArrayList<Tarjetagrafica>();
         String sql;
-        sql = "SELECT idtarjetagrafica, marca, modelo, vram, dlss, fsr,watts,tamano, precio,stock,proveedor, foto FROM tarjetagrafica";
+        sql = "SELECT idtarjetagrafica, marca, modelo, vram, dlss, fsr,watts,tamano, precio,stock,proveedor,foto FROM tarjetagrafica";
         ResultSet rs = conectar.consultaBase(sql);
         try {
             while (rs.next()) {
@@ -51,7 +51,7 @@ public class ModeloTarjetaGrafica extends Tarjetagrafica {
 
         } catch (SQLException ex) {
 
-            System.out.println("problemas en el listado");
+            System.out.println("Problemas en el listado");
             Logger.getLogger(ModeloTarjetaGrafica.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
@@ -88,64 +88,43 @@ public class ModeloTarjetaGrafica extends Tarjetagrafica {
         }
     }
 
-    public Tarjetagrafica obtenerDatosTarjeta(int idTarjeta) {
-        String sql = "SELECT idtarjetagrafica, marca, modelo, vram, dlss, fsr, watts, tamano, precio, stock, proveedor, foto FROM tarjetagrafica WHERE idtarjetagrafica = ?";
-        try (Connection con = conectar.getConexion();
-                PreparedStatement ps = con.prepareStatement(sql)) {
-            ps.setInt(1, idTarjeta);
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                Tarjetagrafica tarjeta = new Tarjetagrafica();
-                tarjeta.setIdtarjetag(rs.getInt("idtarjetagrafica"));
-                tarjeta.setMarca(rs.getString("marca"));
-                tarjeta.setModelo(rs.getString("modelo"));
-                tarjeta.setVram(rs.getInt("vram"));
-                tarjeta.setDlss(rs.getString("dlss"));
-                tarjeta.setFsr(rs.getString("fsr"));
-                tarjeta.setWatts(rs.getInt("watts"));
-                tarjeta.setTamano(rs.getInt("tamano"));
-                tarjeta.setPrecio(rs.getDouble("precio"));
-                tarjeta.setStock(rs.getInt("stock"));
-                tarjeta.setProveedor(rs.getInt("proveedor"));
-                tarjeta.setFoto(rs.getBytes("foto"));
-                conectar.cerrar();
-                return tarjeta;
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        return null;
-    }
+    public SQLException ModificarPTarjetagrafica() {
 
-    public boolean actualizarTarjeta(Tarjetagrafica tarjeta) {
-        String sql = "UPDATE tarjetagrafica SET marca=?, modelo=?, vram=?, dlss=?, fsr=?, watts=?, tamano=?, precio=?, stock=?, proveedor=?, foto=? WHERE idtarjetagrafica=?";
-        try (Connection con = conectar.getConexion();
-                PreparedStatement ps = con.prepareStatement(sql)) {
-            ps.setString(1, tarjeta.getMarca());
-            ps.setString(2, tarjeta.getModelo());
-            ps.setInt(3, tarjeta.getVram());
-            ps.setString(4, tarjeta.getDlss());
-            ps.setString(5, tarjeta.getFsr());
-            ps.setInt(6, tarjeta.getWatts());
-            ps.setInt(7, tarjeta.getTamano());
-            ps.setDouble(8, tarjeta.getPrecio());
-            ps.setInt(9, tarjeta.getStock());
-            ps.setInt(10, tarjeta.getProveedor());
-            ps.setBytes(11, tarjeta.getFoto());
-            ps.setInt(12, tarjeta.getIdtarjetag());
+        String sql = "UPDATE tarjetagrafica SET marca = ?, modelo = ?, vram = ?, dlss = ?, fsr = ?, watts = ?, tamano = ?, precio = ?, stock = ?, proveedor = ?, foto = ? "
+                + "WHERE idtarjetagrafica = ?";
 
-            int result = ps.executeUpdate();
-            conectar.cerrar();
-            return result > 0;
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-            return false;
+        try (PreparedStatement preparedStatement = conectar.getConexion().prepareStatement(sql)) {
+            // Configurar los parámetros
+            
+            preparedStatement.setString(1, getMarca());
+            preparedStatement.setString(2, getModelo());
+            preparedStatement.setInt(3, getVram());
+            preparedStatement.setString(4, getDlss());
+            preparedStatement.setString(5, getFsr());
+            preparedStatement.setInt(6, getWatts());
+            preparedStatement.setInt(7, getTamano());
+            preparedStatement.setDouble(8, getPrecio());
+            preparedStatement.setInt(9, getStock());
+            preparedStatement.setInt(10, getProveedor());
+            preparedStatement.setBytes(11, getFoto());
+
+            // Establecer la cédula en el WHERE
+            preparedStatement.setInt(12, getIdtarjetag());
+            // Ejecutar la actualización
+            preparedStatement.executeUpdate();
+
+            return null; // Devuelve null si es correcto.
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return e; // Devuelve la excepción si hay un error.
         }
     }
 
-    public boolean eliminarPlacamadre() {
-        return false;
 
+    
+    public SQLException eliminarPersona(String idtarje) {
+        String sql = "DELETE FROM tarjetagrafica WHERE idtarjetagrafica = '" + idtarje + "'";
+        return conectar.ejecutaConsulta(sql);
     }
 
     public static ArrayList<Integer> obtenerCodigosProveedor() {
@@ -179,12 +158,31 @@ public class ModeloTarjetaGrafica extends Tarjetagrafica {
             if (resultSet.next()) {
                 siguienteId = resultSet.getInt(1) + 1;
             }
-            conectar.cerrar();
             return siguienteId;
         } catch (SQLException ex) {
-            Logger.getLogger(ModeloTarjetaGrafica.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ModeloPlacaMadre.class.getName()).log(Level.SEVERE, null, ex);
         }
         return siguienteId;
     }
 
+        public static byte[] fotoTarjeta(String id) {
+        Conexion cpg = new Conexion();//Conectamos a la base
+
+        Tarjetagrafica tarjetag = new Tarjetagrafica();
+        String sql;//SELECT * FROM TABLA
+        sql = "SELECT foto FROM tarjetagrafica WHERE idtarjetagrafica = '" + id + "'";
+        ResultSet rs = cpg.consultaBase(sql);
+        try {
+            while (rs.next()) {
+
+                tarjetag.setFoto(rs.getBytes("foto"));
+            }
+            rs.close();//CIERRO CONEXION CON LA BASE DE DATOS.
+            return tarjetag.getFoto();
+        } catch (SQLException ex) {
+            Logger.getLogger(ModeloTarjetaGrafica.class.getName()).log(Level.SEVERE, null, ex);
+            return null;//CUANDO REGRESA NULL, HUBO ERROR EN EL QUERY
+        }
+
+    }
 }
