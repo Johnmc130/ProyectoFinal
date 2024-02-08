@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Vistas;
+package Vista;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -23,6 +23,24 @@ public class CrearMemoriaRam extends javax.swing.JFrame {
     public CrearMemoriaRam() {
         initComponents();
     }
+
+    public JButton getBtnCargarI() {
+        return btnCargarI;
+    }
+
+    public void setBtnCargarI(JButton btnCargarI) {
+        this.btnCargarI = btnCargarI;
+    }
+
+    public JButton getBtnImagenProducto() {
+        return btnImagenProducto;
+    }
+
+    public void setBtnImagenProducto(JButton btnImagenProducto) {
+        this.btnImagenProducto = btnImagenProducto;
+    }
+    
+    
 
     public JComboBox<String> getCmbTipo() {
         return cmbTipo;
@@ -116,8 +134,6 @@ public class CrearMemoriaRam extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jLabel35 = new javax.swing.JLabel();
         btAtras2 = new javax.swing.JToggleButton();
-        btnCrearproc1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         rb1 = new javax.swing.JRadioButton();
         rb2 = new javax.swing.JRadioButton();
         jLabel30 = new javax.swing.JLabel();
@@ -132,22 +148,21 @@ public class CrearMemoriaRam extends javax.swing.JFrame {
         spPrecio = new javax.swing.JSpinner();
         jLabel37 = new javax.swing.JLabel();
         spStock = new javax.swing.JSpinner();
+        btnCargarI = new javax.swing.JButton();
+        btnImagenProducto = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 212, 250), 3));
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnCrear.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         btnCrear.setText("Crear");
-        jPanel3.add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 440, -1, -1));
 
         jLabel32.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         jLabel32.setText("Numero modulos:");
         jLabel32.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jPanel3.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, -1, 30));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 212, 250), 3));
@@ -172,7 +187,7 @@ public class CrearMemoriaRam extends javax.swing.JFrame {
                 .addComponent(btAtras2)
                 .addGap(146, 146, 146)
                 .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,18 +195,8 @@ public class CrearMemoriaRam extends javax.swing.JFrame {
             .addComponent(btAtras2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 3, 890, -1));
-
-        btnCrearproc1.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
-        btnCrearproc1.setText("Cargar Imagen");
-        jPanel3.add(btnCrearproc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, -1, -1));
-
-        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 170, 132, 159));
-
         buttonGroup1.add(rb1);
         rb1.setText("1");
-        jPanel3.add(rb1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, -1, -1));
 
         buttonGroup1.add(rb2);
         rb2.setText("2");
@@ -200,63 +205,163 @@ public class CrearMemoriaRam extends javax.swing.JFrame {
                 rb2ActionPerformed(evt);
             }
         });
-        jPanel3.add(rb2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, -1, -1));
 
         jLabel30.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel30.setText("Marca:");
         jLabel30.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jPanel3.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 179, 140, -1));
 
         txtmarca.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
         txtmarca.setBorder(null);
-        jPanel3.add(txtmarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 179, 146, -1));
 
         jLabel31.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel31.setText("Modelo:");
         jLabel31.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jPanel3.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, 140, -1));
 
         txtmodelo.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
         txtmodelo.setBorder(null);
-        jPanel3.add(txtmodelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 148, -1));
 
         jLabel36.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         jLabel36.setText("Tipo");
         jLabel36.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jPanel3.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 226, -1, 30));
 
         cmbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "sdd", "hdd", "m2" }));
-        jPanel3.add(cmbTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 235, 148, -1));
 
         jLabel33.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel33.setText("Capacidad:");
         jLabel33.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jPanel3.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 140, -1));
 
         spCapacidad.setFont(new java.awt.Font("Montserrat Thin", 0, 18)); // NOI18N
-        jPanel3.add(spCapacidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, 60, -1));
 
         jLabel34.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel34.setText("Precio:");
         jLabel34.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jPanel3.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 140, -1));
 
         spPrecio.setFont(new java.awt.Font("Montserrat Thin", 0, 18)); // NOI18N
         spPrecio.setModel(new javax.swing.SpinnerNumberModel(0.0d, null, null, 1.0d));
-        jPanel3.add(spPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 330, 60, -1));
 
         jLabel37.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         jLabel37.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel37.setText("Stock:");
         jLabel37.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jPanel3.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, 140, -1));
 
         spStock.setFont(new java.awt.Font("Montserrat Thin", 0, 18)); // NOI18N
-        jPanel3.add(spStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, 60, -1));
+
+        btnCargarI.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        btnCargarI.setText("Cargar Imagen");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(327, 327, 327)
+                .addComponent(btnCrear))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(txtmarca, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(87, 87, 87)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(102, 102, 102)
+                                .addComponent(jLabel36)
+                                .addGap(12, 12, 12)
+                                .addComponent(cmbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(240, 240, 240)
+                                .addComponent(rb2))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(170, 170, 170)
+                                .addComponent(rb1))
+                            .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(160, 160, 160)
+                                .addComponent(txtmodelo, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel32)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(97, 97, 97)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(spCapacidad, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(spPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(97, 97, 97)
+                        .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(spStock, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(btnCargarI)
+                .addGap(18, 18, 18)
+                .addComponent(btnImagenProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(112, 112, 112)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel30)
+                            .addComponent(txtmarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(9, 9, 9)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(25, 25, 25)
+                                .addComponent(cmbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(60, 60, 60)
+                                .addComponent(rb2))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(60, 60, 60)
+                                .addComponent(rb1))
+                            .addComponent(jLabel31)
+                            .addComponent(txtmodelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(7, 7, 7)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel33)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel34))
+                            .addComponent(spCapacidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addComponent(spPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(8, 8, 8)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel37))
+                            .addComponent(spStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(38, 38, 38))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnCargarI)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addComponent(btnImagenProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(50, 50, 50)))
+                .addComponent(btnCrear))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -284,12 +389,12 @@ public class CrearMemoriaRam extends javax.swing.JFrame {
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btAtras2;
+    private javax.swing.JButton btnCargarI;
     private javax.swing.JButton btnCrear;
-    private javax.swing.JButton btnCrearproc1;
+    private javax.swing.JButton btnImagenProducto;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JComboBox<String> cmbTipo;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;

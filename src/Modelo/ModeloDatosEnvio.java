@@ -12,12 +12,14 @@ package Modelo;
 import Clases.DatosVenta;
 import Conexion.Conexion;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import java.sql.Types;
 
 public class ModeloDatosEnvio extends DatosVenta {
 
@@ -25,7 +27,7 @@ public class ModeloDatosEnvio extends DatosVenta {
     Connection con;
 
     public boolean guardarDatosEnvio() {
-        String sql = "INSERT INTO datosenvio (id_datos, nombres, apellidos, movil, direccion, numerocuenta, codigoseguridad, fechaexpiracion) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO datosenvio (id_datos, nombres, apellidos, movil, direccion, numerocuenta, codigoseguridad, fechaexpiracion, nombreproducto, id_producto, id_cliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection con = conectar.getConexion()) {
             if (con == null || con.isClosed()) {
@@ -48,7 +50,10 @@ public class ModeloDatosEnvio extends DatosVenta {
                 pst.setString(5, getDireccion());
                 pst.setString(6, getNumeroCuenta());
                 pst.setString(7, getCodigoSeguridad());
-                pst.setString(8, getFechaExpiracion());
+                pst.setObject(8, getFechaExpiracion(), Types.TIMESTAMP);
+                pst.setString(9, getNombreProducto());
+                pst.setInt(10, getId_producto());
+                pst.setInt(11, getId_cliente());
 
                 int result = pst.executeUpdate();
                 System.out.println("Consulta ejecutada exitosamente. Filas afectadas: " + result);
@@ -70,7 +75,7 @@ public class ModeloDatosEnvio extends DatosVenta {
     }
 
     public boolean actualizarDatosEnvio() {
-        String sql = "UPDATE datosenvio SET nombres=?, apellidos=?, movil=?, direccion=?, numerocuenta=?, codigoseguridad=?, fechaexpiracion=? WHERE id_datos=?";
+        String sql = "INSERT INTO datosenvio (id_datos, nombres, apellidos, movil, direccion, numerocuenta, codigoseguridad, fechaexpiracion, nombreproducto, id_producto, id_cliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection conexion = new Conexion().getConexion();
                 PreparedStatement pst = conexion.prepareStatement(sql)) {
             pst.setInt(1, getId_datos());
@@ -80,7 +85,12 @@ public class ModeloDatosEnvio extends DatosVenta {
             pst.setString(5, getDireccion());
             pst.setString(6, getNumeroCuenta());
             pst.setString(7, getCodigoSeguridad());
-            pst.setString(8, getFechaExpiracion());
+            pst.setObject(8, getFechaExpiracion(), Types.TIMESTAMP);
+            pst.setString(9, getNombreProducto());
+            pst.setInt(10, getId_producto());
+            pst.setInt(11, getId_cliente());
+            
+            
             int result = pst.executeUpdate();
             return result > 0;
         } catch (SQLException ex) {

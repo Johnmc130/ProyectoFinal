@@ -30,7 +30,7 @@ public class ModeloVentiladores extends Ventiladores {
         Conexion conectar = new Conexion();
         List<Ventiladores> listaVentiladores = new ArrayList<Ventiladores>();
         String sql;
-        sql = "SELECT idventiladores,marca,modelo,rgb,tamaño,precio,Stock FROM ventiladores";
+        sql = "SELECT idventiladores,marca,modelo,rgb,tamaño,precio,Stock, foto FROM ventiladores";
         ResultSet rs = conectar.consultaBase(sql);
         try {
             while (rs.next()) {
@@ -43,6 +43,8 @@ public class ModeloVentiladores extends Ventiladores {
                 miventiladores.setTamaño(rs.getInt("tamaño"));
                 miventiladores.setPrecio(rs.getDouble("precio"));
                 miventiladores.setStock(rs.getInt("Stock"));
+                                miventiladores.setFoto(rs.getBytes("foto"));
+
 
                 listaVentiladores.add(miventiladores);
 
@@ -62,8 +64,8 @@ public class ModeloVentiladores extends Ventiladores {
     public SQLException grabarventiladores() {
 
         String sql;//"INSERT INTO TABLA () VALUES()"
-        sql = "INSERT INTO ventiladores (marca, modelo, rgb, tamaño, precio, stock) "
-                + "VALUES('" + getMarca() + "','" + getModelo() + "','" + getRGB() + "','" + getTamaño() + "','" + getPrecio() + "','" + getStock() + "')";
+        sql = "INSERT INTO ventiladores (marca, modelo, rgb, tamaño, precio, stock, foto) "
+                + "VALUES('" + getMarca() + "','" + getModelo() + "','" + getRGB() + "','" + getTamaño() + "','" + getPrecio() + "','" + getStock() + "','" + getFoto() + "')";
 
         return conectar.ejecutaConsulta(sql);
     }

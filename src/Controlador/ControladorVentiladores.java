@@ -7,11 +7,19 @@ package Controlador;
 
 import Modelo.ModeloVentiladores;
 import Clases.Ventiladores;
-import Vistas.CrearVentiladores;
-import Vistas.EliminarVentiladores;
-import Vistas.ModificarVentiladores;
+import Vista.CrearVentiladores;
+import Vista.EliminarVentiladores;
+import Vista.ModificarVentiladores;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -28,6 +36,8 @@ public class ControladorVentiladores {
     ModeloVentiladores miVentiladores = new ModeloVentiladores();
     DefaultTableModel modeloTabla = new DefaultTableModel();
     String RGB = "";
+        byte[] imagenBytes;
+
 
     public ControladorVentiladores() {
 
@@ -60,6 +70,8 @@ public class ControladorVentiladores {
         // vista.getBtnEliminarA().addActionListener(l -> listarVentiladores(eliminar.getTblVentilador()));
         // vista.getBtnExaminar().addActionListener(l -> seleccionarImagen());
 //                eliminar.getBtnEliminar().addActionListener(l -> eliminarVentiladores());
+  crear.getBtnCargarI().addActionListener(l -> cargarImagen());
+        crear.getBtnImagenProducto().addActionListener(l -> mostrarImagenEmergente());
 
         crear.getBtnCrear().addActionListener(l -> grabarVentiladores());
 
@@ -115,6 +127,9 @@ public class ControladorVentiladores {
         miVentiladores.setTamaño(tamaño);
         miVentiladores.setPrecio(precio);
         miVentiladores.setStock(stock);
+                miVentiladores.setFoto(imagenBytes);
+
+        
 
         if (CamposVacios() == true && miVentiladores.grabarventiladores() == null) {
             JOptionPane.showMessageDialog(crear, "Usuario Agregado con Exito");
@@ -236,6 +251,75 @@ public class ControladorVentiladores {
 
         }
 
+    }
+    
+      private byte[] obtenerBytesImagen(String rutaImagen) {
+        try {
+            // Leer la imagen desde el archivo en la ruta especificada
+            File file = new File(rutaImagen);
+            FileInputStream fis = new FileInputStream(file);
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+            while ((bytesRead = fis.read(buffer)) != -1) {
+                bos.write(buffer, 0, bytesRead);
+            }
+            fis.close();
+
+            // Obtener el arreglo de bytes de la imagen
+            byte[] imagenBytes = bos.toByteArray();
+            bos.close();
+            return imagenBytes;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+//
+// Método que invoca obtenerBytesImagen() y asigna el arreglo de bytes a la variable "foto"
+    private String rutaImagenSeleccionada;
+
+    private void cargarImagen() {
+        JFileChooser jf = new JFileChooser();
+        jf.setMultiSelectionEnabled(false);
+        if (jf.showOpenDialog(crear) == JFileChooser.APPROVE_OPTION) {
+            rutaImagenSeleccionada = jf.getSelectedFile().toString();
+
+            // Mostrar la imagen en el botón btnImagenProducto
+            crear.getBtnImagenProducto().setIcon(new ImageIcon(rutaImagenSeleccionada));
+
+            // Obtener los bytes de la imagen y guardarlos en la variable imagenBytes
+            imagenBytes = obtenerBytesImagen(rutaImagenSeleccionada);
+        }
+
+    }
+
+    private void mostrarImagenEmergente() {
+        // Obtener la imagen actual del botón
+        Icon imagenActual = crear.getBtnImagenProducto().getIcon();
+
+        // Si el botón no tiene una imagen, no hacemos nada
+        if (imagenActual == null) {
+            return;
+        }
+
+        // Crear un componente JLabel para mostrar la imagen en el diálogo emergente
+        JLabel lblImagen = new JLabel(imagenActual);
+
+        // Crear un diálogo emergente de JOptionPane para mostrar la imagen
+        JOptionPane.showMessageDialog(crear, lblImagen, "Imagen del Producto", JOptionPane.PLAIN_MESSAGE);
+    }
+
+    public static byte[] convert(String hexString) {
+        int length = hexString.length();
+        byte[] data = new byte[length / 2];
+
+        for (int i = 0; i < length; i += 2) {
+            data[i / 2] = (byte) ((Character.digit(hexString.charAt(i), 16) << 4)
+                    + Character.digit(hexString.charAt(i + 1), 16));
+        }
+
+        return data;
     }
 
 //    public void cargarCodigosProveedorComboBox() {

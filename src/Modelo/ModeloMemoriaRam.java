@@ -64,8 +64,8 @@ public class ModeloMemoriaRam extends memoriaRam{
     public SQLException grabarmemoriaRam() {
 
         String sql;//"INSERT INTO TABLA () VALUES()"
-        sql = "INSERT INTO memoria_ram (marca, Modelo, tipo, capacidad, precio, numeromodulos, stock) "
-                + "VALUES('" + getMarca() + "','" + getModelo() + "','" + getTipo() + "','" + getCapacidad() + "','" + getPrecio() + "','" + getNumeroModulos() + "','" + getStock() + "')";
+        sql = "INSERT INTO memoria_ram (marca, Modelo, tipo, capacidad, precio, numeromodulos, stock, foto) "
+                + "VALUES('" + getMarca() + "','" + getModelo() + "','" + getTipo() + "','" + getCapacidad() + "','" + getPrecio() + "','" + getNumeroModulos() + "','" + getStock() + "','" + getFoto() + ")";
 
         return conectar.ejecutaConsulta(sql);
     }

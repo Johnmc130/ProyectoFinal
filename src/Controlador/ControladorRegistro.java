@@ -1,10 +1,15 @@
 package Controlador;
 
+import Clases.Validacion;
+import Modelo.ModeloAdministrador;
 import Modelo.ModeloCliente;
 import Modelo.ModeloPersona;
+import Modelo.ModeloProveedor;
 import Vista.VentanaLogin_JM;
 import Vista.VentanaRegistro_JM;
 import com.toedter.calendar.JDateChooser;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.time.LocalDate;
@@ -27,13 +32,15 @@ public class ControladorRegistro {
     }
 
     public void iniciaControlador() {
-        vista.getBtnRegistra().addActionListener(l -> createCliente());
+        vista.getBtnRegistra().addActionListener(l -> createUsuario());
         vista.getBtnCancela().addActionListener(l -> botonRegresar());
         //Metodo para limpiar los Campos al hacer click
         limpiaCampos();
+        //Validaciones
+        validaciones();
     }
 
-    private void createCliente() {
+    private void createUsuario() {
         if (datosVacios()) {
             JOptionPane.showMessageDialog(null, "Llene todos los Datos");
         } else {
@@ -65,18 +72,39 @@ public class ControladorRegistro {
             persona.setDireccion(direccion);
             persona.setTelefono(telefono);
 
-            ModeloCliente cliente = new ModeloCliente();
-            cliente.setId_cliente(cedula);
-            cliente.setContraseña(contra);
-
             if (persona.createPersona() == null) {
-                if (cliente.createCliente() == null) {
-                    JOptionPane.showMessageDialog(null, "¡Cuenta creada con Exito!");
-                } else {
-                    JOptionPane.showMessageDialog(null, "No se pudo crear la Cuenta");
+                if (!contra.equals("Admin@2024") && !contra.equals("Prov@2024")) {
+                    ModeloCliente cliente = new ModeloCliente();
+                    cliente.setContraseña(contra);
+                    cliente.setCedula_cli(cedula);
+                    if (cliente.createCliente() == null) {
+                        JOptionPane.showMessageDialog(null, "¡Cuenta creada con Exito!");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No se pudo crear la Cuenta");
+                    }
                 }
-            } else {
-                JOptionPane.showMessageDialog(null, "No se pudo crear la Cuenta");
+
+                if (contra.equals("Admin@2024")) {
+                    ModeloAdministrador admin = new ModeloAdministrador();
+                    admin.setContraseña(contra);
+                    admin.setCedula_admin(cedula);
+                    if (admin.createAdmin() == null) {
+                        JOptionPane.showMessageDialog(null, "¡Admin creado con Exito!");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No se pudo crear la Cuenta");
+                    }
+                }
+
+                if (contra.equals("Prov@2024")) {
+                    ModeloProveedor prov = new ModeloProveedor();
+                    prov.setContraseña(contra);
+                    prov.setCedula_prov(cedula);
+                    if (prov.createProveedor() == null) {
+                        JOptionPane.showMessageDialog(null, "¡Proveedor creado con Exito!");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No se pudo crear la Cuenta");
+                    }
+                }
             }
         }
     }
@@ -223,11 +251,82 @@ public class ControladorRegistro {
         }
     }
 
+    private void validaciones() {
+        Validacion valida = new Validacion();
+
+        //Cedula
+        vista.getTxtCedula().addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent evt) {
+                char caracter = evt.getKeyChar();
+
+                if (Character.isLetter(caracter)) {
+                    evt.consume();
+                    JOptionPane.showMessageDialog(null, "No se permiten letras");
+                }
+                if (vista.getTxtNombte().getText().length() >= 10) {
+                    evt.consume();
+                }
+            }
+        });
+
+        //Nombre
+        vista.getTxtNombte().addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent evt) {
+                char caracter = evt.getKeyChar();
+
+                if (Character.isDigit(caracter)) {
+                    evt.consume();
+                    JOptionPane.showMessageDialog(null, "No se permiten numeros");
+                }
+                if (vista.getTxtNombte().getText().length() >= 20) {
+                    evt.consume();
+                }
+            }
+        });
+
+        //Apellido
+        vista.getTxtApellido().addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent evt) {
+                char caracter = evt.getKeyChar();
+
+                if (Character.isDigit(caracter)) {
+                    evt.consume();
+                    JOptionPane.showMessageDialog(null, "No se permiten numeros");
+                }
+                if (vista.getTxtNombte().getText().length() >= 20) {
+                    evt.consume();
+                }
+            }
+        });
+
+        //Telefono
+        vista.getTxtTelef().addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent evt) {
+                char caracter = evt.getKeyChar();
+
+                if (Character.isDigit(caracter)) {
+                    evt.consume();
+                    JOptionPane.showMessageDialog(null, "No se permiten numeros");
+                }
+                if (vista.getTxtNombte().getText().length() >= 20) {
+                    evt.consume();
+                }
+            }
+        });
+
+    }
+
     private void botonRegresar() {
         VentanaLogin_JM ventana = new VentanaLogin_JM();
         ModeloCliente mCliente = new ModeloCliente();
-        ControladorlLogin cRegistro = new ControladorlLogin(mCliente, ventana);
-        cRegistro.iniciaControlador();
+        ModeloAdministrador mAdministrador = new ModeloAdministrador();
+        ModeloProveedor mProveedor = new ModeloProveedor();
+        ControladorlLogin cLogin = new ControladorlLogin(mCliente, mAdministrador, mProveedor, ventana);
+        cLogin.iniciaControlador();
         ventana.setVisible(true);
         vista.dispose();
     }

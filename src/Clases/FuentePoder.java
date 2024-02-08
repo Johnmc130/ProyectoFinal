@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Modelo;
+package Clases;
 
 /**
  *
@@ -22,8 +22,9 @@ public class FuentePoder {
     private int id_proveedor;
 
     private int Stock;
+    private byte[] foto;
 
-    public FuentePoder(int idFuentePoder, String marca, String modelo, String watts, String certificacion, String modular, String formato, double precio, int id_proveedor, int Stock) {
+    public FuentePoder(int idFuentePoder, String marca, String modelo, String watts, String certificacion, String modular, String formato, double precio, int id_proveedor, int Stock, byte[] foto) {
         this.idFuentePoder = idFuentePoder;
         this.marca = marca;
         this.modelo = modelo;
@@ -34,8 +35,20 @@ public class FuentePoder {
         this.precio = precio;
         this.id_proveedor = id_proveedor;
         this.Stock = Stock;
-
+        this.foto = foto;
     }
+
+    public byte[] getFoto() {
+        return foto;
+    }
+
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
+    }
+    
+    
+
+   
 
     public int getIdFuentePoder() {
         return idFuentePoder;

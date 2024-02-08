@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Vistas;
+package Vista;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -24,6 +24,24 @@ public class CrearAlmacenamiento extends javax.swing.JFrame {
     public CrearAlmacenamiento() {
         initComponents();
     }
+
+    public JButton getBtnImagenProducto() {
+        return btnCargarI;
+    }
+
+    public void setBtnImagenProducto(JButton btnImagenProducto) {
+        this.btnCargarI = btnImagenProducto;
+    }
+
+    public JButton getBtnCargarI() {
+        return btnCargarI;
+    }
+
+    public void setBtnCargarI(JButton btnCargarI) {
+        this.btnCargarI = btnCargarI;
+    }
+    
+    
 
     public JToggleButton getBtAtras2() {
         return btAtras2;
@@ -125,12 +143,12 @@ public class CrearAlmacenamiento extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jLabel35 = new javax.swing.JLabel();
         btAtras2 = new javax.swing.JToggleButton();
-        btnCrearproc1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        btnCargarI = new javax.swing.JButton();
         spCapacidad = new javax.swing.JSpinner();
         cmbTipo = new javax.swing.JComboBox<>();
         jLabel36 = new javax.swing.JLabel();
         spStock = new javax.swing.JSpinner();
+        btnImagenProducto = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -212,10 +230,8 @@ public class CrearAlmacenamiento extends javax.swing.JFrame {
             .addComponent(btAtras2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        btnCrearproc1.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
-        btnCrearproc1.setText("Cargar Imagen");
-
-        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnCargarI.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        btnCargarI.setText("Cargar Imagen");
 
         spCapacidad.setFont(new java.awt.Font("Montserrat Thin", 0, 18)); // NOI18N
 
@@ -259,9 +275,9 @@ public class CrearAlmacenamiento extends javax.swing.JFrame {
                         .addGap(3, 3, 3)
                         .addComponent(spCapacidad, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(63, 63, 63)
-                .addComponent(btnCrearproc1)
+                .addComponent(btnCargarI)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnImagenProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(93, 93, 93)
                 .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -290,8 +306,7 @@ public class CrearAlmacenamiento extends javax.swing.JFrame {
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnCrearproc1)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCargarI)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(17, 17, 17)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -306,14 +321,16 @@ public class CrearAlmacenamiento extends javax.swing.JFrame {
                                 .addGap(24, 24, 24)
                                 .addComponent(jLabel33))
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(txtmarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(9, 9, 9)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtmarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnImagenProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(2, 2, 2)
                                 .addComponent(txtmodelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(3, 3, 3)
                                 .addComponent(cmbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(spCapacidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(3, 3, 3)
+                .addGap(12, 12, 12)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(5, 5, 5)
@@ -358,11 +375,11 @@ public class CrearAlmacenamiento extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btAtras2;
+    private javax.swing.JButton btnCargarI;
     private javax.swing.JButton btnCrear;
-    private javax.swing.JButton btnCrearproc1;
+    private javax.swing.JButton btnImagenProducto;
     private javax.swing.JComboBox<String> cmbProveedor;
     private javax.swing.JComboBox<String> cmbTipo;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;

@@ -19,11 +19,12 @@ public class Ventiladores {
     private double precio;
     private int id_proveedor;
     private int stock;
+    private byte[] foto;
 
     public Ventiladores() {
     }
 
-    public Ventiladores(int idVentiladores, String marca, String modelo, String RGB, int tamaño, double precio, int id_proveedor, int stock) {
+    public Ventiladores(int idVentiladores, String marca, String modelo, String RGB, int tamaño, double precio, int id_proveedor, int stock, byte[] foto) {
         this.idVentiladores = idVentiladores;
         this.marca = marca;
         this.modelo = modelo;
@@ -32,7 +33,18 @@ public class Ventiladores {
         this.precio = precio;
         this.id_proveedor = id_proveedor;
         this.stock = stock;
+        this.foto = foto;
     }
+
+    public byte[] getFoto() {
+        return foto;
+    }
+
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
+    }
+
+   
 
     public int getIdVentiladores() {
         return idVentiladores;

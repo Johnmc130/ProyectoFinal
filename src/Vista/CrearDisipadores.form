@@ -97,27 +97,21 @@
                                   </Group>
                               </Group>
                               <Component id="spPrecio" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="txtmarca" min="-2" pref="146" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
-                                  <Component id="btnCrearproc1" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="txtmarca" alignment="0" min="-2" pref="146" max="-2" attributes="0"/>
                               <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                   <Component id="txtsocket" alignment="1" min="-2" pref="128" max="-2" attributes="0"/>
                                   <Component id="txtModelo" alignment="0" min="-2" pref="134" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <EmptySpace min="444" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jLabel36" min="-2" pref="140" max="-2" attributes="0"/>
                           <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                           <Component id="spStock" min="-2" pref="60" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="350" max="-2" attributes="0"/>
+                          <EmptySpace min="590" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jLabel1" min="-2" pref="132" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="240" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -129,6 +123,15 @@
                   </Group>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
+              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="293" max="-2" attributes="0"/>
+                      <Component id="btnCargarI" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnImagenProducto" min="-2" pref="254" max="-2" attributes="0"/>
+                      <EmptySpace pref="293" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -137,26 +140,14 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel30" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtmarca" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="txtModelo" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                  <Component id="btnCrearproc1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                  <Component id="jLabel1" min="-2" pref="159" max="-2" attributes="0"/>
-                              </Group>
+                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel30" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtmarca" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                          <Component id="txtModelo" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="214" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="207" max="-2" attributes="0"/>
@@ -182,9 +173,9 @@
                               <Component id="spPrecio" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel36" min="-2" max="-2" attributes="0"/>
                       <Component id="spStock" min="-2" max="-2" attributes="0"/>
@@ -192,6 +183,19 @@
                   <EmptySpace pref="15" max="32767" attributes="0"/>
                   <Component id="btnCrear" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+              </Group>
+              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnCargarI" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="17" pref="17" max="-2" attributes="0"/>
+                              <Component id="btnImagenProducto" min="-2" pref="239" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="134" max="32767" attributes="0"/>
+                  </Group>
               </Group>
           </Group>
         </DimensionLayout>
@@ -355,23 +359,6 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="btnCrearproc1">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Montserrat" size="18" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Cargar Imagen"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel1">
-          <Properties>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                <LineBorder/>
-              </Border>
-            </Property>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JComboBox" name="cmbVentilador">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
@@ -424,6 +411,16 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtsocket">
+        </Component>
+        <Component class="javax.swing.JButton" name="btnCargarI">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Montserrat" size="18" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Cargar Imagen"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnImagenProducto">
         </Component>
       </SubComponents>
     </Container>

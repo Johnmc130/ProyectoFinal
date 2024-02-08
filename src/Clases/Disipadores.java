@@ -1,5 +1,5 @@
 
-package Modelo;
+package Clases;
 
 
 public class Disipadores {
@@ -13,11 +13,12 @@ public class Disipadores {
     private double precio;
     private int id_proveedor;
     private int Stock;
+    private byte[] foto;
 
     public Disipadores() {
     }
 
-    public Disipadores(int idDisipadores, String marca, String modelo, String Socket, String RGB, int Ventiladores, double precio, int id_proveedor, int Stock) {
+    public Disipadores(int idDisipadores, String marca, String modelo, String Socket, String RGB, int Ventiladores, double precio, int id_proveedor, int Stock, byte[] foto) {
         this.idDisipadores = idDisipadores;
         this.marca = marca;
         this.modelo = modelo;
@@ -27,8 +28,18 @@ public class Disipadores {
         this.precio = precio;
         this.id_proveedor = id_proveedor;
         this.Stock = Stock;
-
+        this.foto = foto;
     }
+
+    public byte[] getFoto() {
+        return foto;
+    }
+
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
+    }
+
+  
 
     public int getIdDisipadores() {
         return idDisipadores;
