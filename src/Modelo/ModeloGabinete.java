@@ -1,4 +1,4 @@
-package Main;
+package Modelo;
 
 import Clases.Gabinete;
 import Conexion.Conexion;
@@ -25,26 +25,27 @@ public class ModeloGabinete extends Gabinete {
         Conexion conectar = new Conexion();
         List<Gabinete> listaplacamadre = new ArrayList<Gabinete>();
         String sql;
-        sql = "SELECT idgabinete, marca, modelo, puertousb, ventiladores, tamanoventiladores,fuentedepoder,tamanomaxiodevideo,placamadre,bahias, precio,stock,proveedor FROM gabinete";
+        sql = "SELECT idgabinete, marca, modelo, puertousb, ventiladores, tamanoventiladores,fuentedepoder,tamanomaxiodevideo,placamadre,bahias, precio,stock,proveedor,foto FROM gabinete";
         ResultSet rs = conectar.consultaBase(sql);
         try {
             while (rs.next()) {
-                Gabinete migabinete = new Gabinete();
-                migabinete.setIdgabinete(rs.getInt("idgabinete"));
-                migabinete.setMarca(rs.getString("marca"));
-                migabinete.setModelo(rs.getString("modelo"));
-                migabinete.setPuertousb(rs.getString("puertousb"));
-                migabinete.setVentiladores(rs.getString("ventiladores"));
-                migabinete.setTamanoventilador(rs.getInt("tamanoventiladores"));
-                migabinete.setFuentepoder(rs.getString("fuentedepoder"));
-                migabinete.setTamanomaxvideo(rs.getInt("tamanomaxiodevideo"));
-                migabinete.setPlacamadre(rs.getString("placamadre"));
-                migabinete.setBahias(rs.getString("bahias"));
-                migabinete.setPrecio(rs.getDouble("precio"));
-                migabinete.setStock(rs.getInt("Stock"));
-                migabinete.setProveedor(rs.getInt("proveedor"));
+                Gabinete miplaca = new Gabinete();
+                miplaca.setIdgabinete(rs.getInt("idgabinete"));
+                miplaca.setMarca(rs.getString("marca"));
+                miplaca.setModelo(rs.getString("modelo"));
+                miplaca.setPuertousb(rs.getString("puertousb"));
+                miplaca.setVentiladores(rs.getString("ventiladores"));
+                miplaca.setTamanoventilador(rs.getInt("tamanoventiladores"));
+                miplaca.setFuentepoder(rs.getString("fuentedepoder"));
+                miplaca.setTamanomaxvideo(rs.getInt("tamanomaxiodevideo"));
+                miplaca.setPlacamadre(rs.getString("placamadre"));
+                miplaca.setBahias(rs.getString("bahias"));
+                miplaca.setPrecio(rs.getDouble("precio"));
+                miplaca.setStock(rs.getInt("Stock"));
+                miplaca.setProveedor(rs.getInt("proveedor"));
+                miplaca.setFoto(rs.getBytes("foto"));
 
-                listaplacamadre.add(migabinete);
+                listaplacamadre.add(miplaca);
 
             }
             rs.close();
@@ -53,13 +54,13 @@ public class ModeloGabinete extends Gabinete {
         } catch (SQLException ex) {
 
             System.out.println("problemas en el listado");
-            Logger.getLogger(ModeloGabinete.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ModeloPlacaMadre.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
 
     }
 
-    public boolean grabarPlacamadre() {
+    public boolean grabarGabinete() {
         String sql = "INSERT INTO gabinete (idgabinete, marca, modelo, puertousb, ventiladores, tamanoventiladores, fuentedepoder, tamanomaxiodevideo, placamadre, bahias, precio, stock, proveedor, foto)"
                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -90,14 +91,45 @@ public class ModeloGabinete extends Gabinete {
         }
     }
 
-    public boolean editarPlacamadre() {
-        return false;
-       
+    public SQLException ModificarGabinete() {
+
+        String sql = "UPDATE gabinete SET marca = ?, modelo = ?, puertousb = ?, ventiladores = ?, tamanoventiladores = ?, fuentedepoder = ?, tamanomaxiodevideo = ?,placamadre = ?,bahias = ?, precio = ?, stock = ?, proveedor = ?, foto = ? "
+                + "WHERE idgabinete = ?";
+
+        try (PreparedStatement preparedStatement = conectar.getConexion().prepareStatement(sql)) {
+            // Configurar los parámetros
+            
+            preparedStatement.setString(1, getMarca());
+            preparedStatement.setString(2, getModelo());
+            preparedStatement.setString(3, getPuertousb());
+            preparedStatement.setString(4, getVentiladores());
+            preparedStatement.setInt(5, getTamanoventilador());
+            preparedStatement.setString(6, getFuentepoder());
+            preparedStatement.setInt(7, getTamanomaxvideo());
+            preparedStatement.setString(8, getPlacamadre());
+            preparedStatement.setString(9, getBahias());
+            preparedStatement.setDouble(10, getPrecio());
+            preparedStatement.setInt(11, getStock());
+            preparedStatement.setInt(12, getProveedor());
+            preparedStatement.setBytes(13, getFoto());
+
+            // Establecer la cédula en el WHERE
+            preparedStatement.setInt(14, getIdgabinete());
+            // Ejecutar la actualización
+            preparedStatement.executeUpdate();
+
+            return null; // Devuelve null si es correcto.
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return e; // Devuelve la excepción si hay un error.
+        }
     }
 
-    public boolean eliminarPlacamadre() {
-        return false;
-       
+
+    
+    public SQLException eliminarGabinete(String idgabin) {
+        String sql = "DELETE FROM gabinete WHERE idgabinete = '" + idgabin + "'";
+        return conectar.ejecutaConsulta(sql);
     }
 
     public static ArrayList<Integer> obtenerCodigosProveedor() {
@@ -136,6 +168,26 @@ public class ModeloGabinete extends Gabinete {
             Logger.getLogger(ModeloGabinete.class.getName()).log(Level.SEVERE, null, ex);
         }
         return siguienteId;
+    }
+    
+    public static byte[] fotoGabinete(String id) {
+        Conexion cpg = new Conexion();//Conectamos a la base
+
+        Gabinete gabinete = new Gabinete();
+        String sql;//SELECT * FROM TABLA
+        sql = "SELECT foto FROM gabinete WHERE idgabinete = '" + id + "'";
+        ResultSet rs = cpg.consultaBase(sql);
+        try {
+            while (rs.next()) {
+                gabinete.setFoto(rs.getBytes("foto"));
+            }
+            rs.close();//CIERRO CONEXION CON LA BASE DE DATOS.
+            return gabinete.getFoto();
+        } catch (SQLException ex) {
+            Logger.getLogger(ModeloGabinete.class.getName()).log(Level.SEVERE, null, ex);
+            return null;//CUANDO REGRESA NULL, HUBO ERROR EN EL QUERY
+        }
+
     }
 
 }
