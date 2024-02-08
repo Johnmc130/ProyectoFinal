@@ -219,7 +219,7 @@
                       <Color blue="7c" green="35" red="25" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value="bah&#xed;as:"/>
+                    <Property name="text" type="java.lang.String" value="Bah&#xed;as:"/>
                     <Property name="verticalAlignment" type="int" value="3"/>
                   </Properties>
                 </Component>
@@ -454,7 +454,7 @@
         </Container>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JDialog" name="jdlgMensaje1">
+    <Container class="javax.swing.JDialog" name="jdlgMensaje">
       <Properties>
         <Property name="defaultCloseOperation" type="int" value="2"/>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -769,7 +769,7 @@
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jpComponentes" pref="946" max="32767" attributes="0"/>
+                  <Component id="jpComponentes" pref="961" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>

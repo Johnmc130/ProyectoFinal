@@ -14,6 +14,7 @@ import Modelo.ModeloCliente;
 import Modelo.ModeloDatosEnvio;
 import Modelo.ModeloPersona;
 import Vista.VentanaDatosEnvio;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 public class ControladorVenDatosEnvio {
@@ -47,7 +48,7 @@ public class ControladorVenDatosEnvio {
         String direccion = vista.getTxtDireccion().getText();
         String numeroCuenta = vista.getTxtNumeroCuenta().getText();
         String codigoSeguridad = vista.getTxtCodigoSeguridad().getText();
-        String fechaExpiracion = vista.getjDFechaEx().getDateFormatString();
+        Date fechaExpiracion = vista.getjDFechaEx().getDate();
 
         // Validar datos
         System.out.println(vista.getLblId_envio().getText());

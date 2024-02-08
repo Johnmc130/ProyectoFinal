@@ -36,14 +36,13 @@ public class VistaProductos extends javax.swing.JFrame {
         return JpComponentes;
     }
 
-   
 
     public JButton getBtJdlDetalleAceptar() {
         return btJdlDetalleAceptar;
     }
 
     public JButton getjButton1() {
-        return jButton1;
+        return btnBuscar;
     }
 
     public JDialog getJdlgDetalles() {
@@ -85,6 +84,10 @@ public class VistaProductos extends javax.swing.JFrame {
         return lblTitulo2;
     }
 
+    public JButton getBtnBuscar() {
+        return btnBuscar;
+    }
+
     
 
     /**
@@ -115,9 +118,8 @@ public class VistaProductos extends javax.swing.JFrame {
         lblTitulo2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         btnCesta = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
@@ -126,6 +128,7 @@ public class VistaProductos extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jCbCategorias = new javax.swing.JComboBox<>();
         JpComponentes = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
 
         jdlgDetalles.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         jdlgDetalles.setBackground(new java.awt.Color(255, 255, 255));
@@ -331,20 +334,16 @@ public class VistaProductos extends javax.swing.JFrame {
         lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logo.png"))); // NOI18N
         jPanel1.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 110, 100));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/lupa_1.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 30, 50, 50));
-
         jTextField1.setText("BUSCAR");
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 30, 350, 50));
 
-        jButton1.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Compromisos.png"))); // NOI18N
-        jButton1.setText("Compromisos");
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 30, 140, 50));
+        btnBuscar.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/lupa_1.png"))); // NOI18N
+        btnBuscar.setBorder(null);
+        btnBuscar.setBorderPainted(false);
+        btnBuscar.setContentAreaFilled(false);
+        btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 30, 50, 50));
 
         jLabel2.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -372,7 +371,7 @@ public class VistaProductos extends javax.swing.JFrame {
         jLabel11.setText("Expertos en tecnología con un servicio 5 estrellas");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 1330, 30));
 
-        jCbCategorias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todas las categorias", " " }));
+        jCbCategorias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todas las categorias", "Procesadores", "Placas madre", "Tarjetas graficas", "Memorias ram", "Fuentes de poder ", "Almacenamiento", "Ventiladores ", "Disipadores", "Gabinetes" }));
         jCbCategorias.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jCbCategorias.setOpaque(false);
         jPanel1.add(jCbCategorias, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, 130, 50));
@@ -389,6 +388,15 @@ public class VistaProductos extends javax.swing.JFrame {
         );
 
         jPanel1.add(JpComponentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 1320, 370));
+
+        jButton2.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Compromisos.png"))); // NOI18N
+        jButton2.setText("Compromisos");
+        jButton2.setBorder(null);
+        jButton2.setBorderPainted(false);
+        jButton2.setContentAreaFilled(false);
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 30, 140, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -446,10 +454,10 @@ public class VistaProductos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JpComponentes;
     private javax.swing.JButton btJdlDetalleAceptar;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCesta;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jCbCategorias;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

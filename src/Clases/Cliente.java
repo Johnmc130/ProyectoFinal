@@ -1,25 +1,25 @@
 package Clases;
 
-import java.util.Date;
-
 public class Cliente extends Persona {
 
-    private String id_cliente;
+    private int id_cliente;
     private String contraseña;
+    private String cedula_cli;
 
     public Cliente() {
     }
 
-    public Cliente(String id_cliente, String contraseña) {
+    public Cliente(int id_cliente, String contraseña, String cedula_cli) {
         this.id_cliente = id_cliente;
         this.contraseña = contraseña;
+        this.cedula_cli = cedula_cli;
     }
 
-    public String getId_cliente() {
+    public int getId_cliente() {
         return id_cliente;
     }
 
-    public void setId_cliente(String id_cliente) {
+    public void setId_cliente(int id_cliente) {
         this.id_cliente = id_cliente;
     }
 
@@ -31,9 +31,12 @@ public class Cliente extends Persona {
         this.contraseña = contraseña;
     }
 
-    @Override
-    public String toString() {
-        return "Cliente{" + "id_cliente=" + id_cliente + ", contraseña=" + contraseña + '}';
+    public String getCedula_cli() {
+        return cedula_cli;
+    }
+
+    public void setCedula_cli(String cedula_cli) {
+        this.cedula_cli = cedula_cli;
     }
 
 }
