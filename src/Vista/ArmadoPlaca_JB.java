@@ -36,7 +36,7 @@ public class ArmadoPlaca_JB extends javax.swing.JFrame {
     }
 
     public JButton getBtJdlSin() {
-        return btJdlMAtras;
+        return btJdlSin;
     }
 
     public JButton getBtJdlDetalleAceptar() {
@@ -57,6 +57,10 @@ public class ArmadoPlaca_JB extends javax.swing.JFrame {
 
     public JPanel getJpComponentes() {
         return jpComponentes;
+    }
+
+    public JLabel getLblStock() {
+        return lblStock;
     }
 
     public JLabel getLblFormato() {
@@ -119,7 +123,7 @@ public class ArmadoPlaca_JB extends javax.swing.JFrame {
         lblPrecio = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
-        lblFSR1 = new javax.swing.JLabel();
+        lblStock = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         lblTitulo4 = new javax.swing.JLabel();
         Encabezado = new javax.swing.JPanel();
@@ -331,10 +335,10 @@ public class ArmadoPlaca_JB extends javax.swing.JFrame {
         jLabel47.setText("Stock:");
         jLabel47.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
-        lblFSR1.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
-        lblFSR1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblFSR1.setText("---------------");
-        lblFSR1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        lblStock.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        lblStock.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblStock.setText("---------------");
+        lblStock.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -372,7 +376,7 @@ public class ArmadoPlaca_JB extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel47)
                 .addGap(18, 18, 18)
-                .addComponent(lblFSR1)
+                .addComponent(lblStock)
                 .addGap(240, 240, 240))
         );
         jPanel2Layout.setVerticalGroup(
@@ -413,7 +417,7 @@ public class ArmadoPlaca_JB extends javax.swing.JFrame {
                     .addComponent(lblPrecio))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblFSR1)
+                    .addComponent(lblStock)
                     .addComponent(jLabel47))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -617,13 +621,13 @@ public class ArmadoPlaca_JB extends javax.swing.JFrame {
     private javax.swing.JDialog jdlgDetalles;
     private javax.swing.JDialog jdlgMensaje;
     private javax.swing.JPanel jpComponentes;
-    private javax.swing.JLabel lblFSR1;
     private javax.swing.JLabel lblFormato;
     private javax.swing.JLabel lblMarca;
     private javax.swing.JLabel lblModelo;
     private javax.swing.JLabel lblPrecio;
     private javax.swing.JLabel lblRanurasExpa;
     private javax.swing.JLabel lblSocket;
+    private javax.swing.JLabel lblStock;
     private javax.swing.JLabel lblTipoRam;
     private javax.swing.JLabel lblTitulo1;
     private javax.swing.JLabel lblTitulo4;

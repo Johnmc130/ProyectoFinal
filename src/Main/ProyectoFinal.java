@@ -32,14 +32,14 @@ public class ProyectoFinal {
 //        control.iniciar();
 
 
-//        ArmadoProc_JB vistaA = new ArmadoProc_JB();
-//        ArmadoProcJB controlador = new ArmadoProcJB(vistaA);
-//        controlador.Inicio();
+        ArmadoProc_JB vistaA = new ArmadoProc_JB();
+        ArmadoProcJB controlador = new ArmadoProcJB(vistaA);
+        controlador.Inicio();
         
         
-        VistaProductos v = new VistaProductos();
-        ControladorVistaProductos contro = new ControladorVistaProductos(v);
-        contro.iniciarControl();
+//        VistaProductos v = new VistaProductos();
+//        ControladorVistaProductos contro = new ControladorVistaProductos(v);
+//        contro.iniciarControl();
 
 
 //          CrearAlmacenamiento vis = new CrearAlmacenamiento();

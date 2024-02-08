@@ -1,7 +1,10 @@
 package Controlador;
 
-import Clases.memoriaRam;
+import Clases.almacenamiento;
+import Modelo.Disipadores;
+import Modelo.ModeloDisipadores;
 import Modelo.ModeloMemoriaRam;
+import Vista.ArmadoDisipador_JB;
 import Vista.ArmadoFuenteP_JB;
 import Vista.ArmadoPlaca_JB;
 import Vista.ArmadoRam_JB;
@@ -35,16 +38,16 @@ import javax.swing.UnsupportedLookAndFeelException;
 /**
  * Controlador para la vista de armado de memoria RAM
  */
-public class ArmadoRamJB {
+public class ArmadoDisipadorRC{
 
-    private ArmadoRam_JB vistaRam; // Referencia a la vista de armado de memoria RAM
+    private ArmadoDisipador_JB vistaDisipador; // Referencia a la vista de armado de memoria RAM
 
     /**
      * Constructor de la clase que recibe la vista de armado de memoria RAM
      * @param vista La vista de armado de memoria RAM
      */
-    public ArmadoRamJB(ArmadoRam_JB vista) {
-        this.vistaRam = vista;
+    public ArmadoDisipadorRC(ArmadoDisipador_JB vista) {
+        this.vistaDisipador = vista;
         vista.setVisible(true); // Hace visible la vista al crear el controlador
     }
 
@@ -52,14 +55,14 @@ public class ArmadoRamJB {
      * Método para inicializar la vista y cargar los componentes necesarios
      */
     public void Inicio() {
-        vistaRam.setLocationRelativeTo(null); // Centra la vista en la pantalla
+        vistaDisipador.setLocationRelativeTo(null); // Centra la vista en la pantalla
         CargarComponentes(); // Carga los componentes de las memorias RAM en la vista
 
         // Agrega listeners a los botones de la vista
-        vistaRam.getBtJdlDetalleAceptar().addActionListener(l -> aceptarDlgDetalle());
-        vistaRam.getBtJdlAceptar().addActionListener(l -> aceptarDlg());
-        vistaRam.getBtJdlAtras().addActionListener(l -> AtrasDlgMensaje());
-        vistaRam.getBtAtras().addActionListener(l -> atras());
+        vistaDisipador.getBtJdlDetalleAceptar().addActionListener(l -> aceptarDlgDetalle());
+//        vistaDisipador.getBtJdlAceptar().addActionListener(l -> aceptarDlg());
+//        vistaDisipador.getBtJdlAtras().addActionListener(l -> AtrasDlgMensaje());
+        vistaDisipador.getBtAtras().addActionListener(l -> atras());
         Ventana(); // Configura la apariencia de la ventana
     }
 
@@ -67,12 +70,12 @@ public class ArmadoRamJB {
      * Método para cargar los componentes de las memorias RAM en la vista
      */
     private void CargarComponentes() {
-        List<memoriaRam> rams = ModeloMemoriaRam.listaTodasmemoriaRam(); // Obtiene la lista de memorias RAM del modelo
+        List<Disipadores> disipadores = ModeloDisipadores.listaTodasDisipadores(); // Obtiene la lista de memorias RAM del modelo
 
         // Asegura que la carga y manipulación de los componentes Swing se realice en el hilo de eventos de Swing
         SwingUtilities.invokeLater(() -> {
             // Configura el panel principal con un GridBagLayout
-            vistaRam.getJpComponentes().setLayout(new GridBagLayout());
+            vistaDisipador.getJpComponentes().setLayout(new GridBagLayout());
             GridBagConstraints gbc = new GridBagConstraints();
             gbc.gridx = 0;
             gbc.gridy = 0;
@@ -93,16 +96,16 @@ public class ArmadoRamJB {
             contentGbc.fill = GridBagConstraints.BOTH; // Relleno en ambas direcciones
 
             // Recorre la lista de memorias RAM y muestra cada una en la vista
-            for (memoriaRam ram : rams) {
+            for (Disipadores disipador : disipadores) {
                 // Verifica si la imagen no es nula
-                if (ram.getFoto() == null) {
+                if (disipador.getFoto() == null) {
                     System.out.println("foto");
                 } 
-                if (ram.getFoto() != null) {
+                if (disipador.getFoto() != null) {
                     System.out.println("aaaaaaaaaaa");
-                    System.out.println(ram.toString());
+                    System.out.println(disipador.toString());
                     // Crea y configura los componentes para mostrar la memoria RAM
-                    ImageIcon imageIcon = new ImageIcon(ram.getFoto());
+                    ImageIcon imageIcon = new ImageIcon(disipador.getFoto());
                     Image image = imageIcon.getImage();
                     Image scaledImage = image.getScaledInstance(180, 180, Image.SCALE_SMOOTH);
                     ImageIcon scaledIcon = new ImageIcon(scaledImage);
@@ -126,7 +129,7 @@ public class ArmadoRamJB {
                     panelComponentes.add(imageLabel);
 
                     // Agrega el nombre de la memoria RAM
-                    JLabel nameLabel = new JLabel(ram.getMarca() + " " + ram.getModelo());
+                    JLabel nameLabel = new JLabel(disipador.getMarca() + " " + disipador.getModelo());
                     nameLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
                     nameLabel.setFont(new java.awt.Font("Montserrat", 0, 18));
                     panelComponentes.add(nameLabel);
@@ -148,12 +151,12 @@ public class ArmadoRamJB {
                     imageLabel.addMouseListener(new MouseAdapter() {
                         @Override
                         public void mouseClicked(MouseEvent e) {
-                            vistaRam.setEnabled(false);
-                            vistaRam.getJdlgMensaje().setSize(574, 357);
-                            vistaRam.getJdlgMensaje().setLocationRelativeTo(null);
-                            vistaRam.getJdlgMensaje().setUndecorated(true);
-                            vistaRam.getJdlgMensaje().setVisible(true);
-                            ArmadoProcJB.pc.setIdRam(ram.getIdMemoriaRam());
+                            vistaDisipador.setEnabled(false);
+                            vistaDisipador.getJdlgMensaje().setSize(574, 357);
+                            vistaDisipador.getJdlgMensaje().setLocationRelativeTo(null);
+                            vistaDisipador.getJdlgMensaje().setUndecorated(true);
+                            vistaDisipador.getJdlgMensaje().setVisible(true);
+                            ArmadoProcJB.pc.setIdDisipador(disipador.getIdDisipadores());
                         }
 
                         @Override
@@ -169,21 +172,22 @@ public class ArmadoRamJB {
 
                     // Maneja el evento de clic en el botón de detalles
                     detalles.addActionListener((ActionEvent e) -> {
-                        vistaRam.setEnabled(false);
-                        vistaRam.getJdlgDetalles().setSize(731, 502);
-                        vistaRam.getJdlgDetalles().setLocationRelativeTo(null);
-                        vistaRam.getJdlgDetalles().setUndecorated(true);
-                        vistaRam.getJdlgDetalles().setVisible(true);
+                        vistaDisipador.setEnabled(false);
+                        vistaDisipador.getJdlgDetalles().setSize(731, 502);
+                        vistaDisipador.getJdlgDetalles().setLocationRelativeTo(null);
+                        vistaDisipador.getJdlgDetalles().setUndecorated(true);
+                        vistaDisipador.getJdlgDetalles().setVisible(true);
                         // Carga los detalles de la memoria RAM en la vista
-                        vistaRam.getLblMarca().setText(ram.getMarca());
-                        vistaRam.getLblModelo().setText(ram.getModelo());
-                        vistaRam.getLblCapacidad().setText(String.valueOf(ram.getCapacidad()));
-                        vistaRam.getLblTipo().setText(ram.getTipo());
-                        vistaRam.getLblStock().setText(String.valueOf(ram.getStock()));
+                        vistaDisipador.getLblMarca().setText(disipador.getMarca());
+                        vistaDisipador.getLblModelo().setText(disipador.getModelo());
+                        vistaDisipador.getLblSocket().setText(disipador.getModelo());
+                        vistaDisipador.getLblRGB().setText(disipador.getRGB());
+                        vistaDisipador.getLblVentiladores().setText(String.valueOf(disipador.getVentiladores()));
+                        vistaDisipador.getLblStock().setText(String.valueOf(disipador.getStock()));
                         // Formatea el precio y lo muestra en la vista
                         DecimalFormat formatoPrecio = new DecimalFormat("#.##");
-                        vistaRam.getLblPrecio().setText(formatoPrecio.format(ram.getPrecio()));
-                        vistaRam.getJdlgDetalles().setVisible(true);
+                        vistaDisipador.getLblPrecio().setText(formatoPrecio.format(disipador.getPrecio()));
+                        vistaDisipador.getJdlgDetalles().setVisible(true);
                     });
 
                     // Verifica si se alcanzó el límite de 3 imágenes por fila antes de incrementar la posición en la columna
@@ -213,12 +217,12 @@ public class ArmadoRamJB {
             scrollPane.getVerticalScrollBar().setUnitIncrement(20); // Ajusta la velocidad de desplazamiento
 
             // Agrega el scrollPane al panel principal
-            vistaRam.getJpComponentes().setLayout(new BorderLayout());
-            vistaRam.getJpComponentes().add(scrollPane, BorderLayout.CENTER);
+            vistaDisipador.getJpComponentes().setLayout(new BorderLayout());
+            vistaDisipador.getJpComponentes().add(scrollPane, BorderLayout.CENTER);
 
             // Repinta la ventana para mostrar los cambios
-            vistaRam.revalidate();
-            vistaRam.repaint();
+            vistaDisipador.revalidate();
+            vistaDisipador.repaint();
         });
     }
 
@@ -228,7 +232,7 @@ public class ArmadoRamJB {
     public void Ventana() {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); // Establece el aspecto del sistema operativo
-            SwingUtilities.updateComponentTreeUI(vistaRam.getJpComponentes()); // Actualiza la apariencia de los componentes
+            SwingUtilities.updateComponentTreeUI(vistaDisipador.getJpComponentes()); // Actualiza la apariencia de los componentes
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
             // Maneja las excepciones de configuración de la apariencia
         }
@@ -238,22 +242,22 @@ public class ArmadoRamJB {
      * Método para aceptar la ventana de detalles y volver a la vista principal
      */
     public void aceptarDlgDetalle() {
-        vistaRam.getJdlgDetalles().setVisible(false);
-        vistaRam.getJdlgDetalles().dispose();
-        vistaRam.setEnabled(true);
-        vistaRam.setVisible(true);
+        vistaDisipador.getJdlgDetalles().setVisible(false);
+        vistaDisipador.getJdlgDetalles().dispose();
+        vistaDisipador.setEnabled(true);
+        vistaDisipador.setVisible(true);
     }
 
     /**
      * Método para aceptar la selección de una memoria RAM y pasar a la vista de armado de fuente de poder
      */
     public void aceptarDlg() {
-        vistaRam.getJdlgMensaje().setVisible(false);
-        vistaRam.getJdlgMensaje().dispose();
-        vistaRam.setEnabled(true);
+        vistaDisipador.getJdlgMensaje().setVisible(false);
+        vistaDisipador.getJdlgMensaje().dispose();
+        vistaDisipador.setEnabled(true);
         ArmadoFuenteP_JB vista = new ArmadoFuenteP_JB();
-        vistaRam.setVisible(false);
-        vistaRam.dispose();
+        vistaDisipador.setVisible(false);
+        vistaDisipador.dispose();
     }
 
     /**
@@ -261,10 +265,10 @@ public class ArmadoRamJB {
      */
     public void AtrasDlgMensaje() {
         SwingUtilities.invokeLater(() -> {
-            vistaRam.getJdlgMensaje().setVisible(false);
-            vistaRam.getJdlgMensaje().dispose();
-            vistaRam.setEnabled(true);
-            vistaRam.setVisible(true);
+            vistaDisipador.getJdlgMensaje().setVisible(false);
+            vistaDisipador.getJdlgMensaje().dispose();
+            vistaDisipador.setEnabled(true);
+            vistaDisipador.setVisible(true);
         });
     }
 
@@ -275,7 +279,8 @@ public class ArmadoRamJB {
         ArmadoPlaca_JB vista = new ArmadoPlaca_JB();
         ArmadoPlacaJB controlador = new ArmadoPlacaJB(vista);
         controlador.Inicio();
-        vistaRam.setVisible(false);
-        vistaRam.dispose();
+        vistaDisipador.setVisible(false);
+        vistaDisipador.dispose();
     }
 }
+
