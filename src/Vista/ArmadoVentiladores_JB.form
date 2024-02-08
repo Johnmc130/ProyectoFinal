@@ -55,15 +55,13 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="519" max="-2" attributes="0"/>
+                      <Component id="btJdlDetalleAceptar" min="-2" pref="170" max="-2" attributes="0"/>
+                      <EmptySpace pref="12" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="507" max="-2" attributes="0"/>
-                              <Component id="btJdlDetalleAceptar" min="-2" pref="170" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                          <Component id="jPanel2" alignment="1" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="jPanel2" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -71,8 +69,9 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel2" max="32767" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="btJdlDetalleAceptar" min="-2" pref="50" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -112,17 +111,23 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="jLabel40" min="-2" pref="217" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="lblPrecio" min="-2" pref="140" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="195" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel40" min="-2" pref="217" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="lblPrecio" min="-2" pref="140" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace pref="156" max="-2" attributes="0"/>
+                                      <Component id="jLabel47" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="lblStock" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <Group type="102" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="jLabel46" alignment="1" min="-2" pref="217" max="-2" attributes="0"/>
-                                      <Component id="jLabel43" alignment="1" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel42" alignment="1" min="-2" pref="140" max="-2" attributes="0"/>
                                       <Component id="jLabel45" alignment="1" min="-2" pref="140" max="-2" attributes="0"/>
                                       <Component id="jLabel44" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -130,28 +135,14 @@
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblRanurasExpa" alignment="0" max="32767" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="lblMarca" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
-                                              <Component id="lblModelo" alignment="0" min="-2" pref="237" max="-2" attributes="0"/>
-                                              <Component id="lblFormato" alignment="0" min="-2" pref="184" max="-2" attributes="0"/>
-                                              <Component id="lblTipoRam" alignment="0" min="-2" pref="193" max="-2" attributes="0"/>
-                                              <Component id="lblSocket" alignment="0" min="-2" pref="152" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      </Group>
+                                      <Component id="lblModelo" alignment="0" min="-2" pref="237" max="-2" attributes="0"/>
+                                      <Component id="lblMarca" alignment="0" min="-2" pref="168" max="-2" attributes="0"/>
+                                      <Component id="lblRGB" alignment="0" min="-2" pref="164" max="-2" attributes="0"/>
+                                      <Component id="lblTamaño" min="-2" pref="205" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jLabel47" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="lblFSR1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="240" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -159,52 +150,42 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
                                   <Component id="lblMarca" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                                   <Component id="lblModelo" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lblSocket" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lblTipoRam" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabel45" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                                  <Component id="jLabel42" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="lblRGB" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                                  <Component id="lblRanurasExpa" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblTamaño" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jLabel45" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                          <Component id="jLabel43" min="-2" pref="30" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                                          <Component id="jLabel42" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                          <Component id="jLabel44" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
+                                  <Component id="jLabel44" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                                   <Component id="jLabel41" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel46" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblFormato" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel40" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="lblPrecio" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblFSR1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblStock" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel47" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="58" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -219,11 +200,11 @@
                       <Color blue="7c" green="35" red="25" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value="Ranuras de Expancion:"/>
+                    <Property name="text" type="java.lang.String" value="Tama&#xf1;o:"/>
                     <Property name="verticalAlignment" type="int" value="3"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblTipoRam">
+                <Component class="javax.swing.JLabel" name="lblRGB">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Montserrat" size="18" style="1"/>
@@ -246,29 +227,7 @@
                     <Property name="verticalAlignment" type="int" value="3"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel43">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Montserrat" size="18" style="1"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="7c" green="35" red="25" type="rgb"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Socket:"/>
-                    <Property name="verticalAlignment" type="int" value="3"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lblRanurasExpa">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Montserrat" size="18" style="1"/>
-                    </Property>
-                    <Property name="horizontalAlignment" type="int" value="2"/>
-                    <Property name="text" type="java.lang.String" value="---------------"/>
-                    <Property name="verticalAlignment" type="int" value="3"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lblSocket">
+                <Component class="javax.swing.JLabel" name="lblTama&#xf1;o">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Montserrat" size="18" style="1"/>
@@ -307,7 +266,7 @@
                       <Color blue="7c" green="35" red="25" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value="RAM Admitida:"/>
+                    <Property name="text" type="java.lang.String" value="RGB:"/>
                     <Property name="verticalAlignment" type="int" value="3"/>
                   </Properties>
                 </Component>
@@ -321,29 +280,6 @@
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="4"/>
                     <Property name="text" type="java.lang.String" value="Marca:"/>
-                    <Property name="verticalAlignment" type="int" value="3"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel46">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Montserrat" size="18" style="1"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="7c" green="35" red="25" type="rgb"/>
-                    </Property>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value="Tama&#xf1;o Formato:"/>
-                    <Property name="verticalAlignment" type="int" value="3"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lblFormato">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Montserrat" size="18" style="1"/>
-                    </Property>
-                    <Property name="horizontalAlignment" type="int" value="2"/>
-                    <Property name="text" type="java.lang.String" value="---------------"/>
                     <Property name="verticalAlignment" type="int" value="3"/>
                   </Properties>
                 </Component>
@@ -383,7 +319,7 @@
                     <Property name="verticalAlignment" type="int" value="3"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblFSR1">
+                <Component class="javax.swing.JLabel" name="lblStock">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Montserrat" size="18" style="1"/>
@@ -513,11 +449,11 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btJdlMAtras1" min="-2" pref="133" max="-2" attributes="0"/>
+                      <Component id="btJdlMAtras" min="-2" pref="133" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="btJdlSin" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btJdlMensajeElejir1" min="-2" pref="131" max="-2" attributes="0"/>
+                      <Component id="btJdlMensajeElejir" min="-2" pref="131" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -529,8 +465,8 @@
                       <Component id="jLabel1" min="-2" pref="114" max="-2" attributes="0"/>
                       <EmptySpace pref="14" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btJdlMAtras1" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                          <Component id="btJdlMensajeElejir1" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="btJdlMAtras" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="btJdlMensajeElejir" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                           <Component id="btJdlSin" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -550,7 +486,7 @@
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p&gt;&lt;b&gt;Dato:&lt;/b&gt;&lt;br&gt;&#xa;El disipador de stock no siempre es el mejor. &lt;br&gt;&lt;center&gt;Te recomendamos elejir uno.&lt;/center&gt;&lt;/p&gt;&lt;/html&gt;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btJdlMAtras1">
+            <Component class="javax.swing.JButton" name="btJdlMAtras">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -567,7 +503,7 @@
                 <Property name="text" type="java.lang.String" value="Atras"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btJdlMensajeElejir1">
+            <Component class="javax.swing.JButton" name="btJdlMensajeElejir">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -650,6 +586,189 @@
                   <Image iconType="3" name="/Imagenes/Logo.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Disipadores"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JDialog" name="jdlgMensajeFinal">
+      <Properties>
+        <Property name="defaultCloseOperation" type="int" value="2"/>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="resizable" type="boolean" value="false"/>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jPanel6" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jPanel7" alignment="0" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Container class="javax.swing.JPanel" name="jPanel6">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                <LineBorder thickness="3">
+                  <Color PropertyName="color" blue="fa" green="d4" red="0" type="rgb"/>
+                </LineBorder>
+              </Border>
+            </Property>
+          </Properties>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" pref="461" max="-2" attributes="0"/>
+                      <EmptySpace pref="61" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btJdlFAtras" min="-2" pref="133" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btJdlFinalAceptar" min="-2" pref="131" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" pref="114" max="-2" attributes="0"/>
+                      <EmptySpace pref="14" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btJdlFAtras" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="btJdlFinalAceptar" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel2">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Montserrat" size="18" style="2"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="7c" green="35" red="25" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="2"/>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;center&gt;&lt;p&gt;&lt;b&gt;Todo listo&lt;/b&gt;&lt;br&gt;Clic en aceptar para ver tu resumen de componentes.&lt;/p&gt;&lt;/center&gt;&lt;/html&gt;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btJdlFAtras">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Montserrat" size="16" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="0" type="rgb"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Imagenes/JB/eliminar.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Atras"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btJdlFinalAceptar">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Montserrat" size="16" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="0" type="rgb"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Imagenes/JB/agregar.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Elejir"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="jPanel7">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                <LineBorder thickness="3">
+                  <Color PropertyName="color" blue="fa" green="d4" red="0" type="rgb"/>
+                </LineBorder>
+              </Border>
+            </Property>
+          </Properties>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="lblTitulo2" alignment="1" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblTitulo2" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="lblTitulo2">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Montserrat" size="48" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="7c" green="35" red="25" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="2"/>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Imagenes/Logo.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Listo!!!"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -786,7 +905,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="564" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="824" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
@@ -815,7 +934,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="7c" green="35" red="25" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Elija la base pasa sus componentes"/>
+            <Property name="text" type="java.lang.String" value="Ventiladores"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JPanel" name="jpComponentes">
