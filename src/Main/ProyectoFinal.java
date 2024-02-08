@@ -21,7 +21,7 @@ import Vista.VentanaDatosEnvio;
 import Vista.VentanaLogin_JM;
 import Vista.VentanaPrincipal;
 import Vista.VistaProductos;
-import Vistas.CrearAlmacenamiento;
+import Vista.CrearAlmacenamiento;
 
 public class ProyectoFinal {
 

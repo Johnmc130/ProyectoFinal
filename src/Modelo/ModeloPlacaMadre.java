@@ -20,13 +20,12 @@ public class ModeloPlacaMadre extends Placamadre {
 
     Conexion conectar = new Conexion();//Conectamos a la base
     Connection con;
-    PreparedStatement ps;
 
     public static List<Placamadre> listaPlacaMadre() {
         Conexion conectar = new Conexion();
         List<Placamadre> listaplacamadre = new ArrayList<Placamadre>();
         String sql;
-        sql = "SELECT idplacamadre, marca, modelo, puertosdealmacenamiento, puertousb, socket, tiporam, maximoram, ranurasexpansion, formato, watts, precio, stock, proveedor FROM placamadre";
+        sql = "SELECT idplacamadre, marca, modelo, puertosdealmacenamiento, puertousb, socket, tiporam, maximoram, ranurasexpansion, formato, watts, precio, stock, proveedor,foto FROM placamadre";
         ResultSet rs = conectar.consultaBase(sql);
         try {
             while (rs.next()) {
@@ -45,6 +44,7 @@ public class ModeloPlacaMadre extends Placamadre {
                 miplaca.setPrecio(rs.getDouble("precio"));
                 miplaca.setStock(rs.getInt("Stock"));
                 miplaca.setProveedor(rs.getInt("proveedor"));
+                miplaca.setFoto(rs.getBytes("foto"));
 
                 listaplacamadre.add(miplaca);
 
@@ -93,54 +93,44 @@ public class ModeloPlacaMadre extends Placamadre {
         }
     }
 
-    public boolean editarPlacamadre() {
+    public SQLException ModificarPlacamadre() {
         String sql = "UPDATE placamadre SET marca = ?, modelo = ?, puertosdealmacenamiento = ?, puertousb = ?, socket = ?, "
                 + "tiporam = ?, maximoram = ?, ranurasexpansion = ?, formato = ?, watts = ?, precio = ?, stock = ?, proveedor = ?, foto = ? "
                 + "WHERE idplacamadre = ?";
 
-        try (Connection con = conectar.getConexion();
-                PreparedStatement ps = con.prepareStatement(sql)) {
+        try (PreparedStatement preparedStatement = conectar.getConexion().prepareStatement(sql)) {
+            // Configurar los parámetros
 
-            ps.setString(1, getMarca());
-            ps.setString(2, getModelo());
-            ps.setString(3, getPuertosalmacenamiento());
-            ps.setString(4, getPuertosusb());
-            ps.setString(5, getSocket());
-            ps.setString(6, getTiposram());
-            ps.setInt(7, getMaximoram());
-            ps.setString(8, getRanuraexpansion());
-            ps.setString(9, getFormato());
-            ps.setInt(10, getWatts());
-            ps.setDouble(11, getPrecio());
-            ps.setInt(12, getStock());
-            ps.setInt(13, getProveedor());
-            ps.setBytes(14, getFoto());
-            ps.setInt(15, getIdplacam());
+            preparedStatement.setString(1, getMarca());
+            preparedStatement.setString(2, getModelo());
+            preparedStatement.setString(3, getPuertosalmacenamiento());
+            preparedStatement.setString(4, getPuertosusb());
+            preparedStatement.setString(5, getSocket());
+            preparedStatement.setString(6, getTiposram());
+            preparedStatement.setInt(7, getMaximoram());
+            preparedStatement.setString(8, getRanuraexpansion());
+            preparedStatement.setString(9, getFormato());
+            preparedStatement.setInt(10, getWatts());
+            preparedStatement.setDouble(11, getPrecio());
+            preparedStatement.setInt(12, getStock());
+            preparedStatement.setInt(13, getProveedor());
+            preparedStatement.setBytes(14, getFoto());
 
-            int result = ps.executeUpdate();
-            return result > 0;
+            // Establecer el id en el WHERE
+            preparedStatement.setInt(15, getIdplacam());
+            // Ejecutar la actualización
+            preparedStatement.executeUpdate();
 
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-            return false;
+            return null; // Devuelve null si es correcto.
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return e; // Devuelve la excepción si hay un error.
         }
     }
 
-    public boolean eliminarPlacamadre() {
-        String sql = "DELETE FROM placamadre WHERE idplacamadre = ?";
-
-        try (Connection con = conectar.getConexion();
-                PreparedStatement ps = con.prepareStatement(sql)) {
-
-            ps.setInt(1, getIdplacam());
-
-            int result = ps.executeUpdate();
-            return result > 0;
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-            return false;
-        }
+    public SQLException eliminarPlacaMadre(String idplaca) {
+        String sql = "DELETE FROM placamadre WHERE idplacamadre = '" + idplaca + "'";
+        return conectar.ejecutaConsulta(sql);
     }
 
     public static ArrayList<Integer> obtenerCodigosProveedor() {
@@ -180,63 +170,83 @@ public class ModeloPlacaMadre extends Placamadre {
         }
         return siguienteId;
     }
+    
+    public static byte[] fotoPlaca(String id) {
+        Conexion cpg = new Conexion();//Conectamos a la base
 
-    public static List<Placamadre> cargaPlacasMadre() {
-    // Obtener la conexión a la base de datos
-    Conexion ConectaBD = new Conexion();
-    List<Placamadre> placasMadre = new ArrayList<>();
+        Placamadre placamadre = new Placamadre();
+        String sql;//SELECT * FROM TABLA
+        sql = "SELECT foto FROM placamadre WHERE idplacamadre = '" + id + "'";
+        ResultSet rs = cpg.consultaBase(sql);
+        try {
+            while (rs.next()) {
 
-    try (Connection Conexion = ConectaBD.getConexion()) {
-        String query = "SELECT id, marca, modelo, puerto_almacenamiento, puertos_usb, socket, tipos_ram, maximo_ram, ranuras_expansion, formato, watts, precio, imagen, stock FROM placamadre";
-
-        try (PreparedStatement statement = Conexion.prepareStatement(query); ResultSet resultSet = statement.executeQuery()) {
-
-            while (resultSet.next()) {
-                Placamadre placaMadre = new Placamadre();
-                // Obtener datos de la fila actual del ResultSet
-                int id = resultSet.getInt("id");
-                byte[] imageData = resultSet.getBytes("imagen");
-                String marca = resultSet.getString("marca");
-                String modelo = resultSet.getString("modelo");
-                String puertoAlmacenamiento = resultSet.getString("puerto_almacenamiento");
-                String puertosUSB = resultSet.getString("puertos_usb");
-                String socket = resultSet.getString("socket");
-                String tiposRam = resultSet.getString("tipos_ram");
-                int maximoRam = resultSet.getInt("maximo_ram");
-                String ranurasExpansion = resultSet.getString("ranuras_expansion");
-                String formato = resultSet.getString("formato");
-                int watts = resultSet.getInt("watts");
-                double precio = resultSet.getDouble("precio");
-                int stock = resultSet.getInt("stock");
-
-                // Establecer los valores en el objeto PlacaMadre
-                placaMadre.setIdplacam(id);
-                placaMadre.setFoto(imageData);
-                placaMadre.setMarca(marca);
-                placaMadre.setModelo(modelo);
-                placaMadre.setPuertosalmacenamiento(puertoAlmacenamiento);
-                placaMadre.setPuertosusb(puertosUSB);
-                placaMadre.setSocket(socket);
-                placaMadre.setTiposram(tiposRam);
-                placaMadre.setMaximoram(maximoRam);
-                placaMadre.setRanuraexpansion(ranurasExpansion);
-                placaMadre.setFormato(formato);
-                placaMadre.setWatts(watts);
-                placaMadre.setPrecio(precio);
-                placaMadre.setStock(stock);
-
-                placasMadre.add(placaMadre);
+                placamadre.setFoto(rs.getBytes("foto"));
             }
+            rs.close();//CIERRO CONEXION CON LA BASE DE DATOS.
+            return placamadre.getFoto();
+        } catch (SQLException ex) {
+            Logger.getLogger(ModeloPlacaMadre.class.getName()).log(Level.SEVERE, null, ex);
+            return null;//CUANDO REGRESA NULL, HUBO ERROR EN EL QUERY
         }
-    } catch (SQLException e) {
-        // Manejar la excepción, por ejemplo, imprimir un mensaje de error
-        e.printStackTrace();
-    } finally {
-        ConectaBD.cerrar();
+
     }
 
-    return placasMadre;
-}
+    public static List<Placamadre> cargaPlacasMadre() {
+        // Obtener la conexión a la base de datos
+        Conexion ConectaBD = new Conexion();
+        List<Placamadre> placasMadre = new ArrayList<>();
 
-    
+        try (Connection Conexion = ConectaBD.getConexion()) {
+            String query = "SELECT id, marca, modelo, puerto_almacenamiento, puertos_usb, socket, tipos_ram, maximo_ram, ranuras_expansion, formato, watts, precio, imagen, stock FROM placamadre";
+
+            try (PreparedStatement statement = Conexion.prepareStatement(query); ResultSet resultSet = statement.executeQuery()) {
+
+                while (resultSet.next()) {
+                    Placamadre placaMadre = new Placamadre();
+                    // Obtener datos de la fila actual del ResultSet
+                    int id = resultSet.getInt("id");
+                    byte[] imageData = resultSet.getBytes("imagen");
+                    String marca = resultSet.getString("marca");
+                    String modelo = resultSet.getString("modelo");
+                    String puertoAlmacenamiento = resultSet.getString("puerto_almacenamiento");
+                    String puertosUSB = resultSet.getString("puertos_usb");
+                    String socket = resultSet.getString("socket");
+                    String tiposRam = resultSet.getString("tipos_ram");
+                    int maximoRam = resultSet.getInt("maximo_ram");
+                    String ranurasExpansion = resultSet.getString("ranuras_expansion");
+                    String formato = resultSet.getString("formato");
+                    int watts = resultSet.getInt("watts");
+                    double precio = resultSet.getDouble("precio");
+                    int stock = resultSet.getInt("stock");
+
+                    // Establecer los valores en el objeto PlacaMadre
+                    placaMadre.setIdplacam(id);
+                    placaMadre.setFoto(imageData);
+                    placaMadre.setMarca(marca);
+                    placaMadre.setModelo(modelo);
+                    placaMadre.setPuertosalmacenamiento(puertoAlmacenamiento);
+                    placaMadre.setPuertosusb(puertosUSB);
+                    placaMadre.setSocket(socket);
+                    placaMadre.setTiposram(tiposRam);
+                    placaMadre.setMaximoram(maximoRam);
+                    placaMadre.setRanuraexpansion(ranurasExpansion);
+                    placaMadre.setFormato(formato);
+                    placaMadre.setWatts(watts);
+                    placaMadre.setPrecio(precio);
+                    placaMadre.setStock(stock);
+
+                    placasMadre.add(placaMadre);
+                }
+            }
+        } catch (SQLException e) {
+            // Manejar la excepción, por ejemplo, imprimir un mensaje de error
+            e.printStackTrace();
+        } finally {
+            ConectaBD.cerrar();
+        }
+
+        return placasMadre;
+    }
+
 }
