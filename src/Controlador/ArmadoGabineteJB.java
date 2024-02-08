@@ -1,7 +1,7 @@
 package Controlador;
 
 import Clases.Gabinete;
-import Main.ModeloGabinete;
+import Modelo.ModeloGabinete;
 import Vista.ArmadoFuenteP_JB;
 import Vista.ArmadoGabinete_JB;
 import Vista.ArmadoPlaca_JB;

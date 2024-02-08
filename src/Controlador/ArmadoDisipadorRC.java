@@ -1,7 +1,7 @@
 package Controlador;
 
 import Clases.almacenamiento;
-import Modelo.Disipadores;
+import Clases.Disipadores;
 import Modelo.ModeloDisipadores;
 import Modelo.ModeloMemoriaRam;
 import Vista.ArmadoDisipador_JB;

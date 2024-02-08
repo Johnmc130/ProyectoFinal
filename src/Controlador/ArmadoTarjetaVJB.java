@@ -1,7 +1,7 @@
 package Controlador;
 
 import Clases.Tarjetagrafica;
-import Main.ModeloTarjetaGrafica;
+import Modelo.ModeloTarjetaGrafica;
 import Vista.ArmadoPlaca_JB;
 import Vista.ArmadoRam_JB;
 import Vista.ArmadoTarjetaV_JB;
@@ -67,7 +67,7 @@ public class ArmadoTarjetaVJB {
      * Método para cargar los componentes de las tarjetas gráficas en la vista
      */
     private void CargarComponentes() {
-        List<Tarjetagrafica> tarjetasGraficas = ModeloTarjetaGrafica.listaTarjetagrafica(); // Obtiene la lista de tarjetas gráficas del modelo
+        List<Tarjetagrafica> tarjetasGraficas = ModeloTarjetaGrafica.listaTarjetaGrafica(); // Obtiene la lista de tarjetas gráficas del modelo
 
         // Asegura que la carga y manipulación de los componentes Swing se realice en el hilo de eventos de Swing
         SwingUtilities.invokeLater(() -> {

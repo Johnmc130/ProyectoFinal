@@ -10,6 +10,7 @@ public class Gabinete {
     private int tamanoventilador;
     private String fuentepoder;
     private int tamanomaxvideo;
+    private String formato;
     private String placamadre;
     private String bahias;
     private double precio;
@@ -20,7 +21,7 @@ public class Gabinete {
     public Gabinete() {
     }
 
-    public Gabinete(int idgabinete, String marca, String modelo, String puertousb, String ventiladores, int tamanoventilador, String fuentepoder, int tamanomaxvideo, String placamadre, String bahias, double precio, int stock, int proveedor, byte[] foto) {
+    public Gabinete(int idgabinete, String marca, String modelo, String puertousb, String ventiladores, int tamanoventilador, String fuentepoder, int tamanomaxvideo, String formato, String placamadre, String bahias, double precio, int stock, int proveedor, byte[] foto) {
         this.idgabinete = idgabinete;
         this.marca = marca;
         this.modelo = modelo;
@@ -29,6 +30,7 @@ public class Gabinete {
         this.tamanoventilador = tamanoventilador;
         this.fuentepoder = fuentepoder;
         this.tamanomaxvideo = tamanomaxvideo;
+        this.formato = formato;
         this.placamadre = placamadre;
         this.bahias = bahias;
         this.precio = precio;
@@ -101,6 +103,14 @@ public class Gabinete {
         this.tamanomaxvideo = tamanomaxvideo;
     }
 
+    public String getFormato() {
+        return formato;
+    }
+
+    public void setFormato(String formato) {
+        this.formato = formato;
+    }
+
     public String getPlacamadre() {
         return placamadre;
     }
@@ -151,9 +161,7 @@ public class Gabinete {
 
     @Override
     public String toString() {
-        return "gabinete{" + "idgabinete=" + idgabinete + ", marca=" + marca + ", modelo=" + modelo + ", puertousb=" + puertousb + ", ventiladores=" + ventiladores + ", tamanoventilador=" + tamanoventilador + ", fuentepoder=" + fuentepoder + ", tamanomaxvideo=" + tamanomaxvideo + ", placamadre=" + placamadre + ", bahias=" + bahias + ", precio=" + precio + ", stock=" + stock + ", proveedor=" + proveedor + ", foto=" + foto + '}';
+        return "Gabinete{" + "idgabinete=" + idgabinete + ", marca=" + marca + ", modelo=" + modelo + ", puertousb=" + puertousb + ", ventiladores=" + ventiladores + ", tamanoventilador=" + tamanoventilador + ", fuentepoder=" + fuentepoder + ", tamanomaxvideo=" + tamanomaxvideo + ", formato=" + formato + ", placamadre=" + placamadre + ", bahias=" + bahias + ", precio=" + precio + ", stock=" + stock + ", proveedor=" + proveedor + ", foto=" + foto + '}';
     }
-    
-  
 
 }
