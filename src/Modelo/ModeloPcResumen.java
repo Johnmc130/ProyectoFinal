@@ -4,6 +4,7 @@
  */
 package Modelo;
 
+import Clases.PC;
 import Clases.Procesador;
 import Conexion.Conexion;
 import java.sql.Connection;
@@ -20,8 +21,50 @@ import java.util.List;
 
 public class ModeloPcResumen {
 
-    public void cargarPc(int id){
-        
+    private Conexion conexion;
+
+    public ModeloPcResumen() {
+        conexion = new Conexion();
+    }
+
+    public PC cargarPc(int id) {
+        PC pc = null;
+        try {
+            // Construye la consulta SQL para obtener los datos de la cotización según el id
+            String consulta = "SELECT * FROM cotizacion WHERE id = " + id;
+
+            // Ejecuta la consulta y obtiene el resultado
+            ResultSet resultado = conexion.consultaBase(consulta);
+
+            // Verifica si hay resultados y lee los datos
+            if (resultado.next()) {
+                // Lee los valores de las columnas de la fila actual
+                int idProcesador = resultado.getInt("id_procesador");
+                int idPlacaMadre = resultado.getInt("id_placa_madre");
+                int idTarjetaGrafica = resultado.getInt("id_tarjeta_grafica");
+                int idRam = resultado.getInt("id_ram");
+                int idFuentePoder = resultado.getInt("id_fuente_poder");
+                int idAlmacenamiento = resultado.getInt("id_almacenamiento");
+                int idGabinete = resultado.getInt("id_gabinete");
+                int idDisipador = resultado.getInt("id_disipador");
+
+                // Lee los valores de los ventiladores y los almacena en un ArrayList
+                ArrayList<Integer> idVentiladores = new ArrayList<>();
+                idVentiladores.add(resultado.getInt("id_ventilador_1"));
+                idVentiladores.add(resultado.getInt("id_ventilador_2"));
+                idVentiladores.add(resultado.getInt("id_ventilador_3"));
+
+                // Crea una instancia de PC con los valores leídos
+                pc = new PC(idProcesador, idPlacaMadre, idTarjetaGrafica, idRam,
+                        idFuentePoder, idAlmacenamiento, idGabinete, idVentiladores, idDisipador);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            // Cierra la conexión
+            conexion.cerrar();
+        }
+        return pc;
     }
     
     public static List<Procesador> cargaProcesadores() {
