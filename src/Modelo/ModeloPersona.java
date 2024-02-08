@@ -75,4 +75,24 @@ public class ModeloPersona extends Persona {
         return base.ejecutaConsulta(query);
     }
 
+    public boolean existePersona(String cedula) {
+        Conexion base = new Conexion();
+
+        try {
+            String query = "SELECT cedula FROM persona WHERE cedula = '" + cedula + "'";
+
+            ResultSet resultSet = base.consultaBase(query);
+
+            if (resultSet.next()) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Advertencia", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+    }
+
 }

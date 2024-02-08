@@ -1,7 +1,9 @@
 package Controlador;
 
+import Modelo.ModeloAdministrador;
 import Modelo.ModeloCliente;
 import Modelo.ModeloPersona;
+import Modelo.ModeloProveedor;
 import Vista.VentanaLogin_JM;
 import Vista.VentanaRegistro_JM;
 import Vista.VentanaUsuario_JM;
@@ -11,11 +13,15 @@ import javax.swing.JOptionPane;
 
 public class ControladorlLogin {
 
-    private ModeloCliente modeloc;
+    private ModeloCliente modeloC;
+    private ModeloAdministrador modeloA;
+    private ModeloProveedor modeloP;
     private VentanaLogin_JM vista;
 
-    public ControladorlLogin(ModeloCliente modeloc, VentanaLogin_JM vista) {
-        this.modeloc = modeloc;
+    public ControladorlLogin(ModeloCliente modeloC, ModeloAdministrador modeloA, ModeloProveedor modeloP, VentanaLogin_JM vista) {
+        this.modeloC = modeloC;
+        this.modeloA = modeloA;
+        this.modeloP = modeloP;
         this.vista = vista;
         vista.setVisible(true);
     }
@@ -30,15 +36,29 @@ public class ControladorlLogin {
         String cedula = vista.getTxtCedula().getText();
         String contra = String.valueOf(vista.getTxtContra().getPassword());
 
-        if (modeloc.loginCliente(cedula, contra)) {
+        if (modeloC.loginCliente(cedula, contra)) {
             JOptionPane.showMessageDialog(null, "¡Sesion Iniciada con Exito!");
             VentanaUsuario_JM ventana = new VentanaUsuario_JM();
             ModeloPersona mPersona = new ModeloPersona();
-            ConroladorCliente cCliente = new ConroladorCliente(ventana, modeloc, mPersona, cedula);
-            cCliente.iniciaControlador();
-            ventana.setVisible(true);
+            ConroladorUsuario cUsuario = new ConroladorUsuario(ventana, modeloC, mPersona, modeloA, modeloP, cedula);
+            cUsuario.iniciaControlador();
             vista.dispose();
 
+        } else if (modeloA.loginAdmin(cedula, contra)) {
+            JOptionPane.showMessageDialog(null, "¡Sesion Iniciada con Exito!");
+            VentanaUsuario_JM ventana = new VentanaUsuario_JM();
+            ModeloPersona mPersona = new ModeloPersona();
+            ConroladorUsuario cUsuario = new ConroladorUsuario(ventana, modeloC, mPersona, modeloA, modeloP, cedula);
+            cUsuario.iniciaControlador();
+            vista.dispose();
+
+        } else if (modeloP.loginProveedor(cedula, contra)) {
+            JOptionPane.showMessageDialog(null, "¡Sesion Iniciada con Exito!");
+            VentanaUsuario_JM ventana = new VentanaUsuario_JM();
+            ModeloPersona mPersona = new ModeloPersona();
+            ConroladorUsuario cUsuario = new ConroladorUsuario(ventana, modeloC, mPersona, modeloA, modeloP, cedula);
+            cUsuario.iniciaControlador();
+            vista.dispose();
         } else {
             JOptionPane.showMessageDialog(null, "¡La Cedula o Contraseña son Incorrectas!");
         }
