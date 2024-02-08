@@ -60,7 +60,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="jLabel33" min="-2" pref="209" max="-2" attributes="0"/>
@@ -76,29 +76,17 @@
                                       </Group>
                                   </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                                          <Component id="txtmarcamodigabinete" min="-2" pref="150" max="-2" attributes="0"/>
+                                      </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Group type="102" attributes="0">
-                                                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-                                                          <Component id="txtmarcamodigabinete" min="-2" pref="150" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                                          <Component id="lbIdmodigabinete" min="-2" pref="150" max="-2" attributes="0"/>
-                                                      </Group>
-                                                  </Group>
-                                                  <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
-                                                  <Component id="btncagagabinetemodi" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                                  <Component id="txtventiiladormodigabinete" min="-2" pref="150" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="lbgabineteimgmodi" min="-2" pref="132" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                          <Component id="lbIdmodigabinete" min="-2" pref="150" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                          <Component id="txtventiiladormodigabinete" min="-2" pref="150" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
@@ -131,7 +119,6 @@
                                                   <Component id="txtFpodermodigabin" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
                                                   <Component id="spTMvideomodigabin" min="-2" pref="60" max="-2" attributes="0"/>
                                                   <Component id="cbproveedormodigabin" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
-                                                  <Component id="spStockmodigabin" alignment="1" min="-2" pref="60" max="-2" attributes="0"/>
                                               </Group>
                                               <Component id="txtplacamodigabin" min="-2" pref="150" max="-2" attributes="0"/>
                                               <Component id="txtbahiasmodigabin" min="-2" pref="150" max="-2" attributes="0"/>
@@ -144,12 +131,26 @@
                                               <Component id="jLabel37" min="-2" pref="222" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="txtpreciomodigabin" min="-2" pref="150" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="txtpreciomodigabin" pref="150" max="32767" attributes="0"/>
+                                              <Component id="txtstockmodigabin" max="32767" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+                                  <Component id="lbgabineteimgmodi" min="-2" pref="293" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="btncagagabinetemodi" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="btnBuscarmodigabin" min="-2" max="-2" attributes="0"/>
@@ -176,6 +177,25 @@
                   <EmptySpace min="31" pref="31" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
+                          <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="btncagagabinetemodi" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="lbgabineteimgmodi" max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="btnBuscarmodigabin" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtbuscarmodigabi" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                  <Component id="jScrollPane1" min="-2" pref="397" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel29" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="lbIdmodigabinete" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -237,28 +257,13 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="spStockmodigabin" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel37" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtstockmodigabin" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel27" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="cbproveedormodigabin" min="-2" pref="30" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btncagagabinetemodi" min="-2" max="-2" attributes="0"/>
-                              <Component id="lbgabineteimgmodi" min="-2" pref="159" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="btnBuscarmodigabin" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtbuscarmodigabi" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane1" min="-2" pref="397" max="-2" attributes="0"/>
-                              </Group>
                           </Group>
                       </Group>
                   </Group>
@@ -614,13 +619,6 @@
             <Property name="verticalAlignment" type="int" value="3"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JSpinner" name="spStockmodigabin">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Montserrat Thin" size="18" style="0"/>
-            </Property>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JTextField" name="txtbuscarmodigabi">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -739,6 +737,16 @@
               <Font name="Montserrat" size="18" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Buscar"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtstockmodigabin">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Montserrat" size="18" style="0"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
           </Properties>
         </Component>
       </SubComponents>
