@@ -26,17 +26,16 @@ public class ModeloAlmacenamiento extends almacenamiento {
     Connection con;
     PreparedStatement ps;
 
-    public static List<almacenamiento> listaTodasAlmacenamiento() {
+       public static List<almacenamiento> listaTodasAlmacenamiento() {
         Conexion conectar = new Conexion();
         List<almacenamiento> listaAlmacenamiento = new ArrayList<almacenamiento>();
         String sql;
-        sql = "SELECT idalmacenamiento,marca,Modelo,tipo,capacidad,precio,idproveedoralma,Stock FROM almacenamiento";
+        sql = "SELECT idalmacenamiento,marca,Modelo,tipo,capacidad,precio,idproveedoralma,Stock,foto FROM almacenamiento";
         ResultSet rs = conectar.consultaBase(sql);
         try {
             while (rs.next()) {
                 almacenamiento miAlmacenamiento = new almacenamiento();
                 miAlmacenamiento.setIdalmacenamiento(rs.getInt("idalmacenamiento"));
-
                 miAlmacenamiento.setMarca(rs.getString("marca"));
                 miAlmacenamiento.setModelo(rs.getString("modelo"));
                 miAlmacenamiento.setTipo(rs.getString("tipo"));
@@ -44,6 +43,7 @@ public class ModeloAlmacenamiento extends almacenamiento {
                 miAlmacenamiento.setPrecio(rs.getDouble("precio"));
                 miAlmacenamiento.setId_proveedor(rs.getInt("idproveedoralma"));
                 miAlmacenamiento.setStock(rs.getInt("Stock"));
+                miAlmacenamiento.setFoto(rs.getBytes("foto"));
 
                 listaAlmacenamiento.add(miAlmacenamiento);
 
@@ -60,15 +60,15 @@ public class ModeloAlmacenamiento extends almacenamiento {
 
     }
 
-    public SQLException grabarAlmacenamiento() {
+
+        public SQLException grabarAlmacenamiento() {
 
         String sql;//"INSERT INTO TABLA () VALUES()"
-        sql = "INSERT INTO almacenamiento (marca, Modelo, tipo, capacidad, precio, id_proveedoralma, stock) "
-                + "VALUES('" + getMarca() + "','" + getModelo() + "','" + getTipo() + "','" + getCapacidad() + "','" + getPrecio() + "','" + getId_proveedor() + "','" + getStock() + "')";
+        sql = "INSERT INTO almacenamiento (marca, Modelo, tipo, capacidad, precio, idproveedoralma, stock, foto) "
+                + "VALUES('" + getMarca() + "','" + getModelo() + "','" + getTipo() + "','" + getCapacidad() + "','" + getPrecio() + "','" + getId_proveedor() + "','" + getStock() + "','" + getFoto() + "')";
 
         return conectar.ejecutaConsulta(sql);
     }
-
     public SQLException eliminar() {
         String sql = "delete from almacenamiento where idalmacenamiento='" + getIdalmacenamiento() + "'";
 

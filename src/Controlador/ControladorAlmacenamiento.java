@@ -7,23 +7,26 @@ package Controlador;
 
 import Modelo.ModeloAlmacenamiento;
 import Clases.almacenamiento;
-//import Vistas.Componentes;
-import Vistas.CrearAlmacenamiento;
-import Vistas.EliminarAlmacenamiento;
-import Vistas.ModificarAlmacenamiento;
+import Vista.CrearAlmacenamiento;
+import Vista.EliminarAlmacenamiento;
+import Vista.ModificarAlmacenamiento;
 import java.awt.Image;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -40,6 +43,7 @@ public class ControladorAlmacenamiento {
     private EliminarAlmacenamiento eliminar;
     ModeloAlmacenamiento miAlmacenamiento = new ModeloAlmacenamiento();
     DefaultTableModel modeloTabla = new DefaultTableModel();
+    byte[] imagenBytes;
 
     public ControladorAlmacenamiento() {
 
@@ -70,9 +74,10 @@ public class ControladorAlmacenamiento {
 
     public void iniciaControl() {
         // vista.getBtnEliminarA().addActionListener(l -> listarAlmacenamiento(eliminar.getTblAlmacenamiento()));
-        // vista.getBtnExaminar().addActionListener(l -> seleccionarImagen());
-//                eliminar.getBtnEliminar().addActionListener(l -> eliminarAlmacenamiento());
+        crear.getBtnCargarI().addActionListener(l -> cargarImagen());
+        crear.getBtnImagenProducto().addActionListener(l -> mostrarImagenEmergente());
 
+//                eliminar.getBtnEliminar().addActionListener(l -> eliminarAlmacenamiento());
         crear.getBtnCrear().addActionListener(l -> grabarAlmacenamiento());
 
         // vista.getBtnModificar().addActionListener(l -> Actualizar());
@@ -107,10 +112,7 @@ public class ControladorAlmacenamiento {
     private void grabarAlmacenamiento() {
         // Lógica para grabar
         // Validar antes...
-        
-       
-        
-        
+
         String marca = crear.getTxtmarca().getText();
         String modelo = crear.getTxtmodelo().getText();
         String tipo = crear.getCmbTipo().getSelectedItem().toString();
@@ -128,8 +130,9 @@ public class ControladorAlmacenamiento {
         miAlmacenamiento.setPrecio(precio);
         miAlmacenamiento.setId_proveedor(idProveedor);
         miAlmacenamiento.setStock(stock);
+        miAlmacenamiento.setFoto(imagenBytes);
 
-        if (CamposVacios() == true  && miAlmacenamiento.grabarAlmacenamiento() == null) {
+        if (miAlmacenamiento.grabarAlmacenamiento() == null) {
             JOptionPane.showMessageDialog(crear, "Usuario Agregado con Exito");
         } else {
             JOptionPane.showMessageDialog(crear, "error");
@@ -138,40 +141,43 @@ public class ControladorAlmacenamiento {
 
     }
 
-    private void CargarDatos() {
+  private void CargarDatos() {
+    int fila = modificar.getTblAlmacenamiento().getSelectedRow();
 
-        int fila = modificar.getTblAlmacenamiento().getSelectedRow();
+    if (fila != -1) {
+        String IdA = (String) modificar.getTblAlmacenamiento().getValueAt(fila, 0);
+        String marca = (String) modificar.getTblAlmacenamiento().getValueAt(fila, 1);
+        String Modelo = (String) modificar.getTblAlmacenamiento().getValueAt(fila, 2);
+        String tipo = (String) modificar.getTblAlmacenamiento().getValueAt(fila, 3);
+        String capacidad = (String) modificar.getTblAlmacenamiento().getValueAt(fila, 4);
+        String precio = (String) modificar.getTblAlmacenamiento().getValueAt(fila, 5);
+        String idProveedor = (String) modificar.getTblAlmacenamiento().getValueAt(fila, 6);
+        String stock = (String) modificar.getTblAlmacenamiento().getValueAt(fila, 7);
 
-        if (fila != -1) {
-            String IdA = (String) modificar.getTblAlmacenamiento().getValueAt(fila, 0);
-            String marca = (String) modificar.getTblAlmacenamiento().getValueAt(fila, 1);
-            String modelo = (String) modificar.getTblAlmacenamiento().getValueAt(fila, 2);
-            String tipo = (String) modificar.getTblAlmacenamiento().getValueAt(fila, 3);
-            String capacidad = (String) modificar.getTblAlmacenamiento().getValueAt(fila, 4);
-            String precio = (String) modificar.getTblAlmacenamiento().getValueAt(fila, 5);
-            String idProveedor = (String) modificar.getTblAlmacenamiento().getValueAt(fila, 6);
-            String stock = (String) modificar.getTblAlmacenamiento().getValueAt(fila, 7);
+        modificar.getTxtIdA().setText(IdA);
+        modificar.getTxtmarca().setText(marca);
+        modificar.getTxtmodelo().setText(Modelo);
+        modificar.getCmbTipo().setSelectedItem(tipo);
+        modificar.getSpCapacidad().setValue(Integer.parseInt(capacidad));
+        modificar.getSpPrecio().setValue(Double.parseDouble(precio));
 
-            // Obtener los bytes de la imagen
-            // Convertir los bytes a un ImageIcon
-            // ImageIcon imagenIcon = new ImageIcon(bytesImagen);
-            // Establecer la imagen en el JLabel
-            //vista.getLblFoto().setIcon(imagenIcon);
-            modificar.getTxtIdA().setText(IdA);
-            modificar.getTxtmarca().setText(marca);
-            modificar.getTxtmodelo().setText(modelo);
-            modificar.getCmbTipo().setSelectedItem(tipo);
-            modificar.getSpCapacidad().setValue(Integer.parseInt(capacidad));
-            modificar.getSpPrecio().setValue(Double.parseDouble(precio));
+        modificar.getSpStock().setValue(Integer.parseInt(stock));
 
-            modificar.getSpStock().setValue(Integer.parseInt(stock));
-            
-            modificar.getTxtIdA().setEditable(false);
+        // Obtener la imagen desde el modelo
+//        byte[] imagenBytes = modelo.cargarImagenDesdeBD(IdA);
+//        if (imagenBytes != null) {
+//            ImageIcon icon = new ImageIcon(imagenBytes);
+//            modificar.getBtnImagenProducto().setIcon(icon);
+//        } else {
+//                    JOptionPane.showMessageDialog(modificar, "No hay ninguna imagen");
+//
+//        }
 
-        } else {
-            JOptionPane.showMessageDialog(modificar, "Selecciona una fila antes de modificar.");
-        }
+        modificar.getTxtIdA().setEditable(false);
+    } else {
+        JOptionPane.showMessageDialog(modificar, "Selecciona una fila antes de modificar.");
     }
+}
 
     private void listarAlmaceModificar() {
         ///Logica cargar personas
@@ -179,7 +185,9 @@ public class ControladorAlmacenamiento {
         DefaultTableModel mTabla;
         mTabla = (DefaultTableModel) modificar.getTblAlmacenamiento().getModel();
         mTabla.setNumRows(0);//limpio la tabla
+
         listap.stream().forEach(alma -> {
+
             String[] rowData = {String.valueOf(alma.getIdalmacenamiento()), alma.getMarca(), alma.getModelo(), alma.getTipo(), String.valueOf(alma.getCapacidad()), String.valueOf(alma.getPrecio()), String.valueOf(alma.getId_proveedor()), String.valueOf(alma.getStock())};
             mTabla.addRow(rowData);
         });
@@ -209,6 +217,7 @@ public class ControladorAlmacenamiento {
         double precio = (double) modificar.getSpPrecio().getValue();
 
         int stock = (Integer) modificar.getSpStock().getValue();
+
         miAlmacenamiento.setIdalmacenamiento(Integer.parseInt(idAlmacenamiento));
         miAlmacenamiento.setMarca(marca);
         miAlmacenamiento.setModelo(modelo);
@@ -217,7 +226,7 @@ public class ControladorAlmacenamiento {
         miAlmacenamiento.setPrecio(precio);
         miAlmacenamiento.setStock(stock);
 
-        if (CamposVacios() == true && miAlmacenamiento.editarAlmacenamiento() == null) {
+        if (miAlmacenamiento.editarAlmacenamiento() == null) {
             JOptionPane.showMessageDialog(modificar, "Almacenamiento Actualizado correctamente");
             listarAlmaceModificar();
         } else {
@@ -257,38 +266,74 @@ public class ControladorAlmacenamiento {
         }
     }
 
-//    private byte[] obtenerBytesImagen() {
-//        JFileChooser se = new JFileChooser();
-//        se.setFileSelectionMode(JFileChooser.FILES_ONLY);
-//        int estado = se.showOpenDialog(null);
-//        if (estado == JFileChooser.APPROVE_OPTION) {
-//            try {
-//                File archivo = se.getSelectedFile();
-//                this.longitudBytes = (int) archivo.length();
+    private byte[] obtenerBytesImagen(String rutaImagen) {
+        try {
+            // Leer la imagen desde el archivo en la ruta especificada
+            File file = new File(rutaImagen);
+            FileInputStream fis = new FileInputStream(file);
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+            while ((bytesRead = fis.read(buffer)) != -1) {
+                bos.write(buffer, 0, bytesRead);
+            }
+            fis.close();
+
+            // Obtener el arreglo de bytes de la imagen
+            byte[] imagenBytes = bos.toByteArray();
+            bos.close();
+            return imagenBytes;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 //
-//                // Leer la imagen seleccionada como bytes
-//                byte[] buffer = new byte[this.longitudBytes];
-//                try ( FileInputStream fis = new FileInputStream(archivo)) {
-//                    fis.read(buffer);
-//                }
-//
-//                // Mostrar la imagen en un JLabel (opcional, solo para visualización)
-//                Image icono = ImageIO.read(archivo).getScaledInstance(vista.getLblFoto().getWidth(), vista.getLblFoto().getHeight(), Image.SCALE_DEFAULT);
-//                vista.getLblFoto().setIcon(new ImageIcon(icono));
-//                vista.getLblFoto().updateUI();
-//
-//                return buffer;
-//            } catch (IOException ex) {
-//                ex.printStackTrace();
-//            }
-//        }
-//        return null;
-//    }
-//
-//// Método que invoca obtenerBytesImagen() y asigna el arreglo de bytes a la variable "foto"
-//    public void seleccionarImagen() {
-//        foto = obtenerBytesImagen();
-//    }
+// Método que invoca obtenerBytesImagen() y asigna el arreglo de bytes a la variable "foto"
+    private String rutaImagenSeleccionada;
+
+    private void cargarImagen() {
+        JFileChooser jf = new JFileChooser();
+        jf.setMultiSelectionEnabled(false);
+        if (jf.showOpenDialog(crear) == JFileChooser.APPROVE_OPTION) {
+            rutaImagenSeleccionada = jf.getSelectedFile().toString();
+
+            // Mostrar la imagen en el botón btnImagenProducto
+            crear.getBtnImagenProducto().setIcon(new ImageIcon(rutaImagenSeleccionada));
+
+            // Obtener los bytes de la imagen y guardarlos en la variable imagenBytes
+            imagenBytes = obtenerBytesImagen(rutaImagenSeleccionada);
+        }
+
+    }
+
+    private void mostrarImagenEmergente() {
+        // Obtener la imagen actual del botón
+        Icon imagenActual = crear.getBtnImagenProducto().getIcon();
+
+        // Si el botón no tiene una imagen, no hacemos nada
+        if (imagenActual == null) {
+            return;
+        }
+
+        // Crear un componente JLabel para mostrar la imagen en el diálogo emergente
+        JLabel lblImagen = new JLabel(imagenActual);
+
+        // Crear un diálogo emergente de JOptionPane para mostrar la imagen
+        JOptionPane.showMessageDialog(crear, lblImagen, "Imagen del Producto", JOptionPane.PLAIN_MESSAGE);
+    }
+
+    public static byte[] convert(String hexString) {
+        int length = hexString.length();
+        byte[] data = new byte[length / 2];
+
+        for (int i = 0; i < length; i += 2) {
+            data[i / 2] = (byte) ((Character.digit(hexString.charAt(i), 16) << 4)
+                    + Character.digit(hexString.charAt(i + 1), 16));
+        }
+
+        return data;
+    }
 //    public void regresarInicio() {
 //
 //        vista.getDlgAlmacenamiento().setVisible(false);
@@ -311,16 +356,14 @@ public class ControladorAlmacenamiento {
 //            Logger.getLogger(ControladorAlmacenamientos.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 //    }
-    
-    
-    public boolean CamposVacios(){
+
+    public boolean CamposVacios() {
         boolean validar = true;
-         boolean Valor1 = true;
-                boolean Valor2 = true;
+        boolean Valor1 = true;
+        boolean Valor2 = true;
         boolean Valor3 = true;
         boolean Valor4 = true;
 
-                             
         if (crear.getTxtmarca().getText().isEmpty()) {
 
             JOptionPane.showMessageDialog(crear, "Campo Vacio en Marca");
@@ -328,7 +371,7 @@ public class ControladorAlmacenamiento {
         } else {
             Valor1 = false;
         }
-        
+
         if (crear.getTxtmodelo().getText().isEmpty()) {
 
             JOptionPane.showMessageDialog(crear, "Campo Vacio en Modelo");
@@ -336,7 +379,7 @@ public class ControladorAlmacenamiento {
         } else {
             Valor2 = false;
         }
-        
+
         if (crear.getSpCapacidad().getValue().equals(0)) {
 
             JOptionPane.showMessageDialog(crear, "Capacidad no puede estar en 0");
@@ -344,7 +387,7 @@ public class ControladorAlmacenamiento {
         } else {
             Valor3 = false;
         }
-        
+
         if (crear.getSpPrecio().getValue().equals(0.0)) {
 
             JOptionPane.showMessageDialog(crear, "Registre un precio");
@@ -352,16 +395,14 @@ public class ControladorAlmacenamiento {
         } else {
             Valor4 = false;
         }
-        
-    if(Valor1==false && Valor1==false  && Valor1==false  && Valor1==false ) {
-     validar=true;   
-    }   else{
-        validar = false;
-    }
-        
+
+        if (Valor1 == false && Valor1 == false && Valor1 == false && Valor1 == false) {
+            validar = true;
+        } else {
+            validar = false;
+        }
+
         return validar;
     }
-    
-    
-    
+
 }

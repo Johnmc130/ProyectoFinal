@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import Clases.Disipadores;
 import Conexion.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -29,7 +30,7 @@ public class ModeloDisipadores extends Disipadores {
         Conexion conectar = new Conexion();
         List<Disipadores> listaDisipadores = new ArrayList<Disipadores>();
         String sql;
-        sql = "SELECT iddisipadores,marca,modelo,socket,rgb,ventiladores,precio,stock FROM disipadores";
+        sql = "SELECT iddisipadores,marca,modelo,socket,rgb,ventiladores,precio,stock, foto FROM disipadores";
         ResultSet rs = conectar.consultaBase(sql);
         try {
             while (rs.next()) {
@@ -44,6 +45,8 @@ public class ModeloDisipadores extends Disipadores {
 
                 midisipadores.setPrecio(rs.getDouble("precio"));
                 midisipadores.setStock(rs.getInt("Stock"));
+                                midisipadores.setFoto(rs.getBytes("foto"));
+
 
                 listaDisipadores.add(midisipadores);
 
@@ -63,8 +66,8 @@ public class ModeloDisipadores extends Disipadores {
     public SQLException grabardisipadores() {
 
         String sql;//"INSERT INTO TABLA () VALUES()"
-        sql = "INSERT INTO disipadores (marca, modelo, socket, rgb,ventiladores, precio, stock) "
-                + "VALUES('" + getMarca() + "','" + getModelo() + "','" + getSocket() + "','" + getRGB() + "','" + getVentiladores() + "','" + getPrecio() +  "','" + getStock() + "')";
+        sql = "INSERT INTO disipadores (marca, modelo, socket, rgb,ventiladores, precio, stock, foto) "
+                + "VALUES('" + getMarca() + "','" + getModelo() + "','" + getSocket() + "','" + getRGB() + "','" + getVentiladores() + "','" + getPrecio() +  "','" + getStock() + "','" + getFoto() + "')";
 
         return conectar.ejecutaConsulta(sql);
     }

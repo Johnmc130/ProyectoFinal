@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import Clases.FuentePoder;
 import Conexion.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -29,7 +30,7 @@ public class ModeloFuentePoder extends FuentePoder {
         Conexion conectar = new Conexion();
         List<FuentePoder> listaFuentePoder = new ArrayList<FuentePoder>();
         String sql;
- sql = " SELECT idfuentepoder, marca, modelo, certificacion, modular, formato, precio, stock, watts FROM fuente_poder";
+ sql = " SELECT idfuentepoder, marca, modelo, certificacion, modular, formato, precio, stock, watts, foto FROM fuente_poder";
         ResultSet rs = conectar.consultaBase(sql);
         try {
             while (rs.next()) {
@@ -43,6 +44,8 @@ public class ModeloFuentePoder extends FuentePoder {
                                 miFuentePoder.setPrecio(rs.getDouble("precio"));
 
                 miFuentePoder.setStock(rs.getInt("stock"));
+                                miFuentePoder.setFoto(rs.getBytes("foto"));
+
 
                 miFuentePoder.setWatts(rs.getString("watts"));
 
@@ -65,8 +68,8 @@ public class ModeloFuentePoder extends FuentePoder {
     public SQLException grabarFuentePoder() {
 
         String sql;//"INSERT INTO TABLA () VALUES()"
-        sql = "INSERT INTO fuente_poder (marca, modelo, certificacion, modular,formato, watts, precio, stock) "
-                + "VALUES('" + getMarca() + "','" + getModelo() + "','" + getCertificacion() + "','" + getModular() + "','" + getFormato() + "','" + getWatts() + "','" + getPrecio() + "','" + getStock() + "')";
+        sql = "INSERT INTO fuente_poder (marca, modelo, certificacion, modular,formato, watts, precio, stock,foto) "
+                + "VALUES('" + getMarca() + "','" + getModelo() + "','" + getCertificacion() + "','" + getModular() + "','" + getFormato() + "','" + getWatts() + "','" + getPrecio() + "','" + getStock() + "','" + getFoto() + "')";
 
         return conectar.ejecutaConsulta(sql);
     }

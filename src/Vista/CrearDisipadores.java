@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Vistas;
+package Vista;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -23,6 +23,24 @@ public class CrearDisipadores extends javax.swing.JFrame {
     public CrearDisipadores() {
         initComponents();
     }
+
+    public JButton getBtnCargarI() {
+        return btnCargarI;
+    }
+
+    public void setBtnCargarI(JButton btnCargarI) {
+        this.btnCargarI = btnCargarI;
+    }
+
+    public JButton getBtnImagenProducto() {
+        return btnImagenProducto;
+    }
+
+    public void setBtnImagenProducto(JButton btnImagenProducto) {
+        this.btnImagenProducto = btnImagenProducto;
+    }
+    
+    
 
     public JSpinner getSpStock() {
         return spStock;
@@ -126,8 +144,6 @@ public class CrearDisipadores extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jLabel35 = new javax.swing.JLabel();
         btAtras2 = new javax.swing.JToggleButton();
-        btnCrearproc1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         cmbVentilador = new javax.swing.JComboBox<>();
         txtModelo = new javax.swing.JTextField();
         rbSi = new javax.swing.JRadioButton();
@@ -135,6 +151,8 @@ public class CrearDisipadores extends javax.swing.JFrame {
         jLabel36 = new javax.swing.JLabel();
         spStock = new javax.swing.JSpinner();
         txtsocket = new javax.swing.JTextField();
+        btnCargarI = new javax.swing.JButton();
+        btnImagenProducto = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -211,11 +229,6 @@ public class CrearDisipadores extends javax.swing.JFrame {
             .addComponent(btAtras2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        btnCrearproc1.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
-        btnCrearproc1.setText("Cargar Imagen");
-
-        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
         cmbVentilador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Numero de ventiladores", "1", "2", "3", " " }));
 
         buttonGroup1.add(rbSi);
@@ -230,6 +243,9 @@ public class CrearDisipadores extends javax.swing.JFrame {
         jLabel36.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         spStock.setFont(new java.awt.Font("Montserrat Thin", 0, 18)); // NOI18N
+
+        btnCargarI.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        btnCargarI.setText("Cargar Imagen");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -261,21 +277,16 @@ public class CrearDisipadores extends javax.swing.JFrame {
                                     .addGap(18, 18, 18)
                                     .addComponent(rbNo)))
                             .addComponent(spPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(txtmarca, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(82, 82, 82)
-                                .addComponent(btnCrearproc1))
+                            .addComponent(txtmarca, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(txtsocket, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtModelo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(txtModelo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(spStock, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(350, 350, 350)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(240, 240, 240))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -283,6 +294,13 @@ public class CrearDisipadores extends javax.swing.JFrame {
                         .addComponent(btnCrear))
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGap(293, 293, 293)
+                    .addComponent(btnCargarI)
+                    .addGap(18, 18, 18)
+                    .addComponent(btnImagenProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(293, Short.MAX_VALUE)))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -290,21 +308,13 @@ public class CrearDisipadores extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(60, 60, 60)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel30)
-                                    .addComponent(txtmarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(89, 89, 89))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(43, 43, 43)
-                                .addComponent(btnCrearproc1))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(43, 43, 43)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(60, 60, 60)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel30)
+                            .addComponent(txtmarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(214, 214, 214))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(207, 207, 207)
                         .addComponent(jLabel31)
@@ -324,14 +334,23 @@ public class CrearDisipadores extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(spPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel25))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jLabel25))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel36)
                     .addComponent(spStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addComponent(btnCrear)
                 .addGap(54, 54, 54))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGap(133, 133, 133)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnCargarI)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGap(17, 17, 17)
+                            .addComponent(btnImagenProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addContainerGap(134, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -360,11 +379,11 @@ public class CrearDisipadores extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btAtras2;
+    private javax.swing.JButton btnCargarI;
     private javax.swing.JButton btnCrear;
-    private javax.swing.JButton btnCrearproc1;
+    private javax.swing.JButton btnImagenProducto;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cmbVentilador;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;

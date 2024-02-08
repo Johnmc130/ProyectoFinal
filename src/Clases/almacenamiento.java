@@ -32,18 +32,32 @@ public class almacenamiento {
     private double precio;
     private int id_proveedor;
 
+   private byte[] foto;
+   
     public almacenamiento() {
     }
 
-    public almacenamiento(String marca, String Modelo, String tipo, int capacidad, double precio, int id_proveedor) {
+    public almacenamiento(int Idalmacenamiento, String marca, String Modelo, String tipo, int capacidad, int stock, double precio, int id_proveedor, byte[] foto) {
+        this.Idalmacenamiento = Idalmacenamiento;
         this.marca = marca;
         this.Modelo = Modelo;
         this.tipo = tipo;
         this.capacidad = capacidad;
+        this.stock = stock;
         this.precio = precio;
         this.id_proveedor = id_proveedor;
+        this.foto = foto;
     }
 
+    public byte[] getFoto() {
+        return foto;
+    }
+
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
+    }
+
+    
     public String getMarca() {
         return marca;
     }

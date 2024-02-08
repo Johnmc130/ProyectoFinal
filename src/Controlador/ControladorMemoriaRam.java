@@ -7,11 +7,19 @@ package Controlador;
 
 import Modelo.ModeloMemoriaRam;
 import Clases.memoriaRam;
-import Vistas.CrearMemoriaRam;
-import Vistas.EliminarMemoriaRam;
-import Vistas.ModificarMemoriaRam;
+import Vista.CrearMemoriaRam;
+import Vista.EliminarMemoriaRam;
+import Vista.ModificarMemoriaRam;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -28,6 +36,7 @@ public class ControladorMemoriaRam {
     ModeloMemoriaRam mimemoriaRam = new ModeloMemoriaRam();
     DefaultTableModel modeloTabla = new DefaultTableModel();
     int numero = 0;
+    byte[] imagenBytes;
 
     public ControladorMemoriaRam() {
 
@@ -37,7 +46,7 @@ public class ControladorMemoriaRam {
         this.modelo = modelo;
         this.crear = crear;
         crear.setVisible(true);
-       // cargarCodigosProveedorComboBox();
+        // cargarCodigosProveedorComboBox();
     }
 
     public ControladorMemoriaRam(ModeloMemoriaRam modelo, ModificarMemoriaRam modificar) {
@@ -60,7 +69,8 @@ public class ControladorMemoriaRam {
         // vista.getBtnEliminarA().addActionListener(l -> listarmemoriaRam(eliminar.getTblMemoria()));
         // vista.getBtnExaminar().addActionListener(l -> seleccionarImagen());
 //                eliminar.getBtnEliminar().addActionListener(l -> eliminarmemoriaRam());
-
+        crear.getBtnCargarI().addActionListener(l -> cargarImagen());
+        crear.getBtnImagenProducto().addActionListener(l -> mostrarImagenEmergente());
         crear.getBtnCrear().addActionListener(l -> grabarmemoriaRam());
 
         // vista.getBtnModificar().addActionListener(l -> Actualizar());
@@ -116,6 +126,7 @@ public class ControladorMemoriaRam {
         mimemoriaRam.setPrecio(precio);
         mimemoriaRam.setNumeroModulos(numero);
         mimemoriaRam.setStock(stock);
+        mimemoriaRam.setFoto(imagenBytes);
 
         if (CamposVacios() == true && mimemoriaRam.grabarmemoriaRam() == null) {
             JOptionPane.showMessageDialog(crear, "Memoria Ram Agregado con Exito");
@@ -217,7 +228,7 @@ public class ControladorMemoriaRam {
         mimemoriaRam.setNumeroModulos(numero);
         mimemoriaRam.setStock(stock);
 
-        if ( mimemoriaRam.editarmemoriaRam() == null) {
+        if (mimemoriaRam.editarmemoriaRam() == null) {
             JOptionPane.showMessageDialog(modificar, "memoriaRam Actualizado correctamente");
             listarAlmaceModificar();
         } else {
@@ -243,6 +254,75 @@ public class ControladorMemoriaRam {
 
     }
 
+    private byte[] obtenerBytesImagen(String rutaImagen) {
+        try {
+            // Leer la imagen desde el archivo en la ruta especificada
+            File file = new File(rutaImagen);
+            FileInputStream fis = new FileInputStream(file);
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+            while ((bytesRead = fis.read(buffer)) != -1) {
+                bos.write(buffer, 0, bytesRead);
+            }
+            fis.close();
+
+            // Obtener el arreglo de bytes de la imagen
+            byte[] imagenBytes = bos.toByteArray();
+            bos.close();
+            return imagenBytes;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+//
+// Método que invoca obtenerBytesImagen() y asigna el arreglo de bytes a la variable "foto"
+    private String rutaImagenSeleccionada;
+
+    private void cargarImagen() {
+        JFileChooser jf = new JFileChooser();
+        jf.setMultiSelectionEnabled(false);
+        if (jf.showOpenDialog(crear) == JFileChooser.APPROVE_OPTION) {
+            rutaImagenSeleccionada = jf.getSelectedFile().toString();
+
+            // Mostrar la imagen en el botón btnImagenProducto
+            crear.getBtnImagenProducto().setIcon(new ImageIcon(rutaImagenSeleccionada));
+
+            // Obtener los bytes de la imagen y guardarlos en la variable imagenBytes
+            imagenBytes = obtenerBytesImagen(rutaImagenSeleccionada);
+        }
+
+    }
+
+    private void mostrarImagenEmergente() {
+        // Obtener la imagen actual del botón
+        Icon imagenActual = crear.getBtnImagenProducto().getIcon();
+
+        // Si el botón no tiene una imagen, no hacemos nada
+        if (imagenActual == null) {
+            return;
+        }
+
+        // Crear un componente JLabel para mostrar la imagen en el diálogo emergente
+        JLabel lblImagen = new JLabel(imagenActual);
+
+        // Crear un diálogo emergente de JOptionPane para mostrar la imagen
+        JOptionPane.showMessageDialog(crear, lblImagen, "Imagen del Producto", JOptionPane.PLAIN_MESSAGE);
+    }
+
+    public static byte[] convert(String hexString) {
+        int length = hexString.length();
+        byte[] data = new byte[length / 2];
+
+        for (int i = 0; i < length; i += 2) {
+            data[i / 2] = (byte) ((Character.digit(hexString.charAt(i), 16) << 4)
+                    + Character.digit(hexString.charAt(i + 1), 16));
+        }
+
+        return data;
+    }
+
 //    public void cargarCodigosProveedorComboBox() {
 //        try {
 //            ArrayList<Integer> codigosProveedor = ModelomemoriaRam.obtenerCodigosProveedor();
@@ -256,7 +336,6 @@ public class ControladorMemoriaRam {
 //            e.printStackTrace();
 //        }
 //    }
-
 //    private byte[] obtenerBytesImagen() {
 //        JFileChooser se = new JFileChooser();
 //        se.setFileSelectionMode(JFileChooser.FILES_ONLY);
