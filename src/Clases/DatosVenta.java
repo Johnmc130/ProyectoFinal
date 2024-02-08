@@ -5,6 +5,8 @@
  */
 package Clases;
 
+import java.util.Date;
+
 /**
  *
  * @author Steven Zhicay
@@ -18,12 +20,15 @@ public class DatosVenta {
     private String direccion;
     private String numeroCuenta;
     private String codigoSeguridad;
-    private String fechaExpiracion;
+    private Date fechaExpiracion;
+    private String nombreProducto;
+    private int id_producto;
+    private int id_cliente;
 
     public DatosVenta() {
     }
 
-    public DatosVenta(int id_datos, String nombres, String apellidos, String movil, String direccion, String numeroCuenta, String codigoSeguridad, String fechaExpiracion) {
+    public DatosVenta(int id_datos, String nombres, String apellidos, String movil, String direccion, String numeroCuenta, String codigoSeguridad, Date fechaExpiracion, String nombreProducto, int id_producto, int id_cliente) {
         this.id_datos = id_datos;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -32,6 +37,9 @@ public class DatosVenta {
         this.numeroCuenta = numeroCuenta;
         this.codigoSeguridad = codigoSeguridad;
         this.fechaExpiracion = fechaExpiracion;
+        this.nombreProducto = nombreProducto;
+        this.id_producto = id_producto;
+        this.id_cliente = id_cliente;
     }
 
     public int getId_datos() {
@@ -90,18 +98,41 @@ public class DatosVenta {
         this.codigoSeguridad = codigoSeguridad;
     }
 
-    public String getFechaExpiracion() {
+    public Date getFechaExpiracion() {
         return fechaExpiracion;
     }
 
-    public void setFechaExpiracion(String fechaExpiracion) {
+    public void setFechaExpiracion(Date fechaExpiracion) {
         this.fechaExpiracion = fechaExpiracion;
+    }
+
+    public String getNombreProducto() {
+        return nombreProducto;
+    }
+
+    public void setNombreProducto(String nombreProducto) {
+        this.nombreProducto = nombreProducto;
+    }
+
+    public int getId_producto() {
+        return id_producto;
+    }
+
+    public void setId_producto(int id_producto) {
+        this.id_producto = id_producto;
+    }
+
+    public int getId_cliente() {
+        return id_cliente;
+    }
+
+    public void setId_cliente(int id_cliente) {
+        this.id_cliente = id_cliente;
     }
 
     @Override
     public String toString() {
-        return "DatosVenta{" + "id_datos=" + id_datos + ", nombres=" + nombres + ", apellidos=" + apellidos + ", movil=" + movil + ", direccion=" + direccion + ", numeroCuenta=" + numeroCuenta + ", codigoSeguridad=" + codigoSeguridad + ", fechaExpiracion=" + fechaExpiracion + '}';
+        return "DatosVenta{" + "id_datos=" + id_datos + ", nombres=" + nombres + ", apellidos=" + apellidos + ", movil=" + movil + ", direccion=" + direccion + ", numeroCuenta=" + numeroCuenta + ", codigoSeguridad=" + codigoSeguridad + ", fechaExpiracion=" + fechaExpiracion + ", nombreProducto=" + nombreProducto + ", id_producto=" + id_producto + ", id_cliente=" + id_cliente + '}';
     }
 
-    
 }

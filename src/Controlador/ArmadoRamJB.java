@@ -1,7 +1,7 @@
 package Controlador;
 
 import Clases.memoriaRam;
-import Modelo.ModeloRam;
+import Modelo.ModeloMemoriaRam;
 import Vista.ArmadoFuenteP_JB;
 import Vista.ArmadoPlaca_JB;
 import Vista.ArmadoRam_JB;
@@ -53,7 +53,7 @@ public class ArmadoRamJB {
     }
 
     private void CargarComponentes() {
-        List<memoriaRam> rams = ModeloRam.cargaMemoriasRAM();
+        List<memoriaRam> rams = ModeloMemoriaRam.listaTodasmemoriaRam();
 
         // Asegurarse de que la creación y manipulación de los componentes Swing se realice en el hilo de eventos de Swing
         SwingUtilities.invokeLater(() -> {
