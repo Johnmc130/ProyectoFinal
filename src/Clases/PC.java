@@ -19,13 +19,13 @@ public class PC {
     private int idFuentePoder = 0;
     private int idAlmacenamiento = 0;
     private int idGabinete = 0;
-    private ArrayList<Integer> idVentiladores = new ArrayList<>();
+    private int idVentiladores = 0;
     private int idDisipador = 0;
 
     public PC() {
     }
     
-    public PC(int idProcesador, int idPlacaMadre, int idTarjetaGrafica, int idRam, int idFuentePoder, int idAlmacenamiento, int idGabinete, ArrayList<Integer> idVentiladores, int idDisipador) {
+    public PC(int idProcesador, int idPlacaMadre, int idTarjetaGrafica, int idRam, int idFuentePoder, int idAlmacenamiento, int idGabinete, int idVentiladores, int idDisipador) {
         this.idProcesador = idProcesador;
         this.idPlacaMadre = idPlacaMadre;
         this.idTarjetaGrafica = idTarjetaGrafica;
@@ -93,11 +93,11 @@ public class PC {
         this.idGabinete = idGabinete;
     }
 
-    public ArrayList<Integer> getIdVentiladores() {
+    public int getIdVentiladores() {
         return idVentiladores;
     }
 
-    public void setIdVentiladores(ArrayList<Integer> idVentiladores) {
+    public void setIdVentiladores(int idVentiladores) {
         this.idVentiladores = idVentiladores;
     }
 

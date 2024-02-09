@@ -2,6 +2,7 @@
 package Controlador;
 
 import Clases.Placamadre;
+import Modelo.ModeloPcResumen;
 import Modelo.ModeloPlacaMadre;
 import Vista.ArmadoPlaca_JB;
 import Vista.ArmadoProc_JB;
@@ -59,7 +60,7 @@ public class ArmadoPlacaJB {
 
     // Método para cargar los componentes en la vista
     private void CargarComponentes() {
-        List<Placamadre> placasLista = ModeloPlacaMadre.cargaPlacasMadre(); // Obtener la lista de placas base desde el modelo
+        List<Placamadre> placasLista = ModeloPlacaMadre.listaPlacaMadreCompartible(ModeloPcResumen.cargarProcesador(ArmadoProcJB.pc.getIdProcesador()).getSocket()); // Obtener la lista de placas base desde el modelo
 
         // Asegurarse de que la creación y manipulación de los componentes Swing se realice en el hilo de eventos de Swing
         SwingUtilities.invokeLater(() -> {

@@ -149,7 +149,7 @@ public class ArmadoVentiladorJB {
                             vistaVentilador.getJdlgMensaje().setLocationRelativeTo(null); // Centrar el diálogo de mensaje en la pantalla
                             vistaVentilador.getJdlgMensaje().setUndecorated(true); // Eliminar la decoración del diálogo de mensaje
                             vistaVentilador.getJdlgMensaje().setVisible(true); // Mostrar el diálogo de mensaje
-                            ArmadoProcJB.pc.getIdVentiladores().add(v.getIdVentiladores()); // Asignar el ID de los ventiladores
+                            ArmadoProcJB.pc.setIdVentiladores(v.getIdVentiladores()); // Asignar el ID de los ventiladores
                         }
 
                         @Override

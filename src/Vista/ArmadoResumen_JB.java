@@ -4,6 +4,7 @@
  */
 package Vista;
 
+import javax.swing.JLabel;
 import javax.swing.JTable;
 
 /**
@@ -21,6 +22,10 @@ public class ArmadoResumen_JB extends javax.swing.JFrame {
 
     public JTable getJtResumen() {
         return jtResumen;
+    }
+
+    public JLabel getLblImagen() {
+        return lblImagen;
     }
 
     /**
@@ -48,20 +53,17 @@ public class ArmadoResumen_JB extends javax.swing.JFrame {
 
         jtResumen.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
-                "ID ", "Componente"
+                "ID ", "Marca y Modelo", "Tipo"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, true
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -76,7 +78,7 @@ public class ArmadoResumen_JB extends javax.swing.JFrame {
 
         lblImagen.setBackground(new java.awt.Color(0, 51, 204));
         lblImagen.setForeground(new java.awt.Color(51, 51, 255));
-        lblImagen.setText("jLabel1");
+        lblImagen.setFocusable(false);
 
         javax.swing.GroupLayout encabezadoLayout = new javax.swing.GroupLayout(encabezado);
         encabezado.setLayout(encabezadoLayout);
