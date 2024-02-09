@@ -67,7 +67,7 @@ public class ControladorPlacaMadre {
         vistaelim.getBtnEliminarplaca().addActionListener(l -> eliminarPlacaMadre());
     }
 
-    public void iniciaControl(String vista) {
+    public void iniciaControl() {
         vistacrea.getBtnCrearplacam().addActionListener(l -> grabarPlaca());
         // PasaDatos y CargaImagenes
         vistacrea.getBtncargaplaca().addActionListener(l -> abreFile());
