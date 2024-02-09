@@ -28,8 +28,8 @@ import javax.swing.table.TableColumn;
 public class ArmadoResumenJB {
 
     private ArmadoResumen_JB vista; // Referencia a la vista de armado de procesadores
-    //public PC pc = ArmadoProcJB.pc;
-    public PC pc = ModeloPcResumen.cargarPc(1);
+    public PC pc = ArmadoProcJB.pc;
+    //public PC pc = ModeloPcResumen.cargarPc(1);
     private ModeloPcResumen modelo;
 
     public ArmadoResumenJB(ArmadoResumen_JB vista, ModeloPcResumen modelo) {
