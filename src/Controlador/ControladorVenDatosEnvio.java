@@ -97,7 +97,7 @@ public class ControladorVenDatosEnvio {
     private void imprimirPdf() {
         try {
             // Cargar el archivo Jasper compilado (.jasper)
-            String jasperFilePath = "src/mvc2023/reportes/ReporteProductos.jasper";
+            String jasperFilePath = "/Reportes/ReporteFactura.jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObjectFromFile(jasperFilePath);
 
             // Puedes pasar parámetros al informe si es necesario
