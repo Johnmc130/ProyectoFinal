@@ -24,7 +24,6 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import Modelo.ModeloTarjetaGrafica;
-import Vista.CRUD_Productos_JB;
 
 /**
  *
@@ -79,7 +78,6 @@ public class ControladorTarjetaGrafica {
         vistacrea.getBtncargatarjeta().addActionListener(l -> abreFile());
         // GeneraID
         cargaID();
-        vistacrea.getBtAtrascrea().addActionListener(l-> botonAtras());
     }
 
     public void iniciaControlModificar() {
@@ -99,7 +97,6 @@ public class ControladorTarjetaGrafica {
         });
 
         cargarCodigosProveedorComboBoxmodi();
-        vistamodif.getBtAtrascrea().addActionListener(l-> botonAtras());
     }
 
     public void iniciaControlEliminar() {
@@ -116,7 +113,7 @@ public class ControladorTarjetaGrafica {
                 cargarImagenEliminar(filaSeleccionada);
             }
         });
-        vistaelim.getBtAtrascrea().addActionListener(l -> botonAtras());
+
     }
 
     private void grabarTarjetaGrafica() {
@@ -616,10 +613,5 @@ public class ControladorTarjetaGrafica {
         vistacrea.getCbproveedortarje().setSelectedIndex(0);
         vistacrea.getLbtarjetacaimg().setIcon(null);
         cargaID();
-    }
-    private void botonAtras() {
-        CRUD_Productos_JB vista = new CRUD_Productos_JB();
-        CRUD_ProductosJB cProductosJB = new CRUD_ProductosJB(vista);
-        cProductosJB.iniciar();
     }
 }

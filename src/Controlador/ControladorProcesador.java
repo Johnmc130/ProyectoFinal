@@ -24,7 +24,6 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import Modelo.ModeloProcesador;
-import Vista.CRUD_Productos_JB;
 
 /**
  *
@@ -78,13 +77,12 @@ public class ControladorProcesador {
         vistacrea.getBtncagaprocesa().addActionListener(l -> abreFile());
         // GeneraID
         cargaID();
-        vistacrea.getBtAtrascrea().addActionListener(l->botonAtras());
-        
+
     }
 
     public void iniciaControlModificar() {
         vistamodif.getBtnBuscarproc().addActionListener(l -> buscarProcesador());
-        
+
         // Agregar el listener para la selección de fila en la tabla
         vistamodif.getTbprocesadores().getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
@@ -96,7 +94,7 @@ public class ControladorProcesador {
                 cargarDatosEnComponentesModificar(filaSeleccionada);
             }
         });
-        vistamodif.getBtAtras1().addActionListener(l->botonAtras());
+
         cargarCodigosProveedorComboBoxmodi();
     }
 
@@ -115,7 +113,6 @@ public class ControladorProcesador {
                 cargarImagenEliminar(filaSeleccionada);
             }
         });
-        vistaelim.getBtAtras1().addActionListener(l-> botonAtras());
     }
 
     private void grabarProcesador() {
@@ -612,11 +609,5 @@ public class ControladorProcesador {
         vistacrea.getCbproveedorcreaproc().setSelectedIndex(0);
         vistacrea.getLbprocesadorimg().setIcon(null);
         cargaID();
-    }
-    
-    private void botonAtras() {
-        CRUD_Productos_JB vista = new CRUD_Productos_JB();
-        CRUD_ProductosJB cProductosJB = new CRUD_ProductosJB(vista);
-        cProductosJB.iniciar();
     }
 }

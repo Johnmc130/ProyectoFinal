@@ -77,7 +77,6 @@ public class ControladorGabinete {
         vistacrea.getBtnCreargabin().addActionListener(l -> grabarGabinete());
         // PasaDatos y CargaImagenes
         vistacrea.getBtncagagabinete().addActionListener(l -> abreFile());
-        vistacrea.getBtAtrascrea().addActionListener(l -> botonAtras());
         // GeneraID
         cargaID();
     }
@@ -85,7 +84,6 @@ public class ControladorGabinete {
     public void iniciaControlModificar() {
 
         vistamodif.getBtnBuscarmodigabin().addActionListener(l -> buscarGabinete());
-        vistamodif.getBtAtrascrea().addActionListener(l -> botonAtras());
 
         // Agregar el listener para la selección de fila en la tabla
         vistamodif.getTbGabinetemodi().getSelectionModel().addListSelectionListener(new ListSelectionListener() {
@@ -105,7 +103,6 @@ public class ControladorGabinete {
     // Métodos de inicialización y eventos para la eliminación
     public void iniciaControlEliminar() {
         vistaelim.getBtnBuscareliminargabin().addActionListener(l -> buscarGabineteElim());
-        vistaelim.getBtAtras1().addActionListener(l -> botonAtras());
 
         // Agregar el listener para la selección de fila en la tabla
         vistaelim.getTbGabineteelim().getSelectionModel().addListSelectionListener(new ListSelectionListener() {
@@ -639,7 +636,7 @@ public class ControladorGabinete {
         vistacrea.getLbgabineteimg().setIcon(null);
         cargaID();
     }
-
+    
     private void botonAtras() {
         CRUD_Productos_JB vista = new CRUD_Productos_JB();
         CRUD_ProductosJB cProductosJB = new CRUD_ProductosJB(vista);
