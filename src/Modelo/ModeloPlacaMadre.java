@@ -61,6 +61,63 @@ public class ModeloPlacaMadre extends Placamadre {
 
     }
 
+    public static List<Placamadre> listaPlacaMadreCompartible(String socket) {
+        // Se establece una conexión a la base de datos utilizando la clase Conexion
+        Conexion conectar = new Conexion();
+        // Se crea una lista vacía para almacenar las placas base compatibles
+        List<Placamadre> listaplacamadre = new ArrayList<Placamadre>();
+        // Se define la consulta SQL para seleccionar las placas base compatibles con el socket dado
+        String sql;
+        sql = "SELECT idplacamadre, marca, modelo, puertosdealmacenamiento, puertousb, socket, tiporam, maximoram, "
+                + "ranurasexpansion, formato, watts, precio, stock, proveedor, foto "
+                + "FROM placamadre "
+                + "WHERE socket = ?";
+        try {
+            // Se prepara la sentencia SQL con el PreparedStatement para evitar inyección de SQL
+            PreparedStatement pstmt = conectar.getConexion().prepareStatement(sql);
+            // Se establece el valor del parámetro socket en la consulta SQL
+            pstmt.setString(1, socket);
+            // Se ejecuta la consulta y se obtiene un ResultSet con los resultados
+            ResultSet rs = pstmt.executeQuery();
+            // Se recorre el ResultSet para obtener cada fila de datos
+            while (rs.next()) {
+                // Se crea un objeto Placamadre y se asignan los valores de las columnas correspondientes
+                Placamadre miplaca = new Placamadre();
+                miplaca.setIdplacam(rs.getInt("idplacamadre"));
+                miplaca.setMarca(rs.getString("marca"));
+                miplaca.setModelo(rs.getString("modelo"));
+                miplaca.setPuertosalmacenamiento(rs.getString("puertosdealmacenamiento"));
+                miplaca.setPuertosusb(rs.getString("puertousb"));
+                miplaca.setSocket(rs.getString("socket"));
+                miplaca.setTiposram(rs.getString("tiporam"));
+                miplaca.setMaximoram(rs.getInt("maximoram"));
+                miplaca.setRanuraexpansion(rs.getString("ranurasexpansion"));
+                miplaca.setFormato(rs.getString("formato"));
+                miplaca.setWatts(rs.getInt("watts"));
+                miplaca.setPrecio(rs.getDouble("precio"));
+                miplaca.setStock(rs.getInt("Stock"));
+                miplaca.setProveedor(rs.getInt("proveedor"));
+                miplaca.setFoto(rs.getBytes("foto"));
+
+                // Se agrega el objeto Placamadre a la lista de placas base compatibles
+                listaplacamadre.add(miplaca);
+            }
+            // Se cierra el ResultSet
+            rs.close();
+            // Se devuelve la lista de placas base compatibles
+            return listaplacamadre;
+
+        } catch (SQLException ex) {
+            // En caso de error, se imprime un mensaje de error en la consola y se devuelve null
+            System.out.println("problemas en el listado");
+            Logger.getLogger(ModeloPlacaMadre.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        } finally {
+            // Se cierra la conexión a la base de datos
+            conectar.cerrar();
+        }
+    }
+
     public boolean grabarPlacamadre() {
         String sql = "INSERT INTO placamadre (idplacamadre, marca, modelo, puertosdealmacenamiento, puertousb, socket, tiporam, maximoram, ranurasexpansion, formato, watts, precio, stock, proveedor,foto) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -170,7 +227,7 @@ public class ModeloPlacaMadre extends Placamadre {
         }
         return siguienteId;
     }
-    
+
     public static byte[] fotoPlaca(String id) {
         Conexion cpg = new Conexion();//Conectamos a la base
 
@@ -191,62 +248,4 @@ public class ModeloPlacaMadre extends Placamadre {
         }
 
     }
-
-    public static List<Placamadre> cargaPlacasMadre() {
-        // Obtener la conexión a la base de datos
-        Conexion ConectaBD = new Conexion();
-        List<Placamadre> placasMadre = new ArrayList<>();
-
-        try (Connection Conexion = ConectaBD.getConexion()) {
-            String query = "SELECT id, marca, modelo, puerto_almacenamiento, puertos_usb, socket, tipos_ram, maximo_ram, ranuras_expansion, formato, watts, precio, imagen, stock FROM placamadre";
-
-            try (PreparedStatement statement = Conexion.prepareStatement(query); ResultSet resultSet = statement.executeQuery()) {
-
-                while (resultSet.next()) {
-                    Placamadre placaMadre = new Placamadre();
-                    // Obtener datos de la fila actual del ResultSet
-                    int id = resultSet.getInt("id");
-                    byte[] imageData = resultSet.getBytes("imagen");
-                    String marca = resultSet.getString("marca");
-                    String modelo = resultSet.getString("modelo");
-                    String puertoAlmacenamiento = resultSet.getString("puerto_almacenamiento");
-                    String puertosUSB = resultSet.getString("puertos_usb");
-                    String socket = resultSet.getString("socket");
-                    String tiposRam = resultSet.getString("tipos_ram");
-                    int maximoRam = resultSet.getInt("maximo_ram");
-                    String ranurasExpansion = resultSet.getString("ranuras_expansion");
-                    String formato = resultSet.getString("formato");
-                    int watts = resultSet.getInt("watts");
-                    double precio = resultSet.getDouble("precio");
-                    int stock = resultSet.getInt("stock");
-
-                    // Establecer los valores en el objeto PlacaMadre
-                    placaMadre.setIdplacam(id);
-                    placaMadre.setFoto(imageData);
-                    placaMadre.setMarca(marca);
-                    placaMadre.setModelo(modelo);
-                    placaMadre.setPuertosalmacenamiento(puertoAlmacenamiento);
-                    placaMadre.setPuertosusb(puertosUSB);
-                    placaMadre.setSocket(socket);
-                    placaMadre.setTiposram(tiposRam);
-                    placaMadre.setMaximoram(maximoRam);
-                    placaMadre.setRanuraexpansion(ranurasExpansion);
-                    placaMadre.setFormato(formato);
-                    placaMadre.setWatts(watts);
-                    placaMadre.setPrecio(precio);
-                    placaMadre.setStock(stock);
-
-                    placasMadre.add(placaMadre);
-                }
-            }
-        } catch (SQLException e) {
-            // Manejar la excepción, por ejemplo, imprimir un mensaje de error
-            e.printStackTrace();
-        } finally {
-            ConectaBD.cerrar();
-        }
-
-        return placasMadre;
-    }
-
 }
