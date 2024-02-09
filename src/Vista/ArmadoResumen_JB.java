@@ -4,6 +4,7 @@
  */
 package Vista;
 
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.JToggleButton;
@@ -31,6 +32,10 @@ public class ArmadoResumen_JB extends javax.swing.JFrame {
 
     public JToggleButton getBtAtras() {
         return btAtras;
+    }
+
+    public JButton getBtComprar() {
+        return btComprar;
     }
 
     /**
