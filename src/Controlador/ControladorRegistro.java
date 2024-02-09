@@ -166,6 +166,7 @@ public class ControladorRegistro {
             JOptionPane.showMessageDialog(null, "Escriba una Contraseña");
             return true;
         } else {
+            JOptionPane.showMessageDialog(null, "Llene todos los Datos");
             return false;
         }
     }
@@ -254,13 +255,29 @@ public class ControladorRegistro {
     private void validaciones() {
         Validacion valida = new Validacion();
 
+        String cedula = vista.getTxtCedula().getText();
+        String nombre = vista.getTxtNombte().getText();
+        String apellido = vista.getTxtApellido().getText();
+        Date fecha_nac = vista.getDtcFecha().getDate();
+        int edad = calcularEdad();
+        char sexo = 0;
+        if (vista.getRbtnMas().isSelected()) {
+            sexo = 'M';
+        } else if (vista.getRbtnFem().isSelected()) {
+            sexo = 'F';
+        }
+        String correo = vista.getTxtCorreo().getText();
+        String direccion = vista.getTxtDirec().getText();
+        String telefono = vista.getTxtTelef().getText();
+        String contra = String.valueOf(vista.getTxtCon().getPassword());
+
         //Cedula
         vista.getTxtCedula().addKeyListener(new KeyAdapter() {
             @Override
             public void keyTyped(KeyEvent evt) {
                 char caracter = evt.getKeyChar();
 
-                if (Character.isLetter(caracter)) {
+                if (valida.Cedula(cedula)) {
                     evt.consume();
                     JOptionPane.showMessageDialog(null, "No se permiten letras");
                 }

@@ -515,7 +515,7 @@ public class ControladorProcesador {
         List<Procesador> listaplacas = ModeloProcesador.listaProcesador();
 
         for (Procesador procesadorm : listaplacas) {
-            if (procesadorm.getIdProcesador()== idplaca) {
+            if (procesadorm.getIdProcesador() == idplaca) {
                 return procesadorm;
             }
         }

@@ -15,13 +15,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author EDU
  */
-public class ModeloMemoriaRam extends memoriaRam{
-    
+public class ModeloMemoriaRam extends memoriaRam {
+
     Conexion conectar = new Conexion();//Conectamos a la base
     Connection con;
     PreparedStatement ps;
@@ -60,7 +61,7 @@ public class ModeloMemoriaRam extends memoriaRam{
         }
 
     }
-    
+
     public static List<memoriaRam> listaRAMCompartible(String tiporam) {
         // Se establece una conexión a la base de datos utilizando la clase Conexion
         Conexion conectar = new Conexion();
@@ -156,5 +157,21 @@ public class ModeloMemoriaRam extends memoriaRam{
 //        return codigosProveedor;
 //    }
 
-    
+    public int obtenerSiguienteId() {
+        int siguienteId = 1; // Valor predeterminado si no hay registros
+        try {
+            if (conectar != null && !conectar.getConexion().isClosed());
+            String sql = "SELECT MAX(idmemoriaram) FROM memoria_ram";
+            PreparedStatement statement = conectar.getConexion().prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                siguienteId = resultSet.getInt(1) + 1;
+            }
+            return siguienteId;
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        return siguienteId;
+    }
+
 }

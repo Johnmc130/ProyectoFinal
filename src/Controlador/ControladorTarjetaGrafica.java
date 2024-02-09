@@ -55,7 +55,7 @@ public class ControladorTarjetaGrafica {
         cargarCodigosProveedorComboBoxmodi();
         listarTarjetasg();
         iniciaControlModificar();
-        
+
         vistamodif.getBtncargatarjeta().addActionListener(l -> abrefotoModificar());
         vistamodif.getBtnModificartarjeta().addActionListener(e -> modificarTarjeta());
     }
@@ -67,7 +67,7 @@ public class ControladorTarjetaGrafica {
         vista.setVisible(true);
         iniciaControlEliminar();
         listarTarjetasgelim();
-        
+
         vistaelim.getBtnEliminartarjeta().addActionListener(l -> eliminarPersonas());
     }
 
@@ -81,7 +81,7 @@ public class ControladorTarjetaGrafica {
     }
 
     public void iniciaControlModificar() {
-        
+
         vistamodif.getBtnBuscartarjeta().addActionListener(l -> buscarTarjetaGrafica());
 
         // Agregar el listener para la selección de fila en la tabla
@@ -101,19 +101,18 @@ public class ControladorTarjetaGrafica {
 
     public void iniciaControlEliminar() {
         vistaelim.getBtnBuscartarjeta().addActionListener(l -> buscarTarjetaGraficaElim());
-        
+
         // Agregar el listener para la selección de fila en la tabla
-    vistaelim.getTbtarjetasgraficas().getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-        @Override
-        public void valueChanged(ListSelectionEvent e) {
-            // Obtener la fila seleccionada
-            int filaSeleccionada = vistaelim.getTbtarjetasgraficas().getSelectedRow();
+        vistaelim.getTbtarjetasgraficas().getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                // Obtener la fila seleccionada
+                int filaSeleccionada = vistaelim.getTbtarjetasgraficas().getSelectedRow();
 
-            // Cargar la imagen en lbimagentarjelim
-            cargarImagenEliminar(filaSeleccionada);
-        }
-    });
-
+                // Cargar la imagen en lbimagentarjelim
+                cargarImagenEliminar(filaSeleccionada);
+            }
+        });
 
     }
 
@@ -180,13 +179,12 @@ public class ControladorTarjetaGrafica {
         int tamano = (Integer) vistamodif.getSptamanomodtarjeta().getValue();
         String precioTexto = vistamodif.getTxtpreciomodtarj().getText();
         char ultimoDigito = vistamodif.getTxtpreciomodtarj().getText().charAt(vistamodif.getTxtpreciomodtarj().getText().length() - 1);
-            if (ultimoDigito != ',') {
-                double precio = Double.parseDouble(vistamodif.getTxtpreciomodtarj().getText());
-                mitarjetamod.setPrecio(precio);
-            }
-            else {
-                JOptionPane.showMessageDialog(vistamodif, "Precio invalido");
-                }
+        if (ultimoDigito != ',') {
+            double precio = Double.parseDouble(vistamodif.getTxtpreciomodtarj().getText());
+            mitarjetamod.setPrecio(precio);
+        } else {
+            JOptionPane.showMessageDialog(vistamodif, "Precio invalido");
+        }
         int stock = Integer.parseInt(vistamodif.getTxtstockmodtarj().getText());
         int idProveedor = Integer.valueOf(vistamodif.getCbproveedormodtarje().getSelectedItem().toString());
 
@@ -250,6 +248,7 @@ public class ControladorTarjetaGrafica {
             modelo.addRow(fila); // Agrega la fila al modelo de la tabla
         });
     }
+
     private void buscarTarjetaGraficaElim() {
         List<Tarjetagrafica> listaTarjetagrafica = ModeloTarjetaGrafica.listaTarjetaGrafica();
         List<Tarjetagrafica> resultado = new ArrayList<>();
@@ -291,6 +290,7 @@ public class ControladorTarjetaGrafica {
             mTabla.addRow(rowData);
         });
     }
+
     private void listarTarjetasgelim() {
         // Logica cargar tarjetas
         List<Tarjetagrafica> listap = ModeloTarjetaGrafica.listaTarjetaGrafica();
@@ -303,31 +303,32 @@ public class ControladorTarjetaGrafica {
             mTabla.addRow(rowData);
         });
     }
+
     private void eliminarPersonas() {
 // Obtener la fila seleccionada
-    int fila = vistaelim.getTbtarjetasgraficas().getSelectedRow();
+        int fila = vistaelim.getTbtarjetasgraficas().getSelectedRow();
 
-    // Verificar si hay una fila seleccionada
-    if (fila == -1) {
-        JOptionPane.showMessageDialog(vistaelim, "Seleccione una Tarjeta Gráfica antes de eliminar", "Advertencia", JOptionPane.WARNING_MESSAGE);
-        return;
-    }
-    // Obtener la ID de la Tarjeta Gráfica seleccionada
-    int id = obtenerIdTarjetaEliminarSeleccionadaEnFila(fila);
-
-    // Preguntar si está seguro de eliminar
-    int opcion = JOptionPane.showConfirmDialog(vistaelim, "¿Está seguro de eliminar la Tarjeta Gráfica seleccionada?", "Confirmar Eliminación", JOptionPane.YES_NO_OPTION);
-    
-    if (opcion == JOptionPane.YES_OPTION) {
-        // Realizar la eliminación
-        if (modelo.eliminarPersona(String.valueOf(id)) == null) {
-            JOptionPane.showMessageDialog(vistaelim, "Tarjeta eliminada correctamente");
-            // Limpiar la imagen en lbimagentarjelim
-            vistaelim.getLbimagentarjelim().setIcon(null);
-            // Actualizar la tabla después de la eliminación
-            listarTarjetasgelim();
+        // Verificar si hay una fila seleccionada
+        if (fila == -1) {
+            JOptionPane.showMessageDialog(vistaelim, "Seleccione una Tarjeta Gráfica antes de eliminar", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            return;
         }
-    }
+        // Obtener la ID de la Tarjeta Gráfica seleccionada
+        int id = obtenerIdTarjetaEliminarSeleccionadaEnFila(fila);
+
+        // Preguntar si está seguro de eliminar
+        int opcion = JOptionPane.showConfirmDialog(vistaelim, "¿Está seguro de eliminar la Tarjeta Gráfica seleccionada?", "Confirmar Eliminación", JOptionPane.YES_NO_OPTION);
+
+        if (opcion == JOptionPane.YES_OPTION) {
+            // Realizar la eliminación
+            if (modelo.eliminarPersona(String.valueOf(id)) == null) {
+                JOptionPane.showMessageDialog(vistaelim, "Tarjeta eliminada correctamente");
+                // Limpiar la imagen en lbimagentarjelim
+                vistaelim.getLbimagentarjelim().setIcon(null);
+                // Actualizar la tabla después de la eliminación
+                listarTarjetasgelim();
+            }
+        }
 
     }
 
@@ -377,7 +378,6 @@ public class ControladorTarjetaGrafica {
         fileChooser.setFileFilter(filter);
 
 //        int resultado = fileChooser.showOpenDialog(vistamodif);
-
         if (fileChooser.showOpenDialog(vistamodif) == JFileChooser.APPROVE_OPTION) {
             File archivoSeleccionado = fileChooser.getSelectedFile();
             rutamod = archivoSeleccionado.getAbsolutePath();
@@ -504,6 +504,7 @@ public class ControladorTarjetaGrafica {
             return -1; // Otra opción podría ser lanzar una excepción
         }
     }
+
     private int obtenerIdTarjetaEliminarSeleccionadaEnFila(int filaSeleccionada) {
         try {
             // Obtener la ID de la tarjeta de la columna 0 (la primera columna) de la fila seleccionada
@@ -577,25 +578,26 @@ public class ControladorTarjetaGrafica {
         return byteArrayOutputStream.toByteArray();
 
     }
+
     private void cargarImagenEliminar(int filaSeleccionada) {
-    if (filaSeleccionada != -1) {
-        // Obtener la ID de la Tarjeta Gráfica seleccionada
-        int idTarjetaSeleccionada = obtenerIdTarjetaEliminarSeleccionadaEnFila(filaSeleccionada);
+        if (filaSeleccionada != -1) {
+            // Obtener la ID de la Tarjeta Gráfica seleccionada
+            int idTarjetaSeleccionada = obtenerIdTarjetaEliminarSeleccionadaEnFila(filaSeleccionada);
 
-        // Obtener la tarjeta correspondiente a la ID
-        Tarjetagrafica tarjetaSeleccionada = obtenerTarjetaPorId(idTarjetaSeleccionada);
+            // Obtener la tarjeta correspondiente a la ID
+            Tarjetagrafica tarjetaSeleccionada = obtenerTarjetaPorId(idTarjetaSeleccionada);
 
-        // Cargar la imagen en lbimagentarjelim
-        if (tarjetaSeleccionada != null && tarjetaSeleccionada.getFoto() != null) {
-            ImageIcon imagenIcon = new ImageIcon(tarjetaSeleccionada.getFoto());
-            vistaelim.getLbimagentarjelim().setIcon(new ImageIcon(imagenIcon.getImage().getScaledInstance(
-                    vistaelim.getLbimagentarjelim().getWidth(), vistaelim.getLbimagentarjelim().getHeight(), Image.SCALE_SMOOTH)));
-        } else {
-            // Si no hay imagen, limpiar el icono
-            vistaelim.getLbimagentarjelim().setIcon(null);
+            // Cargar la imagen en lbimagentarjelim
+            if (tarjetaSeleccionada != null && tarjetaSeleccionada.getFoto() != null) {
+                ImageIcon imagenIcon = new ImageIcon(tarjetaSeleccionada.getFoto());
+                vistaelim.getLbimagentarjelim().setIcon(new ImageIcon(imagenIcon.getImage().getScaledInstance(
+                        vistaelim.getLbimagentarjelim().getWidth(), vistaelim.getLbimagentarjelim().getHeight(), Image.SCALE_SMOOTH)));
+            } else {
+                // Si no hay imagen, limpiar el icono
+                vistaelim.getLbimagentarjelim().setIcon(null);
+            }
         }
     }
-}
 
     private void limpiarCamposAgregar() {
         // Limpiar campos de la vista después de la modificación

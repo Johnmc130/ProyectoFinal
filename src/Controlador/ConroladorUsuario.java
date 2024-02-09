@@ -9,6 +9,7 @@ import Modelo.ModeloPersona;
 import Modelo.ModeloProveedor;
 import Vista.VentanaLogin_JM;
 import Vista.VentanaUsuario_JM;
+import Vista.VistaProductos;
 import com.toedter.calendar.JDateChooser;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -45,6 +46,7 @@ public class ConroladorUsuario {
         //Botones
         vista.getBtnActu().addActionListener(l -> updateUsuario());
         vista.getBtnElim().addActionListener(l -> botonCerrarSesion());
+        vista.getBtnPG().addActionListener(l -> botonPagP());
     }
 
     private void requestDatos() {
@@ -196,6 +198,13 @@ public class ConroladorUsuario {
         ControladorlLogin cLogin = new ControladorlLogin(mCliente, modeloA, modeloP, ventana);
         cLogin.iniciaControlador();
 
+        vista.dispose();
+    }
+
+    private void botonPagP() {
+        VistaProductos ventana = new VistaProductos();
+        ControladorVistaProductos cVistaProductos = new ControladorVistaProductos(ventana);
+        cVistaProductos.Inicio();
         vista.dispose();
     }
 

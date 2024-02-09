@@ -24,6 +24,7 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import Modelo.ModeloGabinete;
+import Vista.CRUD_Productos_JB;
 
 /**
  *
@@ -441,6 +442,7 @@ public class ControladorGabinete {
     private void cargaID() {
         vistacrea.getLbIdcreagabinete().setText(String.valueOf(modelo.obtenerSiguienteIdGabinete()));
     }
+
     public void cargarCodigosProveedorComboBoxmodi() {
         try {
             ArrayList<Integer> codigosProveedor = ModeloGabinete.obtenerCodigosProveedor();
@@ -494,7 +496,6 @@ public class ControladorGabinete {
             return true;
         }
     }
-
 
     private int obtenerIdGabineteSeleccionada() {
         try {
@@ -634,5 +635,11 @@ public class ControladorGabinete {
         vistacrea.getCbproveedorcreagabin().setSelectedIndex(0);
         vistacrea.getLbgabineteimg().setIcon(null);
         cargaID();
+    }
+    
+    private void botonAtras() {
+        CRUD_Productos_JB vista = new CRUD_Productos_JB();
+        CRUD_ProductosJB cProductosJB = new CRUD_ProductosJB(vista);
+        cProductosJB.iniciar();
     }
 }

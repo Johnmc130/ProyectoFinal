@@ -14,7 +14,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -36,8 +35,7 @@ public class ControladorVentiladores {
     ModeloVentiladores miVentiladores = new ModeloVentiladores();
     DefaultTableModel modeloTabla = new DefaultTableModel();
     String RGB = "";
-        byte[] imagenBytes;
-
+    byte[] imagenBytes;
 
     public ControladorVentiladores() {
 
@@ -70,7 +68,7 @@ public class ControladorVentiladores {
         // vista.getBtnEliminarA().addActionListener(l -> listarVentiladores(eliminar.getTblVentilador()));
         // vista.getBtnExaminar().addActionListener(l -> seleccionarImagen());
 //                eliminar.getBtnEliminar().addActionListener(l -> eliminarVentiladores());
-  crear.getBtnCargarI().addActionListener(l -> cargarImagen());
+        crear.getBtnCargarI().addActionListener(l -> cargarImagen());
         crear.getBtnImagenProducto().addActionListener(l -> mostrarImagenEmergente());
 
         crear.getBtnCrear().addActionListener(l -> grabarVentiladores());
@@ -127,9 +125,7 @@ public class ControladorVentiladores {
         miVentiladores.setTamaño(tamaño);
         miVentiladores.setPrecio(precio);
         miVentiladores.setStock(stock);
-                miVentiladores.setFoto(imagenBytes);
-
-        
+        miVentiladores.setFoto(imagenBytes);
 
         if (CamposVacios() == true && miVentiladores.grabarventiladores() == null) {
             JOptionPane.showMessageDialog(crear, "Usuario Agregado con Exito");
@@ -227,7 +223,7 @@ public class ControladorVentiladores {
         miVentiladores.setPrecio(precio);
         miVentiladores.setStock(stock);
 
-        if ( miVentiladores.editarventiladores() == null) {
+        if (miVentiladores.editarventiladores() == null) {
             JOptionPane.showMessageDialog(modificar, "Ventiladores Actualizado correctamente");
             listarAlmaceModificar();
         } else {
@@ -252,8 +248,8 @@ public class ControladorVentiladores {
         }
 
     }
-    
-      private byte[] obtenerBytesImagen(String rutaImagen) {
+
+    private byte[] obtenerBytesImagen(String rutaImagen) {
         try {
             // Leer la imagen desde el archivo en la ruta especificada
             File file = new File(rutaImagen);

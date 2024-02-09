@@ -7,6 +7,7 @@ package Controlador;
 
 import Modelo.ModeloFuentePoder;
 import Clases.FuentePoder;
+import Vista.CRUD_Productos_JB;
 import Vista.CrearFuentePoder;
 import Vista.EliminarFuentePoder;
 import Vista.ModificarFuentePoder;
@@ -14,7 +15,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -36,8 +36,7 @@ public class ControladorFuentePoder {
     ModeloFuentePoder mifuentePoder = new ModeloFuentePoder();
     DefaultTableModel modeloTabla = new DefaultTableModel();
     String modular = "";
-        byte[] imagenBytes;
-
+    byte[] imagenBytes;
 
     public ControladorFuentePoder() {
 
@@ -67,47 +66,25 @@ public class ControladorFuentePoder {
     }
 
     public void iniciaControl() {
-        // vista.getBtnEliminarA().addActionListener(l -> listarfuentePoder(eliminar.getTblfuentePoder()));
-        // vista.getBtnExaminar().addActionListener(l -> seleccionarImagen());
-//                eliminar.getBtnEliminar().addActionListener(l -> eliminarfuentePoder());
- crear.getBtnCargarI().addActionListener(l -> cargarImagen());
+        crear.getBtnCargarI().addActionListener(l -> cargarImagen());
         crear.getBtnImagenProducto().addActionListener(l -> mostrarImagenEmergente());
-
         crear.getBtnCrear().addActionListener(l -> grabarfuentePoder());
-
-        // vista.getBtnModificar().addActionListener(l -> Actualizar());
-        //vista.getBtnCancelar().addActionListener(l -> regresarInicio());
-        //         vista.getBtnImprimir().addActionListener(l->imprimirfuentePoders());
+        crear.getTxtID().setText("" + modelo.obtenerSiguienteId());
+        crear.getBtAtras2().addActionListener(l -> botonAtras());
     }
 
     public void iniciaControlEliminar() {
-        // vista.getBtnEliminarA().addActionListener(l -> listarfuentePoder(eliminar.getTblfuentePoder()));
-        // vista.getBtnExaminar().addActionListener(l -> seleccionarImagen());
         eliminar.getBtnEliminar().addActionListener(l -> eliminarfuentePoder());
-
-        //crear.getBtnCrear().addActionListener(l -> grabarfuentePoder());
-        // vista.getBtnModificar().addActionListener(l -> Actualizar());
-        //vista.getBtnCancelar().addActionListener(l -> regresarInicio());
-        //         vista.getBtnImprimir().addActionListener(l->imprimirfuentePoders());
+        eliminar.getBtAtras1().addActionListener(l -> eliminarfuentePoder());
     }
 
     public void iniciaControlModificar() {
-        // vista.getBtnEliminarA().addActionListener(l -> listarfuentePoder(eliminar.getTblfuentePoder()));
-        // vista.getBtnExaminar().addActionListener(l -> seleccionarImagen())
-
         modificar.getBtnCargardatos().addActionListener(l -> CargarDatos());
-
         modificar.getBtnModificar().addActionListener(l -> ActualizarfuentePoder());
-
-        // vista.getBtnModificar().addActionListener(l -> Actualizar());
-        //vista.getBtnCancelar().addActionListener(l -> regresarInicio());
-        //         vista.getBtnImprimir().addActionListener(l->imprimirfuentePoders());
+        modificar.getBtAtras1().addActionListener(l -> botonAtras());
     }
 
     private void grabarfuentePoder() {
-        // Lógica para grabar
-        // Validar antes...
-
         String marca = crear.getTxtmarca().getText();
         String Modelo = crear.getTxtmodelo().getText();
         String certificacion = crear.getTxtCertificacion().getText();
@@ -133,16 +110,14 @@ public class ControladorFuentePoder {
 
         mifuentePoder.setPrecio(precio);
         mifuentePoder.setStock(stock);
-                mifuentePoder.setFoto(imagenBytes);
+        mifuentePoder.setFoto(imagenBytes);
 
-
-        if ( mifuentePoder.grabarFuentePoder() == null) {
+        if (mifuentePoder.grabarFuentePoder() == null) {
             JOptionPane.showMessageDialog(crear, "Fuente de poder Agregado con Exito");
         } else {
             JOptionPane.showMessageDialog(crear, "error");
 
         }
-
     }
 
     private void CargarDatos() {
@@ -210,7 +185,7 @@ public class ControladorFuentePoder {
     }
 
     public void ActualizarfuentePoder() {
-        
+
         String idF = modificar.getTxtIdF().getText();
         String marca = modificar.getTxtmarca().getText();
         String modelo = modificar.getTxtmodelo().getText();
@@ -263,8 +238,8 @@ public class ControladorFuentePoder {
         }
 
     }
-    
-       private byte[] obtenerBytesImagen(String rutaImagen) {
+
+    private byte[] obtenerBytesImagen(String rutaImagen) {
         try {
             // Leer la imagen desde el archivo en la ruta especificada
             File file = new File(rutaImagen);
@@ -445,6 +420,12 @@ public class ControladorFuentePoder {
         }
 
         return validar;
+    }
+
+    private void botonAtras() {
+        CRUD_Productos_JB vista = new CRUD_Productos_JB();
+        CRUD_ProductosJB cProductosJB = new CRUD_ProductosJB(vista);
+        cProductosJB.iniciar();
     }
 
 }

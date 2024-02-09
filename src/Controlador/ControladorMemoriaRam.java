@@ -7,6 +7,7 @@ package Controlador;
 
 import Modelo.ModeloMemoriaRam;
 import Clases.memoriaRam;
+import Vista.CRUD_Productos_JB;
 import Vista.CrearMemoriaRam;
 import Vista.EliminarMemoriaRam;
 import Vista.ModificarMemoriaRam;
@@ -14,7 +15,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -28,7 +28,7 @@ import javax.swing.table.DefaultTableModel;
  * @author EDU
  */
 public class ControladorMemoriaRam {
-
+    
     private ModeloMemoriaRam modelo;
     private CrearMemoriaRam crear;
     private ModificarMemoriaRam modificar;
@@ -37,75 +37,54 @@ public class ControladorMemoriaRam {
     DefaultTableModel modeloTabla = new DefaultTableModel();
     int numero = 0;
     byte[] imagenBytes;
-
+    
     public ControladorMemoriaRam() {
-
+        
     }
-
+    
     public ControladorMemoriaRam(ModeloMemoriaRam modelo, CrearMemoriaRam crear) {
         this.modelo = modelo;
         this.crear = crear;
         crear.setVisible(true);
         // cargarCodigosProveedorComboBox();
     }
-
+    
     public ControladorMemoriaRam(ModeloMemoriaRam modelo, ModificarMemoriaRam modificar) {
         this.modelo = modelo;
         this.modificar = modificar;
         modificar.setVisible(true);
         listarAlmaceModificar();
-
+        
     }
-
+    
     public ControladorMemoriaRam(ModeloMemoriaRam modelo, EliminarMemoriaRam eliminar) {
         this.modelo = modelo;
         this.eliminar = eliminar;
         eliminar.setVisible(true);
         listarAlmaceEliminar();
-
+        
     }
-
+    
     public void iniciaControl() {
-        // vista.getBtnEliminarA().addActionListener(l -> listarmemoriaRam(eliminar.getTblMemoria()));
-        // vista.getBtnExaminar().addActionListener(l -> seleccionarImagen());
-//                eliminar.getBtnEliminar().addActionListener(l -> eliminarmemoriaRam());
         crear.getBtnCargarI().addActionListener(l -> cargarImagen());
         crear.getBtnImagenProducto().addActionListener(l -> mostrarImagenEmergente());
         crear.getBtnCrear().addActionListener(l -> grabarmemoriaRam());
-
-        // vista.getBtnModificar().addActionListener(l -> Actualizar());
-        //vista.getBtnCancelar().addActionListener(l -> regresarInicio());
-        //         vista.getBtnImprimir().addActionListener(l->imprimirmemoriaRams());
+        crear.getBtAtras2().addActionListener(l -> botonAtras());
+        crear.getTxtID().setText("" + modelo.obtenerSiguienteId());
     }
-
+    
     public void iniciaControlEliminar() {
-        // vista.getBtnEliminarA().addActionListener(l -> listarmemoriaRam(eliminar.getTblMemoria()));
-        // vista.getBtnExaminar().addActionListener(l -> seleccionarImagen());
         eliminar.getBtnEliminar().addActionListener(l -> eliminarmemoriaRam());
-
-        //crear.getBtnCrear().addActionListener(l -> grabarmemoriaRam());
-        // vista.getBtnModificar().addActionListener(l -> Actualizar());
-        //vista.getBtnCancelar().addActionListener(l -> regresarInicio());
-        //         vista.getBtnImprimir().addActionListener(l->imprimirmemoriaRams());
+        eliminar.getBtAtras1().addActionListener(l -> botonAtras());
     }
-
+    
     public void iniciaControlModificar() {
-        // vista.getBtnEliminarA().addActionListener(l -> listarmemoriaRam(eliminar.getTblMemoria()));
-        // vista.getBtnExaminar().addActionListener(l -> seleccionarImagen())
-
         modificar.getBtnCargardatos().addActionListener(l -> CargarDatos());
-
         modificar.getBtnModificar().addActionListener(l -> ActualizarmemoriaRam());
-
-        // vista.getBtnModificar().addActionListener(l -> Actualizar());
-        //vista.getBtnCancelar().addActionListener(l -> regresarInicio());
-        //         vista.getBtnImprimir().addActionListener(l->imprimirmemoriaRams());
+        modificar.getBtAtras1().addActionListener(l -> botonAtras());
     }
-
+    
     private void grabarmemoriaRam() {
-        // Lógica para grabar
-        // Validar antes...
-
         String marca = crear.getTxtmarca().getText();
         String modelo = crear.getTxtmodelo().getText();
         String tipo = crear.getCmbTipo().getSelectedItem().toString();
@@ -116,9 +95,9 @@ public class ControladorMemoriaRam {
             numero = Integer.parseInt("2");
         }
         double precio = (double) crear.getSpPrecio().getValue();
-
+        
         int stock = (Integer) crear.getSpStock().getValue();
-
+        
         mimemoriaRam.setMarca(marca);
         mimemoriaRam.setModelo(modelo);
         mimemoriaRam.setTipo(tipo);
@@ -127,20 +106,19 @@ public class ControladorMemoriaRam {
         mimemoriaRam.setNumeroModulos(numero);
         mimemoriaRam.setStock(stock);
         mimemoriaRam.setFoto(imagenBytes);
-
+        
         if (CamposVacios() == true && mimemoriaRam.grabarmemoriaRam() == null) {
             JOptionPane.showMessageDialog(crear, "Memoria Ram Agregado con Exito");
         } else {
             JOptionPane.showMessageDialog(crear, "error");
-
+            
         }
-
+        
     }
-
+    
     private void CargarDatos() {
-
         int fila = modificar.getTblMemoria().getSelectedRow();
-
+        
         if (fila != -1) {
             String IdM = (String) modificar.getTblMemoria().getValueAt(fila, 0);
             String marca = (String) modificar.getTblMemoria().getValueAt(fila, 1);
@@ -148,7 +126,7 @@ public class ControladorMemoriaRam {
             String tipo = (String) modificar.getTblMemoria().getValueAt(fila, 3);
             String capacidad = (String) modificar.getTblMemoria().getValueAt(fila, 4);
             String numero = (String) modificar.getTblMemoria().getValueAt(fila, 5);
-
+            
             String precio = (String) modificar.getTblMemoria().getValueAt(fila, 6);
             String stock = (String) modificar.getTblMemoria().getValueAt(fila, 7);
 
@@ -168,16 +146,16 @@ public class ControladorMemoriaRam {
             modificar.getCmbTipo().setSelectedItem(tipo);
             modificar.getSpCapacidad().setValue(Integer.parseInt(capacidad));
             modificar.getSpPrecio().setValue(Double.parseDouble(precio));
-
+            
             modificar.getSpStock().setValue(Integer.parseInt(stock));
-
+            
             modificar.getTxtIdM().setEditable(false);
-
+            
         } else {
             JOptionPane.showMessageDialog(modificar, "Selecciona una fila antes de modificar.");
         }
     }
-
+    
     private void listarAlmaceModificar() {
         ///Logica cargar personas
         List<memoriaRam> listap = ModeloMemoriaRam.listaTodasmemoriaRam();
@@ -188,9 +166,9 @@ public class ControladorMemoriaRam {
             String[] rowData = {String.valueOf(memo.getIdMemoriaRam()), memo.getMarca(), memo.getModelo(), memo.getTipo(), String.valueOf(memo.getCapacidad()), String.valueOf(memo.getNumeroModulos()), String.valueOf(memo.getPrecio()), String.valueOf(memo.getStock())};
             mTabla.addRow(rowData);
         });
-
+        
     }
-
+    
     private void listarAlmaceEliminar() {
         ///Logica cargar personas
         List<memoriaRam> listap = ModeloMemoriaRam.listaTodasmemoriaRam();
@@ -201,9 +179,9 @@ public class ControladorMemoriaRam {
             String[] rowData = {String.valueOf(memo.getIdMemoriaRam()), memo.getMarca(), memo.getModelo(), memo.getTipo(), String.valueOf(memo.getCapacidad()), String.valueOf(memo.getNumeroModulos()), String.valueOf(memo.getPrecio()), String.valueOf(memo.getStock())};
             mTabla.addRow(rowData);
         });
-
+        
     }
-
+    
     public void ActualizarmemoriaRam() {
         String idmemoriaRam = modificar.getTxtIdM().getText();
         String marca = modificar.getTxtmarca().getText();
@@ -216,10 +194,10 @@ public class ControladorMemoriaRam {
             numero = Integer.parseInt("2");
         }
         double precio = (double) modificar.getSpPrecio().getValue();
-
+        
         int stock = (Integer) modificar.getSpStock().getValue();
         mimemoriaRam.setIdMemoriaRam(Integer.parseInt(idmemoriaRam));
-
+        
         mimemoriaRam.setMarca(marca);
         mimemoriaRam.setModelo(modelo);
         mimemoriaRam.setTipo(tipo);
@@ -227,20 +205,20 @@ public class ControladorMemoriaRam {
         mimemoriaRam.setPrecio(precio);
         mimemoriaRam.setNumeroModulos(numero);
         mimemoriaRam.setStock(stock);
-
+        
         if (mimemoriaRam.editarmemoriaRam() == null) {
             JOptionPane.showMessageDialog(modificar, "memoriaRam Actualizado correctamente");
             listarAlmaceModificar();
         } else {
             JOptionPane.showMessageDialog(modificar, "ERROR");
-
+            
         }
-
+        
     }
-
+    
     private void eliminarmemoriaRam() {
         int fila = eliminar.getTblMemoria().getSelectedRow();
-
+        
         if (fila == -1) {
             JOptionPane.showMessageDialog(eliminar, "Seleccione una fila!");
         } else {
@@ -249,11 +227,11 @@ public class ControladorMemoriaRam {
             modelo.eliminar();
             JOptionPane.showMessageDialog(eliminar, "memoriaRam Actualizado correctamente");
             listarAlmaceEliminar();
-
+            
         }
-
+        
     }
-
+    
     private byte[] obtenerBytesImagen(String rutaImagen) {
         try {
             // Leer la imagen desde el archivo en la ruta especificada
@@ -279,7 +257,7 @@ public class ControladorMemoriaRam {
 //
 // Método que invoca obtenerBytesImagen() y asigna el arreglo de bytes a la variable "foto"
     private String rutaImagenSeleccionada;
-
+    
     private void cargarImagen() {
         JFileChooser jf = new JFileChooser();
         jf.setMultiSelectionEnabled(false);
@@ -292,9 +270,9 @@ public class ControladorMemoriaRam {
             // Obtener los bytes de la imagen y guardarlos en la variable imagenBytes
             imagenBytes = obtenerBytesImagen(rutaImagenSeleccionada);
         }
-
+        
     }
-
+    
     private void mostrarImagenEmergente() {
         // Obtener la imagen actual del botón
         Icon imagenActual = crear.getBtnImagenProducto().getIcon();
@@ -310,16 +288,16 @@ public class ControladorMemoriaRam {
         // Crear un diálogo emergente de JOptionPane para mostrar la imagen
         JOptionPane.showMessageDialog(crear, lblImagen, "Imagen del Producto", JOptionPane.PLAIN_MESSAGE);
     }
-
+    
     public static byte[] convert(String hexString) {
         int length = hexString.length();
         byte[] data = new byte[length / 2];
-
+        
         for (int i = 0; i < length; i += 2) {
             data[i / 2] = (byte) ((Character.digit(hexString.charAt(i), 16) << 4)
                     + Character.digit(hexString.charAt(i + 1), 16));
         }
-
+        
         return data;
     }
 
@@ -396,46 +374,52 @@ public class ControladorMemoriaRam {
         boolean Valor2 = true;
         boolean Valor3 = true;
         boolean Valor4 = true;
-
+        
         if (crear.getTxtmarca().getText().isEmpty()) {
-
+            
             JOptionPane.showMessageDialog(crear, "Campo Vacio en Marca");
             Valor1 = true;
         } else {
             Valor1 = false;
         }
-
+        
         if (crear.getTxtmodelo().getText().isEmpty()) {
-
+            
             JOptionPane.showMessageDialog(crear, "Campo Vacio en Modelo");
             Valor2 = true;
         } else {
             Valor2 = false;
         }
-
+        
         if (crear.getSpCapacidad().getValue().equals(0)) {
-
+            
             JOptionPane.showMessageDialog(crear, "Capacidad no puede estar en 0");
             Valor3 = true;
         } else {
             Valor3 = false;
         }
-
+        
         if (crear.getSpPrecio().getValue().equals(0.0)) {
-
+            
             JOptionPane.showMessageDialog(crear, "Registre un precio");
             Valor4 = true;
         } else {
             Valor4 = false;
         }
-
+        
         if (Valor1 == false && Valor1 == false && Valor1 == false && Valor1 == false) {
             validar = true;
         } else {
             validar = false;
         }
-
+        
         return validar;
     }
-
+    
+    private void botonAtras() {
+        CRUD_Productos_JB vista = new CRUD_Productos_JB();
+        CRUD_ProductosJB cProductosJB = new CRUD_ProductosJB(vista);
+        cProductosJB.iniciar();
+    }
+    
 }

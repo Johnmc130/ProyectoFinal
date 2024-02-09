@@ -59,6 +59,8 @@ public class VentanaUsuario_JM extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         btnActu = new javax.swing.JButton();
+        btnCierra = new javax.swing.JButton();
+        btnPG = new javax.swing.JButton();
         btnElim = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -267,10 +269,26 @@ public class VentanaUsuario_JM extends javax.swing.JFrame {
         btnActu.setText("ACTUALIZAR");
         jPanel1.add(btnActu, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 630, 190, -1));
 
+        btnCierra.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        btnCierra.setForeground(new java.awt.Color(0, 0, 0));
+        btnCierra.setText("CERRAR SESIÓN");
+        jPanel1.add(btnCierra, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 630, 190, -1));
+
+        btnPG.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        btnPG.setForeground(new java.awt.Color(0, 0, 0));
+        btnPG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario_1.png"))); // NOI18N
+        btnPG.setText("Pagina Principal");
+        btnPG.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPGActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnPG, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 220, 40));
+
         btnElim.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         btnElim.setForeground(new java.awt.Color(0, 0, 0));
-        btnElim.setText("CERRAR SESIÓN");
-        jPanel1.add(btnElim, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 630, 190, -1));
+        btnElim.setText("ELIMINAR CUENTA");
+        jPanel1.add(btnElim, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 40, 220, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -287,11 +305,17 @@ public class VentanaUsuario_JM extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnPGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPGActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPGActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup btgSexo;
     private javax.swing.JButton btnActu;
+    private javax.swing.JButton btnCierra;
     private javax.swing.JButton btnElim;
+    private javax.swing.JButton btnPG;
     private com.toedter.calendar.JDateChooser dtcFecha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -343,7 +367,7 @@ public class VentanaUsuario_JM extends javax.swing.JFrame {
     }
 
     public JButton getBtnElim() {
-        return btnElim;
+        return btnCierra;
     }
 
     public JRadioButton getRbtnFem() {
@@ -384,6 +408,14 @@ public class VentanaUsuario_JM extends javax.swing.JFrame {
 
     public JDateChooser getDtcFecha() {
         return dtcFecha;
+    }
+
+    public JButton getBtnPG() {
+        return btnPG;
+    }
+
+    public JButton getBtnCierra() {
+        return btnCierra;
     }
 
 }

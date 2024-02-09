@@ -47,7 +47,7 @@ public class ModeloProveedor extends Proveedor {
         List<Proveedor> listaProv = new ArrayList<>();
 
         String query = "SELECT pr.idproveedor, pr.contraseña, pr.cedula_prov, p.nombre, p.apellido, p.fecha_nac, p.edad, p.sexo, p.correo, p.direccion, p.telefono "
-                + "FROM proovedor pr "
+                + "FROM proveedor pr "
                 + "JOIN persona p ON pr.cedula_prov = p.cedula "
                 + "WHERE pr.cedula_prov = '" + cedula + "'";
 

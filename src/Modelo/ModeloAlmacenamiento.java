@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,7 +27,7 @@ public class ModeloAlmacenamiento extends almacenamiento {
     Connection con;
     PreparedStatement ps;
 
-       public static List<almacenamiento> listaTodasAlmacenamiento() {
+    public static List<almacenamiento> listaTodasAlmacenamiento() {
         Conexion conectar = new Conexion();
         List<almacenamiento> listaAlmacenamiento = new ArrayList<almacenamiento>();
         String sql;
@@ -60,8 +61,7 @@ public class ModeloAlmacenamiento extends almacenamiento {
 
     }
 
-
-        public SQLException grabarAlmacenamiento() {
+    public SQLException grabarAlmacenamiento() {
 
         String sql;//"INSERT INTO TABLA () VALUES()"
         sql = "INSERT INTO almacenamiento (marca, Modelo, tipo, capacidad, precio, idproveedoralma, stock, foto) "
@@ -69,6 +69,7 @@ public class ModeloAlmacenamiento extends almacenamiento {
 
         return conectar.ejecutaConsulta(sql);
     }
+
     public SQLException eliminar() {
         String sql = "delete from almacenamiento where idalmacenamiento='" + getIdalmacenamiento() + "'";
 
@@ -103,6 +104,23 @@ public class ModeloAlmacenamiento extends almacenamiento {
         }
 
         return codigosProveedor;
+    }
+
+    public int obtenerSiguienteId() {
+        int siguienteId = 1; // Valor predeterminado si no hay registros
+        try {
+            if (conectar != null && !conectar.getConexion().isClosed());
+            String sql = "SELECT MAX(idalmacenamiento) FROM almacenamiento";
+            PreparedStatement statement = conectar.getConexion().prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                siguienteId = resultSet.getInt(1) + 1;
+            }
+            return siguienteId;
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        return siguienteId;
     }
 
 }

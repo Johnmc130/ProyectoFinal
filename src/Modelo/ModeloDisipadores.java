@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -28,7 +29,7 @@ public class ModeloDisipadores extends Disipadores {
 
     public static List<Disipadores> listaTodasDisipadores() {
         Conexion conectar = new Conexion();
-        List<Disipadores> listaDisipadores = new ArrayList<Disipadores>();
+        List<Disipadores> listaDisipadores = new ArrayList<>();
         String sql;
         sql = "SELECT iddisipadores,marca,modelo,socket,rgb,ventiladores,precio,stock, foto FROM disipadores";
         ResultSet rs = conectar.consultaBase(sql);
@@ -64,15 +65,15 @@ public class ModeloDisipadores extends Disipadores {
 
     public static List<Disipadores> listaTodasDisipadoresCompatibles(String Socket) {
         Conexion conectar = new Conexion();
-        List<Disipadores> listaDisipadores = new ArrayList<Disipadores>();
+        List<Disipadores> listaDisipadores = new ArrayList<>();
         String sql;
         sql = "SELECT iddisipadores,marca,modelo,socket,rgb,ventiladores,precio,stock, foto "
                 + "FROM disipadores "
                 + "WHERE socket = ?";
         try {
-            // Se prepara la sentencia SQL con el PreparedStatement para evitar inyección de SQL
+            // Se prepara la sentencia SQL con el PreparedStatement para evitar inyecciÃ³n de SQL
             PreparedStatement pstmt = conectar.getConexion().prepareStatement(sql);
-            // Se establece el valor del parámetro socket en la consulta SQL
+            // Se establece el valor del parÃ¡metro socket en la consulta SQL
             pstmt.setString(1, Socket);
             // Se ejecuta la consulta y se obtiene un ResultSet con los resultados
             ResultSet rs = pstmt.executeQuery();
@@ -128,24 +129,21 @@ public class ModeloDisipadores extends Disipadores {
 
     }
 
-//    public static ArrayList<Integer> obtenerCodigosProveedor() {
-//        ArrayList<Integer> codigosProveedor = new ArrayList<>();
-//
-//        try (Connection conexion = new ConexionPg().getCon();
-//                PreparedStatement pst = conexion.prepareStatement("SELECT idproveedor FROM proveedor");
-//                ResultSet rs = pst.executeQuery()) {
-//
-//            while (rs.next()) {
-//                int idProveedor = rs.getInt("idproveedor");
-//                codigosProveedor.add(idProveedor);
-//            }
-//
-//        } catch (SQLException ex) {
-//            ex.printStackTrace();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//
-//        return codigosProveedor;
-//    }
+    public int obtenerSiguienteId() {
+        int siguienteId = 1; // Valor predeterminado si no hay registros
+        try {
+            if (conectar != null && !conectar.getConexion().isClosed());
+            String sql = "SELECT MAX(iddisipadores) FROM disipadores";
+            PreparedStatement statement = conectar.getConexion().prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                siguienteId = resultSet.getInt(1) + 1;
+            }
+            return siguienteId;
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        return siguienteId;
+    }
+
 }

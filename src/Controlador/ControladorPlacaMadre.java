@@ -24,6 +24,7 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import Modelo.ModeloPlacaMadre;
+import Vista.CRUD_Productos_JB;
 
 public class ControladorPlacaMadre {
 
@@ -73,7 +74,7 @@ public class ControladorPlacaMadre {
         vistacrea.getBtncargaplaca().addActionListener(l -> abreFile());
         // GeneraID
         cargaID();
-
+        vistacrea.getBtAtrascrea().addActionListener(l -> botonAtras());
     }
 
     public void iniciaControlModificar() {
@@ -92,6 +93,7 @@ public class ControladorPlacaMadre {
         });
 
         cargarCodigosProveedorComboBoxmodi();
+        vistamodif.getBtAtrascrea().addActionListener(l -> botonAtras());
     }
 
     // Métodos de inicialización y eventos para la eliminación
@@ -109,6 +111,7 @@ public class ControladorPlacaMadre {
                 cargarImagenEliminar(filaSeleccionada);
             }
         });
+        vistaelim.getBtAtras1().addActionListener(l -> botonAtras());
     }
 
     private void grabarPlaca() {
@@ -638,5 +641,11 @@ public class ControladorPlacaMadre {
         vistacrea.getCbproveedorplaca().setSelectedIndex(0);
         vistacrea.getLbplacaimg().setIcon(null);
         cargaID();
+    }
+
+    private void botonAtras() {
+        CRUD_Productos_JB vista = new CRUD_Productos_JB();
+        CRUD_ProductosJB cProductosJB = new CRUD_ProductosJB(vista);
+        cProductosJB.iniciar();
     }
 }
