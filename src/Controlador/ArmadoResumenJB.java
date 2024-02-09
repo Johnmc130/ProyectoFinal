@@ -73,6 +73,7 @@ public class ArmadoResumenJB {
     });
 
     vista.getBtAtras().addActionListener(l-> atras());
+    vista.getBtComprar().addActionListener(l-> atras());
 }
 
     public void cargarComponentes() {
