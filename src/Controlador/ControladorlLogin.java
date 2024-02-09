@@ -7,12 +7,14 @@ import Modelo.ModeloProveedor;
 import Vista.VentanaLogin_JM;
 import Vista.VentanaRegistro_JM;
 import Vista.VentanaUsuario_JM;
+import Vista.VistaProductos;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JOptionPane;
 
 public class ControladorlLogin {
 
+    public static String id_cedula;
     private ModeloCliente modeloC;
     private ModeloAdministrador modeloA;
     private ModeloProveedor modeloP;
@@ -34,14 +36,13 @@ public class ControladorlLogin {
 
     private void iniciaSesion() {
         String cedula = vista.getTxtCedula().getText();
+        id_cedula = cedula;
         String contra = String.valueOf(vista.getTxtContra().getPassword());
 
         if (modeloC.loginCliente(cedula, contra)) {
-            JOptionPane.showMessageDialog(null, "¡Sesion Iniciada con Exito!");
-            VentanaUsuario_JM ventana = new VentanaUsuario_JM();
-            ModeloPersona mPersona = new ModeloPersona();
-            ConroladorUsuario cUsuario = new ConroladorUsuario(ventana, modeloC, mPersona, modeloA, modeloP, cedula);
-            cUsuario.iniciaControlador();
+            VistaProductos v = new VistaProductos();
+            ControladorVistaProductos contro = new ControladorVistaProductos(v);
+            contro.iniciarControl();
             vista.dispose();
 
         } else if (modeloA.loginAdmin(cedula, contra)) {

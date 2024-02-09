@@ -10,30 +10,43 @@ package Controlador;
  * @author Steven Zhicay
  */
 import Clases.DatosVenta;
+import Clases.Procesador;
 import Modelo.ModeloCliente;
 import Modelo.ModeloDatosEnvio;
 import Modelo.ModeloPersona;
 import Vista.VentanaDatosEnvio;
+import Vista.VistaProductos;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.JasperRunManager;
+import net.sf.jasperreports.engine.util.JRLoader;
 
 public class ControladorVenDatosEnvio {
 
-    private DatosVenta datosVenta;
+    private DatosVenta datosVenta = new DatosVenta();
+    private int id;
+    private double precio;
+    private String componente;
     private VentanaDatosEnvio vista;
     private ModeloDatosEnvio modelo;
     ModeloDatosEnvio misdatos = new ModeloDatosEnvio();
 
-    public ControladorVenDatosEnvio(VentanaDatosEnvio vista, ModeloDatosEnvio modelo) {
+    public ControladorVenDatosEnvio(VentanaDatosEnvio vista, ModeloDatosEnvio modelo, int id, String componente, double precio) {
         this.modelo = modelo;
         this.vista = vista;
+        this.id = id;
+        this.precio = precio;
+        this.componente = componente;
         vista.setVisible(true);
         iniciaControlador();
+        mostrarPrecio();
+        vista.getBtnRealizarPedido().addActionListener(l -> guardarDatosEnvio());
 
     }
 
     public void iniciaControlador() {
-        vista.getBtnRealizarPedido().addActionListener(l -> guardarDatosEnvio());
+
         vista.getBtRegresar().addActionListener(l -> cancelarOperacion());
         cargaID();
     }
@@ -49,6 +62,9 @@ public class ControladorVenDatosEnvio {
         String numeroCuenta = vista.getTxtNumeroCuenta().getText();
         String codigoSeguridad = vista.getTxtCodigoSeguridad().getText();
         Date fechaExpiracion = vista.getjDFechaEx().getDate();
+        String nombretabla = componente;
+        int idProducto = id;
+        String idCliente = datosVenta.getId_cliente();
 
         // Validar datos
         System.out.println(vista.getLblId_envio().getText());
@@ -62,36 +78,38 @@ public class ControladorVenDatosEnvio {
         misdatos.setNumeroCuenta(numeroCuenta);
         misdatos.setCodigoSeguridad(codigoSeguridad);
         misdatos.setFechaExpiracion(fechaExpiracion);
+        misdatos.setNombreProducto(nombretabla);
+        misdatos.setId_producto(idProducto);
+        misdatos.setId_cliente(idCliente);
 
         // Puedes realizar otras operaciones según tus necesidades
         // Cerrar la ventana de datos de envío
         // Validar datos antes de guardar
         if (!datosVacios() && misdatos.guardarDatosEnvio()) {
             JOptionPane.showMessageDialog(vista, "Datos Agregados con Éxito");
+            imprimirPdf();
         } else {
             JOptionPane.showMessageDialog(vista, "Error al intentar agregar los datos", "Error", JOptionPane.ERROR_MESSAGE);
         }
 
-//        // Validar datos antes de guardar para FK cliente
-//        if (!datosVacios()) {
-//            if (misdatos.datosEnvioExisten(id_client)) {
-//                // Si los datos existen, actualizar
-//                if (modelo.actualizarDatosEnvio()) {
-//                    JOptionPane.showMessageDialog(vista, "Datos Actualizados con Éxito");
-//                } else {
-//                    JOptionPane.showMessageDialog(vista, "Error al intentar actualizar los datos", "Error", JOptionPane.ERROR_MESSAGE);
-//                }
-//            } else {
-//                // Si los datos no existen, guardar
-//                if (misdatos.guardarDatosEnvio()) {
-//                    JOptionPane.showMessageDialog(vista, "Datos Agregados con Éxito");
-//                } else {
-//                    JOptionPane.showMessageDialog(vista, "Error al intentar agregar los datos", "Error", JOptionPane.ERROR_MESSAGE);
-//                }
-//            }
-//        } else {
-//            JOptionPane.showMessageDialog(vista, "Ingrese todos los datos antes de guardar o actualizar", "Error", JOptionPane.ERROR_MESSAGE);
-//        }
+    }
+
+    private void imprimirPdf() {
+        try {
+            // Cargar el archivo Jasper compilado (.jasper)
+            String jasperFilePath = "/Reportes/ReporteFactura.jasper";
+            JasperReport jasperReport = (JasperReport) JRLoader.loadObjectFromFile(jasperFilePath);
+
+            // Puedes pasar parámetros al informe si es necesario
+            // Map<String, Object> parametros = new HashMap<>();
+            // Generar el informe
+            byte[] jasperPrint = JasperRunManager.runReportToPdf(jasperReport, null);
+
+            // Puedes guardar el informe en un archivo PDF u otro formato si lo deseas
+            // JasperExportManager.exportReportToPdfFile(jasperPrint, "ruta/de/salida/informe.pdf");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void cargaID() {
@@ -124,8 +142,15 @@ public class ControladorVenDatosEnvio {
         }
     }
 
+    private void mostrarPrecio() {
+        vista.getLblPrecio1().setText(String.valueOf(precio));
+        vista.getLblPrecio2().setText(String.valueOf(precio));
+    }
+
     private void cancelarOperacion() {
-        // Puedes implementar lógica para cancelar la operación si es necesario
+        VistaProductos v = new VistaProductos();
+        ControladorVistaProductos contro = new ControladorVistaProductos(v);
+        contro.iniciarControl();
         vista.dispose();
     }
 }
