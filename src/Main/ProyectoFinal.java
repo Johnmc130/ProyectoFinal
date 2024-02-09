@@ -31,7 +31,6 @@ public class ProyectoFinal {
 //        CRUD_ProductosJB control = new CRUD_ProductosJB(vista);
 //        control.iniciar();
 
-
         ArmadoProc_JB vistaA = new ArmadoProc_JB();
         ArmadoProcJB controlador = new ArmadoProcJB(vistaA);
         controlador.Inicio();
