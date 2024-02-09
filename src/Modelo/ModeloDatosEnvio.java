@@ -11,6 +11,7 @@ package Modelo;
  */
 import Clases.DatosVenta;
 import Conexion.Conexion;
+import Controlador.ControladorlLogin;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -53,7 +54,7 @@ public class ModeloDatosEnvio extends DatosVenta {
                 pst.setObject(8, getFechaExpiracion(), Types.TIMESTAMP);
                 pst.setString(9, getNombreProducto());
                 pst.setInt(10, getId_producto());
-                pst.setInt(11, getId_cliente());
+                pst.setString(11, ControladorlLogin.id_cedula);
 
                 int result = pst.executeUpdate();
                 System.out.println("Consulta ejecutada exitosamente. Filas afectadas: " + result);
@@ -88,7 +89,7 @@ public class ModeloDatosEnvio extends DatosVenta {
             pst.setObject(8, getFechaExpiracion(), Types.TIMESTAMP);
             pst.setString(9, getNombreProducto());
             pst.setInt(10, getId_producto());
-            pst.setInt(11, getId_cliente());
+            pst.setString(11, ControladorlLogin.id_cedula);
             
             
             int result = pst.executeUpdate();

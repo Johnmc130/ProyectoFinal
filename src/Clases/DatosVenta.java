@@ -23,12 +23,12 @@ public class DatosVenta {
     private Date fechaExpiracion;
     private String nombreProducto;
     private int id_producto;
-    private int id_cliente;
+    private String id_cliente;
 
     public DatosVenta() {
     }
 
-    public DatosVenta(int id_datos, String nombres, String apellidos, String movil, String direccion, String numeroCuenta, String codigoSeguridad, Date fechaExpiracion, String nombreProducto, int id_producto, int id_cliente) {
+    public DatosVenta(int id_datos, String nombres, String apellidos, String movil, String direccion, String numeroCuenta, String codigoSeguridad, Date fechaExpiracion, String nombreProducto, int id_producto, String id_cliente) {
         this.id_datos = id_datos;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -122,11 +122,11 @@ public class DatosVenta {
         this.id_producto = id_producto;
     }
 
-    public int getId_cliente() {
+    public String getId_cliente() {
         return id_cliente;
     }
 
-    public void setId_cliente(int id_cliente) {
+    public void setId_cliente(String id_cliente) {
         this.id_cliente = id_cliente;
     }
 
@@ -134,5 +134,7 @@ public class DatosVenta {
     public String toString() {
         return "DatosVenta{" + "id_datos=" + id_datos + ", nombres=" + nombres + ", apellidos=" + apellidos + ", movil=" + movil + ", direccion=" + direccion + ", numeroCuenta=" + numeroCuenta + ", codigoSeguridad=" + codigoSeguridad + ", fechaExpiracion=" + fechaExpiracion + ", nombreProducto=" + nombreProducto + ", id_producto=" + id_producto + ", id_cliente=" + id_cliente + '}';
     }
+
+    
 
 }
