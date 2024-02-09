@@ -49,16 +49,16 @@ public class ArmadoGabinete_JB extends javax.swing.JFrame {
         lblPrecio = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
-        lblFSR1 = new javax.swing.JLabel();
+        lblStock = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         lblTitulo4 = new javax.swing.JLabel();
         jdlgMensaje = new javax.swing.JDialog();
-        jPanel6 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         btJdlAtras = new javax.swing.JButton();
         btJdlAceptar = new javax.swing.JButton();
-        jPanel7 = new javax.swing.JPanel();
-        lblTitulo2 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        lblTitulo1 = new javax.swing.JLabel();
         Encabezado = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         btAtras = new javax.swing.JToggleButton();
@@ -164,10 +164,10 @@ public class ArmadoGabinete_JB extends javax.swing.JFrame {
         jLabel47.setText("Stock:");
         jLabel47.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
-        lblFSR1.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
-        lblFSR1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblFSR1.setText("---------------");
-        lblFSR1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        lblStock.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        lblStock.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblStock.setText("---------------");
+        lblStock.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -205,7 +205,7 @@ public class ArmadoGabinete_JB extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel47)
                 .addGap(18, 18, 18)
-                .addComponent(lblFSR1)
+                .addComponent(lblStock)
                 .addGap(240, 240, 240))
         );
         jPanel2Layout.setVerticalGroup(
@@ -246,7 +246,7 @@ public class ArmadoGabinete_JB extends javax.swing.JFrame {
                     .addComponent(lblPrecio))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblFSR1)
+                    .addComponent(lblStock)
                     .addComponent(jLabel47))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -326,13 +326,12 @@ public class ArmadoGabinete_JB extends javax.swing.JFrame {
         jdlgMensaje.setBackground(new java.awt.Color(255, 255, 255));
         jdlgMensaje.setResizable(false);
 
-        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 212, 250), 3));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 212, 250), 3));
 
-        jLabel2.setFont(new java.awt.Font("Montserrat", 2, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(37, 53, 124));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("<html><p><b>Consejo:</b><br>Mas ventilacion menos problemas</p></html>");
+        jLabel1.setFont(new java.awt.Font("Montserrat", 2, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(37, 53, 124));
+        jLabel1.setText("<html><p><b>LO MEJOR!!!</b><br>Elije la fuente que se ajuste a tu presupuesto<br>nosotros nos encargamos de medir los watts necesarios.</p></html>");
 
         btJdlAtras.setBackground(new java.awt.Color(255, 255, 255));
         btJdlAtras.setFont(new java.awt.Font("Montserrat", 1, 16)); // NOI18N
@@ -346,52 +345,54 @@ public class ArmadoGabinete_JB extends javax.swing.JFrame {
         btJdlAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Compromisos.png"))); // NOI18N
         btJdlAceptar.setText("Aceptar");
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btJdlAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btJdlAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addComponent(jLabel2)
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btJdlAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btJdlAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
-        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 212, 250), 3));
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 212, 250), 3));
 
-        lblTitulo2.setBackground(new java.awt.Color(255, 255, 255));
-        lblTitulo2.setFont(new java.awt.Font("Montserrat", 1, 48)); // NOI18N
-        lblTitulo2.setForeground(new java.awt.Color(37, 53, 124));
-        lblTitulo2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblTitulo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logo.png"))); // NOI18N
-        lblTitulo2.setText("Ventiladores");
+        lblTitulo1.setBackground(new java.awt.Color(255, 255, 255));
+        lblTitulo1.setFont(new java.awt.Font("Montserrat", 1, 48)); // NOI18N
+        lblTitulo1.setForeground(new java.awt.Color(37, 53, 124));
+        lblTitulo1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblTitulo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logo.png"))); // NOI18N
+        lblTitulo1.setText("Fuente de poder");
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblTitulo2, javax.swing.GroupLayout.DEFAULT_SIZE, 546, Short.MAX_VALUE))
+                .addComponent(lblTitulo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblTitulo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblTitulo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -401,18 +402,18 @@ public class ArmadoGabinete_JB extends javax.swing.JFrame {
             jdlgMensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jdlgMensajeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jdlgMensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGroup(jdlgMensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jdlgMensajeLayout.setVerticalGroup(
             jdlgMensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jdlgMensajeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -522,7 +523,7 @@ public class ArmadoGabinete_JB extends javax.swing.JFrame {
     private javax.swing.JButton btJdlAceptar;
     private javax.swing.JButton btJdlAtras;
     private javax.swing.JButton btJdlDetalleAceptar;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
@@ -536,20 +537,20 @@ public class ArmadoGabinete_JB extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JDialog jdlgDetalles;
     private javax.swing.JDialog jdlgMensaje;
     private javax.swing.JPanel jpComponentes;
     private javax.swing.JLabel lblBahias;
-    private javax.swing.JLabel lblFSR1;
     private javax.swing.JLabel lblFormato;
     private javax.swing.JLabel lblMarca;
     private javax.swing.JLabel lblModelo;
     private javax.swing.JLabel lblNumVentil;
     private javax.swing.JLabel lblPrecio;
     private javax.swing.JLabel lblPuertUSB;
-    private javax.swing.JLabel lblTitulo2;
+    private javax.swing.JLabel lblStock;
+    private javax.swing.JLabel lblTitulo1;
     private javax.swing.JLabel lblTitulo4;
     // End of variables declaration//GEN-END:variables
 
@@ -609,8 +610,8 @@ public class ArmadoGabinete_JB extends javax.swing.JFrame {
         return jdlgMensaje;
     }
 
-    public JLabel getLblFSR1() {
-        return lblFSR1;
+    public JLabel getLblStock() {
+        return lblStock;
     }
 
 }

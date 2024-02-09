@@ -182,7 +182,7 @@ public class ArmadoGabineteJB {
                         vistaGab.getLblNumVentil().setText(gabinetes.getVentiladores());
                         vistaGab.getLblFormato().setText(gabinetes.getFormato());
                         vistaGab.getLblBahias().setText(gabinetes.getBahias());
-                        vistaGab.getLblFSR1().setText(String.valueOf(gabinetes.getStock()));
+                        vistaGab.getLblStock().setText(String.valueOf(gabinetes.getStock()));
                         // Formatea el precio y lo muestra en la vista
                         DecimalFormat formatoPrecio = new DecimalFormat("#.##");
                         vistaGab.getLblPrecio().setText(formatoPrecio.format(gabinetes.getPrecio()));
