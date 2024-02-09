@@ -6,6 +6,7 @@ package Vista;
 
 import javax.swing.JLabel;
 import javax.swing.JTable;
+import javax.swing.JToggleButton;
 
 /**
  *
@@ -28,6 +29,10 @@ public class ArmadoResumen_JB extends javax.swing.JFrame {
         return lblImagen;
     }
 
+    public JToggleButton getBtAtras() {
+        return btAtras;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,9 +46,11 @@ public class ArmadoResumen_JB extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jtResumen = new javax.swing.JTable();
         lblImagen = new javax.swing.JLabel();
+        btJdlDetalleAceptar = new javax.swing.JButton();
+        btComprar = new javax.swing.JButton();
         cuerpo = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        btAtras1 = new javax.swing.JToggleButton();
+        btAtras = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,25 +87,56 @@ public class ArmadoResumen_JB extends javax.swing.JFrame {
         lblImagen.setForeground(new java.awt.Color(51, 51, 255));
         lblImagen.setFocusable(false);
 
+        btJdlDetalleAceptar.setBackground(new java.awt.Color(255, 255, 255));
+        btJdlDetalleAceptar.setFont(new java.awt.Font("Montserrat", 1, 16)); // NOI18N
+        btJdlDetalleAceptar.setForeground(new java.awt.Color(0, 0, 0));
+        btJdlDetalleAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Compromisos.png"))); // NOI18N
+        btJdlDetalleAceptar.setText("Aceptar");
+
+        btComprar.setBackground(new java.awt.Color(255, 255, 255));
+        btComprar.setFont(new java.awt.Font("Montserrat", 1, 16)); // NOI18N
+        btComprar.setForeground(new java.awt.Color(0, 0, 0));
+        btComprar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Compromisos.png"))); // NOI18N
+        btComprar.setText("Comprar");
+
         javax.swing.GroupLayout encabezadoLayout = new javax.swing.GroupLayout(encabezado);
         encabezado.setLayout(encabezadoLayout);
         encabezadoLayout.setHorizontalGroup(
             encabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, encabezadoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblImagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(encabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(encabezadoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblImagen, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(encabezadoLayout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(btComprar, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(encabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(encabezadoLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(btJdlDetalleAceptar)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         encabezadoLayout.setVerticalGroup(
             encabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(encabezadoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(encabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(encabezadoLayout.createSequentialGroup()
+                        .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(51, 51, 51)
+                        .addComponent(btComprar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(encabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(encabezadoLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(btJdlDetalleAceptar)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         cuerpo.setBackground(new java.awt.Color(255, 255, 255));
@@ -111,24 +149,24 @@ public class ArmadoResumen_JB extends javax.swing.JFrame {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logo.png"))); // NOI18N
         jLabel6.setText("Resumen");
 
-        btAtras1.setBackground(new java.awt.Color(255, 255, 255));
-        btAtras1.setFont(new java.awt.Font("Montserrat Black", 1, 48)); // NOI18N
-        btAtras1.setForeground(new java.awt.Color(0, 212, 250));
-        btAtras1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/atras.png"))); // NOI18N
+        btAtras.setBackground(new java.awt.Color(255, 255, 255));
+        btAtras.setFont(new java.awt.Font("Montserrat Black", 1, 48)); // NOI18N
+        btAtras.setForeground(new java.awt.Color(0, 212, 250));
+        btAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/atras.png"))); // NOI18N
 
         javax.swing.GroupLayout cuerpoLayout = new javax.swing.GroupLayout(cuerpo);
         cuerpo.setLayout(cuerpoLayout);
         cuerpoLayout.setHorizontalGroup(
             cuerpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cuerpoLayout.createSequentialGroup()
-                .addComponent(btAtras1)
+                .addComponent(btAtras)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 341, Short.MAX_VALUE)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         cuerpoLayout.setVerticalGroup(
             cuerpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btAtras1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btAtras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -155,43 +193,11 @@ public class ArmadoResumen_JB extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ArmadoResumen_JB.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ArmadoResumen_JB.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ArmadoResumen_JB.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ArmadoResumen_JB.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ArmadoResumen_JB().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton btAtras1;
+    private javax.swing.JToggleButton btAtras;
+    private javax.swing.JButton btComprar;
+    private javax.swing.JButton btJdlDetalleAceptar;
     private javax.swing.JPanel cuerpo;
     private javax.swing.JPanel encabezado;
     private javax.swing.JLabel jLabel6;

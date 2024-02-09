@@ -11,8 +11,11 @@ import Clases.almacenamiento;
 import Clases.memoriaRam;
 import Clases.Disipadores;
 import Modelo.ModeloPcResumen;
+import Vista.ArmadoDisipador_JB;
 import Vista.ArmadoResumen_JB;
+import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
@@ -25,47 +28,52 @@ import javax.swing.table.TableColumn;
 public class ArmadoResumenJB {
 
     private ArmadoResumen_JB vista; // Referencia a la vista de armado de procesadores
-    public PC pc = ArmadoProcJB.pc;
+    //public PC pc = ArmadoProcJB.pc;
+    public PC pc = ModeloPcResumen.cargarPc(1);
     private ModeloPcResumen modelo;
 
     public ArmadoResumenJB(ArmadoResumen_JB vista, ModeloPcResumen modelo) {
         this.vista = vista; // Asigna la vista recibida como parámetro
         this.modelo = modelo;
         vista.setVisible(true); // Hace visible la vista
-
     }
 
     /**
      * Método que inicia la configuración de la vista y carga los componentes.
      */
+
     public void Inicio() {
-        vista.setLocationRelativeTo(null); // Centra la ventana en la pantalla  
-        // Obtener la columna deseada (en este caso, la segunda columna)
-        TableColumn columna = vista.getJtResumen().getColumnModel().getColumn(1); // El índice es 1 para la segunda columna
-        // Establecer el ancho preferido de la columna
-        columna.setPreferredWidth(50);
-        // Agrega listeners a los botones de la vista para manejar acciones del usuario
+    vista.setLocationRelativeTo(null); // Centra la ventana en la pantalla  
 
-        // Agrega un oyente de selección a la tabla
-        vista.getJtResumen().getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                if (!e.getValueIsAdjusting()) { // Verificar que la selección haya terminado
-                    // Obtener el índice de la fila seleccionada
-                    int filaSeleccionada = vista.getJtResumen().getSelectedRow();
-                    if (filaSeleccionada != -1) { // Verificar si se ha seleccionado alguna fila
-                        // Obtener el valor del campo en la columna 0 de la fila seleccionada
-                        int id = (int) vista.getJtResumen().getValueAt(filaSeleccionada, 0);
-                        String tipo = (String) vista.getJtResumen().getValueAt(filaSeleccionada, 2);
-                        // Cargar la imagen correspondiente al componente seleccionado
-                        cargarImagenComponente(id, tipo);
+    // Configurar la tabla para permitir la selección de una sola fila
+    vista.getJtResumen().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
-                    }
+    // Obtener la columna deseada (en este caso, la segunda columna)
+    TableColumn columna = vista.getJtResumen().getColumnModel().getColumn(0); // 
+    // Establecer el ancho preferido de la columna
+    columna.setPreferredWidth(20);
+    cargarComponentes();
+
+    // Agregar un oyente de selección a la tabla
+    vista.getJtResumen().getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+        @Override
+        public void valueChanged(ListSelectionEvent e) {
+            if (!e.getValueIsAdjusting()) { // Verificar que la selección haya terminado
+                // Obtener el índice de la fila seleccionada
+                int filaSeleccionada = vista.getJtResumen().getSelectedRow();
+                if (filaSeleccionada != -1) { // Verificar si se ha seleccionado alguna fila
+                    // Obtener el valor del campo en la columna 0 de la fila seleccionada
+                    int id = (int) vista.getJtResumen().getValueAt(filaSeleccionada, 0);
+                    String tipo = (String) vista.getJtResumen().getValueAt(filaSeleccionada, 2);
+                    // Cargar la imagen correspondiente al componente seleccionado
+                    cargarImagenComponente(id, tipo);
                 }
             }
-        });
+        }
+    });
 
-    }
+    vista.getBtAtras().addActionListener(l-> atras());
+}
 
     public void cargarComponentes() {
         DefaultTableModel modeloTabla = (DefaultTableModel) vista.getJtResumen().getModel();
@@ -109,83 +117,91 @@ public class ArmadoResumenJB {
         modeloTabla.addRow(new Object[]{disipador.getIdDisipadores(), disipador.getMarca() + " " + disipador.getModelo(), "Disipador"});
     }
 
-// Método para cargar la imagen del componente seleccionado
-    private void cargarImagenComponente(int idComponente, String tipo) {
-        Object componente = null;
+    // Método para cargar la imagen del componente seleccionado
+private void cargarImagenComponente(int idComponente, String tipo) {
+    Object componente = null;
 
-        // Determina el tipo de componente según el ID
-        switch (tipo) {
-            case "Procesador": // Procesador
-                componente = modelo.cargarProcesador(idComponente);
-                break;
-            case "Placa madre": // Placa madre
-                componente = modelo.cargarPlacaMadre(idComponente);
-                break;
-            case "Tarjeta gráfica": // Tarjeta gráfica
-                componente = modelo.cargarTarjetaGrafica(idComponente);
-                break;
-            case "RAM": // RAM
-                componente = modelo.cargarMemoriaRam(idComponente);
-                break;
-            case "Fuente de poder": // Fuente de poder
-                componente = modelo.cargarFuentePoder(idComponente);
-                break;
-            case "Almacenamiento": // Almacenamiento
-                componente = modelo.cargarAlmacenamiento(idComponente);
-                break;
-            case "Gabinete": // Gabinete
-                componente = modelo.cargarGabinete(idComponente);
-                break;
-            case "Ventilador": // Ventiladores (asumiendo que hay uno solo para simplificar)
-                componente = modelo.cargarVentiladores(idComponente);
-                break;
-            case "Disipador": // Disipador
-                componente = modelo.cargarDisipadores(idComponente);
-                break;
-        }
+    // Determina el tipo de componente según el ID
+    switch (tipo) {
+        case "Procesador": // Procesador
+            componente = modelo.cargarProcesador(idComponente);
+            break;
+        case "Placa madre": // Placa madre
+            componente = modelo.cargarPlacaMadre(idComponente);
+            break;
+        case "Tarjeta gráfica": // Tarjeta gráfica
+            componente = modelo.cargarTarjetaGrafica(idComponente);
+            break;
+        case "RAM": // RAM
+            componente = modelo.cargarMemoriaRam(idComponente);
+            break;
+        case "Fuente de poder": // Fuente de poder
+            componente = modelo.cargarFuentePoder(idComponente);
+            break;
+        case "Almacenamiento": // Almacenamiento
+            componente = modelo.cargarAlmacenamiento(idComponente);
+            break;
+        case "Gabinete": // Gabinete
+            componente = modelo.cargarGabinete(idComponente);
+            break;
+        case "Ventilador": // Ventiladores (asumiendo que hay uno solo para simplificar)
+            componente = modelo.cargarVentiladores(idComponente);
+            break;
+        case "Disipador": // Disipador
+            componente = modelo.cargarDisipadores(idComponente);
+            break;
+    }
 
-        // Lógica para cargar la imagen según el ID del componente
-        ImageIcon imagenIcono = null;
+    // Lógica para cargar la imagen según el ID del componente
+    ImageIcon imagenIcono = null;
 
-        // Verifica si se obtuvo el componente y si es del tipo esperado
-        if (componente != null) {
-            byte[] fotoByte = null;
+    // Verifica si se obtuvo el componente y si es del tipo esperado
+    if (componente != null) {
+        byte[] fotoByte = null;
 
-            // Obtén la foto del componente según su tipo
-            if (componente instanceof Procesador) {
-                fotoByte = ((Procesador) componente).getImagen();
-            } else if (componente instanceof Placamadre) {
-                fotoByte = ((Placamadre) componente).getFoto();
-            } else if (componente instanceof Tarjetagrafica) {
-                fotoByte = ((Tarjetagrafica) componente).getFoto();
-            } else if (componente instanceof memoriaRam) {
-                fotoByte = ((memoriaRam) componente).getFoto();
-            } else if (componente instanceof FuentePoder) {
-                fotoByte = ((FuentePoder) componente).getFoto();
-            } else if (componente instanceof almacenamiento) {
-                fotoByte = ((almacenamiento) componente).getFoto();
-            } else if (componente instanceof Gabinete) {
-                fotoByte = ((Gabinete) componente).getFoto();
-            } else if (componente instanceof Ventiladores) {
-                fotoByte = ((Ventiladores) componente).getFoto();
-            } else if (componente instanceof Disipadores) {
-                fotoByte = ((Disipadores) componente).getFoto();
-            } else {
-                System.out.println("componente no es instancia de ningun tipo");
-            }
-
-            // Convertir el byte[] en un ImageIcon
-            if (fotoByte != null) {
-                imagenIcono = new ImageIcon(fotoByte);
-            } else {
-                System.out.println("imagen nula");
-            }
+        // Obtén la foto del componente según su tipo
+        if (componente instanceof Procesador) {
+            fotoByte = ((Procesador) componente).getImagen();
+        } else if (componente instanceof Placamadre) {
+            fotoByte = ((Placamadre) componente).getFoto();
+        } else if (componente instanceof Tarjetagrafica) {
+            fotoByte = ((Tarjetagrafica) componente).getFoto();
+        } else if (componente instanceof memoriaRam) {
+            fotoByte = ((memoriaRam) componente).getFoto();
+        } else if (componente instanceof FuentePoder) {
+            fotoByte = ((FuentePoder) componente).getFoto();
+        } else if (componente instanceof almacenamiento) {
+            fotoByte = ((almacenamiento) componente).getFoto();
+        } else if (componente instanceof Gabinete) {
+            fotoByte = ((Gabinete) componente).getFoto();
+        } else if (componente instanceof Ventiladores) {
+            fotoByte = ((Ventiladores) componente).getFoto();
+        } else if (componente instanceof Disipadores) {
+            fotoByte = ((Disipadores) componente).getFoto();
         } else {
-            System.out.println("Componente nulo");
+            System.out.println("componente no es instancia de ningun tipo");
         }
 
-        // Establecer el ImageIcon en el JLabel
-        vista.getLblImagen().setIcon(imagenIcono);
+        // Convertir el byte[] en un ImageIcon y ajustar al tamaño del JLabel
+        if (fotoByte != null) {
+            Image imagen = new ImageIcon(fotoByte).getImage();
+            imagen = imagen.getScaledInstance(vista.getLblImagen().getWidth(), vista.getLblImagen().getHeight(), Image.SCALE_SMOOTH);
+            imagenIcono = new ImageIcon(imagen);
+        } else {
+            System.out.println("imagen nula");
+        }
+    } else {
+        System.out.println("Componente nulo");
+    }
+
+    // Establecer el ImageIcon en el JLabel
+    vista.getLblImagen().setIcon(imagenIcono);
+}
+
+    public void atras(){
+        ArmadoDisipador_JB  vista = new ArmadoDisipador_JB();
+        ArmadoDisipadorRC controlador = new ArmadoDisipadorRC(vista);
+        controlador.Inicio();
     }
 
 }

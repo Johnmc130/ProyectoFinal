@@ -1,13 +1,11 @@
 package Controlador;
 
-import Clases.almacenamiento;
 import Clases.Disipadores;
 import Modelo.ModeloDisipadores;
-import Modelo.ModeloMemoriaRam;
+import Modelo.ModeloPcResumen;
 import Vista.ArmadoDisipador_JB;
-import Vista.ArmadoFuenteP_JB;
-import Vista.ArmadoPlaca_JB;
-import Vista.ArmadoRam_JB;
+import Vista.ArmadoResumen_JB;
+import Vista.ArmadoVentiladores_JB;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -60,8 +58,8 @@ public class ArmadoDisipadorRC{
 
         // Agrega listeners a los botones de la vista
         vistaDisipador.getBtJdlDetalleAceptar().addActionListener(l -> aceptarDlgDetalle());
-//        vistaDisipador.getBtJdlAceptar().addActionListener(l -> aceptarDlg());
-//        vistaDisipador.getBtJdlAtras().addActionListener(l -> AtrasDlgMensaje());
+        vistaDisipador.getBtJdlMensajeElejir().addActionListener(l -> aceptarDlg());
+        vistaDisipador.getBtJdlMAtras().addActionListener(l -> AtrasDlgMensaje());
         vistaDisipador.getBtAtras().addActionListener(l -> atras());
         Ventana(); // Configura la apariencia de la ventana
     }
@@ -70,7 +68,7 @@ public class ArmadoDisipadorRC{
      * Método para cargar los componentes de las memorias RAM en la vista
      */
     private void CargarComponentes() {
-        List<Disipadores> disipadores = ModeloDisipadores.listaTodasDisipadores(); // Obtiene la lista de memorias RAM del modelo
+        List<Disipadores> disipadores = ModeloDisipadores.listaTodasDisipadoresCompatibles(ModeloPcResumen.cargarProcesador(ArmadoProcJB.pc.getIdProcesador()).getSocket()); // Obtiene la lista de memorias RAM del modelo
 
         // Asegura que la carga y manipulación de los componentes Swing se realice en el hilo de eventos de Swing
         SwingUtilities.invokeLater(() -> {
@@ -180,7 +178,7 @@ public class ArmadoDisipadorRC{
                         // Carga los detalles de la memoria RAM en la vista
                         vistaDisipador.getLblMarca().setText(disipador.getMarca());
                         vistaDisipador.getLblModelo().setText(disipador.getModelo());
-                        vistaDisipador.getLblSocket().setText(disipador.getModelo());
+                        vistaDisipador.getLblSocket().setText(disipador.getSocket());
                         vistaDisipador.getLblRGB().setText(disipador.getRGB());
                         vistaDisipador.getLblVentiladores().setText(String.valueOf(disipador.getVentiladores()));
                         vistaDisipador.getLblStock().setText(String.valueOf(disipador.getStock()));
@@ -255,7 +253,10 @@ public class ArmadoDisipadorRC{
         vistaDisipador.getJdlgMensaje().setVisible(false);
         vistaDisipador.getJdlgMensaje().dispose();
         vistaDisipador.setEnabled(true);
-        ArmadoFuenteP_JB vista = new ArmadoFuenteP_JB();
+        ArmadoResumen_JB vista = new ArmadoResumen_JB();
+        ModeloPcResumen modelo = new ModeloPcResumen();
+       ArmadoResumenJB controlador = new ArmadoResumenJB(vista, modelo);
+       controlador.Inicio();
         vistaDisipador.setVisible(false);
         vistaDisipador.dispose();
     }
@@ -276,8 +277,8 @@ public class ArmadoDisipadorRC{
      * Método para retroceder a la vista de armado de placas
      */
     public void atras() {
-        ArmadoPlaca_JB vista = new ArmadoPlaca_JB();
-        ArmadoPlacaJB controlador = new ArmadoPlacaJB(vista);
+        ArmadoVentiladores_JB vista = new ArmadoVentiladores_JB();
+        ArmadoVentiladorJB controlador = new ArmadoVentiladorJB(vista);
         controlador.Inicio();
         vistaDisipador.setVisible(false);
         vistaDisipador.dispose();

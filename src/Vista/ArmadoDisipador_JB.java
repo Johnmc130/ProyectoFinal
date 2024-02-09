@@ -377,13 +377,15 @@ public class ArmadoDisipador_JB extends javax.swing.JFrame {
 
         btJdlMAtras.setBackground(new java.awt.Color(255, 255, 255));
         btJdlMAtras.setFont(new java.awt.Font("Montserrat", 1, 16)); // NOI18N
+        btJdlMAtras.setForeground(new java.awt.Color(0, 0, 0));
         btJdlMAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/JB/eliminar.png"))); // NOI18N
         btJdlMAtras.setText("Atras");
 
         btJdlMensajeElejir.setBackground(new java.awt.Color(255, 255, 255));
         btJdlMensajeElejir.setFont(new java.awt.Font("Montserrat", 1, 16)); // NOI18N
+        btJdlMensajeElejir.setForeground(new java.awt.Color(0, 0, 0));
         btJdlMensajeElejir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/JB/agregar.png"))); // NOI18N
-        btJdlMensajeElejir.setText("Elejir");
+        btJdlMensajeElejir.setText("Aceptar");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -397,7 +399,7 @@ public class ArmadoDisipador_JB extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(btJdlMAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btJdlMensajeElejir, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btJdlMensajeElejir)
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -495,7 +497,7 @@ public class ArmadoDisipador_JB extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Montserrat", 1, 22)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(37, 53, 124));
-        jLabel4.setText("Elija la base pasa sus componentes");
+        jLabel4.setText("Disipadores");
 
         jpComponentes.setBackground(new java.awt.Color(255, 255, 255));
         jpComponentes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 212, 250), 3));
@@ -522,7 +524,7 @@ public class ArmadoDisipador_JB extends javax.swing.JFrame {
             CuerpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CuerpoLayout.createSequentialGroup()
                 .addComponent(jLabel4)
-                .addGap(0, 564, Short.MAX_VALUE))
+                .addGap(0, 837, Short.MAX_VALUE))
             .addGroup(CuerpoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jpComponentes, javax.swing.GroupLayout.DEFAULT_SIZE, 950, Short.MAX_VALUE)

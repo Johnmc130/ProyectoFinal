@@ -2,6 +2,8 @@ package Controlador;
 
 import Clases.Gabinete;
 import Modelo.ModeloGabinete;
+import Modelo.ModeloPcResumen;
+import Vista.ArmadoAlmacenamiento_JB;
 import Vista.ArmadoFuenteP_JB;
 import Vista.ArmadoGabinete_JB;
 import Vista.ArmadoPlaca_JB;
@@ -68,7 +70,7 @@ public class ArmadoGabineteJB {
      * Método para cargar los componentes de las memorias RAM en la vista
      */
     private void CargarComponentes() {
-        List<Gabinete> gabine = ModeloGabinete.listaGabinete(); // Obtiene la lista de memorias RAM del modelo CAMBIAR A FUENTE ***********
+        List<Gabinete> gabine = ModeloGabinete.listaGabineteCompatible(ModeloPcResumen.cargarPlacaMadre(ArmadoProcJB.pc.getIdPlacaMadre()).getFormato()); // Obtiene la lista de memorias RAM del modelo CAMBIAR A FUENTE ***********
 
         // Asegura que la carga y manipulación de los componentes Swing se realice en el hilo de eventos de Swing
         SwingUtilities.invokeLater(() -> {
@@ -94,16 +96,15 @@ public class ArmadoGabineteJB {
             contentGbc.fill = GridBagConstraints.BOTH; // Relleno en ambas direcciones
 
             // Recorre la lista de memorias RAM y muestra cada una en la vista
-            for (Gabinete gabinetes : gabine) {
+            for (Gabinete g : gabine) {
                 // Verifica si la imagen no es nula
-                if (gabinetes.getFoto() == null) {
+                if (g.getFoto() == null) {
                     System.out.println("foto");
                 }
-                if (gabinetes.getFoto() != null) {
-                    System.out.println("aaaaaaaaaaa");
-                    System.out.println(gabinetes.toString());
+                if (g.getFoto() != null) {
+                    System.out.println(g.toString());
                     // Crea y configura los componentes para mostrar la memoria RAM
-                    ImageIcon imageIcon = new ImageIcon(gabinetes.getFoto());
+                    ImageIcon imageIcon = new ImageIcon(g.getFoto());
                     Image image = imageIcon.getImage();
                     Image scaledImage = image.getScaledInstance(180, 180, Image.SCALE_SMOOTH);
                     ImageIcon scaledIcon = new ImageIcon(scaledImage);
@@ -127,7 +128,7 @@ public class ArmadoGabineteJB {
                     panelComponentes.add(imageLabel);
 
                     // Agrega el nombre de la memoria RAM
-                    JLabel nameLabel = new JLabel(gabinetes.getMarca() + " " + gabinetes.getModelo());
+                    JLabel nameLabel = new JLabel(g.getMarca() + " " + g.getModelo());
                     nameLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
                     nameLabel.setFont(new java.awt.Font("Montserrat", 0, 18));
                     panelComponentes.add(nameLabel);
@@ -154,7 +155,7 @@ public class ArmadoGabineteJB {
                             vistaGab.getJdlgMensaje().setLocationRelativeTo(null);
                             vistaGab.getJdlgMensaje().setUndecorated(true);
                             vistaGab.getJdlgMensaje().setVisible(true);
-                            ArmadoProcJB.pc.setIdRam(gabinetes.getIdgabinete()); // ***********
+                            ArmadoProcJB.pc.setIdGabinete(g.getIdgabinete()); // ***********
                         }
 
                         @Override
@@ -176,16 +177,16 @@ public class ArmadoGabineteJB {
                         vistaGab.getJdlgDetalles().setUndecorated(true);
                         vistaGab.getJdlgDetalles().setVisible(true);
                         // Carga los detalles de la memoria RAM en la vista
-                        vistaGab.getLblMarca().setText(gabinetes.getMarca());
-                        vistaGab.getLblModelo().setText(gabinetes.getModelo());
-                        vistaGab.getLblPuertUSB().setText(gabinetes.getPuertousb());
-                        vistaGab.getLblNumVentil().setText(gabinetes.getVentiladores());
-                        vistaGab.getLblFormato().setText(gabinetes.getFormato());
-                        vistaGab.getLblBahias().setText(gabinetes.getBahias());
-                        vistaGab.getLblStock().setText(String.valueOf(gabinetes.getStock()));
+                        vistaGab.getLblMarca().setText(g.getMarca());
+                        vistaGab.getLblModelo().setText(g.getModelo());
+                        vistaGab.getLblPuertUSB().setText(g.getPuertousb());
+                        vistaGab.getLblNumVentil().setText(g.getVentiladores());
+                        vistaGab.getLblFormato().setText(g.getFuentepoder());
+                        vistaGab.getLblBahias().setText(g.getBahias());
+                        vistaGab.getLblStock().setText(String.valueOf(g.getStock()));
                         // Formatea el precio y lo muestra en la vista
                         DecimalFormat formatoPrecio = new DecimalFormat("#.##");
-                        vistaGab.getLblPrecio().setText(formatoPrecio.format(gabinetes.getPrecio()));
+                        vistaGab.getLblPrecio().setText(formatoPrecio.format(g.getPrecio()));
                         vistaGab.getJdlgDetalles().setVisible(true);
                     });
 
@@ -255,6 +256,8 @@ public class ArmadoGabineteJB {
         vistaGab.getJdlgMensaje().dispose();
         vistaGab.setEnabled(true);
         ArmadoFuenteP_JB vista = new ArmadoFuenteP_JB();
+        ArmadoFuentePJB controlador = new ArmadoFuentePJB(vista);
+        controlador.Inicio();
         vistaGab.setVisible(false);
         vistaGab.dispose();
     }
@@ -275,8 +278,8 @@ public class ArmadoGabineteJB {
      * Método para retroceder a la vista de armado de placas
      */
     public void atras() {
-        ArmadoPlaca_JB vista = new ArmadoPlaca_JB();
-        ArmadoPlacaJB controlador = new ArmadoPlacaJB(vista);
+        ArmadoAlmacenamiento_JB vista = new ArmadoAlmacenamiento_JB();
+        ArmadoAlmacenamientoJB controlador = new ArmadoAlmacenamientoJB(vista);
         controlador.Inicio();
         vistaGab.setVisible(false);
         vistaGab.dispose();

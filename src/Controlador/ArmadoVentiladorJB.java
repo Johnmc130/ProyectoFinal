@@ -1,16 +1,12 @@
 // Importaciones de clases necesarias
 package Controlador;
 
-import Clases.Placamadre;
 import Clases.Ventiladores;
-import Modelo.ModeloPlacaMadre;
+import Modelo.ModeloPcResumen;
 import Modelo.ModeloVentiladores;
 import Vista.ArmadoDisipador_JB;
+import Vista.ArmadoFuenteP_JB;
 import Vista.ArmadoGabinete_JB;
-import Vista.ArmadoPlaca_JB;
-import Vista.ArmadoProc_JB;
-import Vista.ArmadoRam_JB;
-import Vista.ArmadoTarjetaV_JB;
 import Vista.ArmadoVentiladores_JB;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -56,17 +52,14 @@ public class ArmadoVentiladorJB {
         // Asignar acciones a los botones de la vista
         vistaVentilador.getBtJdlDetalleAceptar().addActionListener(l -> AceptarDlg());
         vistaVentilador.getBtJdlMensajeElejir().addActionListener(l -> ConDicipadorDlg());
-        vistaVentilador.getBtJdlSin().addActionListener(l -> SinDicipadorDlg());
         vistaVentilador.getBtJdlMAtras().addActionListener(l -> AtrasDlgMensaje());
         vistaVentilador.getBtAtras().addActionListener(l -> atras());
-        vistaVentilador.getBtJdlFinalAceptar().addActionListener(l -> resumenFinal());
-        vistaVentilador.getBtJdlFAtras().addActionListener(l -> atrasFinal());
         Ventana(); // Configurar la apariencia de la ventana
     }
 
     // Método para cargar los componentes en la vista
     private void CargarComponentes() {
-        List<Ventiladores> ventiladores = ModeloVentiladores.listaTodasventiladores(); // Obtener la lista de placas base desde el modelo
+        List<Ventiladores> ventiladores = ModeloVentiladores.listaTodasventiladoresCompatibles(ModeloPcResumen.cargarGabinete(ArmadoProcJB.pc.getIdGabinete()).getTamanoventilador()); // Obtener la lista de placas base desde el modelo
 
         // Asegurarse de que la creación y manipulación de los componentes Swing se realice en el hilo de eventos de Swing
         SwingUtilities.invokeLater(() -> {
@@ -248,31 +241,6 @@ public class ArmadoVentiladorJB {
         vistaVentilador.setVisible(true);
     }
 
-    // Método para mostrar la siguiente vista al hacer clic en "Siguiente" sin seleccionar tarjeta de video
-    public void SinDicipadorDlg() {
-        vistaVentilador.getJdlgMensaje().setVisible(false);
-        vistaVentilador.getJdlgMensaje().dispose();
-        vistaVentilador.getJdlgMensajeFinal().setLocationRelativeTo(null); // Centrar el diálogo de mensaje en la pantalla
-        vistaVentilador.getJdlgMensajeFinal().setUndecorated(true); // Eliminar la decoración del diálogo de mensaje
-        vistaVentilador.getJdlgMensajeFinal().setSize(613, 377);
-        vistaVentilador.getJdlgMensajeFinal().setVisible(true);
-
-
-    }
-
-    public void resumenFinal() {
-
-    }
-
-    public void atrasFinal() {
-        vistaVentilador.getJdlgMensajeFinal().setVisible(false);
-        vistaVentilador.getJdlgMensajeFinal().dispose();
-        vistaVentilador.getJdlgMensaje().setSize(613, 377); // Establecer el tamaño del diálogo de mensaje
-        vistaVentilador.getJdlgMensaje().setLocationRelativeTo(null); // Centrar el diálogo de mensaje en la pantalla
-        vistaVentilador.getJdlgMensaje().setUndecorated(true); // Eliminar la decoración del diálogo de mensaje
-        vistaVentilador.getJdlgMensaje().setVisible(true); // Mostrar el diálogo de mensaje
-    }
-
     // Método para mostrar la siguiente vista al hacer clic en "Siguiente"
     public void ConDicipadorDlg() {
         vistaVentilador.getJdlgMensaje().setVisible(false);
@@ -297,8 +265,8 @@ public class ArmadoVentiladorJB {
 
     // Método para regresar a la vista de selección anterior
     public void atras() {
-        ArmadoGabinete_JB vista = new ArmadoGabinete_JB();
-        ArmadoGabineteJB controlador = new ArmadoGabineteJB(vista);
+        ArmadoFuenteP_JB vista = new ArmadoFuenteP_JB();
+        ArmadoFuentePJB controlador = new ArmadoFuentePJB(vista);
         controlador.Inicio();
         vistaVentilador.setVisible(false);
         vistaVentilador.dispose();

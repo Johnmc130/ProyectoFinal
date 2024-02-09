@@ -59,6 +59,55 @@ public class ModeloGabinete extends Gabinete {
         }
 
     }
+    
+    public static List<Gabinete> listaGabineteCompatible(String formato) {
+        Conexion conectar = new Conexion();
+        List<Gabinete> listaGabinetes = new ArrayList<>();
+        String sql;
+        Gabinete gabinete=null;
+        sql = "SELECT idgabinete, marca, modelo, puertousb, ventiladores, tamanoventiladores,fuentedepoder,tamanomaxiodevideo,"
+                + "placamadre,bahias, precio,stock,proveedor,foto FROM gabinete "
+                + "WHERE placamadre = ?";
+
+        try {
+            // Se prepara la sentencia SQL con el PreparedStatement para evitar inyección de SQL
+            PreparedStatement pstmt = conectar.getConexion().prepareStatement(sql);
+            // Se establece el valor del parámetro socket en la consulta SQL
+            pstmt.setString(1, formato);
+            // Se ejecuta la consulta y se obtiene un ResultSet con los resultados
+            ResultSet rs = pstmt.executeQuery();
+            // Se recorre el ResultSet para obtener cada fila de datos
+            while (rs.next()) {
+                gabinete = new Gabinete();
+                gabinete.setIdgabinete(rs.getInt("idgabinete"));
+                gabinete.setMarca(rs.getString("marca"));
+                gabinete.setModelo(rs.getString("modelo"));
+                gabinete.setPuertousb(rs.getString("puertousb"));
+                gabinete.setVentiladores(rs.getString("ventiladores"));
+                gabinete.setTamanoventilador(rs.getInt("tamanoventiladores"));
+                gabinete.setFuentepoder(rs.getString("fuentedepoder"));
+                gabinete.setTamanomaxvideo(rs.getInt("tamanomaxiodevideo"));
+                gabinete.setPlacamadre(rs.getString("placamadre"));
+                gabinete.setBahias(rs.getString("bahias"));
+                gabinete.setPrecio(rs.getDouble("precio"));
+                gabinete.setStock(rs.getInt("Stock"));
+                gabinete.setProveedor(rs.getInt("proveedor"));
+                gabinete.setFoto(rs.getBytes("foto"));
+
+                listaGabinetes.add(gabinete);
+
+            }
+            rs.close();
+            return listaGabinetes;
+
+        } catch (SQLException ex) {
+
+            System.out.println("problemas en el listado");
+            Logger.getLogger(ModeloPlacaMadre.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+
+    }
 
     public boolean grabarGabinete() {
         String sql = "INSERT INTO gabinete (idgabinete, marca, modelo, puertousb, ventiladores, tamanoventiladores, fuentedepoder, tamanomaxiodevideo, placamadre, bahias, precio, stock, proveedor, foto)"

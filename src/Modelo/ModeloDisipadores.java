@@ -45,8 +45,49 @@ public class ModeloDisipadores extends Disipadores {
 
                 midisipadores.setPrecio(rs.getDouble("precio"));
                 midisipadores.setStock(rs.getInt("Stock"));
-                                midisipadores.setFoto(rs.getBytes("foto"));
+                midisipadores.setFoto(rs.getBytes("foto"));
 
+                listaDisipadores.add(midisipadores);
+
+            }
+            rs.close();
+            return listaDisipadores;
+
+        } catch (SQLException ex) {
+
+            System.out.println("problemas en el listado");
+            Logger.getLogger(ModeloDisipadores.class.getName()).log(Level.SEVERE, null, ex);
+            return null;//CUANDO REGRESA NULL, HUBO ERROR EN EL QUERY
+        }
+
+    }
+
+    public static List<Disipadores> listaTodasDisipadoresCompatibles(String Socket) {
+        Conexion conectar = new Conexion();
+        List<Disipadores> listaDisipadores = new ArrayList<Disipadores>();
+        String sql;
+        sql = "SELECT iddisipadores,marca,modelo,socket,rgb,ventiladores,precio,stock, foto "
+                + "FROM disipadores "
+                + "WHERE socket = ?";
+        try {
+            // Se prepara la sentencia SQL con el PreparedStatement para evitar inyección de SQL
+            PreparedStatement pstmt = conectar.getConexion().prepareStatement(sql);
+            // Se establece el valor del parámetro socket en la consulta SQL
+            pstmt.setString(1, Socket);
+            // Se ejecuta la consulta y se obtiene un ResultSet con los resultados
+            ResultSet rs = pstmt.executeQuery();
+            // Se recorre el ResultSet para obtener cada fila de datos
+            while (rs.next()) {
+                Disipadores midisipadores = new Disipadores();
+                midisipadores.setIdDisipadores(rs.getInt("iddisipadores"));
+                midisipadores.setMarca(rs.getString("marca"));
+                midisipadores.setModelo(rs.getString("modelo"));
+                midisipadores.setSocket(rs.getString("socket"));
+                midisipadores.setRGB(rs.getString("rgb"));
+                midisipadores.setVentiladores(rs.getInt("ventiladores"));
+                midisipadores.setPrecio(rs.getDouble("precio"));
+                midisipadores.setStock(rs.getInt("Stock"));
+                midisipadores.setFoto(rs.getBytes("foto"));
 
                 listaDisipadores.add(midisipadores);
 
@@ -67,7 +108,7 @@ public class ModeloDisipadores extends Disipadores {
 
         String sql;//"INSERT INTO TABLA () VALUES()"
         sql = "INSERT INTO disipadores (marca, modelo, socket, rgb,ventiladores, precio, stock, foto) "
-                + "VALUES('" + getMarca() + "','" + getModelo() + "','" + getSocket() + "','" + getRGB() + "','" + getVentiladores() + "','" + getPrecio() +  "','" + getStock() + "','" + getFoto() + "')";
+                + "VALUES('" + getMarca() + "','" + getModelo() + "','" + getSocket() + "','" + getRGB() + "','" + getVentiladores() + "','" + getPrecio() + "','" + getStock() + "','" + getFoto() + "')";
 
         return conectar.ejecutaConsulta(sql);
     }
@@ -107,5 +148,4 @@ public class ModeloDisipadores extends Disipadores {
 //
 //        return codigosProveedor;
 //    }
-
 }

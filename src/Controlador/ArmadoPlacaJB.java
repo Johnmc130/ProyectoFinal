@@ -52,7 +52,7 @@ public class ArmadoPlacaJB {
         // Asignar acciones a los botones de la vista
         vistaPlaca.getBtJdlDetalleAceptar().addActionListener(l -> AceptarDlg());
         vistaPlaca.getBtJdlMensajeElejir().addActionListener(l -> ConTarjetaDlg());
-        vistaPlaca.getBtJdlSin().addActionListener(l -> SinTarjetaDlg());
+        //vistaPlaca.getBtJdlSin().addActionListener(l -> SinTarjetaDlg());
         vistaPlaca.getBtJdlMAtras().addActionListener(l -> AtrasDlgMensaje());
         vistaPlaca.getBtAtras().addActionListener(l->atras());
         Ventana(); // Configurar la apariencia de la ventana

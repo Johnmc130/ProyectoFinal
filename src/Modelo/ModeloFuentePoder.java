@@ -30,7 +30,7 @@ public class ModeloFuentePoder extends FuentePoder {
         Conexion conectar = new Conexion();
         List<FuentePoder> listaFuentePoder = new ArrayList<FuentePoder>();
         String sql;
- sql = " SELECT idfuentepoder, marca, modelo, certificacion, modular, formato, precio, stock, watts, foto FROM fuente_poder";
+        sql = " SELECT idfuentepoder, marca, modelo, certificacion, modular, formato, precio, stock, watts, foto FROM fuente_poder";
         ResultSet rs = conectar.consultaBase(sql);
         try {
             while (rs.next()) {
@@ -41,14 +41,58 @@ public class ModeloFuentePoder extends FuentePoder {
                 miFuentePoder.setCertificacion(rs.getString("certificacion"));
                 miFuentePoder.setModular(rs.getString("modular"));
                 miFuentePoder.setFormato(rs.getString("formato"));
-                                miFuentePoder.setPrecio(rs.getDouble("precio"));
+                miFuentePoder.setPrecio(rs.getDouble("precio"));
 
                 miFuentePoder.setStock(rs.getInt("stock"));
-                                miFuentePoder.setFoto(rs.getBytes("foto"));
-
+                miFuentePoder.setFoto(rs.getBytes("foto"));
 
                 miFuentePoder.setWatts(rs.getString("watts"));
 
+                listaFuentePoder.add(miFuentePoder);
+
+            }
+            rs.close();
+            return listaFuentePoder;
+
+        } catch (SQLException ex) {
+
+            System.out.println("problemas en el listado");
+            Logger.getLogger(ModeloFuentePoder.class.getName()).log(Level.SEVERE, null, ex);
+            return null;//CUANDO REGRESA NULL, HUBO ERROR EN EL QUERY
+        }
+
+    }
+
+    public static List<FuentePoder> listaTodasFuentePoderCompatibles(String formato) {
+        Conexion conectar = new Conexion();
+        List<FuentePoder> listaFuentePoder = new ArrayList<FuentePoder>();
+        String sql;
+        sql = " SELECT idfuentepoder, marca, modelo, certificacion, modular, formato, precio, stock, watts, foto "
+                + "FROM fuente_poder"
+                + " WHERE formato = ?";
+
+        try {
+            // Se prepara la sentencia SQL con el PreparedStatement para evitar inyección de SQL
+            PreparedStatement pstmt = conectar.getConexion().prepareStatement(sql);
+            // Se establece el valor del parámetro socket en la consulta SQL
+            pstmt.setString(1, formato);
+            // Se ejecuta la consulta y se obtiene un ResultSet con los resultados
+            ResultSet rs = pstmt.executeQuery();
+            // Se recorre el ResultSet para obtener cada fila de datos
+            while (rs.next()) {
+                FuentePoder miFuentePoder = new FuentePoder();
+                miFuentePoder.setIdFuentePoder(rs.getInt("idfuentepoder"));
+                miFuentePoder.setMarca(rs.getString("marca"));
+                miFuentePoder.setModelo(rs.getString("modelo"));
+                miFuentePoder.setCertificacion(rs.getString("certificacion"));
+                miFuentePoder.setModular(rs.getString("modular"));
+                miFuentePoder.setFormato(rs.getString("formato"));
+                miFuentePoder.setPrecio(rs.getDouble("precio"));
+
+                miFuentePoder.setStock(rs.getInt("stock"));
+                miFuentePoder.setFoto(rs.getBytes("foto"));
+
+                miFuentePoder.setWatts(rs.getString("watts"));
 
                 listaFuentePoder.add(miFuentePoder);
 
@@ -109,5 +153,4 @@ public class ModeloFuentePoder extends FuentePoder {
 //
 //        return codigosProveedor;
 //    }
-
 }

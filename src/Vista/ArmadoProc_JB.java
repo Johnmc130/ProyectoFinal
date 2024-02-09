@@ -110,7 +110,6 @@ public class ArmadoProc_JB extends javax.swing.JFrame {
         jLabel40 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         lblTitulo2 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         Encabezado = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         btAtras = new javax.swing.JToggleButton();
@@ -409,8 +408,6 @@ public class ArmadoProc_JB extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel11.setText("jLabel11");
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         Encabezado.setBackground(new java.awt.Color(255, 255, 255));
@@ -518,7 +515,6 @@ public class ArmadoProc_JB extends javax.swing.JFrame {
     private javax.swing.JButton btJdlAtras;
     private javax.swing.JButton btJdlDetalleAceptar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;

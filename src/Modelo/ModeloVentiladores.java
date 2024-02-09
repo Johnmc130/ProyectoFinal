@@ -61,6 +61,49 @@ public class ModeloVentiladores extends Ventiladores {
 
     }
 
+    public static List<Ventiladores> listaTodasventiladoresCompatibles(int tamano) {
+        Conexion conectar = new Conexion();
+        List<Ventiladores> listaVentiladores = new ArrayList<Ventiladores>();
+        String sql;
+        sql = "SELECT idventiladores,marca,modelo,rgb,tamaño,precio,Stock, foto "
+                + "FROM ventiladores "
+                + "WHERE tamaño = ?";
+        try {
+            // Se prepara la sentencia SQL con el PreparedStatement para evitar inyección de SQL
+            PreparedStatement pstmt = conectar.getConexion().prepareStatement(sql);
+            // Se establece el valor del parámetro socket en la consulta SQL
+            pstmt.setInt(1, tamano);
+            // Se ejecuta la consulta y se obtiene un ResultSet con los resultados
+            ResultSet rs = pstmt.executeQuery();
+            // Se recorre el ResultSet para obtener cada fila de datos
+            while (rs.next()) {
+                Ventiladores miventiladores = new Ventiladores();
+                miventiladores.setIdVentiladores(rs.getInt("idventiladores"));
+
+                miventiladores.setMarca(rs.getString("marca"));
+                miventiladores.setModelo(rs.getString("modelo"));
+                miventiladores.setRGB(rs.getString("rgb"));
+                miventiladores.setTamaño(rs.getInt("tamaño"));
+                miventiladores.setPrecio(rs.getDouble("precio"));
+                miventiladores.setStock(rs.getInt("Stock"));
+                miventiladores.setFoto(rs.getBytes("foto"));
+
+
+                listaVentiladores.add(miventiladores);
+
+            }
+            rs.close();
+            return listaVentiladores;
+
+        } catch (SQLException ex) {
+
+            System.out.println("problemas en el listado");
+            Logger.getLogger(ModeloVentiladores.class.getName()).log(Level.SEVERE, null, ex);
+            return null;//CUANDO REGRESA NULL, HUBO ERROR EN EL QUERY
+        }
+
+    }
+    
     public SQLException grabarventiladores() {
 
         String sql;//"INSERT INTO TABLA () VALUES()"

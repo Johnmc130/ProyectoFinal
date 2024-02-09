@@ -3,9 +3,9 @@ package Controlador;
 import Clases.memoriaRam;
 import Modelo.ModeloMemoriaRam;
 import Modelo.ModeloPcResumen;
-import Vista.ArmadoFuenteP_JB;
-import Vista.ArmadoPlaca_JB;
+import Vista.ArmadoAlmacenamiento_JB;
 import Vista.ArmadoRam_JB;
+import Vista.ArmadoTarjetaV_JB;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -68,6 +68,7 @@ public class ArmadoRamJB {
      * Método para cargar los componentes de las memorias RAM en la vista
      */
     private void CargarComponentes() {
+        System.out.println(ArmadoProcJB.pc.getIdPlacaMadre());
         List<memoriaRam> rams = ModeloMemoriaRam.listaRAMCompartible(ModeloPcResumen.cargarPlacaMadre(ArmadoProcJB.pc.getIdPlacaMadre()).getTiposram()); // Obtiene la lista de memorias RAM del modelo
 
         // Asegura que la carga y manipulación de los componentes Swing se realice en el hilo de eventos de Swing
@@ -252,7 +253,9 @@ public class ArmadoRamJB {
         vistaRam.getJdlgMensaje().setVisible(false);
         vistaRam.getJdlgMensaje().dispose();
         vistaRam.setEnabled(true);
-        ArmadoFuenteP_JB vista = new ArmadoFuenteP_JB();
+        ArmadoAlmacenamiento_JB vista = new ArmadoAlmacenamiento_JB();
+        ArmadoAlmacenamientoJB controlador = new ArmadoAlmacenamientoJB(vista);
+        controlador.Inicio();
         vistaRam.setVisible(false);
         vistaRam.dispose();
     }
@@ -272,9 +275,10 @@ public class ArmadoRamJB {
     /**
      * Método para retroceder a la vista de armado de placas
      */
+    
     public void atras() {
-        ArmadoPlaca_JB vista = new ArmadoPlaca_JB();
-        ArmadoPlacaJB controlador = new ArmadoPlacaJB(vista);
+        ArmadoTarjetaV_JB vista = new ArmadoTarjetaV_JB();
+        ArmadoTarjetaVJB controlador = new ArmadoTarjetaVJB(vista);
         controlador.Inicio();
         vistaRam.setVisible(false);
         vistaRam.dispose();

@@ -12,6 +12,8 @@ import java.util.ArrayList;
  */
 
 public class PC {
+    
+    private int id;
     private int idProcesador = 0;
     private int idPlacaMadre = 0;
     private int idTarjetaGrafica = 0;
@@ -25,7 +27,8 @@ public class PC {
     public PC() {
     }
     
-    public PC(int idProcesador, int idPlacaMadre, int idTarjetaGrafica, int idRam, int idFuentePoder, int idAlmacenamiento, int idGabinete, int idVentiladores, int idDisipador) {
+    public PC(int id,int idProcesador, int idPlacaMadre, int idTarjetaGrafica, int idRam, int idFuentePoder, int idAlmacenamiento, int idGabinete, int idVentiladores, int idDisipador) {
+        this.id = id;
         this.idProcesador = idProcesador;
         this.idPlacaMadre = idPlacaMadre;
         this.idTarjetaGrafica = idTarjetaGrafica;
@@ -35,6 +38,14 @@ public class PC {
         this.idGabinete = idGabinete;
         this.idVentiladores = idVentiladores;
         this.idDisipador = idDisipador;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getIdProcesador() {
@@ -111,7 +122,9 @@ public class PC {
 
     @Override
     public String toString() {
-        return "PC{" + "idProcesador=" + idProcesador + ", idPlacaMadre=" + idPlacaMadre + ", idTarjetaGrafica=" + idTarjetaGrafica + ", idRam=" + idRam + ", idFuentePoder=" + idFuentePoder + ", idAlmacenamiento=" + idAlmacenamiento + ", idGabinete=" + idGabinete + ", idVentiladores=" + idVentiladores + ", idDisipador=" + idDisipador + '}';
+        return "PC{" + "id=" + id + ", idProcesador=" + idProcesador + ", idPlacaMadre=" + idPlacaMadre + ", idTarjetaGrafica=" + idTarjetaGrafica + ", idRam=" + idRam + ", idFuentePoder=" + idFuentePoder + ", idAlmacenamiento=" + idAlmacenamiento + ", idGabinete=" + idGabinete + ", idVentiladores=" + idVentiladores + ", idDisipador=" + idDisipador + '}';
     }
+
+  
 
 }

@@ -29,9 +29,8 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 /**
- * Controlador para la vista de armado de procesadores. Esta clase se encarga de
- * cargar los procesadores disponibles y manejar las interacciones del usuario.
- *
+ * Controlador para la vista de armado de procesadores.
+ * Esta clase se encarga de cargar los procesadores disponibles y manejar las interacciones del usuario.
  * @author TheBigG
  */
 public class ArmadoProcJB {
@@ -41,7 +40,6 @@ public class ArmadoProcJB {
 
     /**
      * Constructor de la clase ArmadoProcJB.
-     *
      * @param vista Referencia a la vista de armado de procesadores
      */
     public ArmadoProcJB(ArmadoProc_JB vista) {
@@ -67,7 +65,7 @@ public class ArmadoProcJB {
      */
     private void CargarComponentes() {
         // Obtiene la lista de procesadores disponibles desde el modelo
-        List<Procesador> procesadores = ModeloProcesador.cargaProcesadores();
+        List<Procesador> procesadores = ModeloProcesador.listaProcesador();
 
         // Asegura que la creación y manipulación de componentes Swing se realice en el hilo de eventos de Swing
         SwingUtilities.invokeLater(() -> {
@@ -253,8 +251,7 @@ public class ArmadoProcJB {
     }
 
     /**
-     * Método para manejar el evento de retroceder en la selección del
-     * procesador.
+     * Método para manejar el evento de retroceder en la selección del procesador.
      */
     public void AtrasDlgMensaje() {
         vista.getJdlgMensaje().setVisible(false); // Oculta la ventana de mensaje

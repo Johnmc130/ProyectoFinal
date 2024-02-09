@@ -43,10 +43,6 @@ public class ArmadoVentiladores_JB extends javax.swing.JFrame {
         return btJdlMensajeElejir;
     }
 
-    public JButton getBtJdlSin() {
-        return btJdlSin;
-    }
-
     public JDialog getJdlgMensaje() {
         return jdlgMensaje;
     }
@@ -125,7 +121,6 @@ public class ArmadoVentiladores_JB extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btJdlMAtras = new javax.swing.JButton();
         btJdlMensajeElejir = new javax.swing.JButton();
-        btJdlSin = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         lblTitulo1 = new javax.swing.JLabel();
         jdlgMensajeFinal = new javax.swing.JDialog();
@@ -384,12 +379,6 @@ public class ArmadoVentiladores_JB extends javax.swing.JFrame {
         btJdlMensajeElejir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/JB/agregar.png"))); // NOI18N
         btJdlMensajeElejir.setText("Elejir");
 
-        btJdlSin.setBackground(new java.awt.Color(255, 255, 255));
-        btJdlSin.setFont(new java.awt.Font("Montserrat", 1, 16)); // NOI18N
-        btJdlSin.setForeground(new java.awt.Color(0, 0, 0));
-        btJdlSin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/JB/eliminar.png"))); // NOI18N
-        btJdlSin.setText("No elejir");
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -402,8 +391,6 @@ public class ArmadoVentiladores_JB extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(btJdlMAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btJdlSin)
-                .addGap(18, 18, 18)
                 .addComponent(btJdlMensajeElejir, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -415,8 +402,7 @@ public class ArmadoVentiladores_JB extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btJdlMAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btJdlMensajeElejir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btJdlSin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btJdlMensajeElejir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -669,7 +655,6 @@ public class ArmadoVentiladores_JB extends javax.swing.JFrame {
     private javax.swing.JButton btJdlFinalAceptar;
     private javax.swing.JButton btJdlMAtras;
     private javax.swing.JButton btJdlMensajeElejir;
-    private javax.swing.JButton btJdlSin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

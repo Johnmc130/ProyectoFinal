@@ -67,7 +67,7 @@ public class CargarImagenBase {
     }
 
     private static void updateImageInDatabase(Connection connection, int idProcesador, byte[] imageData) throws SQLException {
-        String sql = "UPDATE placamadre SET imagen = ? WHERE id = ?";
+        String sql = "UPDATE disipadores SET foto = ? WHERE iddisipadores = ?";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setBytes(1, imageData);

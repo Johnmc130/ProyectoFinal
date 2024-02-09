@@ -89,6 +89,7 @@ public class ModeloMemoriaRam extends memoriaRam{
                 miram.setPrecio(rs.getDouble("precio"));
                 miram.setNumeroModulos(rs.getInt("numeromodulos"));
                 miram.setStock(rs.getInt("Stock"));
+                //miram.setId_proveedor(rs.getInt("id_proveedor"));
                 miram.setFoto(rs.getBytes("foto"));
 
                 // Se agrega el objeto Placamadre a la lista de placas base compatibles

@@ -135,9 +135,9 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="lblMarca" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
                                               <Component id="lblModelo" alignment="0" min="-2" pref="237" max="-2" attributes="0"/>
-                                              <Component id="lblFormato" alignment="0" min="-2" pref="184" max="-2" attributes="0"/>
                                               <Component id="lblNumVentil" alignment="0" min="-2" pref="193" max="-2" attributes="0"/>
                                               <Component id="lblPuertUSB" alignment="0" min="-2" pref="152" max="-2" attributes="0"/>
+                                              <Component id="lblFormato" alignment="0" min="-2" pref="199" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
@@ -767,7 +767,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="564" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="863" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
@@ -796,7 +796,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="7c" green="35" red="25" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Elija la base pasa sus componentes"/>
+            <Property name="text" type="java.lang.String" value="Gabinetes:"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JPanel" name="jpComponentes">

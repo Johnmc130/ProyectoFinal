@@ -2,8 +2,11 @@ package Controlador;
 
 import Clases.FuentePoder;
 import Modelo.ModeloFuentePoder;
+import Modelo.ModeloPcResumen;
 import Vista.ArmadoFuenteP_JB;
+import Vista.ArmadoGabinete_JB;
 import Vista.ArmadoPlaca_JB;
+import Vista.ArmadoVentiladores_JB;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -67,7 +70,7 @@ public class ArmadoFuentePJB {
      * Método para cargar los componentes de las memorias RAM en la vista
      */
     private void CargarComponentes() {
-        List<FuentePoder> fuentes = ModeloFuentePoder.listaTodasFuentePoder(); // Obtiene la lista de memorias RAM del modelo CAMBIAR A FUENTE ***********
+        List<FuentePoder> fuentes = ModeloFuentePoder.listaTodasFuentePoderCompatibles(ModeloPcResumen.cargarGabinete(ArmadoProcJB.pc.getIdGabinete()).getFuentepoder()); // Obtiene la lista de memorias RAM del modelo CAMBIAR A FUENTE ***********
 
         // Asegura que la carga y manipulación de los componentes Swing se realice en el hilo de eventos de Swing
         SwingUtilities.invokeLater(() -> {
@@ -170,7 +173,7 @@ public class ArmadoFuentePJB {
                     // Maneja el evento de clic en el botón de detalles
                     detalles.addActionListener((ActionEvent e) -> {
                         vistaFuente.setEnabled(false);
-                        vistaFuente.getJdlgDetalles().setSize(731, 502);
+                        vistaFuente.getJdlgDetalles().setSize(806, 539);
                         vistaFuente.getJdlgDetalles().setLocationRelativeTo(null);
                         vistaFuente.getJdlgDetalles().setUndecorated(true);
                         vistaFuente.getJdlgDetalles().setVisible(true);
@@ -254,7 +257,9 @@ public class ArmadoFuentePJB {
         vistaFuente.getJdlgMensaje().setVisible(false);
         vistaFuente.getJdlgMensaje().dispose();
         vistaFuente.setEnabled(true);
-        ArmadoFuenteP_JB vista = new ArmadoFuenteP_JB();
+        ArmadoVentiladores_JB vista = new ArmadoVentiladores_JB();
+        ArmadoVentiladorJB controlador = new ArmadoVentiladorJB(vista);
+        controlador.Inicio();
         vistaFuente.setVisible(false);
         vistaFuente.dispose();
     }
@@ -275,8 +280,8 @@ public class ArmadoFuentePJB {
      * Método para retroceder a la vista de armado de placas
      */
     public void atras() {
-        ArmadoPlaca_JB vista = new ArmadoPlaca_JB();
-        ArmadoPlacaJB controlador = new ArmadoPlacaJB(vista);
+        ArmadoGabinete_JB vista = new ArmadoGabinete_JB();
+        ArmadoGabineteJB controlador = new ArmadoGabineteJB(vista);
         controlador.Inicio();
         vistaFuente.setVisible(false);
         vistaFuente.dispose();

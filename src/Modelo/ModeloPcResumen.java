@@ -25,7 +25,8 @@ public class ModeloPcResumen {
         conexion = new Conexion();
     }
 
-    public PC cargarPc(int id) {
+    public static PC cargarPc(int id) {
+          Conexion conexion = new Conexion();
         PC pc = null;
         try {
             // Construye la consulta SQL para obtener los datos de la cotización según el id
@@ -37,6 +38,7 @@ public class ModeloPcResumen {
             // Verifica si hay resultados y lee los datos
             if (resultado.next()) {
                 // Lee los valores de las columnas de la fila actual
+                int idPc = resultado.getInt("id");
                 int idProcesador = resultado.getInt("id_procesador");
                 int idPlacaMadre = resultado.getInt("id_placa_madre");
                 int idTarjetaGrafica = resultado.getInt("id_tarjeta_grafica");
@@ -48,7 +50,7 @@ public class ModeloPcResumen {
                 int idVentiladores = resultado.getInt("id_ventilador");
 
                 // Crea una instancia de PC con los valores leídos
-                pc = new PC(idProcesador, idPlacaMadre, idTarjetaGrafica, idRam,
+                pc = new PC(idPc, idProcesador, idPlacaMadre, idTarjetaGrafica, idRam,
                         idFuentePoder, idAlmacenamiento, idGabinete, idVentiladores, idDisipador);
             }
         } catch (SQLException ex) {
@@ -65,20 +67,21 @@ public class ModeloPcResumen {
         Conexion conexion = new Conexion();
         Procesador procesador = null;
         try {
-            String consulta = "SELECT * FROM procesador WHERE id_procesador = " + id;
+            String consulta = "SELECT * FROM procesador WHERE idprocesador = " + id;
             ResultSet resultado = conexion.consultaBase(consulta);
             if (resultado.next()) {
                 procesador = new Procesador();
-                procesador.setIdProcesador(resultado.getInt("id_procesador"));
+                procesador.setIdProcesador(resultado.getInt("idprocesador"));
                 procesador.setMarca(resultado.getString("marca"));
                 procesador.setModelo(resultado.getString("modelo"));
-                procesador.setNucleosFisicos(resultado.getInt("nucleos_fisicos"));
+                procesador.setNucleosFisicos(resultado.getInt("nucleosfisicos"));
                 procesador.setGhz(resultado.getDouble("ghz"));
                 procesador.setSocket(resultado.getString("socket"));
-                procesador.setMaximoVram(resultado.getInt("maximo_vram"));
+                procesador.setMaximoVram(resultado.getInt("maximoram"));
                 procesador.setWatts(resultado.getInt("watts"));
                 procesador.setPrecio(resultado.getDouble("precio"));
-                procesador.setIdProveedor(resultado.getInt("id_proveedor"));
+                procesador.setIdProveedor(resultado.getInt("proveedor"));
+                procesador.setImagen(resultado.getBytes("imagen"));
                 procesador.setStock(resultado.getInt("stock"));
             }
         } catch (SQLException ex) {
@@ -97,29 +100,30 @@ public class ModeloPcResumen {
             String consulta = "SELECT * FROM placamadre WHERE idplacamadre = " + id;
             ResultSet rs = conexion.consultaBase(consulta);
             if (rs.next()) {
-                Placamadre miplaca = new Placamadre();
-                miplaca.setIdplacam(rs.getInt("idplacamadre"));
-                miplaca.setMarca(rs.getString("marca"));
-                miplaca.setModelo(rs.getString("modelo"));
-                miplaca.setPuertosalmacenamiento(rs.getString("puertosdealmacenamiento"));
-                miplaca.setPuertosusb(rs.getString("puertousb"));
-                miplaca.setSocket(rs.getString("socket"));
-                miplaca.setTiposram(rs.getString("tiporam"));
-                miplaca.setMaximoram(rs.getInt("maximoram"));
-                miplaca.setRanuraexpansion(rs.getString("ranurasexpansion"));
-                miplaca.setFormato(rs.getString("formato"));
-                miplaca.setWatts(rs.getInt("watts"));
-                miplaca.setPrecio(rs.getDouble("precio"));
-                miplaca.setStock(rs.getInt("Stock"));
-                miplaca.setProveedor(rs.getInt("proveedor"));
-                miplaca.setFoto(rs.getBytes("foto"));
-
+                placaMadre = new Placamadre();
+                placaMadre.setIdplacam(rs.getInt("idplacamadre"));
+                placaMadre.setMarca(rs.getString("marca"));
+                placaMadre.setModelo(rs.getString("modelo"));
+                placaMadre.setPuertosalmacenamiento(rs.getString("puertosdealmacenamiento"));
+                placaMadre.setPuertosusb(rs.getString("puertousb"));
+                placaMadre.setSocket(rs.getString("socket"));
+                placaMadre.setTiposram(rs.getString("tiporam"));
+                placaMadre.setMaximoram(rs.getInt("maximoram"));
+                placaMadre.setRanuraexpansion(rs.getString("ranurasexpansion"));
+                placaMadre.setFormato(rs.getString("formato"));
+                placaMadre.setWatts(rs.getInt("watts"));
+                placaMadre.setPrecio(rs.getDouble("precio"));
+                placaMadre.setStock(rs.getInt("Stock"));
+                placaMadre.setProveedor(rs.getInt("proveedor"));
+                placaMadre.setFoto(rs.getBytes("foto"));
+                
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         } finally {
             conexion.cerrar();
         }
+        
         return placaMadre;
     }
 
@@ -266,6 +270,7 @@ public class ModeloPcResumen {
         } finally {
             conexion.cerrar();
         }
+        System.out.println(gabinete.toString());
         return gabinete;
     }
 
@@ -313,6 +318,7 @@ public class ModeloPcResumen {
                 disipadores.setVentiladores(resultado.getInt("ventiladores"));
                 disipadores.setPrecio(resultado.getDouble("precio"));
                 disipadores.setStock(resultado.getInt("stock"));
+                disipadores.setFoto(resultado.getBytes("foto"));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();

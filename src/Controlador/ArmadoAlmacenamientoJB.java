@@ -4,7 +4,9 @@ import Clases.almacenamiento;
 import Modelo.ModeloAlmacenamiento;
 import Vista.ArmadoAlmacenamiento_JB;
 import Vista.ArmadoFuenteP_JB;
+import Vista.ArmadoGabinete_JB;
 import Vista.ArmadoPlaca_JB;
+import Vista.ArmadoRam_JB;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -41,6 +43,7 @@ public class ArmadoAlmacenamientoJB {
 
     /**
      * Constructor de la clase que recibe la vista de armado de memoria RAM
+     *
      * @param vista La vista de armado de memoria RAM
      */
     public ArmadoAlmacenamientoJB(ArmadoAlmacenamiento_JB vista) {
@@ -97,7 +100,7 @@ public class ArmadoAlmacenamientoJB {
                 // Verifica si la imagen no es nula
                 if (gab.getFoto() == null) {
                     System.out.println("foto");
-                } 
+                }
                 if (gab.getFoto() != null) {
                     System.out.println("aaaaaaaaaaa");
                     System.out.println(gab.toString());
@@ -245,13 +248,16 @@ public class ArmadoAlmacenamientoJB {
     }
 
     /**
-     * Método para aceptar la selección de una memoria RAM y pasar a la vista de armado de fuente de poder
+     * Método para aceptar la selección de una memoria RAM y pasar a la vista de
+     * armado de fuente de poder
      */
     public void aceptarDlg() {
         vistaAlma.getJdlgMensaje().setVisible(false);
         vistaAlma.getJdlgMensaje().dispose();
         vistaAlma.setEnabled(true);
-        ArmadoFuenteP_JB vista = new ArmadoFuenteP_JB();
+        ArmadoGabinete_JB vista = new ArmadoGabinete_JB();
+        ArmadoGabineteJB controlador = new ArmadoGabineteJB(vista);
+        controlador.Inicio();
         vistaAlma.setVisible(false);
         vistaAlma.dispose();
     }
@@ -269,11 +275,11 @@ public class ArmadoAlmacenamientoJB {
     }
 
     /**
-     * Método para retroceder a la vista de armado de placas
+     * Método para retroceder a la vista 
      */
     public void atras() {
-        ArmadoPlaca_JB vista = new ArmadoPlaca_JB();
-        ArmadoPlacaJB controlador = new ArmadoPlacaJB(vista);
+        ArmadoRam_JB vista = new ArmadoRam_JB();
+        ArmadoRamJB controlador = new ArmadoRamJB(vista);
         controlador.Inicio();
         vistaAlma.setVisible(false);
         vistaAlma.dispose();
