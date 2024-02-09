@@ -60,6 +60,55 @@ public class ModeloMemoriaRam extends memoriaRam{
         }
 
     }
+    
+    public static List<memoriaRam> listaRAMCompartible(String tiporam) {
+        // Se establece una conexión a la base de datos utilizando la clase Conexion
+        Conexion conectar = new Conexion();
+        // Se crea una lista vacía para almacenar las placas base compatibles
+        List<memoriaRam> listamemoriaRam = new ArrayList<memoriaRam>();
+        // Se define la consulta SQL para seleccionar las placas base compatibles con el socket dado
+        String sql;
+        sql = "SELECT idmemoriaRam,marca,modelo,tipo,capacidad,precio,numeromodulos,stock, foto FROM memoria_ram "
+                + "WHERE tipo = ?";
+        try {
+            // Se prepara la sentencia SQL con el PreparedStatement para evitar inyección de SQL
+            PreparedStatement pstmt = conectar.getConexion().prepareStatement(sql);
+            // Se establece el valor del parámetro socket en la consulta SQL
+            pstmt.setString(1, tiporam);
+            // Se ejecuta la consulta y se obtiene un ResultSet con los resultados
+            ResultSet rs = pstmt.executeQuery();
+            // Se recorre el ResultSet para obtener cada fila de datos
+            while (rs.next()) {
+                // Se crea un objeto Placamadre y se asignan los valores de las columnas correspondientes
+                memoriaRam miram = new memoriaRam();
+                miram.setIdMemoriaRam(rs.getInt("idmemoriaRam"));
+                miram.setMarca(rs.getString("marca"));
+                miram.setModelo(rs.getString("modelo"));
+                miram.setTipo(rs.getString("tipo"));
+                miram.setCapacidad(rs.getInt("capacidad"));
+                miram.setPrecio(rs.getDouble("precio"));
+                miram.setNumeroModulos(rs.getInt("numeromodulos"));
+                miram.setStock(rs.getInt("Stock"));
+                miram.setFoto(rs.getBytes("foto"));
+
+                // Se agrega el objeto Placamadre a la lista de placas base compatibles
+                listamemoriaRam.add(miram);
+            }
+            // Se cierra el ResultSet
+            rs.close();
+            // Se devuelve la lista de placas base compatibles
+            return listamemoriaRam;
+
+        } catch (SQLException ex) {
+            // En caso de error, se imprime un mensaje de error en la consola y se devuelve null
+            System.out.println("problemas en el listado");
+            Logger.getLogger(ModeloPlacaMadre.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        } finally {
+            // Se cierra la conexión a la base de datos
+            conectar.cerrar();
+        }
+    }
 
     public SQLException grabarmemoriaRam() {
 

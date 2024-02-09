@@ -2,6 +2,7 @@ package Controlador;
 
 import Clases.memoriaRam;
 import Modelo.ModeloMemoriaRam;
+import Modelo.ModeloPcResumen;
 import Vista.ArmadoFuenteP_JB;
 import Vista.ArmadoPlaca_JB;
 import Vista.ArmadoRam_JB;
@@ -67,7 +68,7 @@ public class ArmadoRamJB {
      * Método para cargar los componentes de las memorias RAM en la vista
      */
     private void CargarComponentes() {
-        List<memoriaRam> rams = ModeloMemoriaRam.listaTodasmemoriaRam(); // Obtiene la lista de memorias RAM del modelo
+        List<memoriaRam> rams = ModeloMemoriaRam.listaRAMCompartible(ModeloPcResumen.cargarPlacaMadre(ArmadoProcJB.pc.getIdPlacaMadre()).getTiposram()); // Obtiene la lista de memorias RAM del modelo
 
         // Asegura que la carga y manipulación de los componentes Swing se realice en el hilo de eventos de Swing
         SwingUtilities.invokeLater(() -> {
